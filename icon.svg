@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#0b1020"/>
+  <rect x="48" y="48" width="416" height="416" rx="64" fill="none" stroke="#4f8cff" stroke-width="28"/>
+  <text x="256" y="326" font-family="Inter, Arial, sans-serif" font-size="168" font-weight="800" fill="#f5f7fb" text-anchor="middle">C++</text>
+  <text x="256" y="412" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="600" fill="#4f8cff" text-anchor="middle">DSA ACADEMY</text>
+</svg>

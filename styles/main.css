@@ -4139,3 +4139,33 @@ footer {
         flex-wrap: wrap;
     }
 }
+/* ============================================================
+   Phase 1 — Exercise & quiz feedback additions
+   ============================================================ */
+.quiz-question.correct {
+    border-left: 3px solid var(--color-success-500);
+    padding-left: var(--space-3);
+}
+
+.quiz-question.incorrect {
+    border-left: 3px solid var(--color-warning-500);
+    padding-left: var(--space-3);
+}
+
+.exercise-note {
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+    font-style: italic;
+    margin-top: var(--space-2);
+}
+
+.reveal-btn {
+    margin-top: var(--space-2);
+}
+
+.exercise-solution {
+    margin-top: var(--space-3);
+    padding: var(--space-3);
+    background: var(--code-bg);
+    border-radius: var(--radius-md);
+}

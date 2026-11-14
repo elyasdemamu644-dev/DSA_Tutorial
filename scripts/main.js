@@ -131,7 +131,7 @@ const CurriculumRenderer = {
                     : '';
                 html += `
                     <li>
-                        <a href="#${topic.id}" data-topic="${topic.id}">
+                        <a href="#topic/${topic.id}" data-topic="${topic.id}">
                             ${topic.title}
                             ${progressBar}
                         </a>
@@ -294,7 +294,7 @@ const CurriculumRenderer = {
         if (lesson.exercises && lesson.exercises.length > 0) {
             html += `<section class="exercises">`;
             lesson.exercises.forEach((ex, idx) => {
-                html += this.renderExercise(ex, idx);
+                html += this.renderExercise(ex, idx, lessonId);
             });
             html += `</section>`;
         }
@@ -332,39 +332,58 @@ const CurriculumRenderer = {
         return html;
     },
     
-    renderExercise(ex, idx) {
+    renderExercise(ex, idx, lessonId) {
+        const lessonKey = `${lessonId}:${idx}`;
+        const solution = (typeof EXERCISE_SOLUTIONS !== 'undefined' && EXERCISE_SOLUTIONS[lessonKey]) || null;
         if (ex.type === 'mcq') {
-            return `
+            let html = `
                 <div class="exercise mcq" data-idx="${idx}">
                     <h4>Exercise ${idx + 1}: ${ex.question}</h4>
                     <ul class="options">`;
             ex.options.forEach((opt, i) => {
-                return `<li>
+                html += `<li>
                     <label>
                         <input type="radio" name="ex-${idx}" value="${i}">
                         ${opt}
                     </label>
                 </li>`;
             });
-            return `</ul>
+            html += `</ul>
                     <button class="check-btn" data-idx="${idx}" data-correct="${ex.correct}">Check Answer</button>
                     <div class="explanation" style="display:none;">${ex.explanation || ''}</div>
                 </div>`;
+            return html;
         } else if (ex.type === 'code-trace') {
             return `
                 <div class="exercise code-trace" data-idx="${idx}">
                     <h4>Exercise ${idx + 1}: Code Trace</h4>
-                    <pre><code>${this.escapeHtml(ex.code)}</code></pre>
+                    <p>${ex.question || ''}</p>
+                    <pre><code>${this.escapeHtml(ex.code || '')}</code></pre>
                     <textarea placeholder="Trace the output..."></textarea>
-                    <button class="check-btn">Check</button>
+                    ${solution
+                        ? `<button class="reveal-btn" data-idx="${idx}">Reveal worked answer</button>
+                           <div class="explanation exercise-solution" style="display:none;">${this.escapeHtml(solution)}</div>`
+                        : '<p class="exercise-note">Work out the trace by hand. A worked answer will appear here once one is added.</p>'}
                 </div>`;
-            }
+        } else if (ex.type === 'code-complete') {
+            return `
+                <div class="exercise code-complete" data-idx="${idx}">
+                    <h4>Exercise ${idx + 1}: Code Complete</h4>
+                    <p>${ex.question || ''}</p>
+                    <pre><code class="language-cpp">${this.escapeHtml(ex.code || '')}</code></pre>
+                    <textarea spellcheck="false" placeholder="Complete the implementation..."></textarea>
+                    ${solution
+                        ? `<button class="reveal-btn" data-idx="${idx}">Reveal worked solution</button>
+                           <div class="explanation exercise-solution" style="display:none;"><pre><code class="language-cpp">${this.escapeHtml(solution)}</code></pre></div>`
+                        : '<p class="exercise-note">Complete the function. A worked solution will appear here once one is added.</p>'}
+                </div>`;
+        }
         return '';
     },
     
     renderQuizQuestion(q, idx) {
         if (q.type === 'mcq') {
-            let html = `<div class="quiz-question mcq" data-id="${q.id}">
+            let html = `<div class="quiz-question mcq" data-id="${q.id}" data-correct="${q.correct}">
                 <p><strong>Q${idx + 1}.</strong> ${q.question}</p>
                 <ul class="options">`;
             q.options.forEach((opt, i) => {
@@ -617,6 +636,17 @@ const Router = {
             alert('Notes saved!');
         });
         
+        // Exercise reveal buttons
+        document.querySelectorAll('.reveal-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const box = btn.closest('.exercise')?.querySelector('.exercise-solution');
+                if (!box) return;
+                const showing = box.style.display !== 'none';
+                box.style.display = showing ? 'none' : 'block';
+                btn.textContent = showing ? 'Reveal worked answer' : 'Hide worked answer';
+            });
+        });
+        
         // Quiz form
         document.getElementById('quiz-form')?.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -647,20 +677,19 @@ const Router = {
         const questions = form.querySelectorAll('.quiz-question');
         let correct = 0;
         let total = questions.length;
-        
+
         questions.forEach(q => {
             const qId = q.dataset.id;
             const selected = form.querySelector(`input[name="quiz-${qId}"]:checked`);
-            if (selected) {
-                if (q.classList.contains('true-false')) {
-                    const isCorrect = selected.value === q.dataset.correct;
-                    if (isCorrect) correct++;
-                    q.classList.add(isCorrect ? 'correct' : 'incorrect');
-                } else {
-                    // For MCQ, we'd need the correct answer stored
-                    // Simplified for now
-                }
+            if (!selected) return;
+            let isCorrect = false;
+            if (q.classList.contains('true-false')) {
+                isCorrect = selected.value === q.dataset.correct;
+            } else if (q.classList.contains('mcq')) {
+                isCorrect = parseInt(selected.value, 10) === parseInt(q.dataset.correct, 10);
             }
+            if (isCorrect) correct++;
+            q.classList.add(isCorrect ? 'correct' : 'incorrect');
         });
         
         const results = document.getElementById('quiz-results');
@@ -677,12 +706,32 @@ const Router = {
     },
     
     highlightCode(code) {
-        return code
-            .replace(/\b(const|let|var|function|return|if|else|for|while|class|new|this)\b/g, '<span class="keyword">$1</span>')
-            .replace(/\b(int|string|bool|void|auto|size_t|vector|map|set)\b/g, '<span class="type">$1</span>')
-            .replace(/\/\/.*$/gm, '<span class="comment">$&</span>')
-            .replace(/".*?"/g, '<span class="string">$&</span>')
-            .replace(/\b\d+\b/g, '<span class="number">$&</span>');
+        const escapeHtml = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+        const KEYWORDS = new Set(['const','let','var','function','return','if','else','for','while','do','class','new','this','struct','template','typename','namespace','using','public','private','protected','virtual','override','static','constexpr','enum','switch','case','break','continue','try','catch','throw','nullptr','true','false','auto','sizeof','namespace','delete']);
+        const TYPES = new Set(['int','long','short','unsigned','signed','char','bool','void','float','double','size_t','string','vector','map','set','unordered_map','unordered_set','pair','array','deque','queue','stack','list','optional','variant','uint64_t','int64_t','int32_t','uint32_t']);
+        const TOKEN = /(\/\/[^\n]*)|("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*')|\b([A-Za-z_]\w*)\b|(\d+(?:\.\d+)?)/g;
+        let out = '';
+        let last = 0;
+        let m;
+        const push = (s) => { out += escapeHtml(s); };
+        while ((m = TOKEN.exec(code))) {
+            push(code.slice(last, m.index));
+            if (m[1] !== undefined) {
+                out += `<span class="comment">${escapeHtml(m[1])}</span>`;
+            } else if (m[2] !== undefined) {
+                out += `<span class="string">${escapeHtml(m[2])}</span>`;
+            } else if (m[3] !== undefined) {
+                const w = m[3];
+                if (KEYWORDS.has(w)) out += `<span class="keyword">${w}</span>`;
+                else if (TYPES.has(w)) out += `<span class="type">${w}</span>`;
+                else push(w);
+            } else if (m[4] !== undefined) {
+                out += `<span class="number">${escapeHtml(m[4])}</span>`;
+            }
+            last = TOKEN.lastIndex;
+        }
+        push(code.slice(last));
+        return out;
     },
     
     initDashboardCharts() {
@@ -1066,7 +1115,7 @@ int main() {
         return `
             <header class="page-header">
                 <h2>💻 C++ Code Laboratory</h2>
-                <p>Write, compile, and run C++ code in your browser</p>
+                <p>Write C++ code and experiment — until the WASM Clang backend lands, execution here is a development simulation, not a real compiler.</p>
             </header>
             
             <div class="code-lab-layout">
@@ -1506,34 +1555,49 @@ const BookmarksRenderer = {
 // ============================================================
 const AssessmentsRenderer = {
     render() {
+        const topics = Object.values(CURRICULUM);
+        let totalQuestions = 0;
+        const cards = topics.map(topic => {
+            let quizCount = 0;
+            let first = null;
+            topic.modules.forEach(module => {
+                module.lessons.forEach(lesson => {
+                    const count = (lesson.quizQuestions || []).length;
+                    quizCount += count;
+                    if (count > 0 && !first) {
+                        first = { moduleId: module.id, lessonId: lesson.id, lessonTitle: lesson.title };
+                    }
+                });
+            });
+            totalQuestions += quizCount;
+            const href = first ? `#topic/${topic.id}/module/${first.moduleId}/lesson/${first.lessonId}` : `#topic/${topic.id}`;
+            const disabled = !first;
+            return `
+                <div class="assessment-card">
+                    <h3>${this.escapeHtml(topic.title)}</h3>
+                    <p>${quizCount} quiz question${quizCount === 1 ? '' : 's'}${first ? ` · first in “${this.escapeHtml(first.lessonTitle)}”` : ' · no quiz content yet'}</p>
+                    ${disabled
+                        ? `<button class="btn" disabled>No quiz yet</button>`
+                        : `<a class="btn primary" href="${href}">Start Quiz →</a>`}
+                </div>`;
+        }).join('');
+        
         return `
             <header class="page-header">
                 <h2>🧪 Practice & Assessments</h2>
-                <p>Test your knowledge with quizzes and challenges</p>
+                <p>${totalQuestions} questions across ${topics.length} topics. Quizzes are graded inline inside each lesson — your score is recorded locally.</p>
             </header>
-            
             <div class="assessments-grid">
-                <div class="assessment-card">
-                    <h3>Topic Quizzes</h3>
-                    <p>Quick checks for each topic</p>
-                    <button class="btn" disabled>Coming Soon</button>
-                </div>
-                <div class="assessment-card">
-                    <h3>Code Challenges</h3>
-                    <p>Implementation exercises</p>
-                    <button class="btn" disabled>Coming Soon</button>
-                </div>
-                <div class="assessment-card">
-                    <h3>Mastery Tests</h3>
-                    <p>Comprehensive topic assessments</p>
-                    <button class="btn" disabled>Coming Soon</button>
-                </div>
+                ${cards}
             </div>
         `;
+    },
+    escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
     }
 };
-
-// ============================================================
 // SETTINGS RENDERER
 // ============================================================
 const SettingsRenderer = {
@@ -1562,9 +1626,9 @@ const SettingsRenderer = {
             <section class="settings-section">
                 <h3>Data Management</h3>
                 <div class="setting-item">
-                    <button class="btn" id="export-progress">Export Progress (JSON)</button>
+                    <button class="btn" id="export-backup">Export Backup (JSON)</button>
                     <button class="btn" id="export-notes">Export Notes (Markdown)</button>
-                    <button class="btn" id="import-data">Import Data</button>
+                    <button class="btn" id="import-data">Import Backup (JSON)</button>
                     <button class="btn danger" id="clear-all-data">Clear All Data</button>
                 </div>
             </section>
@@ -1574,11 +1638,11 @@ const SettingsRenderer = {
                 <div class="setting-item">
                     <label>Compiler Backend</label>
                     <select id="compiler-backend">
-                        <option value="wasm" ${compilerBackend === 'wasm' ? 'selected' : ''}>WebAssembly (WASM Clang) ⚡</option>
+                        <option value="wasm" ${compilerBackend === 'wasm' ? 'selected' : ''}>WebAssembly Clang (prototype coming soon)</option>
                         <option value="local" ${compilerBackend === 'local' ? 'selected' : ''}>Local Companion App (Named Pipe)</option>
                         <option value="none" ${compilerBackend === 'none' ? 'selected' : ''}>None (Simulation Mode)</option>
                     </select>
-                    <p class="setting-help">WebAssembly backend compiles C++17 directly in browser. Local companion app requires native compiler installation.</p>
+                    <p class="setting-help">A genuine WASM Clang backend is being built. Until it lands, code execution here is simulated and does not run your C++.</p>
                 </div>
                 
                 <div class="setting-item" id="compiler-status">
@@ -1650,8 +1714,8 @@ const SettingsRenderer = {
         });
         
         // Data management buttons
-        document.getElementById('export-progress')?.addEventListener('click', () => {
-            this.exportProgress();
+        document.getElementById('export-backup')?.addEventListener('click', () => {
+            this.exportBackup();
         });
         
         document.getElementById('export-notes')?.addEventListener('click', () => {
@@ -1686,8 +1750,9 @@ const SettingsRenderer = {
                 const version = compiler.getVersion();
                 
                 if (indicator) {
-                    indicator.textContent = '✅ Ready';
-                    indicator.className = 'status-indicator success';
+                    const simulated = String(version).indexOf('SIMULATION') !== -1;
+                    indicator.textContent = simulated ? '⚠ Simulation (dev)' : '✅ Ready';
+                    indicator.className = simulated ? 'status-indicator warning' : 'status-indicator success';
                 }
                 if (versionEl) versionEl.textContent = version;
                 if (aboutVersionEl) aboutVersionEl.textContent = version;
@@ -1701,8 +1766,8 @@ const SettingsRenderer = {
                     const version = compiler.getVersion();
                     
                     if (indicator) {
-                        indicator.textContent = '✅ Ready';
-                        indicator.className = 'status-indicator success';
+                        const _sim2 = String(version).indexOf('SIMULATION') !== -1; indicator.textContent = _sim2 ? '⚠ Simulation (dev)' : '✅ Ready';
+                        indicator.className = _sim2 ? 'status-indicator warning' : 'status-indicator success';
                     }
                     if (versionEl) versionEl.textContent = version;
                     if (aboutVersionEl) aboutVersionEl.textContent = version;
@@ -1807,17 +1872,28 @@ int main() {
         }
     },
     
-    exportProgress() {
-        const progress = localStorage.getItem('dsa_progress') || '{}';
-        const blob = new Blob([progress], { type: 'application/json' });
+    exportBackup() {
+        const read = (key, fallback) => {
+            try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch { return fallback; }
+        };
+        const backup = {
+            type: 'dsa-academy-backup',
+            version: 1,
+            exportedAt: new Date().toISOString(),
+            progress: read('dsa_progress', {}),
+            notes: read('dsa_notes', {}),
+            bookmarks: read('dsa_bookmarks', {}),
+            codeFiles: read('dsa_code_files', [])
+        };
+        
+        const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'dsa-progress.json';
+        a.download = 'dsa-backup.json';
         a.click();
         URL.revokeObjectURL(url);
     },
-    
     exportNotes() {
         const notes = localStorage.getItem('dsa_notes') || '{}';
         const notesObj = JSON.parse(notes);
@@ -1842,24 +1918,50 @@ int main() {
     importData() {
         const input = document.createElement('input');
         input.type = 'file';
-        input.accept = '.json';
+        input.accept = '.json,application/json';
         input.onchange = (e) => {
             const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    try {
-                        const data = JSON.parse(e.target.result);
-                        if (data.progress) localStorage.setItem('dsa_progress', JSON.stringify(data.progress));
-                        if (data.notes) localStorage.setItem('dsa_notes', JSON.stringify(data.notes));
-                        if (data.bookmarks) localStorage.setItem('dsa_bookmarks', JSON.stringify(data.bookmarks));
-                        alert('Data imported successfully! Please refresh the page.');
-                    } catch (err) {
-                        alert('Invalid file format: ' + err.message);
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+                try {
+                    const raw = ev.target.result;
+                    const data = JSON.parse(raw);
+                    
+                    // Accept both the current backup format and legacy bare exports.
+                    // Legacy: a bare dsa_progress object, or { progress, notes, bookmarks }.
+                    // Current: { type:'dsa-academy-backup', version:1, progress, notes, bookmarks, codeFiles }
+                    const looksLikeBareProgress = !data.type && !data.progress && !data.notes && !data.bookmarks
+                        && typeof data === 'object' && data !== null
+                        && Object.values(data).some(v => v && typeof v === 'object' && ('completed' in v || 'total' in v));
+                    
+                    const normalize = () => {
+                        if (looksLikeBareProgress) return { progress: data, notes: null, bookmarks: null, codeFiles: null };
+                        return {
+                            progress: data.progress ?? null,
+                            notes: data.notes ?? null,
+                            bookmarks: data.bookmarks ?? null,
+                            codeFiles: data.codeFiles ?? null
+                        };
+                    };
+                    
+                    const restored = normalize();
+                    const applied = [];
+                    if (restored.progress) { localStorage.setItem('dsa_progress', JSON.stringify(restored.progress)); applied.push('progress'); }
+                    if (restored.notes) { localStorage.setItem('dsa_notes', JSON.stringify(restored.notes)); applied.push('notes'); }
+                    if (restored.bookmarks) { localStorage.setItem('dsa_bookmarks', JSON.stringify(restored.bookmarks)); applied.push('bookmarks'); }
+                    if (restored.codeFiles) { localStorage.setItem('dsa_code_files', JSON.stringify(restored.codeFiles)); applied.push('code files'); }
+                    
+                    if (applied.length === 0) {
+                        alert('No recognized backup data found in this file. Expected an exported dsa-backup.json from C++ DSA Academy.');
+                        return;
                     }
-                };
-                reader.readAsText(file);
-            }
+                    alert(`Backup imported (${applied.join(', ')}). Please refresh the page.`);
+                } catch (err) {
+                    alert('Invalid file format: ' + err.message);
+                }
+            };
+            reader.readAsText(file);
         };
         input.click();
     },
@@ -2364,9 +2466,21 @@ document.addEventListener('DOMContentLoaded', function() {
         searchInput.setAttribute('aria-controls', 'search-results');
         
         searchInput.addEventListener('input', debounce(() => {
-            const results = Search.search(searchInput.value);
-            // Show results in dropdown
+            const value = searchInput.value.trim();
+            if (value.length >= 2) {
+                const results = Search.search(value);
+                Search.showResults(results, searchInput);
+            } else {
+                document.querySelectorAll('.search-results').forEach(s => s.remove());
+            }
         }, 200));
+
+        // Close results on Escape
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.search-results').forEach(s => s.remove());
+            }
+        });
         
         searchInput.addEventListener('focus', () => {
             const value = searchInput.value.trim();

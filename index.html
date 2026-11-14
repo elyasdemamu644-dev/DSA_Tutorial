@@ -8,6 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" type="image/svg+xml" href="icon.svg">
+    <meta name="theme-color" content="#0b1020">
     <script defer src="scripts/curriculum.js"></script>
     <script defer src="scripts/code-editor.js"></script>
     <script defer src="scripts/main.js"></script>
@@ -62,7 +65,7 @@
                     </article>
                     <article class="feature-card">
                         <h3>💻 C++ Code Lab</h3>
-                        <p>Write, compile, and run C++ code directly in the browser</p>
+                        <p>Write C++ while the WASM Clang backend is being built — today execution is a clearly-labeled development simulation</p>
                     </article>
                     <article class="feature-card">
                         <h3>🧠 Practice & Quizzes</h3>
@@ -95,5 +98,12 @@
             <p>C++ DSA Academy | Interactive Educational Platform</p>
         </div>
     </footer>
+    <script>
+        if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('service-worker.js').catch(() => { /* offline unavailable — continue silently */ });
+            });
+        }
+    </script>
 </body>
 </html>

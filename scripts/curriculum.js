@@ -5255,3 +5255,271 @@ int findPeakElement(const vector<int>& nums) {
         ]
     }
 };
+
+
+// Phase 1 — worked solutions for exercises.
+// Key: "<lessonId>:<exerciseIndex>". Consumed by CurriculumRenderer.renderExercise.
+const EXERCISE_SOLUTIONS = {
+    'cpp-02:0': `Only ONE Node exists at the end.
+- After: auto a = make_shared<Node>(1);            -> 1 shared_ptr, 1 Node
+- After: auto b = a;  auto c = a;                  -> refcount = 3 (a, b, c)
+- a.reset();                                       -> refcount = 2 (b, c)
+- b.reset();                                       -> refcount = 1 (c)
+The Node is destroyed when the last owner (c) goes out of scope, i.e. at the end of the function.`,
+
+    'll-01:0': `Node* find(Node* head, int val) {
+    for (Node* cur = head; cur != nullptr; cur = cur->next) {
+        if (cur->value == val) return cur;   // adjust member name if your Node uses 'val'
+    }
+    return nullptr;
+}`,
+
+    'll-01:1': `0 2
+- push_back(1) -> 1
+- push_back(2) -> 1 -> 2
+- push_front(0) -> 0 -> 1 -> 2
+- remove(1)     -> 0 -> 2
+- for (int x : ll) prints "0 2 "`,
+
+    'll-03:0': `Node* removeNthFromEnd(Node* head, int n) {
+    Node dummy(0);
+    dummy.next = head;
+    Node* fast = &dummy;
+    Node* slow = &dummy;
+    for (int i = 0; i <= n; ++i) fast = fast->next;  // advance n+1 to keep a gap
+    while (fast != nullptr) {
+        fast = fast->next;
+        slow = slow->next;
+    }
+    slow->next = slow->next->next;   // unlink the target
+    return dummy.next;
+}
+// The dummy node makes removing the original head (n == length) work the same way.`,
+
+    'll-03:1': `Phase 1 (meet):
+- slow=1, fast=1 -> step -> slow=2, fast=3
+- slow=3, fast=5 -> step -> slow=4, fast=4   (meeting point)
+Phase 2 (find cycle start):
+- slow=head(1), fast=4 -> step -> slow=2, fast=5
+- slow=3, fast=3               -> cycle starts at node 3
+Cycle nodes: 3 -> 4 -> 5 -> 3`,
+
+    'sq-01:0': `void push(int x) {
+    mainStack.push(x);
+    if (minStack.empty() || x <= minStack.top()) minStack.push(x);
+}
+void pop() {
+    if (!mainStack.empty() && minStack.top() == mainStack.top()) minStack.pop();
+    mainStack.pop();
+}
+// top()/getMin() are O(1): each stack holds one element per pushed value.`,
+
+    'sq-01:1': `Heights (index,h): (0,2) (1,1) (2,5) (3,6) (4,2) (5,3); stack is increasing.
+- i=0 h=2: push 0                     stack [0]
+- i=1 h=1: pop 0 -> h=2, w=1  area=2  stack [1]
+- i=2 h=5: push 2                     stack [1,2]
+- i=3 h=6: push 3                     stack [1,2,3]
+- i=4 h=2: 2<6 pop 3 -> h=6, w=1 area=6
+           2<5 pop 2 -> h=5, w=2 area=10   <- max so far
+           2>=1 stop; push 4              stack [1,4]
+- i=5 h=3: 3>=2 push 5                stack [1,4,5]
+- end i=6: pop 5 -> h=3, w=1 area=3
+           pop 4 -> h=2, w=4 area=8
+           pop 1 -> h=1, w=6 area=6
+Largest rectangle area = 10`,
+
+    'pq-01:0': `void heapify(vector<int>& arr) {
+    int n = static_cast<int>(arr.size());
+    auto siftDown = [&](int root, int size) {
+        int i = root;
+        while (true) {
+            int l = 2 * i + 1, r = 2 * i + 2, smallest = i;
+            if (l < size && arr[l] < arr[smallest]) smallest = l;
+            if (r < size && arr[r] < arr[smallest]) smallest = r;
+            if (smallest == i) break;
+            swap(arr[i], arr[smallest]);
+            i = smallest;
+        }
+    };
+    // Every node whose children are already heaps can be sifted down;
+    // starting from the last parent gives O(n) total work.
+    for (int i = n / 2 - 1; i >= 0; --i) siftDown(i, n);
+}`,
+
+    'rec-01:0': `double fastPow(double x, long long n) {
+    if (n == 0) return 1.0;
+    if (n < 0) return 1.0 / fastPow(x, -n);
+    if (n % 2 != 0) return x * fastPow(x, n - 1);
+    double half = fastPow(x, n / 2);
+    return half * half;
+}
+// Each recursive step halves n: O(log n) time, O(log n) stack.`,
+
+    'rec-01:1': `fib(4)
+= fib(3) + fib(2)
+  fib(3)
+  = fib(2) + fib(1)
+    fib(2) = fib(1) + fib(0)      (first computed: memo[2]=1)
+      fib(1) -> 1                 (memo[1]=1)
+      fib(0) -> 0                 (memo[0]=0)
+    fib(1) hit                    (memo hit)
+  = 1 + 1 = 2                     (memo[3]=2)
+  fib(2) hit                      (memo hit)
+= 2 + 1 = 3
+With memoization: 5 distinct calls are computed (f0..f4) instead of 9.`,
+
+    'bt-01:0': `void generateParen(int n, int open, int close, string& curr, vector<string>& result) {
+    if ((int)curr.size() == 2 * n) {
+        result.push_back(curr);
+        return;
+    }
+    if (open < n) {
+        curr.push_back('(');
+        generateParen(n, open + 1, close, curr, result);
+        curr.pop_back();
+    }
+    if (close < open) {
+        curr.push_back(')');
+        generateParen(n, open, close + 1, curr, result);
+        curr.pop_back();
+    }
+}
+// Invariant: never close more than we opened; stop at exactly n pairs.`,
+
+    'bt-01:1': `First solution found is (row0,col1), (row1,col3), (row2,col0), (row3,col2):
+. Q . .
+. . . Q
+Q . . .
+. . Q .
+Path (ascending columns per row):
+- row0 = 0  -> row1 = 2 blocks row2 (diagonals), row1 = 3 keeps row2 alive until dead end; abandon row0 = 0
+- row0 = 1  -> row1 = 0 blocked, row1 = 2 blocked (diagonal), row1 = 3 accepted
+- row2 = 0  accepted (col0 row0 is col0? no: row0 col1)
+- row3 = 2  accepted (not attacked)
+Total backtracks along the way are small; the backtracking tree prunes whole subtrees on the first conflicting queen.`,
+
+    'tree-01:0': `vector<int> postorderIter(TreeNode* root) {
+    vector<int> out;
+    if (!root) return out;
+    stack<TreeNode*> s1, s2;
+    s1.push(root);
+    while (!s1.empty()) {
+        TreeNode* cur = s1.top();
+        s1.pop();
+        s2.push(cur);                       // root is pushed onto s2 first,
+        if (cur->left)  s1.push(cur->left); // so s2 ends up right-to-left postorder
+        if (cur->right) s1.push(cur->right);
+    }
+    while (!s2.empty()) {
+        out.push_back(s2.top()->val);
+        s2.pop();
+    }
+    return out;
+}
+// Single-stack alternative: push (node, bool visited) and only emit when visited == true.`,
+
+    'tree-01:1': `Tree: 1(root), left=2, right=3. Morris inorder:
+- cur = 1; left exists; predecessor = rightmost of left subtree = 2;
+  2->right == null, so set 2->right = 1 (thread). cur = 2.
+- cur = 2; no left; visit 2 (print 2); cur = cur->right = 1 (thread).
+- cur = 1; left exists; predecessor = 2; 2->right == 1 == cur,
+  so remove thread (2->right = nullptr); visit 1 (print 1); cur = 3.
+- cur = 3; no left; visit 3 (print 3); cur = nullptr -> done.
+Output: 2 1 3`,
+
+    'tree-02:0': `int kthSmallest(TreeNode* root, int k) {
+    stack<TreeNode*> st;
+    TreeNode* cur = root;
+    while (cur || !st.empty()) {
+        while (cur) {
+            st.push(cur);
+            cur = cur->left;
+        }
+        cur = st.top();
+        st.pop();
+        if (--k == 0) return cur->val;   // inorder visits are ascending
+        cur = cur->right;
+    }
+    return -1; // k out of range
+}`,
+
+    'hash-01:0': `size_t doubleHashProbe(size_t h1, size_t h2, int attempt, size_t tableSize) {
+    return (h1 + static_cast<size_t>(attempt) * h2) % tableSize;
+}
+// h2 must be non-zero and coprime with tableSize (or tableSize - 1 when tableSize is prime-ish),
+// e.g. tableSize prime and h2 = 1 + (key % (tableSize - 1)) guarantees full-table probing.`,
+
+    'graph-01:0': `int shortestPathGrid(vector<vector<int>>& grid, pair<int,int> start, pair<int,int> end) {
+    int R = static_cast<int>(grid.size()), C = static_cast<int>(grid[0].size());
+    if (grid[start.first][start.second] == 1 || grid[end.first][end.second] == 1) return -1;
+    vector<vector<int>> dist(R, vector<int>(C, -1));
+    queue<pair<int,int>> q;
+    q.push(start);
+    dist[start.first][start.second] = 0;
+    int dirs[4][2] = {{1,0},{-1,0},{0,1},{0,-1}};
+    while (!q.empty()) {
+        auto [r, c] = q.front();
+        q.pop();
+        if (r == end.first && c == end.second) return dist[r][c];
+        for (const auto& d : dirs) {
+            int nr = r + d[0], nc = c + d[1];
+            if (nr < 0 || nc < 0 || nr >= R || nc >= C) continue;
+            if (grid[nr][nc] == 1 || dist[nr][nc] != -1) continue;
+            dist[nr][nc] = dist[r][c] + 1;
+            q.push({nr, nc});
+        }
+    }
+    return -1;
+}`,
+
+    'graph-02:0': `int astar(vector<vector<int>>& grid, pair<int,int> start, pair<int,int> goal) {
+    const int R = static_cast<int>(grid.size()), C = static_cast<int>(grid[0].size());
+    auto manhattan = [&](int r, int c) {
+        return abs(r - goal.first) + abs(c - goal.second);
+    };
+    vector<vector<int>> g(R, vector<int>(C, INT_MAX));
+    priority_queue<pair<int,pair<int,int>>,
+                   vector<pair<int,pair<int,int>>>,
+                   greater<pair<int,pair<int,int>>>> open;
+    g[start.first][start.second] = 0;
+    open.push({manhattan(start.first, start.second), start});
+    int dirs[4][2] = {{1,0},{-1,0},{0,1},{0,-1}};
+    while (!open.empty()) {
+        auto [f, u] = open.top();
+        open.pop();
+        int r = u.first, c = u.second;
+        if (r == goal.first && c == goal.second) return g[r][c];
+        int gc = g[r][c];
+        if (f != gc + manhattan(r, c)) continue;  // stale entry
+        for (const auto& d : dirs) {
+            int nr = r + d[0], nc = c + d[1];
+            if (nr < 0 || nc < 0 || nr >= R || nc >= C) continue;
+            if (grid[nr][nc] == 1) continue;
+            int ng = gc + 1;
+            if (ng < g[nr][nc]) {
+                g[nr][nc] = ng;
+                open.push({ng + manhattan(nr, nc), {nr, nc}});
+            }
+        }
+    }
+    return -1;
+}`,
+
+    'search-01:0': `int lowerBound(const vector<int>& arr, int target) {
+    int lo = 0, hi = static_cast<int>(arr.size());
+    while (lo < hi) {
+        int mid = lo + (hi - lo) / 2;
+        if (arr[mid] < target) lo = mid + 1;
+        else hi = mid;                       // arr[mid] >= target
+    }
+    return lo;                               // first index with arr[idx] >= target (or arr.size())
+}`,
+
+    'search-01:1': `nums = [4,5,6,7,0,1,2], target = 0
+- l=0, r=6, m=3 (m points at 7). nums[l]=4 <= nums[m]=7 -> left half [4,5,6,7] is sorted.
+  target(0) < nums[l](4), so the target is NOT in the left half -> discard it: l = m + 1 = 4.
+- l=4, r=6, m=5 (val 1). nums[l]=0 <= nums[m]=1 -> left half [0,1] is sorted.
+  target(0) >= nums[l](0) && target(0) <= nums[m](1) -> search the left half: r = m = 5.
+- l=4, r=5, m=4 (val 0). nums[m] == target -> return 4.
+Answer: index 4.`
+};

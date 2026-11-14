@@ -1,13 +1,15 @@
 /**
  * C++ Compiler Service for C++ DSA Academy
- * 
- * This module provides a WebAssembly-based C++ compilation backend.
- * It supports C++17, STL, and provides compile error reporting and runtime output.
- * 
- * Architecture:
- * - Uses a WASM-compiled clang/LLVM toolchain (via Emscripten)
- * - Provides in-browser compilation without server dependency
- * - Supports full C++17 standard library via libc++
+ *
+ * HONEST STATUS: there is NO working C++ compiler in this build.
+ * The only backend currently available is a DEVELOPMENT SIMULATION that
+ * pretends to compile/run C++ so the UI can be exercised. It does NOT
+ * compile or execute any C++ source.
+ *
+ * The planned architecture (Phase 1) is a WebAssembly-compiled clang/LLVM
+ * toolchain (via Emscripten), verified by a proof-of-concept before any
+ * "real compilation" claim is made. Until that lands, every user-facing
+ * label and compile result must say "simulated".
  */
 
 class CppCompilerService {
@@ -27,10 +29,12 @@ class CppCompilerService {
             libs: []
         };
         
-        // Virtual filesystem for compilation
+        // Virtual filesystem for compilation (tree populated later by _setupVirtualFilesystem)
         this.virtualFS = {
             '/working': {},
             '/usr/include': {},
+            '/usr/include/c++': {},
+            '/usr/include/c++/v1': {},
             '/usr/lib': {}
         };
         
@@ -49,28 +53,19 @@ class CppCompilerService {
         
         this._reportProgress('Initializing C++ compiler...', 0);
         
+        // NOTE (Phase 1): no genuine C++ toolchain exists in this build.
+        // WASM-clang loading is unreachable until a real clang.wasm artifact is
+        // vendored and verified by the Phase 1 compiler proof-of-concept.
+        // Until then this ALWAYS initializes the clearly-labeled development
+        // simulation. Do not re-enable _loadWasmCompiler() before the PoC passes.
         try {
-            // Check if WASM compiler is available
-            const hasWasmCompiler = await this._checkWasmCompiler();
-            
-            if (hasWasmCompiler) {
-                await this._loadWasmCompiler();
-            } else {
-                // Fallback to simulation mode for development
-                await this._initSimulationMode();
-            }
-            
-            this.initialized = true;
-            this._reportProgress('Compiler ready', 100);
-            
-            // Process queued compilations
-            this._processQueue();
-            
-        } catch (error) {
-            console.error('Compiler initialization failed:', error);
-            // Fall back to simulation mode
             await this._initSimulationMode();
             this.initialized = true;
+            this._reportProgress('Compiler ready (DEVELOPMENT SIMULATION — not a real C++ compiler)', 100);
+            this._processQueue();
+        } catch (error) {
+            console.error('Compiler initialization failed:', error);
+            throw new Error('Compiler service failed to initialize: ' + error.message);
         }
         
         return Promise.resolve();
@@ -80,10 +75,10 @@ class CppCompilerService {
      * Check if WebAssembly compiler is available
      */
     async _checkWasmCompiler() {
-        // Check for preloaded WASM module or fetch capability
-        // In production, this would check for compiler.wasm availability
-        return typeof WebAssembly !== 'undefined' && 
-               typeof fetch !== 'undefined';
+        // Phase 1: no vendored clang.wasm artifact exists yet, so this is always
+        // false. Returning false keeps initialize() on the honest simulation path.
+        // Revisit ONLY when the compiler proof-of-concept vendors a real artifact.
+        return false;
     }
     
     /**
@@ -140,7 +135,7 @@ class CppCompilerService {
             free: (ptr) => {},
             
             // Get version info
-            getVersion: () => 'clang version 17.0.0 (emscripten)',
+            getVersion: () => 'DEVELOPMENT SIMULATION (not a real C++ compiler)',
             
             // Get standard library paths
             getStdlibPaths: () => ['/usr/include/c++/v1', '/usr/include']
@@ -165,7 +160,7 @@ class CppCompilerService {
                 compile: this._simulateCompile.bind(this),
                 link: this._simulateLink.bind(this),
                 execute: this._simulateExecute.bind(this),
-                getVersion: () => 'C++ DSA Academy Compiler (Simulation Mode)',
+                getVersion: () => 'DEVELOPMENT SIMULATION (not a real C++ compiler)',
                 getStdlibPaths: () => ['/usr/include/c++/v1']
             }
         };
@@ -468,7 +463,7 @@ class CppCompilerService {
         // Real implementation would use the WASM-compiled program
         return {
             exitCode: 0,
-            stdout: '[Simulation Mode] C++ code would execute here.\nActual execution requires WebAssembly compiler backend.\n\nExample output:\nHello, DSA Academy!\nProgram finished with exit code 0.',
+            stdout: 'SIMULATED OUTPUT - no real C++ compiler in this build.\nActual execution requires WebAssembly compiler backend.\n\nExample output:\nHello, DSA Academy!\nProgram finished with exit code 0.',
             stderr: '',
             executionTime: 5
         };
