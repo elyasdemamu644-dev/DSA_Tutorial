@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Structures & Algorithms Tutor</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <script defer src="scripts/main.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Data Structures & Algorithms Tutor</h1>
+            <p>Interactive learning platform for fundamental computer science concepts</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="navigation">
+            <nav>
+                <ul>
+                    <li><a href="#arrays">Arrays</a></li>
+                    <li><a href="#linked-lists">Linked Lists</a></li>
+                    <li><a href="#stacks-queues">Stacks & Queues</a></li>
+                    <li><a href="#trees">Trees</a></li>
+                    <li><a href="#graphs">Graphs</a></li>
+                    <li><a href="#sorting">Sorting Algorithms</a></li>
+                    <li><a href="#searching">Searching Algorithms</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <section class="content-area" id="content-area">
+            <h2>Select a topic to begin learning</h2>
+            <p>Choose a data structure or algorithm from the navigation menu</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>DSA Tutor | Interactive Educational Platform</p>
+        </div>
+    </footer>
+</body>
+</html>
