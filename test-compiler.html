@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ Compiler Test</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="container" style="padding: 2rem; max-width: 900px;">
+        <h1>C++ Compiler Service Test</h1>
+        <p>Testing the WebAssembly-based C++ compilation backend</p>
+        
+        <div style="margin-bottom: 1rem;">
+            <button class="btn primary" id="init-btn">Initialize Compiler</button>
+            <button class="btn" id="test-btn" disabled>Run Test Compilation</button>
+            <button class="btn" id="error-btn" disabled>Test Compilation Error</button>
+        </div>
+        
+        <div style="margin-bottom: 1rem;">
+            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">C++ Source Code:</label>
+            <textarea id="test-code" style="width: 100%; height: 200px; font-family: 'Fira Code', monospace; font-size: 0.9rem; padding: 1rem; border: 1px solid var(--border-color); border-radius: var(--radius-md);" spellcheck="false">#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    cout << "Hello from C++ Compiler Test!" << endl;
+    
+    // Test STL containers
+    vector<int> v = {1, 2, 3, 4, 5};
+    int sum = 0;
+    for (int x : v) sum += x;
+    cout << "Vector sum: " << sum << endl;
+    
+    // Test algorithms
+    sort(v.begin(), v.end(), greater<int>());
+    cout << "Sorted descending: ";
+    for (int x : v) cout << x << " ";
+    cout << endl;
+    
+    // Test map
+    map<string, int> m = {{"one", 1}, {"two", 2}, {"three", 3}};
+    cout << "Map size: " << m.size() << endl;
+    cout << "Value for 'two': " << m["two"] << endl;
+    
+    // Test smart pointers
+    auto ptr = make_unique<int>(42);
+    cout << "Smart pointer value: " << *ptr << endl;
+    
+    // Test string
+    string s = "C++17";
+    cout << "String: " << s << " (length: " << s.length() << ")" << endl;
+    
+    return 0;
+}</textarea>
+        </div>
+        
+        <div style="margin-bottom: 1rem;">
+            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Output:</label>
+            <pre id="test-output" class="output-content" style="min-height: 200px; max-height: 400px;">Click "Initialize Compiler" to start...</pre>
+        </div>
+        
+        <div id="compiler-info" style="margin-top: 1rem; padding: 1rem; background: var(--surface-hover); border-radius: var(--radius-md); display: none;">
+            <h3>Compiler Information</h3>
+            <pre id="compiler-details"></pre>
+        </div>
+    </div>
+    
+    <script src="scripts/compiler-service.js"></script>
+    <script>
+        const initBtn = document.getElementById('init-btn');
+        const testBtn = document.getElementById('test-btn');
+        const errorBtn = document.getElementById('error-btn');
+        const output = document.getElementById('test-output');
+        const compilerInfo = document.getElementById('compiler-info');
+        const compilerDetails = document.getElementById('compiler-details');
+        const codeEditor = document.getElementById('test-code');
+        
+        let compiler = null;
+        
+        initBtn.addEventListener('click', async () => {
+            initBtn.disabled = true;
+            initBtn.textContent = 'Initializing...';
+            output.textContent = 'Initializing compiler service...';
+            output.className = 'output-content';
+            
+            try {
+                compiler = new CppCompilerService();
+                
+                compiler.setProgressCallback((progress) => {
+                    output.textContent = `[${Math.round(progress.percent)}%] ${progress.message}`;
+                });
+                
+                await compiler.initialize();
+                
+                output.textContent = '✅ Compiler initialized successfully!';
+                output.className = 'output-content success';
+                
+                testBtn.disabled = false;
+                errorBtn.disabled = false;
+                initBtn.textContent = 'Re-initialize';
+                initBtn.disabled = false;
+                
+                compilerInfo.style.display = 'block';
+                compilerDetails.textContent = `Version: ${compiler.getVersion()}\nStatus: Ready\nConfig: ${JSON.stringify(compiler.config, null, 2)}`;
+                
+            } catch (error) {
+                output.textContent = `❌ Initialization failed: ${error.message}`;
+                output.className = 'output-content error';
+                initBtn.disabled = false;
+                initBtn.textContent = 'Retry';
+                console.error(error);
+            }
+        });
+        
+        testBtn.addEventListener('click', async () => {
+            if (!compiler) return;
+            
+            testBtn.disabled = true;
+            testBtn.textContent = 'Compiling...';
+            output.textContent = 'Compiling and running...';
+            output.className = 'output-content';
+            
+            const code = codeEditor.value;
+            
+            try {
+                const result = await compiler.compile(code, {
+                    standard: 'c++17',
+                    optimization: '-O2',
+                    run: true
+                });
+                
+                if (result.success) {
+                    let outputText = '✅ Compilation successful!\n\n';
+                    
+                    if (result.warnings && result.warnings.length > 0) {
+                        outputText += '⚠️ Warnings:\n';
+                        result.warnings.forEach(w => {
+                            outputText += `  ${w.message || w}\n`;
+                        });
+                        outputText += '\n';
+                    }
+                    
+                    if (result.execution) {
+                        outputText += '📤 Program Output:\n';
+                        outputText += '─'.repeat(40) + '\n';
+                        
+                        if (result.execution.stdout) {
+                            outputText += result.execution.stdout;
+                        } else {
+                            outputText += '(no output)';
+                        }
+                        
+                        if (result.execution.stderr) {
+                            outputText += '\n\n⚠️ Stderr:\n';
+                            outputText += result.execution.stderr;
+                        }
+                        
+                        outputText += `\n${'─'.repeat(40)}\n`;
+                        outputText += `Exit code: ${result.execution.exitCode}`;
+                        outputText += ` | Time: ${result.execution.executionTime}ms`;
+                    }
+                    
+                    output.textContent = outputText;
+                    output.className = 'output-content success';
+                } else {
+                    let outputText = '❌ Compilation failed!\n\n';
+                    
+                    if (result.errors && result.errors.length > 0) {
+                        outputText += 'Errors:\n';
+                        result.errors.forEach(err => {
+                            const line = err.line ? `Line ${err.line}: ` : '';
+                            const col = err.column ? `Col ${err.column}: ` : '';
+                            outputText += `  ${line}${col}${err.message}\n`;
+                        });
+                    } else {
+                        outputText += 'Unknown compilation error';
+                    }
+                    
+                    if (result.warnings && result.warnings.length > 0) {
+                        outputText += '\nWarnings:\n';
+                        result.warnings.forEach(w => {
+                            outputText += `  ${w.message || w}\n`;
+                        });
+                    }
+                    
+                    output.textContent = outputText;
+                    output.className = 'output-content error';
+                }
+                
+            } catch (error) {
+                output.textContent = `❌ Error: ${error.message}`;
+                output.className = 'output-content error';
+                console.error(error);
+            } finally {
+                testBtn.disabled = false;
+                testBtn.textContent = 'Run Test Compilation';
+            }
+        });
+        
+        errorBtn.addEventListener('click', async () => {
+            if (!compiler) return;
+            
+            errorBtn.disabled = true;
+            errorBtn.textContent = 'Testing Error...';
+            
+            // Code with intentional errors
+            const errorCode = `#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    cout << "This has errors" << endl
+    // Missing semicolon above
+    
+    vector<int> v = {1, 2, 3};
+    cout << v[10] << endl; // Out of bounds (runtime error, not compile)
+    
+    undefined_function(); // Undefined function
+    
+    return 0;
+}`;
+            
+            output.textContent = 'Testing compilation error detection...';
+            output.className = 'output-content';
+            
+            try {
+                const result = await compiler.compile(errorCode, { run: false });
+                
+                if (result.success) {
+                    output.textContent = '⚠️ Unexpected: Code compiled (errors may be runtime only)';
+                    output.className = 'output-content warning';
+                } else {
+                    let outputText = '✅ Expected compilation failure detected!\n\n';
+                    
+                    if (result.errors && result.errors.length > 0) {
+                        outputText += 'Errors found:\n';
+                        result.errors.forEach(err => {
+                            const line = err.line ? `Line ${err.line}: ` : '';
+                            const col = err.column ? `Col ${err.column}: ` : '';
+                            outputText += `  ${line}${col}${err.message}\n`;
+                        });
+                    }
+                    
+                    output.textContent = outputText;
+                    output.className = 'output-content success';
+                }
+            } catch (error) {
+                output.textContent = `Error during test: ${error.message}`;
+                output.className = 'output-content error';
+            } finally {
+                errorBtn.disabled = false;
+                errorBtn.textContent = 'Test Compilation Error';
+            }
+        });
+    </script>
+</body>
+</html>
