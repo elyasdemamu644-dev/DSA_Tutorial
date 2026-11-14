@@ -1,0 +1,402 @@
+﻿// Main JavaScript for DSA Tutor Web Interface
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Navigation highlighting
+    const navLinks = document.querySelectorAll('nav a');
+    const sections = document.querySelectorAll('.content-area');
+    
+    function highlightNav() {
+        let currentSection = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (pageYOffset >= sectionTop - 60) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === #) {
+                link.classList.add('active');
+            }
+        });
+    }
+    
+    window.addEventListener('scroll', highlightNav);
+    highlightNav(); // Initial call
+    
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
+    // Topic selection
+    const topicButtons = document.querySelectorAll('.navigation ul li a');
+    
+    topicButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            
+            // Hide all content areas
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Show selected topic
+            const selectedSection = document.getElementById('content-area');
+            selectedSection.style.display = 'block';
+            
+            // Load content based on topic
+            loadTopicContent(targetId);
+        });
+    });
+    
+    // Initially hide all sections except the first
+    document.querySelectorAll('.content-area')[0].style.display = 'block';
+});
+
+/**
+ * Load content for a specific DSA topic
+ * @param {string} topic - The topic ID (arrays, linked-lists, etc.)
+ */
+function loadTopicContent(topic) {
+    const contentArea = document.getElementById('content-area');
+    
+    // Define topic content
+    const topics = {
+        'arrays': 
+            <h3>Arrays</h3>
+            <p>An array is a collection of items stored at contiguous memory locations. The idea is to store multiple items of the same type together.</p>
+            
+            <h4>Key Characteristics:</h4>
+            <ul>
+                <li>Fixed size (in most traditional implementations)</li>
+                <li>Elements accessed by index number</li>
+                <li>Random access O(1)</li>
+                <li>Contiguous memory allocation</li>
+            </ul>
+            
+            <h4>Common Operations:</h4>
+            <ul>
+                <li>Access: arr[i] - O(1)</li>
+                <li>Search: Linear O(n) or Binary O(log n) on sorted</li>
+                <li>Insertion: O(n) - may require shifting elements</li>
+                <li>Deletion: O(n) - may require shifting elements</li>
+            </ul>
+            
+            <h4>Code Example:</h4>
+            <pre><code>// JavaScript Array basics
+const numbers = [1, 2, 3, 4, 5];
+console.log(numbers[0]); // 1
+numbers.push(6); // [1, 2, 3, 4, 5, 6]
+numbers.pop(); // [1, 2, 3, 4, 5]</code></pre>
+            
+            <h4>Time Complexity Summary:</h4>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                <tr style="background: #f8f9fa;">
+                    <th style="padding: 8px; border: 1px solid #ddd;">Operation</th>
+                    <th style="padding: 8px; border: 1px solid #ddd;">Complexity</th>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; border: 1px solid #ddd;">Access</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">O(1)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; border: 1px solid #ddd;">Search</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">O(n)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; border: 1px solid #ddd;">Insertion</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">O(n)</td>
+                </tr>
+            </table>
+        ,
+        
+        'linked-lists': 
+            <h3>Linked Lists</h3>
+            <p>A linked list is a linear data structure where each element is separate object with a value and a pointer to the next element.</p>
+            
+            <h4>Types of Linked Lists:</h4>
+            <ul>
+                <li>Singly Linked List - traversal in one direction</li>
+                <li>Doubly Linked List - traversal in both directions</li>
+                <li>Circular Linked List - last node points to first</li>
+            </ul>
+            
+            <h4>Node Structure:</h4>
+            <pre><code>// Node class for singly linked list
+class ListNode {
+    constructor(value) {
+        this.value = value;
+        this.next = null;
+    }
+}
+
+// Linked List class
+class LinkedList {
+    constructor() {
+        this.head = null;
+        this.size = 0;
+    }
+    
+    // Add to end
+    insert(value) {
+        const newNode = new ListNode(value);
+        if (!this.head) {
+            this.head = newNode;
+        } else {
+            let current = this.head;
+            while (current.next) {
+                current = current.next;
+            }
+            current.next = newNode;
+        }
+        this.size++;
+    }
+}</code></pre>
+        ,
+        
+        'stacks': 
+            <h3>Stacks</h3>
+            <p>A stack is a linear data structure that follows the LIFO (Last In, First Out) principle. The last element added is the first one to be removed.</p>
+            
+            <h4>Stack Operations:</h4>
+            <ul>
+                <li><strong>Push:</strong> Add an element to the top</li>
+                <li><strong>Pop:</strong> Remove the top element</li>
+                <li><strong>Peek:</strong> View the top element without removing</li>
+                <li><strong>IsEmpty:</strong> Check if stack is empty</li>
+            </ul>
+            
+            <h4>Common Use Cases:</h4>
+            <ul>
+                <li>Function call stack (call stack)</li>
+                <li>Undo/Redo operations</li>
+                <li>Browser back button history</li>
+                <li>Expression evaluation</li>
+            </ul>
+            
+            <h4>Time Complexity:</h4>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                <tr style="background: #f8f9fa;">
+                    <th style="padding: 8px; border: 1px solid #ddd;">Operation</th>
+                    <th style="padding: 8px; border: 1px solid #ddd;">Complexity</th>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; border: 1px solid #ddd;">Push</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">O(1)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; border: 1px solid #ddd;">Pop</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">O(1)</td>
+                </tr>
+            </table>
+        ,
+        
+        'trees': 
+            <h3>Trees</h3>
+            <p>A tree is a hierarchical data structure consisting of nodes, with a single node as the root from which other nodes branch out. Each node has a value and references to its child nodes.</p>
+            
+            <h4>Key Tree Terminology:</h4>
+            <ul>
+                <li>Root - the topmost node</li>
+                <li>Parent/Child - relationship between nodes</li>
+                <li>Leaf - a node with no children</li>
+                <li>Depth/Height - length from root to deepest node</li>
+            </ul>
+            
+            <h4>Binary Tree:</h4>
+            <p>A binary tree is a tree where each node has at most two children: left and right.</p>
+            
+            <h4>Binary Search Tree (BST):</h4>
+            <p>A BST is a binary tree where for each node:</p>
+            <ul>
+                <li>All values in left subtree < node.value</li>
+                <li>All values in right subtree > node.value</li>
+            </ul>
+            
+            <h4>Time Complexity (BST):</h4>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                <tr style="background: #f8f9fa;">
+                    <th style="padding: 8px; border: 1px solid #ddd;">Operation</th>
+                    <th style="padding: 8px; border: 1px solid #ddd;">Complexity</th>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; border: 1px solid #ddd;">Search</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">O(log n) average, O(n) worst</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; border: 1px solid #ddd;">Insert</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">O(log n) average, O(n) worst</td>
+                </tr>
+            </table>
+        ,
+        
+        'graphs': 
+            <h3>Graphs</h3>
+            <p>A graph is a non-linear data structure consisting of vertices (nodes) and edges (connections between nodes). Graphs are used to represent networks, such as social networks, road maps, and internet structures.</p>
+            
+            <h4>Graph Types:</h4>
+            <ul>
+                <li>Undirected - edges have no direction</li>
+                <li>Directed (Digraph) - edges have direction</li>
+                <li>Weighted - edges have weights/costs</li>
+                <li>Unweighted - all edges are equal</li>
+                <li>Cyclic - contains at least one cycle</li>
+                <li>Acyclic - no cycles</li>
+            </ul>
+            
+            <h4>Graph Representation:</h4>
+            <ol>
+                <li>Adjacency Matrix - O(V²) space</li>
+                <li>Adjacency List - O(V + E) space, more efficient</li>
+            </ol>
+            
+            <h4>Common Graph Algorithms:</h4>
+            <ul>
+                <li><strong>BFS:</strong> Breadth-First Search - explores neighbors first</li>
+                <li><strong>DFS:</strong> Depth-First Search - explores as far as possible along each branch</li>
+                <li><strong>Dijkstra:</strong> Shortest path algorithm</li>
+                <li><strong>Topological Sort:</strong> For DAGs (directed acyclic graphs)</li>
+            </ul>
+            
+            <h4>Time Complexity:</h4>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                <tr style="background: #f8f9fa;">
+                    <th style="padding: 8px; border: 1px solid #ddd;">Algorithm</th>
+                    <th style="padding: 8px; border: 1px solid #ddd;">Complexity</th>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; border: 1px solid #ddd;">BFS/DFS</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">O(V + E)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; border: 1px solid #ddd;">Dijkstra</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">O((V + E) log V)</td>
+                </tr>
+            </table>
+        ,
+        
+        'sorting': 
+            <h3>Sorting Algorithms</h3>
+            <p>Sorting algorithms arrange elements of a list in a certain order (typically numerical or lexicographic).</p>
+            
+            <h4>Common Sorting Algorithms:</h4>
+            <ul>
+                <li><strong>Bubble Sort:</strong> Repeatedly steps through list, swaps adjacent elements if wrong order</li>
+                <li><strong>Selection Sort:</strong> Selects minimum element and moves it to sorted portion</li>
+                <li><strong>Insertion Sort:</strong> Builds sorted array one element at a time</li>
+                <li><strong>Merge Sort:</strong> Divide and conquer - divides array, sorts, merges</li>
+                <li><strong>Quick Sort:</strong> Pivot-based divide and conquer</li>
+                <li><strong>Heap Sort:</strong> Uses binary heap data structure</li>
+            </ul>
+            
+            <h4>Complexity Comparison:</h4>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                <thead>
+                    <tr style="background: #f8f9fa;">
+                        <th style="padding: 8px; border: 1px solid #ddd;">Algorithm</th>
+                        <th style="padding: 8px; border: 1px solid #ddd;">Best</th>
+                        <th style="padding: 8px; border: 1px solid #ddd;">Average</th>
+                        <th style="padding: 8px; border: 1px solid #ddd;">Worst</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #ddd;">Bubble Sort</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">O(n)</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">O(n²)</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">O(n²)</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #ddd;">Merge Sort</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">O(n log n)</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">O(n log n)</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">O(n log n)</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #ddd;">Quick Sort</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">O(n log n)</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">O(n log n)</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">O(n²)</td>
+                    </tr>
+                </tbody>
+            </table>
+        ,
+        
+        'searching': 
+            <h3>Searching Algorithms</h3>
+            <p>Searching algorithms find the position of a target value within a data structure.</p>
+            
+            <h4>Searching in Arrays:</h4>
+            <ul>
+                <li><strong>Linear Search:</strong> Checks each element sequentially - O(n)</li>
+                <li><strong>Binary Search:</strong> Divides search interval in half - O(log n) on sorted array</li>
+            </ul>
+            
+            <h4>Binary Search Algorithm:</h4>
+            <pre><code>// Binary Search implementation
+function binarySearch(arr, target) {
+    let left = 0;
+    let right = arr.length - 1;
+    
+    while (left <= right) {
+        const mid = Math.floor((left + right) / 2);
+        
+        if (arr[mid] === target) {
+            return mid; // Found
+        }
+        
+        if (arr[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    
+    return -1; // Not found
+}</code></pre>
+            
+            <h4>Complexity Summary:</h4>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+                <tr style="background: #f8f9fa;">
+                    <th style="padding: 8px; border: 1px solid #ddd;">Search Type</th>
+                    <th style="padding: 8px; border: 1px solid #ddd;">Precondition</th>
+                    <th style="padding: 8px; border: 1px solid #ddd;">Complexity</th>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; border: 1px solid #ddd;">Linear Search</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">Unsorted array</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">O(n)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; border: 1px solid #ddd;">Binary Search</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">Sorted array</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">O(log n)</td>
+                </tr>
+            </table>
+        
+    };
+    
+    // Display selected topic content
+    if (topics[topic]) {
+        contentArea.innerHTML = topics[topic];
+    } else {
+        contentArea.innerHTML = <p>Topic "" not found. Please select a valid topic.</p>;
+    }
+}
