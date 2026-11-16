@@ -1,0 +1,226 @@
+
+===== PAGE 1 =====
+1
+Data Structure and Algorithms Test (20%)
+Date 21/12/2023
+Time allowed - 1hr.
+Name: ___________________________________ID No.: ____________Section: _____
+Part I. Choose and ENCIRCLE the best answer (
+1 point each)
+1.
+A sorting machine can sort numbers in ascending order only. This machine can be used
+for sorting all negative numbers in descending order by?
+A.
+Add 100 to all numbers, sort and subtract 100 again form each number.
+B.
+Sort numbers, change sign of all numbers.
+C.
+Subtract numbers from 100, sort and add 100 again to each number.
+D.
+Change sign of all numbers, sort numbers, change sign again.
+2.
+Which one of the following statements is not correct about data structure?
+A.
+Each data structure has costs and benefits.
+B.
+Most often one data structure is better than another in all situations.
+C.
+A program is efficient if it solves the problem within its resource constraints.
+D.
+The cost of a solution is the amount of resources that the solution consumes.
+3.
+One of the following is a very slow way of sorting?
+A.
+Insertion sort
+C. Merge sort
+B.
+Heap sort
+D. Quick sort
+4.
+Which of the following best describes an abstract data type?
+A.
+It is the physical implementation of a data structure.
+B.
+It is a model which separates data type definition from its implementation.
+C.
+It is programmers’ point of view.
+D.
+All are correct.
+5.
+What is the running time of the following code fragment?
+for(int i=0; i<10; i++)
+for(int j=0; j<N; j++)
+for(int k=N-2; k<N+2; k++)
+cout << i << " " << j << endl;
+A.
+O(log N)
+C. O(N)
+B.
+O(N log N)
+D. O(N
+2
+)
+6.
+Which one of the following growth rates is the slowest running time for algorithms?
+A.
+logn
+C. 2
+n
+B.
+2n
+n
+D. loglogn
+7.
+What is the maximum number of swaps that can be performed in the Selection Sort
+algorithm?
+A.
+N
+C. N-2
+B.
+N-1
+D. 1
+Addis Ababa Science and Technology University
+College of Engineering
+Department of Software Engineering
+
+===== PAGE 2 =====
+2
+8.
+Which statement is true about a solution to a problem?
+A.
+A solution can be written in many algorithms.
+B.
+A solution can have many ways of concrete-implementation.
+C.
+An algorithm may be efficient than another for a specific class of inputs.
+D.
+All are true statements.
+9.
+What is the worst-case time complexity of Bubble Sort, if the list of n elements is already
+sorted?
+A.
+O(n)
+C. O(nlog
+2
+n)
+B.
+O(log
+2
+n)
+D. O(n
+2
+)
+10.
+Which one of the following is in the domain of Ω(n
+2
+) or Big Omega of n
+2
+?
+A.
+nlogn
+D. n
+2
+logn
+B.
+n
+3
+E. All
+C.
+n
+n
+11.
+Which of the following is a lower bound of logn!
+A.
+Ω(nlogn)
+C. Ω(1)
+B.
+O(logn)
+D. O(n
+n
+)
+Part II – Short Answer
+12.
+Calculate T(n) , O(T(n)), Ω(T(n)) for the following code fragment. (3 pts)
+1.
+int i,j,n; // (1)
+2.
+int sum = 0; // (1)
+3.
+for (i=n; i>=1; i=i/2) { // (1+logn+logn)
+4.
+for (j=1; j<=n; j++) { // (1+n+n)
+5.
+sum++; // (n)
+6.
+}
+7.
+}
+Solution:
+T(n)=1+1+1+logn+logn+logn(1+n+n+n)
+T(n)=3+2logn+logn+3nlogn
+T(n)=3+3logn+3nlogn
+T(n)=3nlogn+3logn+3
+O(T(n)) >= nlogn
+Ω(T(n)) <= nlogn
+
+===== PAGE 3 =====
+3
+13.
+Given T(n) = n!. Find and proof its upper bound and lower bound using mathematical
+functions. (3 pts)
+Solution:
+T(n) = n!
+T(n) = n * (n-1) * (n-2) * (n-3) * … * 3 * 2 * 1
+1*1*1* … *1 ≤ 1*2*3* … *n ≥ n*n*n* … *n
+1 ≤ n! ≤ n
+n
+Upper Bound – O(T(n)) = n
+n
+Lower Bound - Ω(T(n)) = 1
+There is no
+
+(T(n)).
+14.
+Consider the list: A, B, D, E, F, K, N, Q. While search key = Z, apply binary search to
+find the key. Show all the necessary steps. (3 pts)
+Solution:
+Step 1: Low = 0
+High = 7
+Mid =
+0+7
+2
+= 3
+Key = Z
+list[Mid] = E
+Compare the key with the list[Mid]: Z ≠ E, the value of Z > E.
+Step 2: If the value of key is greater than list[Mid] then calculate Low again.
+Low = Mid+1 = 4, calculate Mid again.
+Mid =
+4+7
+2
+= 5
+list[Mid] = K
+Compare the key with list[Mid]: Z ≠ K, the value of Z > K.
+Step 3: If the value of key is greater than list[Mid] then calculate Low again.
+Low = Mid+1 = 6, calculate Mid again.
+Mid =
+6+7
+2
+= 6
+list[Mid] = N
+Compare the key with list[Mid]: Z ≠ N, the value of Z > N.
+Step 4: If the value of key is greater than list[Mid] then calculate Low again.
+Low = Mid+1 = 7, calculate Mid again.
+Mid =
+7+7
+2
+= 7
+
+===== PAGE 4 =====
+4
+list[Mid] = Q
+Compare the key with list[Mid]: Z ≠ Q, the value of Z > Q.
+Step 5: If the value of key is greater than list[Mid] then calculate Low again.
+Low = Mid+1 = 8 .
+Now the value of Low > High – the loop stops and “The key not found!” message
+will be displayed.

@@ -1,0 +1,51 @@
+﻿    1. Determine, in terms of n, of the running time of each of the following methods and its Big-O.
+    a. 
+int fun1(int n)
+{
+ int a;
+ for(int i=0; i<n; i+=2)
+     a=i;
+}
+    b. 
+int fun2(int n)
+{
+ int a;
+ for(int i=0;i<n*n;i++)
+      a=i;
+}
+    c. 
+int fun3(int n)
+{
+ int a;
+  for(int i=0; i<n; i++)
+    for(int j=0; j<=i; j++)
+            a=i;
+}
+
+    d. 
+int fun4(int n)
+{
+      int a;
+   for(int i=0; i<n*n; i++)
+     for(int j=0;j<=n; j++)
+          a=i;
+}
+    e. 
+int fun5(int n)
+{
+  int a;
+   for(int i=1; i<n; i*=2)
+          a=i;
+}
+    f. 
+int fun6(int n)
+{
+ int a;
+ for(int i=0; i<n; i++)
+  for(int j=0; j<=n-i; j++)
+         a=i;
+}
+
+
+   
+

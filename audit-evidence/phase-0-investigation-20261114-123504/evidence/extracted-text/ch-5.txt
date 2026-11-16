@@ -1,0 +1,610 @@
+
+===== PAGE 1 =====
+1
+Queue
+Chapter Five
+
+===== PAGE 2 =====
+2
+Queue
+Abstract data type: Queue
+•
+Many times, we use a list in a way where we always
+add to the end, and always remove from the front.
+•
+The first element put into the list will be the first
+element we take out of the list:
+•
+First-In, First-Out ("FIFO")
+•
+Queue : a more restricted List with the following
+constraints:
+•
+Elements are stored by order of insertion from
+front
+to
+back .
+•
+Items can only be added to the
+back
+of the queue.
+•
+Only the
+front
+element can be accessed or removed.
+•
+Goal: every operation on a queue should be O(1) .
+2
+
+===== PAGE 3 =====
+3
+Queue … (continued)
+Operations on a queue
+• Offer or enqueue : add an element to the back.
+• Remove or dequeue : remove and return the element at
+the front.
+• peek : return (but not remove) front element:
+– peek on an empty queue returns null.
+• Other operations: isEmpty, size.
+Queue features
+• ORDERING : maintains order elements were added
+(new elements are added to the end by default).
+3
+
+===== PAGE 4 =====
+4
+Queue … (continued)
+•
+OPERATIONS :
+–
+Add element to end of list ('offer' or 'enqueue').
+–
+Remove element from beginning of list ('remove'
+or 'dequeue') examine element at beginning of list
+('peek').
+–
+Clear all elements/Initialize()
+–
+Initialize the queue to be empty
+– isFull():
+–
+Determine if queue is full or not. A Boolean
+operation needed for static queues. Returns
+true if the queue is full. Otherwise, returns
+false.
+4
+
+===== PAGE 5 =====
+5
+•
+isEmpty():
+− Determine whether queue is empty or not.
+A Boolean operation needed for all queues . Returns
+true if the queue is empty. Otherwise, returns false.
+•
+display():
+− If the queue is not empty then retrieve all
+elements.
+•
+getsize().
+− Determine the number of elements in the
+queue
+•
+All of these operations are efficient! O(1).
+Queue … (continued)
+
+===== PAGE 6 =====
+6
+The Queue Operations
+• A queue is like a line of people waiting for a bank
+teller. The queue has a front and a rear .
+$ $
+Front
+Rear
+
+===== PAGE 7 =====
+7
+The Queue Operations
+• New people must enter the queue at the rear. it
+is usually called an enqueue operation.
+$ $
+Front
+Rear
+
+===== PAGE 8 =====
+8
+The Queue Operations
+• When an item is taken from the queue, it always
+comes from the front. it is usually called a
+dequeue operation.
+$ $
+Front
+Rear
+
+===== PAGE 9 =====
+9
+Array Implementation of Queue
+
+===== PAGE 10 =====
+10
+• A queue can be implemented with an array, as
+shown here.
+For example, this queue contains the integers 4
+(at the front), 8 and 6 (at the rear).
+[ 0 ]
+[1]
+[ 2 ]
+[ 3 ]
+[ 4 ]
+[ 5 ]
+. . .
+An array of integers
+to implement a
+queue of integers
+We don't care what's in
+this part of the array.
+4
+8
+6
+
+===== PAGE 11 =====
+11
+Simple Array Implementation of Queue
+• The easiest implementation also keeps
+track of the number of items in the
+queue (Queue Size) and the index of the
+first element (at the front of the queue),
+the last element (at the rear).
+[ 0 ]
+[1]
+[ 2 ]
+[ 3 ]
+[ 4 ]
+[ 5 ]
+. . .
+4
+8
+6
+size
+3
+first
+0
+last
+2
+Rear
+Front
+
+===== PAGE 12 =====
+12
+A Dequeue Operation
+• When an element leaves the queue, size is
+decremented, and first changes, too
+[ 0 ]
+[1]
+[ 2 ]
+[ 3 ]
+[ 4 ]
+[ 5 ]
+. . .
+4
+8
+6
+size
+2
+first
+1
+last
+2
+Rear
+Front
+
+===== PAGE 13 =====
+13
+An Enqueue Operation
+• When an element enters the queue, size is
+incremented, and last changes, too
+[ 0 ]
+[1]
+[ 2 ]
+[ 3 ]
+[ 4 ]
+[ 5 ]
+. . .
+2
+8
+6
+size
+3
+first
+1
+last
+3
+Front
+Rear
+
+===== PAGE 14 =====
+Array Based Implementation
+• Array: items[]
+• Variables:
+– front
+– rear
+– MAX_QUEUE
+front
+rear
+
+===== PAGE 15 =====
+………
+int NumArray[];
+int MAX_SIZE;
+int FRONT= -1;
+int REAR= -1;
+int QUEUESIZE=0;
+………
+YII= Array Based Implementation
+bool isFull()
+{
+if (REAR<MAX_SIZE-1)
+return false;
+else
+return true;
+}
+bool isEmpty()
+{
+if (QUEUESIZE==0)
+return true;
+else
+return false;
+}
+
+===== PAGE 16 =====
+Array Based Implementation: Enqueue
+Algorithm
+Implementation
+
+===== PAGE 17 =====
+Array Based Implementation: Dequeue
+Algorithm
+Implementation
+
+===== PAGE 18 =====
+Circular Array Implementation of Queues
+• A problem with simple arrays is we run out of
+space even if the queue never reaches the size
+of the array.
+• Thus,
+circular arrays can be used to solve this
+problem.
+• Freed spaces are re-used to store data
+
+===== PAGE 19 =====
+19
+• There is special behaviour at the end
+of the array. For example, suppose
+we want to add a new element to
+this queue, where the last index is [5]:
+[ 0 ]
+[1]
+[ 2 ]
+[ 3 ]
+[ 4 ]
+[ 5 ]
+2
+1
+6
+size
+3
+first
+3
+last
+5
+Front
+Rear
+Circular Array Implementation of Queues…
+
+===== PAGE 20 =====
+20
+An Enqueue Operation
+• The new element goes at the front
+of the array (if that spot isn’t
+already used):
+[ 0 ]
+[1]
+[ 2 ]
+[ 3 ]
+[ 4 ]
+[ 5 ]
+2
+1
+6
+size
+4
+first
+3
+last
+0
+4
+Rear
+Front
+
+===== PAGE 21 =====
+Example: Consider a queue with MAX_SIZE = 4
+
+===== PAGE 22 =====
+TkSuQmCC Algorithm and Implementation: enqueue
+
+===== PAGE 23 =====
+Algorithm and Implementation: denqueue
+
+===== PAGE 24 =====
+25
+• A queue can also be implemented with a linked list
+with both a head (start) and a tail (end) pointer.
+• Enqueue :- is inserting a node at the end of a linked list.
+• Dequeue :- is deleting the first node in a linked list.
+10
+15
+null
+13
+head_ptr
+tail_ptr
+Implementation – see the linked list adding at the end
+and deleting at
+the start
+example from the previous
+lectures.
+Linked List Implementation
+
+===== PAGE 25 =====
+26
+Different Types of Queue
+
+===== PAGE 26 =====
+27
+Deque (pronounced as Deck)
+• Is a Double Ended Queue.
+• Insertion and deletion can occur at either end.
+• Has the following basic operations:
+EnqueueFront: – inserts data at the front of a list.
+DequeueFront: – deletes data at the front of a list.
+EnqueueRear: – inserts data at the end of a list.
+DequeueRear: – deletes data at the end of a list.
+
+===== PAGE 27 =====
+28
+• Implementation is similar to that of queue.
+• Is best implemented using doubly linked list.
+DequeueFront
+EnqueueRear
+DequeueRear
+EnqueueFront
+Front
+Rear
+Deque (pronounced as Deck)…..
+
+===== PAGE 28 =====
+29
+Priority Queue
+• Is a queue where each data has an associated
+key that is provided at the time of insertion.
+• Dequeue operation deletes data having highest
+priority in the list.
+• One of the previously used dequeue or
+enqueue operations has to be modified.
+
+===== PAGE 29 =====
+30
+Example :
+Consider the following queue of persons
+where females have higher priority than
+males (gender is the key to give priority).
+Abebe
+Alemu
+Aster
+Belay
+Kedir
+Meron
+Yonas
+Male
+Male
+Female
+Male
+Male
+Female
+Male
+• Dequeue()- deletes Aster.
+Abe be
+Alemu
+Belay
+Kedir
+Meron
+Yonas
+Male
+Male
+Male
+Male
+Female
+Male
+
+===== PAGE 30 =====
+31
+• Dequeue()- deletes Meron
+Abebe
+Alemu
+Belay
+Kedir
+Yonas
+Male
+Male
+Male
+Male
+Male
+• Now the queue has data having equal priority
+and dequeue operation deletes the front
+element like in the case of ordinary queues.
+• Dequeue() :- deletes Abebe
+
+===== PAGE 31 =====
+32
+• Dequeue():- deletes Alemu
+• Thus, in the above example the
+implementation of the dequeue operation
+need to be modified.
+Demerging Queues:
+• Is the process of creating two or more queues
+from a single queue.
+• Used to give priority for some groups of data
+Belay
+Kedir
+Yonas
+Male
+Male
+Male
+
+===== PAGE 32 =====
+33
+Example : The following two queues can be
+created from the above priority queue.
+Aster
+Female
+Meron
+Female
+Abebe
+Alemu
+Male
+Male
+Belay
+Kedir
+Male
+Male
+Yonas
+Male
+Algorithm
+:
+create empty females and males queue
+while (PriorityQueue is not empty)
+{
+Data =DequeuePriorityQueue();//
+delete data at the
+front
+if(gender of Data is Female)
+EnqueueFemale( Data );
+else
+EnqueueMale( Data );
+}
+
+===== PAGE 33 =====
+34
+Merging Queues:
+• Is the process of creating a priority queue
+from two or more queues.
+• The ordinary dequeue implementation can be
+used to delete data in the newly created
+priority queue.
+
+===== PAGE 34 =====
+35
+Example : The following two queues (females
+queue has higher priority than the males
+queue) can be merged to create a priority
+queue.
+Aster
+Female
+Meron
+Female
+Abebe
+Alemu
+Male
+Male
+Belay
+Kedir
+Male
+Male
+Yonas
+Male
+Aster
+Female
+Meron
+Female
+Abebe
+Alemu
+Male
+Male
+Belay
+Kedir
+Male
+Male
+Yonas
+Male
+
+===== PAGE 35 =====
+36
+Algorithm :
+create an empty priority queue
+while(FemalesQueue is not empty)
+EnqueuePriorityQueue(DequeueFemalesQueue());
+while(MalesQueue is not empty)
+EnqueuePriorityQueue(DequeueMalesQueue());
+
+===== PAGE 36 =====
+Example 2
+• The data with the largest element with higher
+priority.
+• Dequeue()
+A will be selected
+• Dequeue()
+B
+>>
+• Dequeue()
+C
+>>
+• Dequeue()
+D
+>>
+A
+B
+C
+F
+E
+D
+H
+40
+30
+25
+15
+18
+20
+12
+
+===== PAGE 37 =====
+38
+Application of Queues
+I.
+Access to shared resources
+(Example: printer)
+Print()
+{
+EnqueuePrintQueue(Document)
+}
+EndOfPrint()
+{
+DequeuePrintQueue()
+}
+II.
+Disk Driver:- maintains a queue of disk input/output
+requests.
+
+===== PAGE 38 =====
+39
+III.
+Task scheduler in multiprocessing system maintains
+priority queues of processes.
+IV.
+Telephone calls in a busy environment maintains a
+queue of telephone calls.
+V.
+Simulation of waiting line - maintains a queue of
+persons.
+Application of Queues….
+
+===== PAGE 39 =====
+40

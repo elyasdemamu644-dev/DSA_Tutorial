@@ -1,0 +1,193 @@
+
+===== PAGE 1 =====
+Searching
+
+===== PAGE 2 =====
+Given an array A storing n numbers, and a
+target number v, locate the position in A (if
+it exists) where A[i] = v
+Example
+➢
+Input:
+A = {3,8,2,15,99,52}, v = 99
+➢
+Output:
+position 4
+Notes
+➢
+Array positions (indexes) go from 0..n-1
+➢
+When the target does not exist in the array,
+return an undefined position, such as -1
+The Search Problem
+2
+
+===== PAGE 3 =====
+Algorithm LinearSearch(A,v):
+Input:
+An array A of n numbers, search target
+v
+Output:
+position i where A[i]=v, -1 if not found
+for i
+
+0 to n - 1 do
+if A[i] = v then
+return I
+End
+If i==n
+return -1
+Algorithm 1: Linear Search
+3
+
+===== PAGE 4 =====
+Worst-case: O( n )
+➢
+If v does not exist or if v is the last element in
+the array
+Best-case: O( 1 )
+➢
+When the target element v is the first element
+in the array
+Average-case: O( n )
+➢
+e.g., if the target element is somewhere in the
+middle of the array, the for-loop will iterate n/2
+times. Still O( n )
+Linear Search time complexity
+4
+
+===== PAGE 5 =====
+Suppose the array is arranged in increasing or
+non-decreasing order
+Linear search on a sorted array still yields the
+same analysis
+➢
+O( n ) worst-case time complexity
+Can exploit sorted structure by performing
+binary search
+Strategy: inspect middle of the search list so
+that half of the list is discarded at every
+step
+Searching in sorted arrays
+5
+
+===== PAGE 6 =====
+Algorithm BinarySearch(A,v):
+Input:
+A SORTED array A of n numbers, search target v
+Output:
+position i where A[i]=v, -1 if not found
+low
+
+0, high
+
+n-1
+while low <= high do
+mid
+
+(low+high)/2
+if A[mid]= v then
+return mid
+else if A[mid] < v then
+low
+
+mid+1
+else
+high
+
+mid-1
+return -1
+Algorithm 2: Binary Search
+6
+
+===== PAGE 7 =====
+Time complexity analysis: how many
+iterations of the while loop?
+(assume worst-case)
+Observe values for low and high
+➢
+Note that before loop entry,
+size of search space = n = high-low+1.
+➢
+On each suceeding iteration, search space is cut
+in half
+➢
+Loop terminates when search space collapses to 0
+or 1
+Binary Search time complexity
+7
+
+===== PAGE 8 =====
+search space size
+iteration number
+n
+1
+n/2
+2
+n/4
+3
+…
+…
+1
+x
+x = number of iterations
+Observe 2
+x
+= n, log 2
+x
+= log n,
+x = log n iterations carried out
+Binary Search worst-case time complexity:
+O( log n )
+Binary Search time complexity
+8
+
+===== PAGE 9 =====
+Worst-case: O( log n )
+➢
+If v does not exist
+Best-case: O( 1 )
+➢
+When the target element v happens to be in the
+middle of the array
+Average-case: O( log n )
+➢
+Technically, some statistical analysis needed
+here (beyond the scope of this course)
+Binary Search time complexity
+9
+
+===== PAGE 10 =====
+Can use recursion instead of iteration
+BinSearch(A,v):
+return BinSearchHelper(A,0,n-1,v)
+BinSearchHelper(A,low,high,v):
+if low > high then
+return -1
+mid
+
+(low+high)/2
+if A[mid] = v then
+return mid
+else if A[mid] < v then
+return BinSearchHelper(A,mid+1,high,v)
+else
+return BinSearchHelper(A,low,mid-1,v)
+Binary Search (version 2)
+10
+
+===== PAGE 11 =====
+Linear search on an array takes O( n ) time in
+the worst-case
+If the array is sorted, can perform binary
+search in O( log n ) time
+➢
+Iterative and recursive versions
+Both algorithms run in O( 1 ) time in the
+best-case
+➢
+Case where the first element inspected is the
+target element
+Summary
+11

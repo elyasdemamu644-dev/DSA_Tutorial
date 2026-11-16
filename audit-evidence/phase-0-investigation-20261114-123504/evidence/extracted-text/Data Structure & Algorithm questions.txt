@@ -1,0 +1,516 @@
+﻿1) The post order traversal of binary tree is DEBFCA. Find out the pre order traversal.
+
+A. ABFCDE
+
+B. ADBFEC
+
+C. ABDECF
+
+D. ABDCEF
+
+2) While converting binary tree into extended binary tree, all the original nodes in binary tree are .......
+
+A. Internal nodes on extended tree
+
+B. External nodes on extended tree
+
+C. Vanished on extended tree
+
+D. Intermediate nodes on extended tree
+3) The in-order traversal of tree will yield a sorted listing of elements of tree in ........
+
+A. binary trees
+
+B. binary search trees
+
+C. heaps
+
+D. binary heaps
+4) In a binary tree, certain null entries are replaced by special pointers which point to nodes higher in the tree for efficiency. These special pointers are called .........
+A. Leaf
+
+B. Branch
+
+C. Path
+
+D. Thread
+5) In a head tree .....
+
+A. values in a node is greater than every value every value in left sub tree and smaller than right sub tree.
+
+B. values in a node is greater than every value in children of it.
+
+C. conditions.
+
+D. terms.
+
+6) The in order traversal of tree will yield a sorted listing of elements of tree in ....
+
+A. Binary trees
+
+B. Binary search trees
+
+C. Merging
+
+D. AVL Trees
+7) In a graph if e=(u,v) means .......
+
+A. u is adjacent to v but v is not adjacent to u.
+
+B. e begins at u and ends at v
+
+C. u is node and v is an edge.
+
+D. both u and v are edges.
+
+
+8) A binary tree whose every node has either zero or two children is called .........
+
+A. Complete binary tree
+
+B. Binary Search tree
+
+C. Extended binary tree
+
+D. E2 tree
+
+
+9) If every node u in G is adjacent to every other node v in G,A graph is said to be ........
+
+A. isolated
+
+B. complete
+
+C. finite
+
+D. strongly connected.
+
+
+10) The post order traversal of a binary tree is DEBFCA. Find out the pre order Traversal.
+
+A. ABFCDE
+
+B. ADBFEC
+
+C. ABDECF
+
+D. ABDCEF
+
+
+11) In a graph if e=[u,v], then u and v are called
+
+A. endpoints of e
+
+B. adjacent nodes
+
+C. neighbours
+
+D. all of the above
+
+
+12) In-order traversing a tree resulted E A C K F H D B G; the pre-order traversal would return.
+
+A. FAEKCDBHG
+
+B. FAEKCDHGB
+
+C. EAFKHDCBG
+
+D. FEAKDCHBG
+
+
+13) A connected graph T without any cycles is called .
+
+A. a tree graph
+
+B. free tree
+
+C. a tree
+
+D. All of above
+
+
+14) In linked representation of Binary trees LEFT[k] contains the ........ of at the node N, where k is the location.
+
+A. Data
+
+B. Location and left child
+
+C. Right child address
+
+D. Null value	
+
+
+15) If every node u in G adjacent to every other node v in G, A graph is said to be
+
+A. isolated
+
+B. complete
+
+C. finite
+
+D. strongly connected
+
+
+16) Three standards ways of traversing a binary tree T with root R .......
+
+A. Prefix, infix, postfix
+
+B. Pre-process, in-process, post-process
+
+C. Pre-traversal, in-traversal, post-traversal
+
+D. Pre-order, in-order, post-order
+
+
+17) A graph is said to be ....... if every node u in G is adjacent to every other node v in G.
+
+A. Absolute
+
+B. Entire
+
+C. Inclusive
+
+D. Complete
+
+
+18) In threaded binary tree ......... points to higher nodes in tree.
+
+A. Info
+
+B. Root
+
+C. Threads
+
+D. Child
+
+
+19) A graph is said to be ....... if its edges are assigned data.
+
+A. Tagged
+
+B. Marked
+
+C. Lebeled
+
+D. Sticked
+
+
+20) If node N is a terminal node in a binary tree then its .........
+
+A. Right tree is empty
+
+B. Left tree is empty
+
+C. Both left & right sub trees are empty
+
+D. Root node is empty
+
+Answers:
+1) C. ABDECF
+2) A. Internal nodes on extended tree
+3) B. binary search trees
+4) D. Thread
+5) B. values in a node is greater than every value in children of it.
+6) B. Binary search trees
+7) B. e begins at u and ends at v
+8) C. Extended binary tree
+9) B. complete
+10) C. ABDECF
+11) D. all of the above
+12) B. FAEKCDHGB
+13) D. All of above
+14) A. Data
+15) B. complete
+16) D. Pre-order, in-order, post-order
+17) D. Complete
+18) C. Threads
+19) C. Lebeled
+20) C. Both left & right sub trees are empty 
+
+Linked list
+1. The memory address of the first element of an array is called
+a. floor address
+b. foundation address
+c. first address
+d. base address
+ 
+2. The memory address of fifth element of an array can be calculated by the formula
+a. LOC(Array[5]=Base(Array)+w(5-lower bound), where w is the number of words per memory cell for the array
+b. LOC(Array[5])=Base(Array[5])+(5-lower bound), where w is the number of words per memory cell for the array
+c. LOC(Array[5])=Base(Array[4])+(5-Upper bound), where w is the number of words per memory cell for the array
+d. None of above
+ 
+
+3. Which of the following data structures are indexed structures?
+a. linear arrays
+b. linked lists
+c. both of above
+d. none of above
+ 
+
+4. Which of the following is not the required condition for binary search algorithm?
+a. The list must be sorted
+b. there should be the direct access to the middle element in any sublist
+c. There must be mechanism to delete and/or insert elements in list
+d. none of above
+ 
+
+5. Which of the following is not a limitation of binary search algorithm?
+a. must use a sorted array
+b. requirement of sorted array is expensive when a lot of insertion and deletions are needed
+c. there must be a mechanism to access middle element directly
+d. binary search algorithm is not efficient when the data elements are more than 1000.
+ 
+
+6. Two dimensional arrays are also called
+a. tables arrays
+b. matrix arrays
+c. both of above
+d. none of above
+ 
+
+7. A variable P is called pointer if
+a. P contains the address of an element in DATA.
+b. P points to the address of first element in DATA
+c. P can store only memory addresses
+d. P contain the DATA and the address of DATA 
+ 
+
+8. Which of the following data structure can't store the non-homogeneous data elements?
+a. Arrays
+b. Records
+c. Pointers
+d. None
+ 
+
+9. Which of the following data structure store the homogeneous data elements?
+a. Arrays
+b. Records
+c. Pointers
+d. None
+ 
+
+10. Each data item in a record may be a group item composed of sub-items; those items which are indecomposable are called
+a. elementary items
+b. atoms
+c. scalars
+d. all of above
+ 
+
+11. The difference between linear array and a record is
+a. An array is suitable for homogeneous data but hte data items in a record may have different data type
+b. In a record, there may not be a natural ordering in opposed to linear array.
+c. A record form a hierarchical structure but a lienear array does not
+d. All of above
+ 
+
+12. Which of the following statement is false?
+a. Arrays are dense lists and static data structure 
+b. data elements in linked list need not be stored in adjecent space in memory
+c. pointers store the next data element of a list
+d. linked lists are collection of the nodes that contain information part and next pointer
+ 
+
+13. Binary search algorithm can not be applied to
+a. sorted linked list
+b. sorted binary trees
+c. sorted linear array
+d. pointer array
+ 
+
+14. When new data are to be inserted into a data structure, but there is no available space; this situation is usually called
+a. underflow
+b. overflow
+c. housefull
+d. saturated
+ 
+
+15. The situation when in a linked list START=NULL is
+a. underflow
+b. overflow
+c. housefull
+d. saturated
+ 
+
+16. Which of the following is two way list?
+a. grounded header list
+b. circular header list
+c. linked list with header and trailer nodes
+d. none of above
+ 
+
+17. Which of the following name does not relate to stacks?
+a. FIFO lists
+b. LIFO list
+c. Piles
+d. Push-down lists
+ 
+
+18. The term "push" and "pop" is related to the
+a. array
+b. lists
+c. stacks
+d. all of above
+ 
+
+19. A data structure where elements can be added or removed at either end but not in the middle
+a. Linked lists
+b. Stacks
+c. Queues
+d. Deque
+ 
+
+20. When inorder traversing a tree resulted E A C K F H D B G; the preorder traversal would return
+a. FAEKCDBHG
+b. FAEKCDHGB
+c. EAFKHDCBG
+d. FEAKDCHBG
+ 
+
+
+     Answers 
+1. The memory address of the first element of an array is called
+d. base address
+ 
+
+2. The memory address of fifth element of an array can be calculated by the formula
+a. LOC(Array[5]=Base(Array)+w(5-lower bound), where w is the number of words per memory cell for the array
+ 
+
+3. Which of the following data structures are indexed structures?
+a. linear arrays
+ 
+
+4. Which of the following is not the required condition for binary search algorithm?
+c. There must be mechanism to delete and/or insert elements in list
+ 
+
+5. Which of the following is not a limitation of binary search algorithm?
+d. binary search algorithm is not efficient when the data elements are more than 1000.
+ 
+
+6. Two dimensional arrays are also called
+c. both of above
+ 
+
+7. A variable P is called pointer if
+a. P contains the address of an element in DATA.
+ 
+
+8. Which of the following data structure can't store the non-homogeneous data elements?
+a. Arrays
+ 
+
+9. Which of the following data structure store the non-homogeneous data elements?
+b. Records
+ 
+
+10. Each data item in a record may be a group item composed of sub-items; those items which are indecomposable are called
+d. all of above
+ 
+
+11. The difference between linear array and a record is
+d. All of above
+ 
+
+12. Which of the following statement is false?
+c. pointers store the next data element of a list
+ 
+
+13. Binary search algorithm can not be applied to
+a. sorted linked list
+ 
+
+14. When new data are to be inserted into a data structure, but there is no available space; this situation is usually called
+b. overflow
+ 
+
+15. The situation when in a linked list START=NULL is
+a. underflow
+ 
+
+16. Which of the following is two way list?
+d. none of above
+ 
+
+17. Which of the following name does not relate to stacks?
+a. FIFO lists
+ 
+
+18. The term "push" and "pop" is related to the
+c. stacks
+ 
+
+19. A data structure where elements can be added or removed at either end but not in the middle
+d. Deque
+ 
+
+20. When inorder traversing a tree resulted E A C K F H D B G; the preorder traversal would return
+b. FAEKCDHGB
+ 
+Question 1
+Generally collection of Nodes is called as __________.
+A	Stack
+B	Linked List
+C	Heap
+D	Pointer
+
+Question 2
+A linear collection of data element given by mean of pointer is called ______________.
+A	Linked List
+B	Queue
+C	Stack
+D	Graph
+
+Question 3
+Which of the following is not a type of Linked List ?
+A	Doubly Linked List
+B	Singly Linked List
+C	Circular Linked List
+D	Hybrid Linked List
+
+Question 4
+Linked list is generally considered as an example of _________ type of memory allocation.
+A	Static
+B	Dynamic
+C	Compile Time
+D	None of these
+
+Question 5
+Each Node contain minimum two fields one field called data field to store data. Another field is of type _________.
+A	Pointer to Class
+B	Pointer to an Integer
+C	Pointer to Character
+D	Pointer to Node
+Answer b a d b d
+1
+In Linked list implementation, a node carries information regarding _______.
+A	Link
+B	Data
+C	Data and Link
+	Question 2
+A linked list in which the last node of Linked list points to the first is called a _________.	A
+Doubly Linked List	B
+Circular Linked List	C
+None of these	D
+Singly Linked List
+	Question 3
+A doubly linked list performs traversal in _________.	A
+Any direction	B
+Circular direction	C
+Either direction	
+Question 4	Linked list data structure usage offers considerable saving in
+A	Space utilization
+B	Computational time
+C	Space utilization & computational time.
+	Question 5
+Consider linked list is used to implement the Stack then which of the following node is considered as Top of the Stack ?	A
+Any Node	B
+Last Node	C
+First Node	D
+Middle Node
+	Answers c b c c c
+Answers c b c c c	Answers c b c c c
+Answers c b c c c	Answers c b c c c
+Answers c b c c c

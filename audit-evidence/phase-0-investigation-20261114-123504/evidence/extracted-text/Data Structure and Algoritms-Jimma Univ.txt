@@ -1,0 +1,6315 @@
+
+===== PAGE 1 =====
+1
+JIMMA UNIVERSITY
+COLLEGE OF ENGINEERING AND
+TECHNOLOGY
+DEPARTMENT OF COMPUTER
+SCIENCE
+DATA STRUCTURE AND
+ALGORITHM (COMP331)
+
+===== PAGE 2 =====
+2
+Table of Contents
+Data Structures and Algorithms Analysis ....................................................................................... 4
+1. Introduction to Data Structures and Algorithms Analysis .......................................................... 4
+1.1. Introduction to Data Structures ................................................................................................ 4
+1.1.1. Abstract Data Types .......................................................................................................... 5
+1.1.2. Abstraction ........................................................................................................................ 5
+1.2. Algorithms ............................................................................................................................... 5
+1.2.1. Properties of an algorithm ................................................................................................. 6
+1.2.2. Algorithm Analysis Concepts ........................................................................................... 6
+1.2.3. Complexity Analysis ......................................................................................................... 7
+1.2.3.1. Analysis Rules: .......................................................................................................... 8
+1.2.3.2. Formal Approach to Analysis .................................................................................. 10
+1.3. Measures of Times ................................................................................................................. 13
+1.4. Asymptotic Analysis .............................................................................................................. 13
+1.4.1. The Big-Oh Notation ...................................................................................................... 13
+1.4.1.1. Big-O Theorems....................................................................................................... 15
+1.4.1.2. Properties of the O Notation .................................................................................... 16
+1.4.2. Big-Omega Notation ....................................................................................................... 17
+1.4.3. Theta Notation ................................................................................................................ 17
+1.4.4. Little-o Notation.............................................................................................................. 18
+1.4.5. Little-Omega (
+
+notation) .............................................................................................. 18
+1.5. Relational Properties of the Asymptotic Notations ............................................................... 18
+2. Simple Sorting and Searching Algorithms ............................................................................... 20
+2.1.
+Simple Searching algorithms ............................................................................................. 20
+2.1.1. Linear Search (Sequential Search) Algorithm ................................................................ 21
+2.1.2. Binary Search algorithm ................................................................................................. 22
+2.2. Sorting Algorithms................................................................................................................. 24
+2.2.1. Insertion Sort ................................................................................................................... 25
+2.2.2. Selection Sort .................................................................................................................. 26
+2.2.3. Bubble Sort ..................................................................................................................... 27
+3. Data Structures .......................................................................................................................... 28
+3.1. Structures ........................................................................................................................... 28
+3.1.1. Accessing Members of Structure Variables ................................................................ 29
+3.1.2. Self-Referential Structures .......................................................................................... 29
+3.2. Singly Linked Lists ............................................................................................................ 29
+3.2.1. Creating Linked Lists in C++ ..................................................................................... 30
+3.2.2. Defining the data structure for a linked list ................................................................ 30
+3.2.3. Adding a node to the list ............................................................................................. 31
+3.2.4. Displaying the list of nodes......................................................................................... 33
+3.2.5. Navigating through the list .......................................................................................... 33
+3.2.6. Deleting a node from the list ....................................................................................... 36
+3.3. Doubly Linked Lists .............................................................................................................. 42
+3.3.1. Creating Doubly Linked Lists ......................................................................................... 42
+3.3.2. Adding a Node to a Doubly Linked List ......................................................................... 43
+3.3.3. Deleting a Node From a Doubly Linked List ................................................................. 44
+
+===== PAGE 3 =====
+3
+4. Stacks ........................................................................................................................................ 44
+4.1. Array Implementation of Stacks: The PUSH operation .................................................... 46
+4.2. Array Implementation of Stacks: the POP operation ......................................................... 47
+4.3. Linked List Implementation of Stacks: the PUSH operation............................................. 48
+4.4. Linked List Implementation of Stacks: the POP Operation............................................... 49
+4.5. Applications of Stacks ....................................................................................................... 52
+4.5.1. Evaluation of Algebraic Expressions .......................................................................... 52
+4.5.2. Converting infix to postfix (rpn) conversion .............................................................. 57
+4.5.3. Function Calls ............................................................................................................. 60
+5.Queue ......................................................................................................................................... 61
+5.1. Simple array implementation of enqueue and dequeue operations ................................... 61
+5.2. Circular array implementation of enqueue and dequeue operations .................................. 64
+5.3. Linked list implementation of enqueue and dequeue operations ....................................... 66
+5.4. Deque (pronounced as Deck) ............................................................................................. 66
+5.5. Priority Queue ................................................................................................................... 67
+5.5.1. Demerging Queues...................................................................................................... 67
+5.5.2. Merging Queues .......................................................................................................... 68
+5.6. Application of Queues ....................................................................................................... 69
+6. Trees .......................................................................................................................................... 69
+6.1. Tree Terminologies ............................................................................................................ 70
+6.2. Data Structure of a Binary Tree ......................................................................................... 72
+6.3. Operations on Binary Search Tree ..................................................................................... 73
+6.3.1. Insertion ...................................................................................................................... 73
+6.3.2. Traversing Binary trees ............................................................................................... 75
+6.3.3. Application of binary tree traversal ............................................................................ 83
+6.3.4. Searching..................................................................................................................... 87
+6.3.5. Deletion ....................................................................................................................... 88
+7.
+Graph..................................................................................................................................... 96
+8.1. Shell Sort .......................................................................................................................... 111
+7.2. Quick Sort ........................................................................................................................ 112
+7.3. Heap Sort ......................................................................................................................... 114
+7.4. Merge Sort ....................................................................................................................... 117
+
+===== PAGE 4 =====
+4
+Data Structures and Algorithms Analysis
+1. Introduction to Data Structures and Algorithms Analysis
+A program is written in order to solve a problem. A solution to a problem actually consists of
+two things:
+
+A way to organize the data
+
+Sequence of steps to solve the problem
+The way data are organized in a computers memory is said to be Data Structure and the sequence
+of computational steps to solve a problem is said to be an algorithm. Therefore, a program is
+nothing but data structures plus algorithms.
+1.1. Introduction to Data Structures
+Given a problem, the first step to solve the problem is obtaining ones own abstract view, or
+model , of the problem. This process of modeling is called abstraction.
+The model defines an abstract view to the problem. This implies that the model focuses only on
+problem related stuff and that a programmer tries to define the properties of the problem.
+These properties include
+
+The data which are affected and
+
+The operations that are involved in the problem.
+With abstraction you create a well-defined entity that can be properly handled. These entities
+define the data structure of the program.
+
+===== PAGE 5 =====
+5
+An entity with the properties just described is called an abstract data type (ADT).
+1.1.1. Abstract Data Types
+An ADT consists of an abstract data structure and operations. Put in other terms, an ADT is an
+abstraction of a data structure.
+The ADT specifies:
+1.
+What can be stored in the Abstract Data Type
+2.
+What operations can be done on/by the Abstract Data Type.
+For example, if we are going to model employees of an organization:
+
+This ADT stores employees with their relevant attributes and discarding irrelevant
+attributes.
+
+This ADT supports hiring, firing, retiring, … operations.
+A data structure is a language construct that the programmer has defined in order to implement
+an abstract data type.
+There are lots of formalized and standard Abstract data types such as Stacks, Queues, Trees, etc.
+Do all characteristics need to be modeled?
+Not at all
+
+It depends on the scope of the model
+
+It depends on the reason for developing the model
+1.1.2. Abstraction
+Abstraction is a process of classifying characteristics as relevant and irrelevant for the particular
+purpose at hand and ignoring the irrelevant ones.
+Applying abstraction correctly is the essence of successful programming
+How do data structures model the world or some part of the world?
+
+The value held by a data structure represents some specific characteristic of the world
+
+The characteristic being modeled restricts the possible values held by a data structure
+
+The characteristic being modeled restricts the possible operations to be performed on the
+data structure.
+Note: Notice the relation between characteristic, value, and data structures
+Where are algorithms, then?
+1.2. Algorithms
+An algorithm is a well-defined computational procedure that takes some value or a set of values
+as input and produces some value or a set of values as output. Data structures model the static
+part of the world. They are unchanging while the world is changing. In order to model the
+
+===== PAGE 6 =====
+6
+dynamic part of the world we need to work with algorithms. Algorithms are the dynamic part of
+a program‘s world model.
+An algorithm transforms data structures from one state to another state in two ways:
+
+An algorithm may change the value held by a data structure
+
+An algorithm may change the data structure itself
+The quality of a data structure is related to its ability to successfully model the characteristics of
+the world. Similarly, the quality of an algorithm is related to its ability to successfully simulate
+the changes in the world.
+However, independent of any particular world model, the quality of data structure and algorithms
+is determined by their ability to work together well. Generally speaking, correct data structures
+lead to simple and efficient algorithms and correct algorithms lead to accurate and efficient data
+structures.
+1.2.1. Properties of an algorithm
+•
+Finiteness : Algorithm must complete after a finite number of steps.
+•
+Definiteness :
+Each
+step
+must
+be
+clearly
+defined,
+having
+one
+and
+only
+one
+interpretation. At each point in computation, one should be able to tell exactly what
+happens next.
+•
+Sequence : Each step must have a unique defined preceding and succeeding step. The
+first step (start step) and last step (halt step) must be clearly noted.
+•
+Feasibility : It must be possible to perform each instruction.
+•
+Correctness : It must compute correct answer for all possible legal inputs.
+•
+Language Independence : It must not depend on any one programming language.
+•
+Completeness : It must solve the problem completely.
+•
+Effectiveness : It must be possible to perform each step exactly and in a finite amount
+of time.
+•
+Efficiency : It must solve with the least amount of computational resources such as
+time and space.
+•
+Generality : Algorithm should be valid on all possible inputs.
+•
+Input / Output : There must be a specified number of input values, and one or more
+result values.
+1.2.2. Algorithm Analysis Concepts
+
+===== PAGE 7 =====
+7
+Algorithm analysis refers to the process of determining the amount of computing time and
+storage space required by different algorithms. In other words, it‘s a process of predicting the
+resource requirement of algorithms in a given environment.
+In order to solve a problem, there are many possible algorithms. One has to be able to choose the
+best algorithm for the problem at hand using some scientific method. To classify some data
+structures and algorithms as good, we need precise ways of analyzing them in terms of resource
+requirement. The main resources are:
+
+Running Time
+
+Memory Usage
+
+Communication Bandwidth
+Running time is usually treated as the most important since computational time is the most
+precious resource in most problem domains.
+There are two approaches to measure the efficiency of algorithms:
+•
+Empirical:
+Programming
+competing
+algorithms
+and
+trying
+them
+on
+different
+instances.
+•
+Theoretical:
+Determining
+the
+quantity
+of
+resources
+required
+mathematically
+(Execution time, memory space, etc.) needed by each algorithm.
+However, it is difficult to use actual clock-time as a consistent measure of an algorithm‘s
+efficiency, because clock-time can vary based on many things. For example,
+
+Specific processor speed
+
+Current processor load
+
+Specific data for a particular run of the program
+o
+Input Size
+o
+Input Properties
+
+Operating Environment
+Accordingly, we can analyze an algorithm according to the number of operations required, rather
+than according to an absolute amount of time involved. This can show how an algorithm‘s
+efficiency changes according to the size of the input.
+1.2.3. Complexity Analysis
+Complexity Analysis is the systematic study of the cost of computation, measured either in time
+units or in operations performed, or in the amount of storage space required.
+The goal is to have a meaningful measure that permits comparison of algorithms independent of
+operating platform.
+
+===== PAGE 8 =====
+8
+There are two things to consider:
+
+Time Complexity : Determine the approximate number of operations required to solve a
+problem of size n.
+
+Space Complexity: Determine the approximate memory required to solve a problem of
+size n.
+Complexity analysis involves two distinct phases:
+
+Algorithm Analysis : Analysis of the algorithm or data structure to produce a function T
+(n) that describes the algorithm in terms of the operations performed in order to measure
+the complexity of the algorithm.
+
+Order of Magnitude Analysis : Analysis of the function T (n) to determine the general
+complexity category to which it belongs.
+There is no generally accepted set of rules for algorithm analysis. However, an exact count of
+operations is commonly used.
+1.2.3.1. Analysis Rules:
+1. We assume an arbitrary time unit.
+2.
+Execution of one of the following operations takes time 1:
+
+Assignment Operation
+
+Single Input/Output Operation
+
+Single Boolean Operations
+
+Single Arithmetic Operations
+
+Function Return
+3.
+Running time of a selection statement (if, switch) is the time for the condition evaluation
++ the maximum of the running times for the individual clauses in the selection.
+4.
+Loops: Running time for a loop is equal to the running time for the statements inside the
+loop * number of iterations.
+The total running time of a statement inside a group of nested loops is the running time of
+the statements multiplied by the product of the sizes of all the loops.
+For nested loops, analyze inside out.
+
+Always assume that the loop executes the maximum number of iterations possible.
+5.
+Running time of a function call is 1 for setup + the time for any parameter calculations +
+the time required for the execution of the function body.
+Examples:
+1. int count(){
+int k=0;
+cout<< ―Enter an integer‖;
+cin>>n;
+for (i=0;i<n;i++)
+k=k+1;
+return 0;}
+Time Units to Compute
+-------------------------------------------------
+1 for the assignment statement: int k=0
+1 for the output statement.
+
+===== PAGE 9 =====
+9
+1 for the input statement.
+In the for loop:
+1 assignment, n+1 tests, and n increments.
+n loops of 2 units for an assignment, and an addition.
+1 for the return statement.
+-------------------------------------------------------------------
+T (n)= 1+1+1+(1+n+1+n)+2n+1 = 4n+6 = O(n)
+2. int total(int n)
+{
+int sum=0;
+for (int i=1;i<=n;i++)
+sum=sum+1;
+return sum;
+}
+Time Units to Compute
+-------------------------------------------------
+1 for the assignment statement: int sum=0
+In the for loop:
+1 assignment, n+1 tests, and n increments.
+n loops of 2 units for an assignment, and an addition.
+1 for the return statement.
+-------------------------------------------------------------------
+T (n)= 1+ (1+n+1+n)+2n+1 = 4n+4 = O(n)
+3. void func()
+{
+int x=0;
+int i=0;
+int j=1;
+cout<< ―Enter an Integer value‖;
+cin>>n;
+while (i<n){
+x++;
+i++;
+}
+while (j<n)
+{
+j++;
+}
+}
+Time Units to Compute
+-------------------------------------------------
+1 for the first assignment statement: x=0;
+1 for the second assignment statement: i=0;
+
+===== PAGE 10 =====
+10
+1 for the third assignment statement: j=1;
+1 for the output statement.
+1 for the input statement.
+In the first while loop:
+n+1 tests
+n loops of 2 units for the two increment (addition) operations
+In the second while loop:
+n tests
+n-1 increments
+-------------------------------------------------------------------
+T (n)= 1+1+1+1+1+n+1+2n+n+n-1 = 5n+5 = O(n)
+4. int sum (int n)
+{
+int partial_sum = 0;
+for (int i = 1; i <= n; i++)
+partial_sum = partial_sum +(i * i * i);
+return partial_sum;
+}
+Time Units to Compute
+-------------------------------------------------
+1 for the assignment.
+1 assignment, n+1 tests, and n increments.
+n loops of 4 units for an assignment, an addition, and two multiplications.
+1 for the return statement.
+-------------------------------------------------------------------
+T (n)= 1+(1+n+1+n)+4n+1 = 6n+4 = O(n)
+1.2.3.2. Formal Approach to Analysis
+In the above examples we have seen that analysis is a bit complex. However, it can be simplified
+by using some formal approach in which case we can ignore initializations, loop control, and
+book keeping.
+for Loops: Formally
+•
+In general, a for loop translates to a summation. The index and bounds of the summation
+are the same as the index and bounds of the for loop.
+for (int i = 1; i <= N; i++) {
+sum = sum+i;
+}
+N
+N
+i
+
+
+
+1
+1
+
+===== PAGE 11 =====
+11
+•
+Suppose we count the number of additions that are done. There is 1 addition per iteration of
+the loop, hence N additions in total.
+Nested Loops: Formally
+•
+Nested for loops translate into multiple summations, one for each for loop.
+for (int i = 1; i <= N; i++) {
+for (int j = 1; j <= M; j++) {
+sum = sum+i+j;
+}
+}
+MN
+M
+N
+i
+N
+i
+M
+j
+2
+2
+2
+1
+1
+1
+
+
+
+
+
+
+
+•
+Again, count the number of additions. The outer summation is for the outer for loop.
+Consecutive Statements: Formally
+•
+Add the running times of the separate blocks of your code
+for (int i = 1; i <= N; i++) {
+sum = sum+i;
+}
+for (int i = 1; i <= N; i++) {
+for (int j = 1; j <= N; j++) {
+sum = sum+i+j;
+}
+}
+2
+1
+1
+1
+2
+2
+1
+N
+N
+N
+i
+N
+j
+N
+i
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Conditionals: Formally
+•
+If (test) s1 else s2: Compute the maximum of the running time for s1 and s2.
+if (test == 1) {
+for (int i = 1; i <= N; i++) {
+sum = sum+i;
+}}
+else for (int i = 1; i <= N; i++) {
+for (int j = 1; j <= N; j++) {
+sum = sum+i+j;
+}}
+
+
+2
+2
+1
+1
+1
+2
+2
+,
+max
+2
+,
+1
+max
+N
+N
+N
+N
+i
+N
+j
+N
+i
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Example:
+Suppose we have hardware capable of executing 10
+6
+instructions per second. How long would it
+take to execute an algorithm whose complexity function was:
+T (n) = 2n
+2
+on an input size of n=10
+8
+?
+
+===== PAGE 12 =====
+12
+The total number of operations to be performed would be T (10
+8
+):
+T(10
+8
+) = 2*(10
+8
+)
+2
+=2*10
+16
+The required number of seconds
+required would be given by
+T(10
+8
+)/10
+6
+so:
+Running time =2*10
+16
+/10
+6
+= 2*10
+10
+The number of seconds per day is 86,400 so this is about 231,480 days (634 years).
+Exercises
+Determine the run time equation and complexity of each of the following code segments.
+1. for (i=0;i<n;i++)
+for (j=0;j<n; j++)
+sum=sum+i+j;
+2. for(int i=1; i<=n; i++)
+for (int j=1; j<=i; j++)
+sum++;
+What is the value of the sum if n=20?
+3. int k=0;
+for (int i=0; i<n; i++)
+for (int j=i; j<n; j++)
+k++;
+What is the value of k when n is equal to 20?
+4. int k=0;
+for (int i=1; i<n; i*=2)
+for(int j=1; j<n; j++)
+k++;
+What is the value of k when n is equal to 20?
+5.
+int x=0;
+for(int i=1;i<n;i=i+5)
+x++;
+What is the value of x when n=25?
+6.
+int x=0;
+for(int k=n;k>=n/3;k=k-5)
+x++;
+What is the value of x when n=25?
+7.
+int x=0;
+for (int i=1; i<n;i=i+5)
+for (int k=n;k>=n/3;k=k-5)
+
+===== PAGE 13 =====
+13
+x++;
+What is the value of x when n=25?
+8.
+int x=0;
+for(int i=1;i<n;i=i+5)
+for(int j=0;j<i;j++)
+for(int k=n;k>=n/2;k=k-3)
+x++;
+What is the correct big-Oh Notation for the above code segment?
+1.3. Measures of Times
+In order to determine the running time of an algorithm it is possible to define three functions
+T
+best
+(n) , T
+avg
+(n) and T
+worst
+(n) as the best, the average and the worst case running time of the
+algorithm respectively.
+Average Case (T
+avg
+): The amount of time the algorithm takes on an "average" set of inputs.
+Worst Case (T
+worst
+): The amount of time the algorithm takes on the worst possible set of inputs.
+Best Case (T
+best
+): The amount of time the algorithm takes on the smallest possible set of inputs.
+We are interested in the worst-case time, since it provides a bound for all input – this is called the
+―Big-Oh‖ estimate.
+1.4. Asymptotic Analysis
+Asymptotic analysis is concerned with how the running time of an algorithm increases with the
+size of the input in the limit, as the size of the input increases without bound.
+There are five notations used to describe a running time function. These are:
+
+Big-Oh Notation (O)
+
+Big-Omega Notation (
+
+)
+
+Theta Notation (
+
+)
+
+Little-o Notation (o)
+
+Little-Omega Notation (
+
+)
+1.4.1. The Big-Oh Notation
+Big-Oh notation is a way of comparing algorithms and is used for computing the complexity of
+algorithms; i.e., the amount of time that it takes for computer program to run . It‘s only
+concerned with what happens for very a large value of n. Therefore only the largest term in the
+
+===== PAGE 14 =====
+14
+expression (function) is needed. For example, if the number of operations in an algorithm is n
+2
+–
+n , n is insignificant compared to n
+2
+for large values of n. Hence the n term is ignored. Of course,
+for small values of n, it may be important. However, Big-Oh is mainly concerned with large
+values of n .
+Formal Definition : f (n)= O (g (n)) if there exist c, k
+∊
+ℛ
++
+such that for all n
+≥
+k, f (n)
+≤
+c.g (n).
+Examples: The following points are facts that you can use for Big-Oh problems:
+
+1<=n
+for all n>=1
+
+n<=n
+2
+for all n>=1
+
+2
+n
+<=n! for all n>=4
+
+log
+2
+n<=n for all n>=2
+
+n<=nlog
+2
+n for all n>=2
+1. f(n)=10n+5 and g(n)=n. Show that f(n) is O(g(n)).
+To show that f(n) is O(g(n)) we must show that constants c and k such that
+f(n) <=c.g(n) for all n>=k
+Or 10n+5<=c.n for all n>=k
+Try c=15. Then we need to show that 10n+5<=15n
+Solving for n we get: 5<5n or 1<=n.
+So f(n) =10n+5 <=15.g(n) for all n>=1.
+(c=15,k=1).
+2. f(n) = 3n
+2
++4n+1. Show that f(n)=O(n
+2
+).
+4n <=4n
+2
+for all n>=1 and 1<=n
+2
+for all n>=1
+3n
+2
++4n+1<=3n
+2
++4n
+2
++n
+2
+for all n>=1
+<=8n
+2
+for all n>=1
+So we have shown that f(n)<=8n
+2
+for all n>=1
+Therefore, f (n) is O(n
+2
+) (c=8,k=1)
+Typical Orders
+
+===== PAGE 15 =====
+15
+Here is a table of some typical cases. This uses logarithms to base 2, but these are simply
+proportional to logarithms in other base.
+N
+O(1)
+O(log n)
+O(n)
+O(n log n)
+O(n
+2
+)
+O(n
+3
+)
+1
+1
+1
+1
+1
+1
+1
+2
+1
+1
+2
+2
+4
+8
+4
+1
+2
+4
+8
+16
+64
+8
+1
+3
+8
+24
+64
+512
+16
+1
+4
+16
+64
+256
+4,096
+1024
+1
+10
+1,024
+10,240
+1,048,576
+1,073,741,824
+Demonstrating that a function f(n) is big-O of a function g(n) requires that we find specific
+constants c and k for which the inequality holds (and show that the inequality does in fact hold).
+Big-O expresses an upper bound on the growth rate of a function, for sufficiently large values of
+n.
+An upper bound is the best algorithmic solution that has been found for a problem.
+― What is the best that we know we can do?‖
+Exercise:
+f(n) = (3/2)n
+2
++(5/2)n-3
+Show that f(n)= O(n
+2
+)
+In simple words, f (n) =O(g(n)) means that the growth rate of f(n) is less than or equal to g(n).
+1.4.1.1. Big-O Theorems
+For all the following theorems, assume that f(n) is a function of n and that k is an arbitrary
+constant.
+Theorem 1 : k is O(1)
+Theorem 2 : A polynomial is O(the term containing the highest power of n).
+Polynomial‘s growth rate is determined by the leading term
+
+If f(n) is a polynomial of degree d , then f(n) is O(n
+d
+)
+In general, f(n) is big-O of the dominant term of f(n).
+
+===== PAGE 16 =====
+16
+Theorem 3 : k*f(n) is O(f(n))
+Constant factors may be ignored
+E.g. f(n) =7n
+4
++3n
+2
++5n+1000 is O(n
+4
+)
+Theorem 4(Transitivity) : If f(n) is O(g(n))and g(n) is O(h(n)), then f(n) is O(h(n)).
+Theorem 5 : For any base b, log
+b
+(n) is O(logn).
+All logarithms grow at the same rate
+log
+b
+n is O( log
+d
+n) b, d > 1
+Theorem 6: Each of the following functions is big-O of its successors:
+k
+log
+b
+n
+n
+nlog
+b
+n
+n
+2
+n to higher powers
+2
+n
+3
+n
+larger constants to the nth power
+n!
+n
+n
+f(n)= 3nlog
+b
+n + 4 log
+b
+n+2 is O(nlog
+b
+n) and )(n
+2
+) and O(2
+n
+)
+1.4.1.2. Properties of the O Notation
+Higher powers grow faster
+•
+n
+r
+O( n
+s
+) if 0 <= r <= s
+Fastest growing term dominates a sum
+•
+If f(n) is O(g(n)), then f(n) + g(n) is O(g)
+E.g 5n
+4
++ 6n
+3
+is O (n
+4
+)
+n
+
+b > 1 and k >= 0
+E.g. n
+20
+is O( 1.05
+n
+)
+
+===== PAGE 17 =====
+17
+Logarithms grow more slowly than powers
+•
+log
+b
+
+E.g. log
+2
+n is O( n
+0.5
+)
+1.4.2. Big-Omega Notation
+Just as O-notation provides an asymptotic upper bound on a function,
+
+notation provides an
+asymptotic lower bound.
+Formal Definition: A function f(n) is
+
+( g (n)) if there exist constants c and k
+∊
+ℛ
++ such that
+f(n) >=c. g(n) for all n>=k.
+f(n)=
+
+( g (n)) means that f(n) is greater than or equal to some constant multiple of g(n) for all
+values of n greater than or equal to some k.
+Example : If f(n) =n
+2,
+then f(n)=
+
+( n)
+In simple terms, f(n)=
+
+( g (n)) means that the growth rate of f(n) is greater that or equal to g(n).
+1.4.3. Theta Notation
+A function f (n) belongs to the set of
+
+(g(n)) if there exist positive constants c1 and c2 such that
+it can be sandwiched between c1.g(n) and c2.g(n), for sufficiently large values of n.
+Formal Definition: A function f (n) is
+
+(g(n)) if it is both O( g(n) ) and
+
+( g(n) ) . In other
+words, there exist constants c1, c2, and k >0 such that c1.g (n)<=f(n)<=c2. g(n) for all n >= k
+If f(n)=
+
+(g(n)), then g(n) is an asymptotically tight bound for f(n).
+In simple terms, f(n)=
+
+(g(n)) means that f(n) and g(n) have the same rate of growth.
+Example:
+1. If f(n)=2n+1, then f(n) =
+
+(n)
+2. f(n) =2n
+2
+then
+f(n)=O(n
+4
+)
+f(n)=O(n
+3
+)
+f(n)=O(n
+2
+)
+
+===== PAGE 18 =====
+18
+All these are technically correct, but the last expression is the best and tight one. Since 2n
+2
+and n
+2
+have the same growth rate, it can be written as f(n)=
+
+(n
+2
+).
+1.4.4. Little-o Notation
+Big-Oh notation may or may not be asymptotically tight, for example:
+2n
+2
+= O(n
+2
+)
+=O(n
+3
+)
+f(n)=o(g(n)) means for all c>0 there exists some k>0 such that f(n)<c.g(n) for all n>=k.
+Informally, f(n)=o(g(n)) means f(n) becomes insignificant relative to g(n) as n approaches
+infinity.
+Example : f(n)=3n+4 is o(n
+2
+)
+In simple terms, f(n) has less growth rate compared to g(n).
+g(n)= 2n
+2
+g(n) =o(n
+3
+), O(n
+2
+), g(n) is not o(n
+2
+).
+1.4.5. Little-Omega (
+
+notation)
+Little-omega (
+
+) notation is to big-omega (
+
+) notation as little-o notation is to Big-Oh notation.
+We use
+
+notation to denote a lower bound that is not asymptotically tight.
+Formal Definition : f(n)=
+
+(g(n)) if there exists a constant no>0 such that 0<= c. g(n)<f(n) for
+all n>=k.
+Example : 2n
+2
+=
+
+(n) but it‘s not
+
+(n
+2
+).
+1.5. Relational Properties of the Asymptotic Notations
+Transitivity
+•
+if f(n)=
+
+(g(n)) and g(n)=
+
+(h(n)) then f(n)=
+
+(h(n)),
+•
+if f(n)=O(g(n)) and g(n)= O(h(n)) then f(n)=O(h(n)),
+•
+if f(n)=
+
+(g(n)) and g(n)=
+
+(h(n)) then f(n)=
+
+(h(n)),
+•
+if f(n)=o(g(n)) and g(n)= o(h(n)) then f(n)=o(h(n)), and
+•
+if f(n)=
+
+(g(n)) and g(n)=
+
+(h(n)) then f(n)=
+
+(h(n)).
+Symmetry
+•
+f(n)=
+
+(g(n)) if and only if g(n)=
+
+(f(n)).
+
+===== PAGE 19 =====
+19
+Transpose symmetry
+•
+f(n)=O(g(n)) if and only if g(n)=
+
+(f(n)),
+•
+f(n)=o(g(n)) if and only if g(n)=
+
+(f(n)).
+Reflexivity
+•
+f(n)=
+
+(f(n)),
+•
+f(n)=O(f(n)),
+•
+f(n)=
+
+(f(n)).
+
+===== PAGE 20 =====
+20
+2. Simple Sorting and Searching Algorithms
+Objectives
+After completing this chapter the students should be able to:
+
+Design and implement the following simple sorting algorithms:
+
+Bubble sort
+
+Insertion sort
+
+Selection sort
+
+Compare the efficiency of the sorting algorithms in terms of Big-O
+complexity and space requirements to sort small number of elements.
+
+Discus the efficiency of the following simple searching algorithms:
+
+Sequential or linear search
+
+Binary search
+2.1.
+Simple Searching algorithms
+In this section you will learn:
+
+To search for a given value in an array using binary search and sequential search
+algorithms.
+
+To be able to determine the efficiency of linear search for an unsorted list and for sorted
+list.
+
+Determine the efficiency of binary search algorithm.
+Often a programmer will be working with large amounts of data stored in arrays. Looking up a
+phone number, accessing a Web site and checking the definition of a word in a dictionary all
+involve searching large amounts of data. It may be necessary to determine whether an array
+contains a value that matches a certain key value. The process of finding a particular element of
+an array is called searching. Let A be a collection of data elements, i.e., A is a linear array of
+having say n elements. If we want to find the presence of an element ―data‖ in A, then we have
+to search for it. The search is successful if data does appear in A and unsuccessful if otherwise.
+There are several types of searching techniques; one has some advantage(s) over other.
+Following are two simple searching techniques:
+1.
+Linear or Sequential Search
+2.
+Binary Search
+There are, however, a number of things that differentiate search algorithms from one another.
+The major difference is the amount of effort they require to complete the search. One way to
+
+===== PAGE 21 =====
+21
+describe this effort is with Big-O notation. For searching and sorting algorithms, this is
+particularly dependent on the number of data elements.
+2.1.1. Linear Search (Sequential Search) Algorithm
+In linear search, each element of an array is read one by one sequentially and it is compared with
+the search key. Because the array is not in any particular order, it is just as likely that the value
+will be found in the first element as the last. On average, therefore, a program must compare the
+search key with half the elements of the array. To determine that a value is not in the array, the
+program must compare the search key to every element in the array. The linear searching method
+works well for small arrays and is acceptable for unsorted arrays. Beginning with the first
+element in the list, we search for the desired element by examining each subsequent item‘s key
+until either the search is successful or the list is exhausted.
+ALGORITHM FOR LINEAR SEARCH
+Let A be an array of having n elements, A[0],A[1],A[2], ...... A[n-1]. ― item ‖ is the element to be
+searched. Then this algorithm will find the location ―loc‖ of item in A. Set loc = – 1, if the search
+is unsuccessful.
+1.
+Input an array A of n elements and ―item‖ to be searched and initialize loc = – 1.
+2.
+Initialise i = 0; and repeat through step 3 if (i < n) by incrementing i by one.
+3.
+If (item = A[i])
+a)
+loc = i
+b)
+GOTO step 4
+4.
+If (loc >= 0)
+a)
+Display ―item is found and searching is successful‖
+5.
+Else
+1.
+Display ―item is not found and searching is unsuccessful‖
+6.
+Exit
+Time is proportional to the size of input ( n) and we call this time complexity O(n) .
+Example Implementation:
+int Linear_Search(int list[], int key)
+{
+int index=0;
+int found=0;
+do{
+if(key==list[index])
+found=1;
+else
+index++;
+}while(found==0&&index<n);
+if(found==0)
+
+===== PAGE 22 =====
+22
+index=-1;
+return index;
+}
+Efficiency of Linear Search
+Suppose an algorithm simply tests whether the first element of a array is equal to the second
+element of the array. If the array has 10 elements, this algorithm requires one comparison. If the
+array has 1000 elements, the algorithm still requires one comparison. In fact, the algorithm is
+completely independent of the number of elements in the array. This algorithm is said to have a
+constant runtime, which is represented in Big O notation as O(1). An algorithm that is O(1) does
+not necessarily require only one comparison. O(1) just means that the number of comparisons is
+constant. It does not grow as the size of the array increases. An algorithm that tests whether the
+first element of a array is equal to any of the next three elements will always require three
+comparisons, but in Big O notation it is considered O(1). O(1) is often pronounced "on the order
+of 1" or more simply " order 1 ."
+The linear search algorithm runs in O(n) time. The worst case in this algorithm is that every
+element must be checked to determine whether the search key exists in the array. If the size of
+the array is doubled, the number of comparisons that the algorithm must perform is also doubled.
+Note that linear search can provide outstanding performance if the element matching the search
+key happens to be at or near the front of the array. But we seek algorithms that perform well, on
+average, across all searches, including those where the element matching the search key is near
+the end of the array.
+Linear search is the easiest search algorithm to implement, but it can be slow compared to other
+search algorithms. If a program needs to perform many searches on large arrays, it may be better
+to implement a different, more efficient algorithm, such as the binary search which we present in
+the next section.
+2.1.2. Binary Search algorithm
+Binary search is an extremely efficient algorithm when it is compared to linear search. Binary
+search technique searches ―item‖ in minimum possible comparisons. Suppose the given array is a
+sorted one, otherwise first we have to sort the array elements. Then apply the following
+conditions to search a ―item‖.
+1.
+Find the middle element of the array (i.e., n/2 is the middle element if the array or the
+sub-array contains n elements).
+2.
+Compare the middle element with the data to be searched, and then there are following
+three cases.
+a)
+If it is a desired element, then search is successful.
+b)
+If it is less than desired data, then search only the first half of the array, i.e. the
+elements which come to the left side of the middle element.
+c)
+If it is greater than the desired data, then search only the second half of the array, i.e.,
+the elements which come to the right side of the middle element.
+
+===== PAGE 23 =====
+23
+Repeat the same step until an element is found or exhaust the search area
+.
+As an example, consider how you might go about finding a word in your dictionary book, and
+you can get an idea of a faster way to search. Let‗s look for the word ―Darksome‖. We open the
+dictionary book to the middle and see that the names there begin with M. M is larger than D, so
+we search the first half of the dictionary book, the section that contains A to M. We turn to the
+middle of the first half and see that the names there begin with G. G is larger than D, so we
+search the first half of this section, from A to G. We turn to the middle page of this section, and
+find that the names there begin with C. C is smaller than D, so we search the second half of this
+section—that is, from D to G—and so on, until we reach the single page that contains
+―Darksome‖.
+ALGORITHM FOR BINARY SEARCH
+Let A be an array of n elements A[0],A[1],A[2],...... A[n-1]. ―item‖ is an element to be searched.
+―mid‖ denotes the middle location of a segment (or array or sub-array) of the element of A. left
+and right is the left and right bound of the array which is under consideration.
+The computational time for this algorithm is proportional to log
+2
+n . Therefore the time
+complexity is O ( log n)
+Example Implementation:
+int Binary_Search(int list[],int k)
+{
+int left=0;
+int right=n-1;
+int found=0;
+do{
+mid=(left+right)/2;
+if(key==list[mid])
+found=1;
+else{
+if(key<list[mid])
+right=mid-1;
+else
+left=mid+1;
+}
+}while(found==0&&left<right);
+if(found==0)
+index=-1;
+else
+index=mid;
+return index;
+}
+
+===== PAGE 24 =====
+24
+Notice the differences between binary search times and linear search times. For very small
+numbers of items, the difference isn‘t dramatic. Searching 10 items would take an average of
+five comparisons with a linear search (N/2), and a maximum of four comparisons with a binary
+search. But the more items there are, he bigger the difference. With 100 items, there are 50
+comparisons in a linear search, but only seven in a binary search. For 1,000 items, the numbers
+are 500 versus 10. We can conclude that for all but very small arrays, the binary search is greatly
+superior.
+2.2. Sorting Algorithms
+Sorting is one of the most important operations performed by computers. Sorting is a process of
+reordering a list of items in either increasing or decreasing order. The following are simple
+sorting algorithms used to sort small-sized lists.
+•
+Insertion Sort
+•
+Selection Sort
+•
+Bubble Sort
+
+===== PAGE 25 =====
+25
+2.2.1. Insertion Sort
+The insertion sort works just like its name suggests - it inserts each item into its proper place in
+the final list. The simplest implementation of this requires two list structures - the source list and
+the list into which sorted items are inserted. To save memory, most implementations use an in-
+place sort that works by moving the current item past the already sorted items and repeatedly
+swapping it with the preceding item until it is in place.
+It's the most instinctive type of sorting algorithm. The approach is the same approach that you
+use for sorting a set of cards in your hand. While playing cards, you pick up a card, start at the
+beginning of your hand and find the place to insert the new card, insert it and move all the others
+up one place.
+Basic Idea:
+Find the location for an element and move all others up, and insert the element.
+The process involved in insertion sort is as follows:
+1.
+The left most value can be said to be sorted relative to itself. Thus, we don‘t need to do
+anything.
+2.
+Check to see if the second value is smaller than the first one. If it is, swap these two
+values. The first two values are now relatively sorted.
+3.
+Next, we need to insert the third value in to the relatively sorted portion so that after
+insertion, the portion will still be relatively sorted.
+4.
+Remove the third value first. Slide the second value to make room for insertion. Insert the
+value in the appropriate position.
+5.
+Now the first three are relatively sorted.
+6.
+Do the same for the remaining items in the list.
+Implementation
+void insertion_sort(int list[]){
+int temp;
+for(int i=1;i<n;i++){
+temp=list[i];
+for(int j=i; j>0 && temp<list[j-1];j--)
+{ // work backwards through the array finding where temp should go
+list[j]=list[j-1];
+list[j-1]=temp;
+}//end of inner loop
+}//end of outer loop
+}//end of insertion_sort
+
+===== PAGE 26 =====
+26
+Analysis
+How many comparisons?
+1+2+3+…+(n-1)= O(n
+2
+)
+How many swaps?
+1+2+3+…+(n-1)= O(n
+2
+)
+How much space?
+In-place algorithm
+2.2.2. Selection Sort
+Basic Idea:
+
+Loop through the array from i=0 to n-1.
+
+Select the smallest element in the array from i to n
+
+Swap this value with value at position i.
+Implementation:
+void selection_sort(int list[])
+{
+int i,j, smallest;
+for(i=0;i<n;i++){
+smallest=i;
+for(j=i+1;j<n;j++){
+if(list[j]<list[smallest])
+smallest=j;
+}//end of inner loop
+temp=list[smallest];
+list[smallest]=list[i];
+list[i]=temp;
+} //end of outer loop
+}//end of selection_sort
+
+===== PAGE 27 =====
+27
+Analysis
+How many comparisons?
+(n-1)+(n-2)+…+1= O(n
+2
+)
+How many swaps?
+n=O(n)
+How much space?
+In-place algorithm
+2.2.3. Bubble Sort
+Bubble sort is the simplest algorithm to implement and the slowest algorithm on very large
+inputs.
+Basic Idea:
+
+Loop through array from i=0 to n and swap adjacent elements if they are out of order.
+Implementation:
+void bubble_sort(list[])
+{
+int i,j,temp;
+for(i=0;i<n; i++){
+for(j=n-1;j>i; j--){
+if(list[j]<list[j-1]){
+temp=list[j];
+list[j]=list[j-1];
+list[j-1]=temp;
+}//swap adjacent elements
+}//end of inner loop
+}//end of outer loop
+}//end of bubble_sort
+Analysis of Bubble Sort
+How many comparisons?
+(n-1)+(n-2)+…+1= O(n
+2
+)
+How many swaps?
+
+===== PAGE 28 =====
+28
+(n-1)+(n-2)+…+1= O(n
+2
+)
+Space?
+In-place algorithm.
+General Comments
+Each of these algorithms requires n -1 passes: each pass places one item in its correct place. The
+i
+th
+pass makes either i or n - i comparisons and moves. So:
+or O( n
+2
+). Thus these algorithms are only suitable for small problems where their simple code
+makes them faster than the more complex code of the O( n log n ) algorithm. As a rule of thumb,
+expect to find an O( n log n ) algorithm faster for n >10 - but the exact value depends very much on
+individual machines! .
+Empirically it‘s known that Insertion sort is over twice as fast as the bubble sort and is just as
+easy to implement as the selection sort. In short, there really isn't any reason to use the selection
+sort - use the insertion sort instead.
+If you really want to use the selection sort for some reason, try to avoid sorting lists of more than
+a 1000 items with it or repetitively sorting lists of more than a couple hundred items.
+3. Data Structures
+3.1. Structures
+Structures are aggregate data types built using elements of primitive data types.
+Structure are defined using the struct keyword:
+E.g. struct Time{
+int hour;
+int minute;
+int second;
+};
+The struct keyword creates a new user defined data type that is used to declare variables of an
+aggregate data type.
+Structure variables are declared like variables of other types.
+
+===== PAGE 29 =====
+29
+Syntax: struct <structure tag> <variable name>;
+E.g.
+struct Time timeObject,
+struct Time *timeptr;
+3.1.1. Accessing Members of Structure Variables
+The Dot operator (.): to access data members of structure variables.
+The Arrow operator (->): to access data members of pointer variables pointing to the structure.
+E.g. Print member hour of timeObject and timeptr.
+cout<< timeObject.hour; or
+cout<<timeptr->hour;
+TIP: timeptr->hour is the same as (*timeptr).hour.
+The parentheses is required since (*) has lower precedence than (.).
+3.1.2. Self-Referential Structures
+Structures can hold pointers to instances of themselves.
+struct list{
+char name[10];
+int count;
+struct list *next;
+};
+However, structures cannot contain instances of themselves.
+3.2. Singly Linked Lists
+Linked lists are the most basic self-referential structures. Linked lists allow you to have a chain
+of structs with related data.
+Array vs. Linked lists
+Arrays are simple and fast but we m ust specify their size at construction time. This has its own
+drawbacks. If you construct an array with space for n, tomorrow you may need n +1.Here comes
+a need for a more flexible system.
+
+===== PAGE 30 =====
+30
+Advantages of Linked Lists
+Flexible space use by dynamically allocating space for each element as needed. This implies that
+one need not know the size of the list in advance. Memory is efficiently utilized.
+A linked list is made up of a chain of nodes. Each node contains:
+•
+the data item, and
+•
+a pointer to the next node
+3.2.1. Creating Linked Lists in C++
+A linked list is a data structure that is built from structures and pointers. It forms a chain of
+"nodes" with pointers representing the links of the chain and holding the entire thing together. A
+linked list can be represented by a diagram like this one:
+This linked list has four nodes in it, each with a link to the next node in the series. The last node
+has a link to the special value NULL, which any pointer (whatever its type) can point to, to show
+that it is the last link in the chain. There is also another special pointer, called Start (also called
+head), which points to the first link in the chain so that we can keep track of it.
+3.2.2. Defining the data structure for a linked list
+The key part of a linked list is a structure, which holds the data for each node (the name, address,
+age or whatever for the items in the list), and, most importantly, a pointer to the next node. Here
+we have given the structure of a typical node:
+struct node
+{ char name[20]; // Name of up to 20 letters
+int age
+float height; // In metres
+node *nxt;// Pointer to next node
+};
+struct node *start_ptr = NULL;
+The important part of the structure is the line before the closing curly brackets. This gives a
+pointer to the next node in the list. This is the only case in C++ where you are allowed to refer to
+a data type (in this case
+node
+) before you have even finished defining it!
+We have also declared a pointer called
+start_ptr
+that will permanently point to the start of the list.
+To start with, there are no nodes in the list, which is why
+start_ptr
+is set to NULL.
+
+===== PAGE 31 =====
+31
+3.2.3. Adding a node to the list
+The first problem that we face is how to add a node to the list. For simplicity's sake, we will
+assume that it has to be added to the end of the list, although it could be added anywhere in the
+list (a problem we will deal with later on).
+Firstly, we declare the space for a pointer item and assign a temporary pointer to it. This is done
+using the
+new
+statement as follows:
+temp = new node;
+We can refer to the new node as
+*temp
+, i.e. "the node that temp points to" . When the fields of
+this structure are referred to, brackets can be put round the
+*temp
+part, as otherwise the compiler
+will think we are trying to refer to the fields of the pointer. Alternatively, we can use the arrow
+pointer notation.
+That's what we shall do here.
+Having declared the node, we ask the user to fill in the details of the person, i.e. the name, age,
+address or whatever:
+cout << "Please enter the name of the person: ";
+cin >> temp->name;
+cout << "Please enter the age of the person : ";
+cin >> temp->age;
+cout << "Please enter the height of the person : ";
+cin >> temp->height;
+temp->nxt = NULL;
+The last line sets the pointer from this node to the next to NULL, indicating that this node, when
+it is inserted in the list, will be the last node. Having set up the information, we have to decide
+what to do with the pointers. Of course, if the list is empty to start with, there's no problem - just
+set the Start pointer to point to this node (i.e. set it to the same value as temp):
+if (start_ptr == NULL)
+start_ptr = temp;
+It is harder if there are already nodes in the list. In this case, the secret is to declare a second
+pointer,
+temp2
+, to step through the list until it finds the last node.
+
+===== PAGE 32 =====
+32
+temp2 = start_ptr;
+// We know this is not NULL - list not empty!
+while (temp2->nxt != NULL)
+{ temp2 = temp2->nxt; // Move to next link in chain
+}
+The loop will terminate when temp2 points to the last node in the chain, and it knows when this
+happened because the nxt pointer in that node will point to NULL. When it has found it, it sets
+the pointer from that last node to point to the node we have just declared:
+temp2->nxt = temp;
+The link temp2->nxt in this diagram is the link joining the last two nodes. The full code for
+adding a node at the end of the list is shown below, in its own little function:
+void add_node_at_end ()
+{ node *temp, *temp2; // Temporary pointers
+// Reserve space for new node and fill it with data
+temp = new node;
+cout << "Please enter the name of the person: ";
+cin >> temp->name;
+cout << "Please enter the age of the person : ";
+cin >> temp->age;
+cout << "Please enter the height of the person : ";
+cin >> temp->height;
+temp->nxt = NULL;
+// Set up link to this node
+if (start_ptr == NULL)
+start_ptr = temp;
+else
+
+===== PAGE 33 =====
+33
+{ temp2 = start_ptr;
+// We know this is not NULL - list not empty!
+while (temp2->nxt != NULL)
+{ temp2 = temp2->nxt;
+// Move to next link in chain
+}
+temp2->nxt = temp;
+}
+}
+3.2.4. Displaying the list of nodes
+Having added one or more nodes, we need to display the list of nodes on the screen. This is
+comparatively easy to do. Here is the method:
+1.
+Set a temporary pointer to point to the same thing as the start pointer.
+2.
+If the pointer points to NULL, display the message "End of list" and stop.
+3.
+Otherwise, display the details of the node pointed to by the start pointer.
+4.
+Make the temporary pointer point to the same thing as the nxt pointer of the node it is
+currently indicating.
+5.
+Jump back to step 2.
+The temporary pointer moves along the list, displaying the details of the nodes it comes across.
+At each stage, it can get hold of the next node in the list by using the nxt pointer of the node it is
+currently pointing to. Here is the C++ code that does the job:
+temp = start_ptr;
+do
+{ if (temp == NULL)
+cout << "End of list" << endl;
+else
+{ // Display details for what temp points to
+cout << "Name : " << temp->name << endl;
+cout << "Age : " << temp->age << endl;
+cout << "Height : " << temp->height << endl;
+cout << endl; // Blank line
+// Move to next node (if present)
+temp = temp->nxt;
+}
+} while (temp != NULL);
+Check through this code, matching it to the method listed above. It helps if you draw a diagram
+on paper of a linked list and work through the code using the diagram.
+3.2.5. Navigating through the list
+One thing you may need to do is to navigate through the list, with a pointer that moves
+backwards and forwards through the list, like an index pointer in an array. This is certainly
+
+===== PAGE 34 =====
+34
+necessary when you want to insert or delete a node from somewhere inside the list, as you will
+need to specify the position.
+We will call the mobile pointer
+current
+. First of all, it is declared, and set to the same value as the
+start_ptr
+pointer:
+node *current;
+current = start_ptr;
+Notice that you don't need to set current equal to the address of the start pointer, as they are both
+pointers. The statement above makes them both point to the same thing:
+It's easy to get the current pointer to point to the next node in the list (i.e. move from left to right
+along the list). If you want to move current along one node, use the nxt field of the node that it is
+pointing to at the moment:
+current = current->nxt;
+In fact, we had better check that it isn't pointing to the last item in the list. If it is, then there is no
+next node to move to:
+if (current->nxt == NULL)
+cout << "You are at the end of the list." << endl;
+else
+current = current->nxt;
+Moving the current pointer back one step is a little harder. This is because we have no way of
+moving back a step automatically from the current node. The only way to find the node before
+the current one is to start at the beginning, work our way through and stop when we find the node
+before the one we are considering at the moment. We can tell when this happens, as the
+nxt
+pointer from that node will point to exactly the same place in memory as the current pointer (i.e.
+the current node).
+First of all, we had better check to see if the current node is also first the one. If it is, then there is
+no "previous" node to point to. If not, check through all the nodes in turn until we detect that we
+are just behind the current one (Like a pantomime - "behind you!")
+if (current == start_ptr)
+cout << "You are at the start of the list" << endl;
+else
+{ node *previous; // Declare the pointer
+previous = start_ptr;
+previous
+current
+Start
+NULL
+Sto
+p
+here
+
+===== PAGE 35 =====
+35
+while (previous->nxt != current)
+{ previous = previous->nxt;
+}
+current = previous;
+}
+The else clause translates as follows: Declare a temporary pointer (for use in this else clause
+only). Set it equal to the start pointer. All the time that it is not pointing to the node before the
+current node, move it along the line. Once the previous node has been found, the current pointer
+is set to that node - i.e. it moves back along the list.
+Now that you have the facility to move back and forth, you need to do something with it. Firstly,
+let's see if we can alter the details for that particular node in the list:
+cout << "Please enter the new name of the person: ";
+cin >> current->name;
+cout << "Please enter the new age of the person : ";
+cin >> current->age;
+cout << "Please enter the new height of the person : ";
+cin >> current->height;
+The next easiest thing to do is to delete a node from the list directly after the current position. We
+have to use a temporary pointer to point to the node to be deleted. Once this node has been
+"anchored", the pointers to the remaining nodes can be readjusted before the node on death row
+is deleted. Here is the sequence of actions:
+1.
+Firstly, the temporary pointer is assigned to the node after the current one. This is the
+node to be deleted:
+2.
+Now the pointer from the current node is made to leap-frog the next node and point to the
+one after that:
+NULL
+NULL
+current
+temp
+current
+temp
+
+===== PAGE 36 =====
+36
+3.
+The last step is to delete the node pointed to by
+temp
+.
+Here is the code for deleting the node. It includes a test at the start to test whether the current
+node is the last one in the list:
+if (current->nxt == NULL)
+cout << "There is no node after current" << endl;
+else
+{ node *temp;
+temp = current->nxt;
+current->nxt = temp->nxt; // Could be NULL
+delete temp;
+}
+Here is the code to add a node after the current one. This is done similarly, but we haven't
+illustrated it with diagrams:
+if (current->nxt == NULL)
+add_node_at_end();
+else
+{ node *temp;
+new temp;
+get_details(temp);
+// Make the new node point to the same thing as
+// the current node
+temp->nxt = current->nxt;
+// Make the current node point to the new link
+// in the chain
+current->nxt = temp;
+}
+We have assumed that the function
+add_node_at_end()
+is the routine for adding the node to the end
+of the list that we created near the top of this section. This routine is called if the current pointer
+is the last one in the list so the new one would be added on to the end.
+Similarly, the routine
+get_temp(temp)
+is a routine that reads in the details for the new node similar
+to the one defined just above.
+... and so ...
+3.2.6. Deleting a node from the list
+When it comes to deleting nodes, we have three choices: Delete a node from the start of the list,
+delete one from the end of the list, or delete one from somewhere in the middle. For simplicity,
+we shall just deal with deleting one from the start or from the end.
+When a node is deleted, the space that it took up should be reclaimed. Otherwise the computer
+will eventually run out of memory space. This is done with the delete instruction:
+
+===== PAGE 37 =====
+37
+delete temp; // Release the memory pointed to by temp
+However, we can't just delete the nodes willy-nilly as it would break the chain. We need to
+reassign the pointers and then delete the node at the last moment. Here is how we go about
+deleting the first node in the linked list:
+temp = start_ptr; // Make the temporary pointer
+// identical to the start pointer
+Now that the first node has been safely tagged (so that we can refer to it even when the start
+pointer has been reassigned), we can move the start pointer to the next node in the chain:
+start_ptr = start_ptr->nxt; // Second node in chain.
+delete temp; // Wipe out original start node
+Here is the function that deletes a node from the start:
+void delete_start_node()
+{ node *temp;
+temp = start_ptr;
+start_ptr = start_ptr->nxt;
+
+===== PAGE 38 =====
+38
+delete temp;
+}
+Deleting a node from the end of the list is harder, as the temporary pointer must find where the
+end of the list is by hopping along from the start. This is done using code that is almost identical
+to that used to insert a node at the end of the list. It is necessary to maintain two temporary
+pointers,
+temp1
+and
+temp2
+. The pointer
+temp1
+will point to the last node in the list and
+temp2
+will
+point to the previous node. We have to keep track of both as it is necessary to delete the last node
+and immediately afterwards, to set the
+nxt
+pointer of the previous node to NULL (it is now the
+new last node).
+1.
+Look at the start pointer. If it is NULL, then the list is empty, so print out a "No nodes to
+delete" message.
+2.
+Make
+temp1
+point to whatever the start pointer is pointing to.
+3.
+If the
+nxt
+pointer of what temp1 indicates is NULL, then we've found the last node of the
+list, so jump to step 7.
+4.
+Make another pointer,
+temp2
+, point to the current node in the list.
+5.
+Make
+temp1
+point to the next item in the list.
+6.
+Go to step 3.
+7.
+If you get this far, then the temporary pointer,
+temp1
+, should point to the last item in the
+list and the other temporary pointer,
+temp2
+, should point to the last-but-one item.
+8.
+Delete the node pointed to by
+temp1
+.
+9.
+Mark the
+nxt
+pointer of the node pointed to by
+temp2
+as NULL - it is the new last node.
+Let's try it with a rough drawing. This is always a good idea when you are trying to understand
+an abstract data type. Suppose we want to delete the last node from this list:
+Firstly, the start pointer doesn't point to NULL, so we don't have to display a "Empty list, wise
+guy!" message. Let's get straight on with step2 - set the pointer
+temp1
+to the same as the start
+pointer:
+
+===== PAGE 39 =====
+39
+The
+nxt
+pointer from this node isn't NULL, so we haven't found the end node. Instead, we set the
+pointer
+temp2
+to the same node as
+temp1
+and then move temp1 to the next node in the list:
+Going back to step 3, we see that temp1 still doesn't point to the last node in the list, so we make
+temp2 point to what temp1 points to
+and
+temp1
+is made to point to the next node along:
+NULL
+temp 2
+temp1
+start_ptr
+
+===== PAGE 40 =====
+40
+Eventually, this goes on until
+temp1
+really is pointing to the last node in the list, with
+temp2
+pointing to the penultimate node:
+Now we have reached step 8. The next thing to do is to delete the node pointed to by
+temp1
+and set the
+nxt
+pointer of what
+temp2
+indicates to NULL:
+NULL
+temp 2
+temp1
+start_ptr
+
+===== PAGE 41 =====
+41
+We suppose you want some code for all that! All right then ....
+void delete_end_node()
+{ node *temp1, *temp2;
+if (start_ptr == NULL)
+cout << "The list is empty!" << endl;
+else
+{ temp1 = start_ptr;
+while (temp1->nxt != NULL)
+{ temp2 = temp1;
+temp1 = temp1->nxt;
+}
+delete temp1;
+temp2->nxt = NULL;
+}
+}
+The code seems a lot shorter than the explanation!
+Now, the sharp-witted amongst you will have spotted a problem. If the list only contains one
+node, the code above will malfunction. This is because the function goes as far as the
+temp1 =
+start_ptr
+statement, but never gets as far as setting up
+temp2
+. The code above has to be adapted so
+that if the first node is also the last (has a NULL
+nxt
+pointer), then it is deleted and the
+start_ptr
+pointer is assigned to NULL. In this case, there is no need for the pointer
+temp2
+:
+void delete_end_node()
+{ node *temp1, *temp2;
+if (start_ptr == NULL)
+cout << "The list is empty!" << endl;
+else
+{ temp1 = start_ptr;
+if (temp1->nxt == NULL) // This part is new!
+{ delete temp1;
+start_ptr = NULL;
+}
+else
+{ while (temp1->nxt != NULL)
+{ temp2 = temp1;
+temp1 = temp1->nxt;
+}
+delete temp1;
+temp2->nxt = NULL;
+}
+}
+}
+
+===== PAGE 42 =====
+42
+3.3. Doubly Linked Lists
+That sounds even harder than a linked list! Well, if you've mastered how to do singly linked lists,
+then it shouldn't be much of a leap to doubly linked lists
+A doubly linked list is one where there are links from each node in both directions:
+You will notice that each node in the list has two pointers, one to the next node and one to the
+previous one - again, the ends of the list are defined by NULL pointers. Also there is no pointer
+to the start of the list. Instead, there is simply a pointer to some position in the list that can be
+moved left or right.
+The reason we needed a start pointer in the ordinary linked list is because, having moved on from
+one node to another, we can't easily move back, so without the start pointer, we would lose track
+of all the nodes in the list that we have already passed. With the doubly linked list, we can move
+the current pointer backwards and forwards at will.
+3.3.1. Creating Doubly Linked Lists
+The nodes for a doubly linked list would be defined as follows:
+struct node{
+char name[20];
+node *nxt; // Pointer to next node
+node *prv; // Pointer to previous node
+};
+node *current;
+current = new node;
+current->name = "Fred";
+current->nxt = NULL;
+current->prv = NULL;
+We have also included some code to declare the first node and set its pointers to NULL. It gives
+the following situation:
+
+===== PAGE 43 =====
+43
+We still need to consider the directions 'forward' and 'backward', so in this case, we will need to
+define functions to add a node to the start of the list (left-most position) and the end of the list
+(right-most position).
+3.3.2. Adding a Node to a Doubly Linked List
+void add_node_at_start (string new_name)
+{ // Declare a temporary pointer and move it to the start
+node *temp = current;
+while (temp->prv != NULL)
+temp = temp->prv;
+// Declare a new node and link it in
+node *temp2;
+temp2 = new node;
+temp2->name = new_name; // Store the new name in the node
+temp2->prv = NULL; // This is the new start of the list
+temp2->nxt = temp; // Links to current list
+temp->prv = temp2;
+}
+void add_node_at_end ()
+{ // Declare a temporary pointer and move it to the end
+node *temp = current;
+while (temp->nxt != NULL)
+temp = temp->nxt;
+// Declare a new node and link it in
+node *temp2;
+temp2 = new node;
+temp2->name = new_name; // Store the new name in the node
+temp2->nxt = NULL; // This is the new start of the list
+temp2->prv = temp; // Links to current list
+temp->nxt = temp2;
+}
+Here, the new name is passed to the appropriate function as a parameter. We'll go through the
+function for adding a node to the right-most end of the list. The method is similar for adding a
+node at the other end. Firstly, a temporary pointer is set up and is made to march along the list
+until it points to last node in the list.
+
+===== PAGE 44 =====
+44
+Start_Ptr
+After that, a new node is declared, and the name is copied into it. The nxt pointer of this new
+node is set to NULL to indicate that this node will be the new end of the list.
+The prv pointer of the new node is linked into the last node of the existing list.
+The nxt pointer of the current end of the list is set to the new node.
+3.3.3. Deleting a Node From a Doubly Linked List
+-
+-
+-
+-
+-
+-
+-
+4. Stacks
+A stack is one of the most important and useful non-primitive linear data structure in
+computer science. It is an ordered collection of items into which new data items may be
+added/inserted and from which items may be deleted at only one end, called the top of the stack.
+As all the addition and deletion in a stack is done from the top of the stack, the last added
+element will be first removed from the stack. That is why the stack is also called Last-in-First-
+
+===== PAGE 45 =====
+45
+out (LIFO). Note that the most frequently accessible element in the stack is the top most
+elements, whereas the least accessible element is the bottom of the stack.
+The primitive operations performed on the stack are as follows:
+PUSH: The process of adding (or inserting) a new element to the top of the stack is called PUSH
+operation. Pushing an element to a stack will add the new element at the top.
+After every push operation the top is incremented by one. If the array is full and no new element
+can be accommodated, then the stack overflow condition occurs.
+POP: The process of deleting (or removing) an element from the top of stack is called POP
+operation. After every pop operation the stack is decremented by one. If there is no element in the stack
+and the pop operation is performed then the stack underflow condition o
+ccurs.
+Initial Stack
+Push(8)
+Pop
+TOS=>
+4
+1
+3
+6
+TOS=>
+8
+4
+1
+3
+6
+TOS=>
+4
+1
+3
+6
+Our Purpose:
+To develop a stack implementation that does not tie us to a particular data type or to a particular
+implementation.
+Implementation:
+Stack can be implemented in two ways:
+1. Static implementation (using arrays)
+2. Dynamic implementation (using pointers)
+Static implementation uses arrays to create stack. Static implementation using arrays is a very
+simple technique but is not a flexible way, as the size of the stack has to be declared during the program
+design, because after that, the size cannot be varied (i.e., increased or decreased). Moreover static
+implementation is not an efficient method when resource optimization is concerned (i.e., memory
+utilization). For example a stack is implemented with array size 50. That is before the stack operation
+begins, memory is allocated for the array of size 50. Now if there are only few elements (say 30) to be
+stored in the stack, then rest of the statically allocated memory (in this case 20) will be wasted, on the
+other hand if there are more number of elements to be stored in the stack (say 60) then we cannot change
+the size array to increase its capacity.
+The above said limitations can be overcome by dynamically implementing (is also called linked list
+representation) the stack using pointers.
+The Basic Operations:
+Push()
+{
+if there is room {
+
+===== PAGE 46 =====
+46
+put an item on the top of the stack
+else
+give an error message
+}
+}
+Pop()
+{
+if stack not empty {
+return the value of the top item
+remove the top item from the stack
+}
+else {
+give an error message
+}
+}
+CreateStack()
+{
+remove existing items from the stack
+initialise the stack to empty
+}
+4.1. Array Implementation of Stacks: The PUSH operation
+Here, as you might have noticed, addition of an element is known as the PUSH operation. So, if
+an array is given to you, which is supposed to act as a STACK, you know that it has to be a
+STATIC Stack; meaning, data will overflow if you cross the upper limit of the array. So, keep
+this in mind.
+Algorithm:
+Step-1: Increment the Stack TOP by 1. Check whether it is always less than the Upper Limit of
+the stack. If it is less than the Upper Limit go to step-2 else report -"Stack Overflow"
+Step-2: Put the new element at the position pointed by the TOP
+Implementation:
+static int stack[UPPERLIMIT];
+int top= -1; /*stack is empty*/
+..
+..
+main()
+{
+..
+
+===== PAGE 47 =====
+47
+..
+push(item);
+..
+..
+}
+push(int item)
+{
+top = top + 1;
+if(top < UPPERLIMIT)
+stack[top] = item; /*step-1 & 2*/
+else
+cout<<"Stack Overflow";
+}
+Note:- In array implementation,we have taken TOP = -1 to signify the empty stack, as this
+simplifies the implementation.
+4.2. Array Implementation of Stacks: the POP operation
+POP is the synonym for delete when it comes to Stack. So, if you're taking an array as the stack,
+remember that you'll return an error message, "Stack underflow", if an attempt is made to Pop an
+item from an empty Stack. OK.
+Algorithm
+Step-1: If the Stack is empty then give the alert "Stack underflow" and quit; or else go to step-2
+Step-2: a) Hold the value for the element pointed by the TOP
+b) Put a NULL value instead
+c) Decrement the TOP by 1
+Implementation:
+static int stack[UPPPERLIMIT];
+int top=-1;
+..
+..
+main()
+{
+..
+..
+poped_val = pop();
+..
+..
+}
+
+===== PAGE 48 =====
+48
+int pop()
+{
+int del_val = 0;
+if(top == -1)
+cout<<"Stack underflow"; /*step-1*/
+else
+{
+del_val = stack[top]; /*step-2*/
+stack[top] = NULL;
+top = top -1;
+}
+return(del_val);
+}
+Note: - Step-2:(b) signifies that the respective element has been deleted.
+4.3. Linked List Implementation of Stacks: the PUSH operation
+It‘s very similar to the insertion operation in a dynamic singly linked list. The only difference is
+that here you'll add the new element only at the end of the list, which means addition can happen
+only from the TOP. Since a dynamic list is used for the stack, the Stack is also dynamic, means it
+has no prior upper limit set. So, we don't have to check for the Overflow condition at all!
+In Step [1] we create the new element to be pushed to the Stack.
+In Step [2] the TOP most element is made to point to our newly created element.
+In Step [3] the TOP is moved and made to point to the last element in the stack, which is our
+newly added element.
+Algorithm
+Step-1: If the Stack is empty go to step-2 or else go to step-3
+Step-2: Create the new element and make your "stack" and "top" pointers point to it and quit.
+Step-3: Create the new element and make the last (top most) element of the stack to point to it
+Step-4: Make that new element your TOP most element by making the "top" pointer point to it.
+
+===== PAGE 49 =====
+49
+Implementation:
+struct node{
+int item;
+struct node *next;
+}
+struct node *stack = NULL; /*stack is initially empty*/
+struct node *top = stack;
+main()
+{
+..
+..
+push(item);
+..
+}
+push(int item)
+{
+if(stack == NULL) /*step-1*/
+{
+newnode = new node /*step-2*/
+newnode -> item = item;
+newnode -> next = NULL;
+stack = newnode;
+top = stack;
+}
+else
+{
+newnode = new node; /*step-3*/
+newnode -> item = item;
+newnode -> next = NULL;
+top ->next = newnode;
+top = newnode; /*step-4*/
+}
+}
+4.4. Linked List Implementation of Stacks: the POP Operation
+This is again very similar to the deletion operation in any Linked List, but you can only delete
+from the end of the list and only one at a time; and that makes it a stack. Here, we'll have a list
+pointer, "target", which will be pointing to the last but one element in the List (stack). Every time
+we POP, the TOP most element will be deleted and "target" will be made as the TOP most
+element.
+
+===== PAGE 50 =====
+50
+In step[1] we got the "target" pointing to the last but one node.
+In step[2] we freed the TOP most element.
+In step[3] we made the "target" node as our TOP most element.
+Supposing you have only one element left in the Stack, then
+we won't make use of "target" rather we'll take help of our
+"bottom" pointer. See how...
+Algorithm:
+Step-1: If the Stack is empty then give an alert message "Stack Underflow" and quit; or else
+proceed
+Step-2: If there is only one element left go to step-3 or else step-4
+Step-3: Free that element and make the "stack", "top" and "bottom" pointers point to NULL and
+quit
+Step-4: Make "target" point to just one element before the TOP; free the TOP most element;
+make "target" as your TOP most element
+
+===== PAGE 51 =====
+51
+Implementation:
+struct node
+{
+int nodeval;
+struct node *next;
+}
+struct node *stack = NULL; /*stack is initially empty*/
+struct node *top = stack;
+main()
+{
+int newvalue, delval;
+..
+push(newvalue);
+..
+delval = pop(); /*POP returns the deleted value from the stack*/
+}
+int pop( )
+{
+int pop_val = 0;
+struct node *target = stack;
+if(stack == NULL) /*step-1*/
+cout<<"Stack Underflow";
+else
+{
+if(top == bottom) /*step-2*/
+{
+pop_val = top -> nodeval; /*step-3*/
+delete top;
+stack = NULL;
+top = bottom = stack;
+}
+else /*step-4*/
+{
+while(target->next != top) target = target ->next;
+pop_val = top->nodeval;
+delete top;
+top = target;
+target ->next = NULL;
+}
+}
+return(pop_val);
+}
+
+===== PAGE 52 =====
+52
+4.5. Applications of Stacks
+4.5.1. Evaluation of Algebraic Expressions
+e.g.
+4 + 5 * 5
+simple calculator: 45
+scientific calculator: 29 (correct)
+Question:
+Can we develop a method of evaluating arithmetic expressions without having to ‗look
+ahead‘ or ‗look back‘? ie consider the quadratic formula:
+x = (-b+(b^2-4*a*c)^0.5)/(2*a)
+where
+^
+is the power operator, or, as you may remember it :
+In it‘s current form we cannot solve the formula without considering the ordering of the
+parentheses. i.e. we solve the innermost parenthesis first and then work outwards also
+considering operator precedence. Although we do this naturally, consider developing an
+algorithm to do the same . . . . . . possible but complex and inefficient. Instead . . . .
+Re-expressing the Expression
+Computers solve arithmetic expressions by restructuring them so the order of each calculation is
+embedded in the expression. Once converted an expression can then be solved in one pass.
+Types of Expression
+Another application of stack is calculation of postfix expression. There are basically three types
+of notation for an expression (mathematical expression; An expression is defined as the number
+of operands or data items combined with several operators.)
+1. Infix notation
+2. Prefix notation
+3. Postfix notation
+The infix notation is what we come across in our general mathematics, where the operator is
+written in-between the operands. For example: The expression to add two numbers A and B is
+written in infix notation as:
+A + B
+Note that the operator ‗+‘ is written in between the operands A and B.
+
+===== PAGE 53 =====
+53
+The prefix notation is a notation, in which the operator is written before the operands, it is also
+called polish notation in the honor of the polish mathematician Jan
+Lukasiewicz who developed
+this notation. The same expression when written in prefix notation looks like:
++ A B
+As the operator ‗+‘ is written before the operands A and B, this notation is called prefix (pre
+means before).
+In the postfix notation the operator(s) are written after the operands, so it is called the postfix
+notation (post means after), it is also known as suffix notation or reverse polish notation . The
+above expression if written in postfix expression looks like:
+A B +
+The prefix and postfix notations are not really as awkward to use as they might look. For
+example, a C function to return the sum of two variables A and B (passed as argument) is called
+or invoked by the instruction:
+add(A, B)
+Note that the operator add (name of the function) precedes the operands A and B. Because the
+postfix notation is most suitable for a computer to calculate any expression (due to its reverse
+characteristic), and is the universally accepted notation for designing Arithmetic and Logical
+Unit (ALU) of the CPU (processor). Therefore it is necessary to study the postfix notation.
+Moreover the postfix notation is the way computer looks towards arithmetic expression, any
+expression entered into the computer is first converted into postfix notation, stored in stack and
+then calculated. In the preceding sections we will study the conversion of the expression from
+one notation to other.
+Advantages of using postfix notation
+Human beings are quite used to work with mathematical expressions in infix notation, which is
+rather complex. One has to remember a set of nontrivial rules while using this notation and it
+must be applied to expressions in order to determine the final value. These rules include
+precedence, BODMAS, and associativity. Using infix notation, one cannot tell the order in which
+operators should be applied.
+Whenever an infix expression consists of more than one operator, the precedence rules
+(BODMAS) should be applied to decide which operator (and operand associated with that
+operator) is evaluated first. But in a postfix expression operands appear before the operator, so
+there is no need for operator precedence and other rules. As soon as an operator appears in the
+postfix expression during scanning of postfix expression the topmost operands are popped off
+and are calculated by applying the encountered operator. Place the result back onto the stack;
+likewise at the end of the whole operation the final result will be there in the stack.
+The valuable aspect of RPN (Reverse Polish Notation or postfix)
+
+Parentheses are unnecessary
+
+Easy for a computer (compiler) to evaluate an arithmetic expression
+Postfix (Reverse Polish Notation)
+Postfix notation arises from the concept of post-order traversal of an expression tree (see Weiss
+p. 93 - this concept will be covered when we look at trees).
+
+===== PAGE 54 =====
+54
+For now, consider postfix notation as a way of redistributing operators in an expression so that
+their operation is delayed until the correct time.
+Consider again the quadratic formula:
+x = (-b+(b^2-4*a*c)^0.5)/(2*a)
+In postfix form the formula becomes:
+x b @ b 2 ^ 4 a * c * - 0.5 ^ + 2 a * / =
+where
+@
+represents the unary
+-
+operator.
+Notice the order of the operands remain the same but the operands are redistributed in a non-
+obvious way (an algorithm to convert infix to postfix can be derived).
+Purpose
+The reason for using postfix notation is that a fairly simple algorithm exists to evaluate such
+expressions based on using a stack.
+Postfix Evaluation
+Consider the postfix expression :
+6 5 2 3 + 8 * + 3 + *
+
+===== PAGE 55 =====
+55
+Algorithm
+initialise stack to empty;
+while (not end of postfix expression) {
+get next postfix item;
+if(item is value)
+push it onto the stack;
+else if(item is binary operator) {
+pop the stack to x;
+pop the stack to y;
+perform y operator x;
+push the results onto the stack;
+} else if (item is unary operator) {
+pop the stack to x;
+perform operator(x);
+push the results onto the stack
+}
+}
+The single value on the stack is the desired result.
+Binary operators:
++
+,
+-
+,
+*
+,
+/
+, etc.,
+Unary operators:
+unary minus
+,
+square root
+,
+sin
+,
+cos
+,
+exp
+, etc.,
+So for
+6 5 2 3 + 8 * + 3 + *
+the first item is a value (6) so it is pushed onto the stack
+the next item is a value (5) so it is pushed onto the stack
+the next item is a value (2) so it is pushed onto the stack
+the next item is a value (3) so it is pushed onto the stack
+and the stack becomes
+
+===== PAGE 56 =====
+56
+TOS=>
+3
+2
+5
+6
+the remaining items are now:
++ 8 * + 3 + *
+So next a '
++
+' is read (a binary operator), so
+3
+and
+2
+are popped from the stack and their sum '
+5
+'
+is pushed onto the stack:
+TOS=>
+5
+5
+6
+Next
+8
+is pushed and the next item is the operator
+*
+:
+TOS=>
+8
+5
+5
+6
+TOS=>
+40
+5
+6
+(
+8
+,
+5
+popped,
+40
+pushed)
+Next the operator
++
+followed by
+3
+:
+TOS=>
+45
+6
+TOS=>
+3
+45
+6
+(
+40
+,
+5
+popped,
+45
+pushed,
+3
+pushed)
+Next is operator
++
+, so
+3
+and
+45
+are popped and
+45+3=48
+is pushed
+
+===== PAGE 57 =====
+57
+TOS=>
+48
+6
+Next is operator
+*
+, so
+48
+and
+6
+are popped, and
+6*48=288
+is pushed
+TOS=>
+288
+Now there are no more items and there is a single value on the stack, representing the final
+answer
+288
+.
+Note the answer was found with a single traversal of the postfix expression, with the stack being
+used as a kind of memory storing values that are waiting for their operands.
+4.5.2.
+CONVERTING
+INFIX TO POSTFIX (RPN) CONVERSION
+The method of converting infix expression A + B * C to postfix form is:
+A + B * C Infix Form
+A + (B * C) Parenthesized expression
+A + (B C *) Convert the multiplication
+A (B C *) + Convert the addition
+A B C * + Postfix form
+The rules to be remembered during infix to postfix conversion are:
+1. Parenthesize the expression starting from left to light.
+2. During parenthesizing the expression, the operands associated with operator having higher
+precedence are first parenthesized. For example in the above expression B * C is parenthesized
+first before A + B.
+3. The sub-expression (part of expression), which has been converted into postfix, is to be treated
+as single operand.
+4. Once the expression is converted to postfix form, remove the parenthesis.
+Example 1: Give postfix form for A + [ (B + C) + (D + E) * F ] / G
+Solution. Evaluation order is
+A + { [ (BC +) + (DE +) * F ] / G}
+A + { [ (BC +) + (DE + F *] / G}
+A + { [ (BC + (DE + F * +] / G} .
+A + [ BC + DE + F *+ G / ]
+
+===== PAGE 58 =====
+58
+ABC + DE + F * + G / +
+Postfix Form
+Example 2: Give postfix form for (A + B) * C / D + E ^ A / B
+Solution. Evaluation order is
+[(AB + ) * C / D ] + [ (EA ^) / B ]
+[(AB + ) * C / D ] + [ (EA ^) B / ]
+[(AB + ) C * D / ] + [ (EA ^) B / ]
+(AB + ) C * D / (EA ^) B / +
+AB + C * D / EA ^ B / +
+Postfix Form
+Of course postfix notation is of little use unless there is an easy method to convert
+standard (infix) expressions to postfix. Again a simple algorithm exists that uses a stack:
+Algorithm
+Suppose P is an arithmetic expression written in infix notation. This algorithm finds the
+equivalent postfix expression Q. Besides operands and operators, P (infix notation) may also
+contain left and right parentheses. We assume that the operators in P consists of only exponential
+( ^ ), multiplication ( * ), division ( / ), addition ( + ) and subtraction ( - ). The algorithm uses a
+stack to temporarily hold the operators and left parentheses. The postfix expression Q will be
+constructed from left to right using the operands from P and operators, which are removed from
+stack. We begin by pushing a left parenthesis onto stack and adding a right parenthesis at the end
+of P. the algorithm is completed when the stack is empty.
+1. Push ―(‖ onto stack, and add―)‖ to the end of P.
+2. Scan P from left to right and repeat Steps 3 to 6 for each element of P until the stack is
+empty.
+3. If an operand is encountered, add it to Q.
+4. If a left parenthesis is encountered, push it onto stack.
+5. If an operator
+
+is encountered, then:
+( a ) Repeatedly pop from stack and add P each operator (on the top of stack), which has
+the same precedence as, or higher precedence than
+
+. ( b ) Add
+
+to stack.
+6. If a right parenthesis is encountered, then:
+( a ) Repeatedly pop from stack and add to P (on the top of stack until a left parenthesis is
+encountered.
+( b ) Remove the left parenthesis. [Do not add the left parenthesis to P.]
+7. Exit.
+Note. Special character
+
+is used to symbolize any operator in P.
+Consider the following arithmetic infix expression P
+P = A + (B / C - (D * E ^ F ) + G ) * H
+The figure below shows the character (operator, operand or parenthesis) scanned, status of the
+stack and postfix expression Q of the infix expression P.
+Character scanned
+Stack
+Postfix Expression (Q)
+A
+(
+A
++
+( +
+A
+
+===== PAGE 59 =====
+59
+(
+( + (
+A
+B
+( + (
+A B
+/
+( + ( /
+A B
+C
+( + ( /
+A B C
+-
+( + ( -
+A B C /
+(
+( + ( - (
+A B C /
+D
+( + ( - (
+A B C / D
+*
+( + ( - ( *
+A B C / D
+E
+( + ( - ( *
+A B C / D E
+^
+( + ( - ( * ^
+A B C / D E
+F
+( + ( - ( * ^
+A B C / D E F
+)
+( + ( -
+A B C / D E F ^ *
++
+( + ( +
+A B C / D E F ^ * -
+G
+( + ( +
+A B C / D E F ^ * - G
+)
+( +
+A B C / D E F ^ * - G +
+*
+( + *
+A B C / D E F ^ * - G +
+H
+( + *
+A B C / D E F ^ * - G + H
+)
+A B C / D E F ^ * - G + H * +
+Operator Precedence (for this algorithm):
+4 : ‘ ( ‘ - only popped if a matching ‘ ) ’ is found
+3 : All unary operators
+2 : / *
+1 : + -
+The algorithm immediately passes values (operands) to the postfix expression, but
+remembers (saves) operators on the stack until their right-hand operands are fully
+translated.
+
+===== PAGE 60 =====
+60
+4.5.3. Function Calls
+When a function is called, arguments (including the return address) have to be passed to the
+called function.
+If these arguments are stored in a fixed memory area then the function cannot be called
+recursively since the 1st return address would be overwritten by the 2nd return address before the
+first was used:
+10 call function abc(); /* retadrs = 11 */
+11 continue;
+...
+90 function abc;
+91 code;
+92 if (expression)
+93 call function abc(); /* retadrs = 94 */
+94 code
+95 return /* to retadrs */
+A stack allows a new instance of retadrs for each call to the function. Recursive calls on the
+function are limited only by the extent of the stack.
+10 call function abc(); /* retadrs1 = 11 */
+11 continue;
+...
+90 function abc;
+91 code;
+92 if (expression)
+93 call function abc(); /* retadrs2 = 94 */
+94 code
+95 return /* to retadrsn */
+
+===== PAGE 61 =====
+61
+5.Queue
+A queue is logically a first in first out (FIFO or first come first serve) linear data
+structure. The concept of queue can be understood by our real life problems. For example a
+customer come and join in a queue to take the train ticket at the end (rear) and the ticket is issued
+from the front end of queue. That is, the customer who arrived first will receive the ticket first. It
+means the customers are serviced in the order in which they arrive at the service centre.
+It is a homogeneous collection of elements in which new elements are added at one end
+called rear , and the existing elements are deleted from other end called front .
+The basic operations that can be performed on queue are
+1. Insert (or add) an element to the queue (enqueue).
+2. Delete (or remove) an element from a queue (dequeue)
+Push operation will insert (or add) an element to queue, at the rear end, by incrementing
+the array index. Pop operation will delete (or remove) from the front end by decrementing the
+array index and will assign the deleted value to a variable. Total number of elements present in
+the queue is front-rear+1, when implemented using arrays. Following figure will illustrate the
+basic operations on queue.
+Example:
+Operation
+Content of queue
+Enqueue(B)
+B
+Enqueue(C)
+B, C
+Dequeue()
+C
+Enqueue(G)
+C, G
+Enqueue (F)
+C, G, F
+Dequeue()
+G, F
+Enqueue(A)
+G, F, A
+Dequeue()
+F, A
+5.1. Simple array implementation of enqueue and dequeue operations
+Analysis:
+Consider the following structure: int Num[MAX_SIZE];
+We need to have two integer variables that tell:
+Front
+Rear
+dequeue
+enqueue
+
+===== PAGE 62 =====
+62
+-
+the index of the front element
+-
+the index of the rear element
+We also need an integer variable that tells:
+-
+the total number of data in the queue
+int FRONT =-1,REAR =-1;
+int QUEUESIZE=0;
+
+===== PAGE 63 =====
+63
+
+To enqueue data to the queue
+o
+check if there is space in the queue
+REAR<MAX_SIZE-1 ?
+Yes:
+- Increment REAR
+- Store the data in Num[REAR]
+- Increment QUEUESIZE
+FRONT = = -1?
+Yes: - Increment FRONT
+No:
+- Queue Overflow
+
+To dequeue data from the queue
+o
+check if there is data in the queue
+QUEUESIZE > 0 ?
+Yes:
+- Copy the data in Num[FRONT]
+- Increment FRONT
+- Decrement QUEUESIZE
+No:
+- Queue Underflow
+Implementation:
+const int MAX_SIZE=100;
+int FRONT =-1, REAR =-1;
+int QUEUESIZE = 0;
+void enqueue(int x)
+{
+if(Rear<MAX_SIZE-1)
+{
+REAR++;
+Num[REAR]=x;
+QUEUESIZE++;
+if(FRONT = = -1)
+FRONT++;
+}
+else
+cout<<"Queue Overflow";
+}
+int dequeue()
+{
+int x;
+if(QUEUESIZE>0)
+{
+x=Num[FRONT];
+FRONT++;
+QUEUESIZE--;
+}
+else
+cout<<"Queue Underflow";
+return(x);
+}
+
+===== PAGE 64 =====
+64
+5.2. Circular array implementation of enqueue and dequeue operations
+A problem with simple arrays is we run out of space even if the queue never reaches the size of
+the array. Thus, simulated circular arrays (in which freed spaces are re-used to store data) can be
+used to solve this problem.
+Example:
+Consider a queue with MAX_SIZE = 4
+Operation
+Simple array
+Circular array
+Content of
+the array
+Content of
+the Queue
+QUEUE
+SIZE
+Message
+Content of
+the array
+Content of
+the queue
+QUEUE
+SIZE
+Message
+Enqueue(B)
+B
+B
+1
+B
+B
+1
+Enqueue(C)
+B
+C
+BC
+2
+B
+C
+BC
+2
+Dequeue()
+C
+C
+1
+C
+C
+1
+Enqueue(G)
+C
+G
+CG
+2
+C
+G
+CG
+2
+Enqueue (F)
+C
+G
+F CGF
+3
+C
+G
+F CGF
+3
+Dequeue()
+G
+F GF
+2
+G
+F GF
+2
+Enqueue(A)
+G
+F GF
+2
+Overflow
+A
+G
+F GFA
+3
+Enqueue(D)
+G
+F GF
+2
+Overflow
+A
+D
+G
+F GFAD
+4
+Enqueue(C)
+G
+F GF
+2
+Overflow
+A
+D
+G
+F GFAD
+4
+Overflow
+Dequeue()
+F F
+1
+A
+D
+F FAD
+3
+Enqueue(H)
+F F
+1
+Overflow
+A
+D
+H
+F FADH
+4
+Dequeue ()
+Empty
+0
+A
+D
+H
+ADH
+3
+Dequeue()
+Empty
+0
+Underflow
+D
+H
+DH
+2
+Dequeue()
+Empty
+0
+Underflow
+H
+H
+1
+Dequeue()
+Empty
+0
+Underflow
+Empty
+0
+Dequeue()
+Empty
+0
+Underflow
+Empty
+0
+Underflow
+The circular array implementation of a queue with MAX_SIZE can be simulated as follows:
+Analysis:
+Consider the following structure: int Num[MAX_SIZE];
+We need to have two integer variables that tell:
+-
+the index of the front element
+-
+the index of the rear element
+We also need an integer variable that tells:
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+MAX_SIZE - 1
+
+===== PAGE 65 =====
+65
+-
+the total number of data in the queue
+int FRONT =-1,REAR =-1;
+int QUEUESIZE=0;
+
+To enqueue data to the queue
+o
+check if there is space in the queue
+QUEUESIZE<MAX_SIZE ?
+Yes:
+- Increment REAR
+REAR = = MAX_SIZE ?
+Yes: REAR = 0
+- Store the data in Num[REAR]
+- Increment QUEUESIZE
+FRONT = = -1?
+Yes: - Increment FRONT
+No:
+- Queue Overflow
+
+To dequeue data from the queue
+o
+check if there is data in the queue
+QUEUESIZE > 0 ?
+Yes:
+- Copy the data in Num[FRONT]
+- Increment FRONT
+FRONT = = MAX_SIZE ?
+Yes:
+FRONT = 0
+- Decrement QUEUESIZE
+No:
+- Queue Underflow
+Implementation:
+const int MAX_SIZE=100;
+int FRONT =-1, REAR =-1;
+int QUEUESIZE = 0;
+void enqueue(int x)
+{
+if(
+QUEUESIZE
+<MAX_SIZE)
+{
+REAR++;
+if(
+REAR
+= = MAX_SIZE)
+REAR
+=0;
+Num[REAR]=x;
+QUEUESIZE++;
+if(FRONT = = -1)
+FRONT++;
+}
+else
+cout<<"Queue Overflow";
+}
+int dequeue()
+{
+
+===== PAGE 66 =====
+66
+int x;
+if(QUEUESIZE>0)
+{
+x=Num[FRONT];
+FRONT++;
+if(FRONT = = MAX_SIZE)
+FRONT = 0;
+QUEUESIZE--;
+}
+else
+cout<<"Queue Underflow";
+return(x);
+}
+5.3. Linked list implementation of enqueue and dequeue operations
+Enqueue- is inserting a node at the end of a linked list
+Dequeue- is deleting the first node in the list
+5.4. Deque (pronounced as Deck)
+- is a Double Ended Queue
+- insertion and deletion can occur at either end
+- has the following basic operations
+EnqueueFront – inserts data at the front of the list
+DequeueFront – deletes data at the front of the list
+EnqueueRear – inserts data at the end of the list
+DequeueRear – deletes data at the end of the list
+- implementation is similar to that of queue
+- is best implemented using doubly linked list
+DequeueFront
+EnqueueRear
+DequeueRear
+EnqueueFront
+Front
+Rear
+
+===== PAGE 67 =====
+67
+5.5. Priority Queue
+- is a queue where each data has an associated key that is provided at the time of insertion.
+- Dequeue operation deletes data having highest priority in the list
+- One of the previously used dequeue or enqueue operations has to be modified
+Example: Consider the following queue of persons where females have higher priority
+than males (gender is the key to give priority).
+Dequeue()- deletes Aster
+Dequeue()- deletes Meron
+Now the queue has data having equal priority and dequeue operation deletes the front
+element like in the case of ordinary queues.
+Dequeue()- deletes Abebe
+Dequeue()- deletes Alemu
+Thus, in the above example the implementation of the dequeue operation need to be
+modified.
+5.5.1. Demerging Queues
+- is the process of creating two or more queues from a single queue.
+- used to give priority for some groups of data
+Example: The following two queues can be created from the above priority queue.
+Abebe
+Alemu
+Belay
+Kedir
+Meron
+Yonas
+Male
+Male
+Male
+Male
+Female
+Male
+Abebe
+Alemu
+Aster
+Belay
+Kedir
+Meron
+Yonas
+Male
+Male
+Female
+Male
+Male
+Female
+Male
+Abebe
+Alemu
+Belay
+Kedir
+Yonas
+Male
+Male
+Male
+Male
+Male
+Alemu
+Belay
+Kedir
+Yonas
+Male
+Male
+Male
+Male
+Belay
+Kedir
+Yonas
+Male
+Male
+Male
+Aster
+Female
+Meron
+Female
+Abebe
+Alemu
+Male
+Male
+Belay
+Kedir
+Male
+Male
+Yonas
+Male
+
+===== PAGE 68 =====
+68
+Algorithm:
+create empty females and males queue
+while (PriorityQueue is not empty)
+{
+Data =DequeuePriorityQueue(); // delete data at the front
+if(gender of Data is Female)
+EnqueueFemale( Data );
+else
+EnqueueMale( Data );
+}
+5.5.2. Merging Queues
+- is the process of creating a priority queue from two or more queues.
+- the ordinary dequeue implementation can be used to delete data in the newly created
+priority queue.
+Example: The following two queues (females queue has higher priority than the males
+queue) can be merged to create a priority queue.
+Algorithm:
+create an empty priority queue
+while(FemalesQueue is not empty)
+EnqueuePriorityQueue(DequeueFemalesQueue());
+while(MalesQueue is not empty)
+EnqueuePriorityQueue(DequeueMalesQueue());
+It is also possible to merge two or more priority queues.
+Example: Consider the following priority queues and suppose large numbers represent
+high priorities.
+Thus, the two queues can be merged to give the following priority queue.
+Aster
+Female
+Meron
+Female
+Abebe
+Alemu
+Male
+Male
+Belay
+Kedir
+Male
+Male
+Yonas
+Male
+Aster
+Female
+Meron
+Female
+Abebe
+Alemu
+Male
+Male
+Belay
+Kedir
+Male
+Male
+Yonas
+Male
+ABC
+CDE
+52
+41
+DEF
+FGH
+35
+16
+HIJ
+12
+BCD
+EFG
+47
+32
+GHI
+IJK
+13
+10
+JKL
+7
+ABC
+BCD
+52
+47
+CDE
+DEF
+41
+35
+EFG
+32
+FGH
+GHI
+16
+13
+HIJ
+IJK
+12
+10
+JKL
+7
+
+===== PAGE 69 =====
+69
+5.6. Application of Queues
+i.
+Print server- maintains a queue of print jobs
+Print()
+{
+EnqueuePrintQueue(Document)
+}
+EndOfPrint()
+{
+DequeuePrintQueue()
+}
+ii.
+Disk Driver- maintains a queue of disk input/output requests
+iii.
+Task scheduler in multiprocessing system- maintains priority queues of processes
+iv.
+Telephone calls in a busy environment –maintains a queue of telephone calls
+v.
+Simulation of waiting line- maintains a queue of persons
+6. Trees
+Many real life problems can be represented and solved using trees.
+Trees are very flexible, versatile and powerful non-liner data structure that can be used to
+represent data items possessing hierarchical relationship between the grand father and his
+children and grand children as so on.
+A tree is a set of nodes and edges that connect pairs of nodes. It is an abstract model of a
+hierarchical structure. Rooted tree has the following structure:
+
+One node distinguished as root.
+
+Every node C except the root is connected from exactly other node P. P is C's parent,
+and C is one of C's children.
+
+There is a unique path from the root to the each node.
+
+The number of edges in a path is the length of the path.
+
+===== PAGE 70 =====
+70
+6.1. Tree Terminologies
+Root is a specially designed node (or data items) in a tree. It is the first node in the hierarchical
+arrangement of the data items. ‗A‘ is a root node in the Figure below. Each data item in a tree is
+called a node . It specifies the data information and links (branches) to other data items.
+Consider the following tree.
+Root:
+a node without a parent.
+
+A
+Internal node: a node with at least one child.
+
+A, B, F, I, J
+External (leaf) node: a node without a child.
+
+C, D, E, H, K, L, M, G
+Degree of a node is the number of sub trees of a node in a given tree.
+Degree of node A is 4
+Degree of node B is 2
+Degree of node F is 3
+Degree of node D is 0
+Degree of a tree is the maximum degree of a node in a given tree. In the above tree, degree of a
+node A is 4. All the others have less or equal degree. So the degree of the above tree is 4.
+Ancestors of a node:
+parent, grandparent, grand-grandparent, etc of a node.
+Ancestors of K
+
+A, F, I
+Descendants of a node: children, grandchildren, grand-grandchildren etc of a node.
+Descendants of F
+
+H, I, J, K, L, M
+Depth of a node: number of ancestors or length of the path from the root to the node.
+Depth of H
+
+2
+Height of a tree: depth of the deepest node.
+
+3
+Sub tree: a tree consisting of a node and its descendants.
+A
+B
+E
+G
+F
+D
+C
+J
+H
+I
+M
+K
+L
+F
+J
+H
+I
+M
+K
+L
+
+===== PAGE 71 =====
+71
+The tree is structured in different levels. The entire tree is leveled in such a way that the
+root node is always level 0. Then, its immediate children are at level 1 and their immediate
+children are at level 2 and soon up to the terminal nodes. That is if a node is at level n, then its
+children will be at level n+1.
+Binary tree: a tree in which each node has at most two children called left child and right child.
+A binary tree T is defined as a finite set of elements, called nodes, such that:
+
+T is empty (i.e. if T has no nodes called null tree or empty tree)
+
+T contains a special node called Root node of T, and the remaining nodes of T form an
+ordered pair of disjointed binary trees T1 and T2, and they are called left and right sub
+tree of R. if T1 is non empty then its root is called the left successor of R, similarly if T2
+is non empty then its root is called the right successor of R.
+Full or Strictly binary tree: a binary tree where each node has either 0 or 2 children.
+The tree is said to be strictly binary tree , if every non-leaf made in a binary tree has non-empty left and
+right sub trees. A strictly binary tree with n leaves always contains 2 n –1 nodes. That is every node in the
+strictly binary tree can have either no children or two children. They are also called 2- tree or extended
+binary tree.
+Balanced binary tree: a binary tree where each node except the leaf nodes has left and right
+children and all the leaves are at the same level.
+Complete binary tree: a binary tree in which the length from the root to any leaf node is either h
+or h-1 where h is the height of the tree. The deepest level should also be filled from left to right.
+
+===== PAGE 72 =====
+72
+Binary search tree (ordered binary tree): a binary tree that may be empty, but if it is not empty it
+satisfies the following.
+
+Every node has a key and no two elements have the same key.
+
+The keys in the right sub tree are larger than the keys in the root.
+
+The keys in the left sub tree are smaller than the keys in the root.
+
+The left and the right sub trees are also binary search trees.
+6.2. Data Structure of a Binary Tree
+struct DataModel
+{
+Declaration of data fields
+DataModel * Left, *Right;
+};
+DataModel *RootDataModelPtr=NULL;
+10
+6
+7
+15
+8
+4
+18
+14
+12
+19
+11
+16
+13
+
+===== PAGE 73 =====
+73
+6.3. Operations on Binary Search Tree
+Consider the following definition of binary search tree.
+struct Node
+{
+int Num;
+Node * Left, *Right;
+};
+Node *RootNodePtr=NULL;
+6.3.1. Insertion
+When a node is inserted the definition of binary search tree should be preserved. Suppose
+there is a binary search tree whose root node is pointed by RootNodePtr and we want to
+insert a node (that stores 17) pointed by InsNodePtr.
+Case 1:
+There is no data in the tree (i.e. RootNodePtr is NULL)
+-
+The node pointed by InsNodePtr should be made the root node.
+Case 2:
+There is data
+-
+Search the appropriate position.
+-
+Insert the node in that position.
+ALGORITHM
+InsNodePtr is a pointer variable to hold the address of the newly created node. DATA
+is the information to be pushed.
+1. Input the DATA to be pushed and ROOT node of the tree.
+2. InsNodePtr = Create a New Node.
+3. If (ParentNodePtr == NULL)
+( a ) ParentNodePtr=InsNodePtr
+4. Else If (DATA < RootNodeptPtr
+
+Info)
+( a ) ParentNodePtr = ParentNodePtr
+
+Left
+( b ) GoTo Step 4
+5. Else If (DATA > ParentNodePtr->Info)
+( a ) ParentNodePtr = ParentNodePtr->
+
+Right
+( b ) GoTo Step 4
+6. If (DATA < ParentNodePtr
+
+Info)
+( a ) ParentNodePtr->
+
+Left = InsNodePtr
+7. Else If (DATA > ParentNodePtr->Info)
+( a ) ParentNodePtr ->
+
+Right = InsNodePtr
+RootNodePtr
+RootNodePtr
+17
+InsNodePtr
+17
+
+
+===== PAGE 74 =====
+74
+8. Else
+( a ) Display (―DUPLICATE NODE‖)
+( b ) EXIT
+9. InsNodePtr->Info = DATA
+10. InsNodePtr->
+
+Left = NULL
+11. InsNodePtr->Right = NULL
+12. EXIT
+Implementation:
+void InsertBST(Node *RNP, Node *INP)
+{
+//RNP=RootNodePtr and INP=InsNodePtr
+int Inserted=0;
+while(Inserted = =0)
+{
+if(RNP->Num > INP->Num)
+{
+if(RNP->Left = = NULL)
+{
+RNP->Left = INP;
+Inserted=1;
+}
+else
+RNP = RNP->Left;
+}
+else
+{
+if(RNP->Right = = NULL)
+{
+RNP->Right = INP;
+Inserted=1;
+}
+InsNodePtr
+17
+RootNodePtr
+10
+6
+7
+15
+8
+4
+18
+14
+12
+19
+11
+16
+13
+RootNodePtr
+10
+6
+7
+15
+8
+4
+18
+14
+12
+19
+11
+16
+13
+17
+InsertBST(RootNodePtr, InsNodePtr)
+
+Function call:
+if(RootNodePtr = = NULL)
+RootNodePtr=InsNodePtr;
+else
+InsertBST(RootNodePtr, InsNodePtr);
+
+===== PAGE 75 =====
+75
+else
+RNP = RNP->Right;
+}
+}
+}
+A recursive version of the function can also be given as follows.
+void InsertBST(Node *RNP, Node *INP)
+{
+if(RNP->Num>INP->Num)
+{
+if(RNP->Left==NULL)
+RNP->Left = INP;
+else
+InsertBST(RNP->Left, INP);
+}
+else
+{
+if(RNP->Right==NULL)
+RNP->Right = INP;
+else
+InsertBST(RNP->Right, INP);
+}
+}
+6.3.2. Traversing Binary trees
+Tree traversal is one of the most common operations performed on tree data structures. It is a
+way in which each node in the tree is visited exactly once in a systematic manner. There are
+three standard ways of traversing a binary search tree.
+a.
+Pre order traversal
+- traversing binary tree in the order of parent, left and right.
+b.
+In order traversal
+- traversing binary tree in the order of left, parent and right.
+c.
+Post order traversal - traversing binary tree in the order of left , right and parent .
+Function calls:
+Preorder(RootNodePtr);
+Inorder(RootNodePtr);
+Postorder(RootNodePtr);
+PRE ORDERS TRAVERSAL RECURSIVELY
+To traverse a non-empty binary tree in pre order following steps one to be processed
+1. Visit the root node
+2. Traverse the left sub tree in preorder
+3. Traverse the right sub tree in preorder
+That is, in preorder traversal, the root node is visited (or processed) first, before traveling through
+left and right sub trees recursively.
+Implementation using recursion:
+void Preorder (Node *CurrNodePtr)
+{
+if(CurrNodePtr ! = NULL)
+
+===== PAGE 76 =====
+76
+{
+cout<< CurrNodePtr->Num;
+// or any operation on the node
+Preorder(CurrNodePtr->Left);
+Preorder(CurrNodePtr->Right);
+}
+}
+IN ORDER TRAVERSAL RECURSIVELY
+The in order traversal of a non-empty binary tree is defined as follows:
+1. Traverse the left sub tree in order
+2. Visit the root node
+3. Traverse the right sub tree in order
+In order traversal, the left sub tree is traversed recursively, before visiting the root.
+After visiting the root the right sub tree is traversed recursively, in order fashion.
+implementation
+void Inorder (Node *CurrNodePtr)
+{
+if(CurrNodePtr ! = NULL)
+{
+Inorder(CurrNodePtr->Left);
+cout<< CurrNodePtr->Num;
+// or any operation on the node
+Inorder(CurrNodePtr->Right);
+}
+}
+POST ORDER TRAVERSAL RECURSIVELY
+The post order traversal of a non-empty binary tree can be defined as:
+1. Traverse the left sub tree in post order
+2. Traverse the right sub tree in post order
+3. Visit the root node
+In Post Order traversal, the left and right sub tree(s) are recursively processed before visiting the
+root.
+implementation
+void Postorder (Node *CurrNodePtr)
+{
+if(CurrNodePtr ! = NULL)
+{
+Postorder(CurrNodePtr->Left);
+Postorder(CurrNodePtr->Right);
+cout<< CurrNodePtr->Num;
+// or any operation on the node
+}
+
+===== PAGE 77 =====
+77
+}
+
+===== PAGE 78 =====
+78
+TRAVERSING BINARY SEARCH TREE NON-RECURSIVELY
+In this section we will discuss the implementation of three standard traversals algorithms, which
+were defined recursively in the last section, non-recursively using stack.
+PREORDER TRAVERSAL NON-RECURSIVELY
+The preorder traversal non-recursively algorithms uses a variable PN (Present Node),
+which will contain the location of the node currently being scanned. Left(R) denotes the left
+child of the node R and Right(R) denoted the right child of R. A stack is used to hold the
+addresses of the nodes to be processed. Info(R) denotes the information of the node R.
+Preorder traversal starts with root node of the tree i.e., PN = ROOT. Then repeat the
+following steps until PN = NULL.
+Step 1: Process the node PN. If any right child is there for PN, push the Right (PN) into the top
+of the stack and proceed down to left by PN = Left (PN), if any left child is there (i.e., Left (PN)
+not equal to NULL).
+Repeat the step 2 until there is no left child (i.e., Left (PN) = NULL).
+Step 2: Now we have to go back to the right node(s) by backtracking the tree. This can be
+achieved by popping the top most element of the stack. Pop the top element from the stack and
+assigns to PN.
+Step 3: If (PN is not equal to NULL) go to the Step 1
+Step 4: Exit
+ALGORITHM
+An array STACK is used to hold the addresses of nodes. TOP pointer points to the top most
+element of the STACK. ROOT is the root node of tree to be traversed. PN is the address of the
+present node under scanning. Info(PN) if the information contained in the node PN.
+1. Initialize TOP = NULL, PN = ROOT
+2. Repeat step 3 to 5 until (PN = NULL)
+3. Display Info(PN)
+4. If (Right(PN) not equal to NULL)
+(a) TOP = TOP+1
+b) STACK(TOP) = Right(PN);
+5. If(Left(PN) not equal to NULL)
+(a) PN = Left(PN)
+6. Else
+(a) PN = STACK[TOP]
+(b) TOP = TOP–1
+7. Exit
+Implementation using non recursion:
+void preorder(struct tnode *p)
+{
+struct node *stack[100];
+int top;
+top = –1;
+if(p != NULL)
+{
+
+===== PAGE 79 =====
+79
+cout<<“ ”<<p->info;
+if(p->right != NULL)
+{
+top++;
+stack[top] = p->right;
+}
+p = p->left;
+while(top >= –1)
+{
+while ( p!= NULL)/* push the left child onto stack*/
+{
+Cout<<,p->data<<”->”;
+if(p->right != NULL)
+{
+top++;
+stack[top] = p->right;
+}
+p = p->left;
+}
+p = stack[top];
+top--;
+}
+}
+}
+IN ORDER TRAVERSAL NON-RECURSIVELY
+The in-order traversal algorithm uses a variable PN, which will contain the location of the node
+currently being scanned. Info (R) denotes the information of the node R, Left (R) denotes the left
+child of the node R and Right (R) denotes the right child of the node R.
+In-order traversal starts from the ROOT node of the tree (i.e., PN = ROOT). Then repeat the
+following steps until PN = NULL:
+Step 1: Precede down to left most node of the tree by pushing the root node onto the stack.
+Step 2: Repeat the step 1 until there is no left child for a node.
+Step 3: Pop the top element of the stack and process the node. PN = STACK[TOP]
+Step 4: If the stack is empty then go to step 6.
+Step 5: If the popped element has right child then PN = Right(PN). Then repeat the step from 1.
+Step 6: Exit.
+ALGORITHM
+An array STACK is used to temporarily store the addresses of the nodes. TOP pointer always
+points to the topmost element of the STACK.
+1. Initialize TOP = NULL and PN = ROOT
+2. Repeat the Step 3, 4 and 5 until (PN = NULL)
+3. TOP = TOP +1
+4. STACK[TOP] = PN
+5. PN = Left(PN)
+6. PN = STACK[TOP]
+
+===== PAGE 80 =====
+80
+7. TOP = TOP–1
+8. Repeat steps 9, 10, 11 and 12 until (PN = NULL)
+9. Display Info(PN)
+10. If(Right(PN) is not equal to NULL
+(a) PN = Right(PN)
+(b) Go to Step 6
+11. PN = STACK[TOP]
+12. TOP = TOP –1
+13. Exit
+Implemenation
+void inorder(struct tnode *p)
+{
+struct tnode *stack[100];
+int top;
+top = –1;
+if(p != NULL)
+{
+top++;
+stack[top] = p;
+p = p->left;
+while(top >= 0)
+{
+while ( p!= NULL)/* push the left child onto stack*/
+{
+top++;
+stack[top] =p;
+p = p->left;
+}
+p = stack[top];
+top--;
+cout<<― ‖<<p->data;
+p = p->right;
+if ( p != NULL) /* push right child*/
+{
+top++;
+stack[top] = p;
+p = p->left;
+}
+}
+}
+}
+POSTORDER TRAVERSAL NON-RECURSIVELY
+The post-order traversal algorithm uses a variable PN, which will contain the location of the
+node currently being scanned. Left (R) denotes the left child of the node R and Right (R) denotes
+the right child of the node R. Info (R) denotes the information of the node R.
+
+===== PAGE 81 =====
+81
+The post-order traversal algorithm is more complicated than the proceeding two algorithms,
+because here we have to push the information of the node PN to stack in two different situations.
+These two situations are distinguished between by pushing Left(PN) and - Right(PN) on to stack.
+That is whenever a negative node sees in the stack; it means that it was a right child of a node.
+Post-order traversal starts from the ROOT node of the tree (i.e., PN = ROOT).
+Step 1: Proceed down to left most node of the tree by pushing the root node and - Right(PN) on
+the stack.
+Step 2: Repeat the Step 1 until there is no left child for the node.
+Step 3: Pop and display the positive nodes on the stack.
+Step 4: If the stack is empty, go to Step 6
+Step 5: If a negative node is popped, then PN = – PN (i.e., to remove the negative sign in the
+node) and go to Step 1.
+Step 6: Exit
+ALGORITHM
+An array STACK is used to temporarily store the addresses of the nodes. TOP pointer always
+points to the top most element of the stack.
+1. Initialize TOP = NULL and PN = ROOT
+2. Repeat the steps 3 to 6 until (PN = NULL)
+3. TOP = TOP+1
+4. SATCK(TOP)=PN
+5. If (Right(PN) is not equal to NULL)
+(a) TOP = TOP+1
+(b) STACK(TOP) = – Right(PN)
+6. PN = Left(PN)
+7. PN = STACK(TOP)
+8. TOP = TOP–1
+9. Repeat the step 9 until (PN less than or equal to 0)
+(a) Display Info(PN)
+(b) PN = STACK(TOP)
+(c) TOP = TOP=1
+10. If(PN < 0)
+(a) PN = – PN
+(b) Go to step 2
+11. Exit
+Implementation
+void postorder(struct node *p)
+{
+struct node *stack[100];
+int top,sig, sign[100];
+top = –1;
+if(p != NULL)
+{
+top++;
+stack[top] = p;
+sign[top]=1;
+
+===== PAGE 82 =====
+82
+if(p->right != NULL)
+{
+top++;
+stack[top] = p->right;
+sign[top]=–1;
+}
+p = p->left;
+while(top >= 0)
+{
+while ( p!= NULL)/* push the left child onto stack*/
+{
+top++;
+stack[top] = p;
+sign[top]=1;
+if(p->right != NULL)
+{
+top++;
+stack[top] = p->right;
+sign[top]=–1;
+}
+p = p->left;
+}
+p = stack[top];
+sig=sign[top];
+top--;
+while((sig > 0) && (top >= -1))
+{
+cout<<― ‖<<p->info;
+p = stack[top];
+sig=sign[top];
+top--;
+}
+}
+}
+}
+Example:
+RootNodePtr
+10
+6
+15
+8
+4
+18
+14
+
+===== PAGE 83 =====
+83
+Preorder traversal -
+10, 6, 4, 8, 7, 15, 14, 12, 11, 13, 18, 16, 17, 19
+In order traversal
+-
+4, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+==> Used to display nodes in ascending order.
+Post order traversal-
+4, 7, 8, 6, 11, 13, 12, 14, 17, 16, 19, 18, 15, 10
+6.3.3. Application of binary tree traversal
+- Store values on leaf nodes and operators on internal nodes
+Pre order traversal - used to generate mathematical expression in prefix notation.
+In order traversal - used to generate mathematical expression in infix notation.
+Post order traversal - used to generate mathematical expression in postfix notation.
+Example:
+Constructing a binary search tree
+Construct a binary search from the following tree traversal search:
+e.g. 1:
+preorder: -
+A B C D F H J M K E G I L N
+In order: -
+A D J M H K F C I N L G E B
+Step 1:
+STEP 2:
++
+–
+B
++
+*
+A
+/
+D
+C
+F
+E
+Preorder traversal
+-
++ – A * B C + D / E F
+
+Prefix notation
+Inorder traversal
+-
+A – B * C + D + E / F
+
+Infix notation
+Postorder traversal
+-
+A B C * – D E F / + +
+
+Postfix notation
+A
+D J M H K F C I N L G E B
+B
+A
+D J M H K F C I N L G E
+
+===== PAGE 84 =====
+84
+STEP 3:
+STEP 4
+STEP 5:
+STEP 6:
+C
+V
+B
+A
+D J M H K F
+I N L G E
+J M H K
+I N L G E
+C
+V
+B
+A
+D
+I N L G E
+C
+V
+B
+A
+D
+F
+J M H K
+I N L G E
+J M
+C
+V
+B
+A
+D
+F
+H
+K
+
+===== PAGE 85 =====
+85
+STEP 7:
+STEP 8:
+STEP 9:
+STEP 10:
+I N L G E
+C
+V
+B
+A
+D
+F
+H
+K
+J
+M
+I N L G
+C
+V
+B
+A
+D
+F
+H
+K
+J
+M
+E
+I N L
+C
+V
+B
+A
+D
+F
+H
+K
+J
+M
+E
+G
+N L
+C
+V
+B
+A
+D
+F
+H
+K
+J
+M
+E
+G
+I
+
+===== PAGE 86 =====
+86
+STEP 11:
+EXERCISE
+Construct a binary search tree from the following:
+a)
+In order:-
+a / b + c – d * e
+Post order:-
+a b / c d – e * +
+b)
+In order:-
+a * b – c – d
+Preorder:-
+– * a b – c d
+c)
+In order:-
+2 * 3 – 5 + 4
+Pre order:-
++ * 2 – 3 5 4
+d)
+In order:-
+a + b * c
+Post order:-
+a b + c *
+C
+V
+B
+A
+D
+F
+H
+K
+J
+M
+E
+G
+I
+L
+L
+
+===== PAGE 87 =====
+87
+6.3.4. Searching
+Searching a node was part of the operation performed during insertion. Algorithm
+to search as element from a binary search tree is given below.
+To search a node (whose Num value is Number) in a binary search tree (whose root node
+is pointed by RootNodePtr), one of the three traversal methods can be used.
+ALGORITHM
+1. Input the DATA to be searched and assign the address of the root node to ROOT.
+2. If (DATA == ROOT
+
+Info)
+( a ) Display ―The DATA exist in the tree‖
+( b ) GoTo Step 6
+3. If (ROOT == NULL)
+( a ) Display ―The DATA does not exist‖
+( b ) GoTo Step 6
+4. If(DATA > ROOT
+
+Info)
+( a ) ROOT = ROOT
+
+Right
+( b ) GoTo Step 2
+5. If(DATA < ROOT
+
+Info)
+( a ) ROOT = ROOT
+
+Left
+( b ) GoTo Step 2
+6. Exit
+Suppose a binary search tree contains n data items, A1, A2, A3………..A n . There are n !
+permutations of the n items. The average depth of the n! tree is approximately C log 2 n , where
+C=1.4. The average running time f ( n ) to search for an item in a binary tree with n elements is
+proportional to Log
+2
+n , that is
+f ( n ) = O(Log
+2
+n )
+Function call:
+ElementExists = SearchBST (RootNodePtr, Number);
+// ElementExists is a Boolean variable defined as: bool ElementExists = false ;
+Implementation:
+bool SearchBST (Node *RNP, int x)
+{
+if(RNP = = NULL)
+return(false);
+else if(RNP->Num = = x)
+return(true);
+else if(RNP->Num > x)
+return(SearchBST(RNP->Left, x));
+else
+return(SearchBST(RNP->Right, x));
+}
+
+===== PAGE 88 =====
+88
+When we search an element in a binary search tree, sometimes it may be necessary for the
+SearchBST function to return a pointer that points to the node containing the element
+searched. Accordingly, the function has to be modified as follows.
+Function call:
+SearchedNodePtr = SearchBST (RootNodePtr, Number);
+// SearchedNodePtr is a pointer variable defined as: Node *SearchedNodePtr=NULL ;
+Implementation:
+Node *SearchBST (Node *RNP, int x)
+{
+if((RNP = = NULL) || (RNP->Num = = x))
+return(RNP);
+else if(RNP->Num > x)
+return(SearchBST(RNP->Left, x));
+else
+return(SearchBST (RNP->Right, x));
+}
+6.3.5. Deletion
+To delete a node (whose Num value is N) from binary search tree (whose root node is
+pointed by RootNodePtr), four cases should be considered. When a node is deleted the
+definition of binary search tree should be preserved.
+Consider the following binary search tree.
+RootNodePtr
+10
+6
+7
+14
+8
+3
+18
+12
+19
+11
+16
+13
+17
+9
+4
+2
+1
+15
+5
+
+===== PAGE 89 =====
+89
+Case 1: Deleting a leaf node (a node having no child), e.g. 7
+RootNodePtr
+10
+6
+14
+8
+3
+18
+12
+19
+11
+16
+13
+17
+9
+4
+2
+1
+15
+5
+Delete 7
+
+RootNodePtr
+10
+6
+7
+14
+8
+3
+18
+12
+19
+11
+16
+13
+17
+9
+4
+2
+1
+15
+5
+
+===== PAGE 90 =====
+90
+Case 2: Deleting a node having only one child, e.g. 2
+Approach 1:
+Deletion by merging – one of the following is done
+
+If the deleted node is the left child of its parent and the deleted node has only the left child,
+the left child of the deleted node is made the left child of the parent of the deleted node.
+
+If the deleted node is the left child of its parent and the deleted node has only the right child,
+the right child of the deleted node is made the left child of the parent of the deleted node.
+
+If the deleted node is the right child of its parent and the node to be deleted has only the left
+child, the left child of the deleted node is made the right child of the parent of the deleted
+node.
+
+If the deleted node is the right child of its parent and the deleted node has only the right child,
+the right child of the deleted node is made the right child of the parent of the deleted node.
+Approach 2: Deletion by copying- the following is done
+
+Copy the node containing the largest element in the left (or the smallest element in the right)
+to the node containing the element to be deleted
+
+Delete the copied node
+Case 3: Deleting a node having two children, e.g. 6
+Approach 1:
+Deletion by merging – one of the following is done
+RootNodePtr
+10
+6
+14
+8
+3
+18
+12
+19
+11
+16
+13
+17
+9
+4
+1
+15
+5
+Delete 2
+
+RootNodePtr
+10
+6
+7
+14
+8
+3
+18
+12
+19
+11
+16
+13
+17
+9
+4
+2
+1
+15
+5
+RootNodePtr
+10
+6
+14
+8
+3
+18
+12
+19
+11
+16
+13
+17
+9
+4
+1
+15
+5
+Delete 2
+
+RootNodePtr
+10
+6
+7
+14
+8
+3
+18
+12
+19
+11
+16
+13
+17
+9
+4
+2
+1
+15
+5
+
+===== PAGE 91 =====
+91
+
+If the deleted node is the left child of its parent, one of the following is done
+o
+The left child of the deleted node is made the left child of the parent of the deleted node,
+and
+o
+The right child of the deleted node is made the right child of the node containing largest
+element in the left of the deleted node
+OR
+o
+The right child of the deleted node is made the left child of the parent of the deleted node,
+and
+o
+The left child of the deleted node is made the left child of the node containing smallest
+element in the right of the deleted node
+
+If the deleted node is the right child of its parent, one of the following is done
+o
+The left child of the deleted node is made the right child of the parent of the deleted node,
+and
+o
+The right child of the deleted node is made the right child of the node containing largest
+element in the left of the deleted node
+OR
+o
+The right child of the deleted node is made the right child of the parent of the deleted
+node, and
+o
+The left child of the deleted node is made the left child of the node containing smallest
+element in the right of the deleted node
+RootNodePtr
+10
+6
+7
+14
+8
+3
+18
+12
+19
+11
+16
+13
+17
+9
+4
+2
+1
+15
+5
+Delete 6
+
+RootNodePtr
+10
+8
+14
+9
+3
+18
+12
+19
+11
+16
+13
+17
+4
+2
+1
+15
+5
+7
+
+===== PAGE 92 =====
+92
+Approach 2: Deletion by copying- the following is done
+
+Copy the node containing the largest element in the left (or the smallest element in the right)
+to the node containing the element to be deleted
+
+Delete the copied node
+Delete 6
+
+RootNodePtr
+10
+6
+7
+14
+8
+3
+18
+12
+19
+11
+16
+13
+17
+9
+4
+2
+1
+15
+5
+RootNodePtr
+10
+7
+14
+8
+3
+18
+12
+19
+11
+16
+13
+17
+9
+4
+2
+1
+15
+5
+RootNodePtr
+10
+6
+7
+14
+8
+3
+18
+12
+19
+11
+16
+13
+17
+9
+4
+2
+1
+15
+5
+RootNodePtr
+10
+5
+7
+14
+8
+3
+18
+12
+19
+11
+16
+13
+17
+9
+4
+2
+1
+15
+Delete 6
+
+RootNodePtr
+10
+6
+7
+14
+8
+3
+18
+12
+19
+11
+16
+13
+17
+9
+4
+2
+1
+15
+5
+Delete 6
+
+RootNodePtr
+10
+7
+14
+8
+3
+18
+12
+19
+11
+16
+13
+17
+9
+4
+2
+1
+15
+5
+
+===== PAGE 93 =====
+93
+Case 4: Deleting the root node, 10
+Approach 1: Deletion by merging- one of the following is done
+
+If the tree has only one node the root node pointer is made to point to nothing (NULL)
+
+If the root node has left child
+o
+the root node pointer is made to point to the left child
+o
+the right child of the root node is made the right child of the node containing the largest
+element in the left of the root node
+
+If root node has right child
+o
+the root node pointer is made to point to the right child
+o
+the left child of the root node is made the left child of the node containing the smallest
+element in the right of the root node
+RootNodePtr
+10
+6
+7
+14
+8
+3
+18
+12
+19
+11
+16
+13
+17
+9
+4
+2
+1
+15
+5
+RootNodePtr
+RootNodePtr
+6
+7
+14
+8
+3
+18
+12
+19
+11
+16
+13
+17
+9
+4
+2
+1
+15
+5
+Delete 10
+
+Delete 10
+
+6
+7
+14
+8
+3
+18
+12
+19
+11
+16
+13
+17
+9
+4
+2
+1
+15
+5
+RootNodePtr
+RootNodePtr
+10
+6
+7
+14
+8
+3
+18
+12
+19
+11
+16
+13
+17
+9
+4
+2
+1
+15
+5
+RootNodePtr
+
+===== PAGE 94 =====
+94
+Approach 2: Deletion by copying- the following is done
+
+Copy the node containing the largest element in the left (or the smallest element in the right)
+to the node containing the element to be deleted
+
+Delete the copied node
+Delete 10
+
+RootNodePtr
+10
+6
+7
+14
+8
+3
+18
+12
+19
+11
+16
+13
+17
+9
+4
+2
+1
+15
+5
+RootNodePtr
+9
+6
+7
+14
+8
+3
+18
+12
+19
+11
+16
+13
+17
+4
+2
+1
+15
+5
+Delete 10
+
+RootNodePtr
+10
+6
+7
+14
+8
+3
+18
+12
+19
+11
+16
+13
+17
+9
+4
+2
+1
+15
+5
+RootNodePtr
+11
+6
+7
+14
+8
+3
+18
+12
+19
+16
+13
+17
+4
+2
+1
+15
+5
+9
+
+===== PAGE 95 =====
+95
+ALGORITHM
+NODE is the current position of the tree, which is in under consideration. LOC is the place where node is to be
+replaced. DATA is the information of node to be deleted.
+1. Find the location NODE of the DATA to be deleted.
+2. If (NODE = NULL)
+( a ) Display ―DATA is not in tree‖
+( b ) Exit
+3. If(NODE ->Left = NULL)
+( a ) LOC = NODE
+( b ) NODE = NODE
+
+Right
+4. If(NODE
+
+Right= =NULL)
+( a ) LOC = NODE
+( b ) NODE = NODE
+
+Left
+5. If((NODE
+
+Left not equal to NULL) && (NODE
+
+Right not equal to NULL))
+( a ) LOC = NODE
+
+Right
+6. While(LOC
+
+Left not equal to NULL)
+( a ) LOC = LOC
+
+Left
+7. LOC
+
+Left = NODE
+
+Left
+8. LOC
+
+Right= NODE
+
+Right
+9. Exit
+Function call:
+if ((RootNodePtr->Left==NULL)&&( RootNodePtr->Right==NULL) && (RootNodePtr->Num==N))
+{ // the node to be deleted is the root node having no child
+RootNodePtr=NULL;
+delete RootNodePtr;
+}
+else
+DeleteBST(RootNodePtr, RootNodePtr, N);
+Implementation: (Deletion by copying)
+void DeleteBST(Node *RNP, Node *PDNP, int x)
+{
+Node *DNP; // a pointer that points to the currently deleted node
+// PDNP is a pointer that points to the parent node of currently deleted node
+if(RNP==NULL)
+cout<<"Data not found\n";
+else if (RNP->Num>x)
+DeleteBST(RNP->Left, RNP, x);// delete the element in the left subtree
+else if(RNP->Num<x)
+DeleteBST(RNP->Right, RNP, x);// delete the element in the right subtree
+else
+{
+DNP=RNP;
+if((DNP->Left==NULL) && (DNP->Right==NULL))
+{
+if (PDNP->Left==DNP)
+PDNP->Left=NULL;
+else
+PDNP->Right=NULL;
+delete DNP;
+}
+
+===== PAGE 96 =====
+96
+else
+{
+if(DNP->Left!=NULL) //find the maximum in the left
+{
+PDNP=DNP;
+DNP=DNP->Left;
+while(DNP->Right!=NULL)
+{
+PDNP=DNP;
+DNP=DNP->Right;
+}
+RNP->Num=DNP->Num;
+DeleteBST(DNP,PDNP,DNP->Num);
+}
+else //find the minimum in the right
+{
+PDNP=DNP;
+DNP=DNP->Right;
+while(DNP->Left!=NULL)
+{
+PDNP=DNP;
+DNP=DNP->Left;
+}
+RNP->Num=DNP->Num;
+DeleteBST(DNP,PDNP,DNP->Num);
+}
+}
+}
+}
+7.
+Graph
+Graph is another nonlinear data structures, graphs. Graphs representations have found
+application in almost all subjects like geography, engineering and solving games and puzzles.
+A graph G consist of
+1. Set of vertices V (called nodes), (V = { v 1, v 2, v 3, v 4......}) and
+2. Set of edges E ( i.e., E { e 1, e 2, e 3......cm}
+•
+Each vertex represents a city
+•
+Each edge represents a direct flight between two cities
+•
+A query on direct flights = a query on whether an edge exists
+•
+A query on how to get to a location = does a path exist from A to B
+We can even associate costs to edges (weighted graphs), then ask ―what is the cheapest path
+from A to B‖
+A graph can be represents as G = (V, E), where V is a finite and non empty set at vertices and E
+is a set of pairs of vertices called edges. Each edge ‗ e ‘ in E is identified with a unique pair ( a , b )
+of nodes in V, denoted by e = [ a , b ].
+A
+C
+D
+B
+
+===== PAGE 97 =====
+97
+Edge: let ‗G‘ be a graph, ‘V‘ is a finite set of vertices and ‗E‘ finite set of edges. Then an edge
+can be defined, (V, W), if there is an incident line between the two vertices V, W.
+As per the above example the set of vertices are
+V= {A, B, C, D}; and the set of edges are
+E= {(A, B), (A, C), (A, D), (B, D), (C, D)}
+As per the example let us consider an edge (A, B), this can also be written as (B, A) because
+there is no direction between A and B vertices.
+Directed Graph
+A directed graph G is defined as an ordered pair (V, E) where, V is a set of vertices and the
+ordered pairs in E are called edges on V. A directed graph can be represented geometrically as a
+set of marked points (called vertices) V with a set of arrows (called edges) E between pairs of
+points (or vertex or nodes) so that there is at most one arrow from one vertex to another vertex.
+Let G be the graph and ‗V‘ be a finite set of Vertices and ‗E‘ be finite set of edges. Then there
+exist an edge (v, w) will not equal to (w, v) is known as directed graph.
+As per above graph, V= {A, B, C, D} and E= {(A, C), (A, B), (B, D), (C, B), (D, C), (D, A).
+Let us take an edge (A, C), this will not equal to (C, A).
+Note: directed graph also called as digraph and undirected graph also known as graph.
+An edge (a, b), in said to the incident with the vertices it joints, i.e., a, b. We can also say
+that the edge (a, b) is incident from ‗a‘ to ‗b‘. The vertex ‗a‘ is called the initial vertex and the
+vertex b is called the terminal vertex of the edge (a, b). If an edge that is incident from and into
+the same vertex, say (b, b) of (e, e) in Fig below, is called a loop.
+A
+C
+D
+B
+a
+c
+d
+d
+b
+e
+
+===== PAGE 98 =====
+98
+An undirected graph G is defined abstractly as an ordered pair (V, E), where V is a set of vertices and the E is a set
+at edges. An undirected graph can be represented geometrically as a set of marked points (called vertices) V with a
+set at lines (called edges) E between the points.
+Two vertices are said to be adjacent if they are joined by an edge. Consider edge (a, b), the
+vertex ‗a‘ is said to be adjacent to the vertex b, and the vertex b is said to be adjacent from the
+vertex a. A vertex is said to be an isolated vertex if there is no edge incident with it. In Figure
+above vertex e is an isolated vertex.
+An undirected graph can be represented geometrically as a set of marked points (called vertices)
+V with a set at lines (called edges) E between the points.
+Degree: let G be the graph and let ‗V‘ be a finite set of vertices and let ‗E‘ be finite set of edges.
+Then, degree can be defined as the number of incident edges upon the vertex.
+Degree of A is 2
+Degree of B is 3
+Degree of C is 3
+Degree of D is 2
+Outdegree : let ‗V‘ be vertex then the starting point of an edge from v to another vertex is
+known as out degree.
+Outdegree(A) =3
+Outdegree(B) =1
+Outdegree(C) =1
+Outdegree(D) =2
+Indegree : let ‗V‘ be vertex and an edge reaches to vertex v from another vertex is known as
+indegree.
+Indegree(A) =1
+Indegree(B) =2
+Indegree(C) =2
+Indegree(D) =1
+Degree of directed : let ‗V‘ be vertex then the degree can be defined as the sum of total indegree
+and total outdegree of the vertex V.
+Deg(A)= indegree(A)+outdegree(A)=1+2=3
+Deg(B)= indegree(B)+outdegree(B)=2+1=3
+Deg(C)= indegree(C)+outdegree(C)=2+1=3
+A
+C
+D
+B
+A
+C
+D
+B
+A
+C
+D
+B
+A
+C
+D
+B
+
+===== PAGE 99 =====
+99
+Deg(D)= indegree(D)+outdegree(D)=1+2=3
+Loop: a loop can be defined that starting and ending point of an edge will be the same.
+Path: a path from vertex ‗V‘ to another vertex ‗W‘ is the sequence of vertices with several
+adjacent vertices.
+a b d c
+a b
+a c
+a b d
+a d c
+Cycle: in specific path if the starting and ending point of that path will be the same, then that
+path is called cycle.
+a b c d a
+a d c a
+a b d a
+b a c d b
+c d a c
+Source node of a digraph
+A node of a digraph may be defined as a source node if outdegree(n)>0 and
+indegree(n)=0. In the figure below A is source node.
+Indegree(A)=0
+outdegree(A)=3
+Sink node of a digraph
+A node of a digraph may be defined as a sink node if outdegree(n)=0 and indegree(n)>0.
+In the figure below B is the source node.
+Outdegree(B)=0
+indegree(B)=2
+7.2.
+Graph Representation
+Graph is a mathematical structure and finds its application is many areas, where the problem is to be solved by
+computers. The problems related to graph G must be represented in computer memory using any suitable data
+structure to solve the same.
+There are two popular computer representations of a graph. Both represent the vertex set and the edge set, but in
+different ways:
+
+Adjacency Matrix: Use a 2D matrix to represent the graph
+A
+C
+D
+B
+A
+C
+D
+B
+A
+C
+D
+B
+A
+C
+D
+B
+
+===== PAGE 100 =====
+100
+
+Adjacency List: Use a 1D array of linked lists
+Adjacency Matrix:
+2D array A[0..n-1, 0..n-1], where n is the number of vertices in the graph
+*
+Each row and column is indexed by the vertex id
+n
+e,g a=0, b=1, c=2, d=3, e=4
+*
+A[i][j]=1 if there is an edge connecting vertices i and j ; otherwise, A[i][j]=0
+*
+The storage requirement is Θ(n
+2
+). It is not efficient if the graph has few edges. An
+adjacency matrix is an appropriate representation if the graph is dense: |E|=Θ(|V|
+2
+)
+*
+We can detect in O(1) time whether two vertices are connected.
+*
+Adjacency List:
+If the graph is not dense, in other words, sparse, a better solution
+is an adjacency list
+*
+The adjacency list is an array A[0..n-1] of lists, where n is the number of vertices in the
+graph.
+*
+Each array entry is indexed by the vertex id
+*
+Each list A[i] stores the ids of the vertices adjacent to vertex i
+
+===== PAGE 101 =====
+101
+Storage of Adjacency List
+*
+The array takes up Θ(n) space
+*
+Define degree of v , deg( v ), to be the number of edges incident to v . Then, the total space
+to store the graph is proportional to:
+
+===== PAGE 102 =====
+102
+
+v
+v
+vertex
+)
+deg(
+*
+An edge e={u,v} of the graph contributes a count of 1 to deg(u) and contributes a count 1
+to deg(v)
+*
+Therefore, Σvertex vdeg(v) = 2m, where m is the total number of edges
+*
+In all, the adjacency list takes up Θ(n+m) space
+n
+If m = O(n2) (i.e. dense graphs), both adjacent matrix and adjacent lists use Θ(n2)
+space.
+n
+If m = O(n), adjacent list outperforms adjacent matrix
+*
+However, one cannot tell in O(1) time whether two vertices are connected
+Adjacency List vs. Matrix
+*
+Adjacency List
+n
+More compact than adjacency matrices if graph has few edges
+n
+Requires more time to find if an edge exists
+*
+Adjacency Matrix
+n
+Always require n2 space
+
+This can waste a lot of space if the number of edges are sparse
+n
+Can quickly find if an edge exists
+n
+It‘s a matrix; some algorithms can be solved by matrix computation!
+7.3.
+TRAVERSING A GRAPH
+Many application of graph requires a structured system to examine the vertices and edges of a graph G. That is a
+graph traversal, which means visiting all the nodes of the graph. There are two graph traversal methods.
+( a ) Breadth First Search (BFS)
+( b ) Depth First Search (DFS)
+
+===== PAGE 103 =====
+103
+7.3.1. BREADTH FIRST SEARCH
+Given an input graph G = (V, E) and a source vertex S, from where the searching starts. The breadth first search
+systematically traverses the edges of G to explore every vertex that is reachable from S. Then we examine the entire
+vertices neighbor to source vertex S. Then we traverse all the neighbors of the neighbors of source vertex S and so
+on. A queue is used to keep track of the progress of traversing the neighbor nodes.
+BFS can be further discussed with an example. Considering the graph G in figure below.
+The linked list (or adjacency list) representation of the graph figure above is also shown.
+Suppose the source vertex is A. Then following steps will illustrate the BFS.
+Step 1: Initially push A (the source vertex) to the queue.
+Step 2: Pop (or remove) the front element A from the queue (by incrementing front = front +1) and display it. Then
+push (or add) the neighboring vertices of A to the queue, (by incrementing Rear = Rear +1) if it is not in queue.
+
+===== PAGE 104 =====
+104
+
+===== PAGE 105 =====
+105
+
+===== PAGE 106 =====
+106
+7.3.2. DEPTH FIRST SEARCH
+The depth first search (DFS), as its name suggest, is to search deeper in the graph, when ever possible. Given an
+input graph G = (V, E) and a source vertex S, from where the searching starts. First we visit the starting node. Then
+we travel through each node along a path, which begins at S. That is we visit a neighbor vertex of S and again a
+neighbor of a neighbor of S, and so on. The implementation of BFS is almost same except a stack is used instead of
+the queue. DFS can be further discussed with an example. Consider the graph in the Figure above and its linked list
+representation. Suppose the source vertex is I.
+The following steps will illustrate the DFS
+Step 1: Initially push I on to the stack.
+STACK: I
+DISPLAY:
+Step 2: Pop and display the top element, and then push all the neighbors of popped element ( i.e ., I) onto the
+stack, if it is not visited (or displayed or not in the stack.
+STACK: G, H
+DISPLAY: I
+Step 3: Pop and display the top element and then push all the neighbors of popped the element ( i.e ., H) onto
+top of the stack, if it is not visited.
+STACK: G, E
+DISPLAY: I, H
+The popped element H has two neighbors E and G. G is already visited, means G is either in the stack or
+displayed. Here G is in the stack. So only E is pushed onto the top of the stack.
+Step 4: Pop and display the top element of the stack. Push all the neighbors of the popped element on to the
+stack, if it is not visited.
+STACK: G, D, F
+DISPLAY: I, H, E
+Step 5: Pop and display the top element of the stack. Push all the neighbors of the popped element onto the
+stack, if it is not visited.
+STACK: G, D
+
+===== PAGE 107 =====
+107
+DISPLAY: I, H, E, F
+The popped element (or vertex) F has neighbor(s) H, which is already visited. Then H is displayed, and will
+not be pushed again on to the stack.
+Step 6: The process is repeated as follows.
+STACK: G
+DISPLAY: I, H, E, F, D
+STACK: //now the stack is empty
+DISPLAY: I, H, E, F, D, G
+So I, H, E, F, D, G is the DFS traversal of graph Fig 9:20 from the source vertex I.
+Algorithm
+1. Input the vertices and edges of the graph G = (V, E).
+2. Input the source vertex and assign it to the variable S.
+3. Push the source vertex to the stack.
+4. Repeat the steps 5 and 6 until the stack is empty.
+5. Pop the top element of the stack and display it.
+6. Push the vertices which is neighbor to just popped element, if it is not in the queue and displayed (ie; not
+visited).
+7. Exit.
+7.4.
+MINIMUM SPANNING TREE
+A minimum spanning tree (MST) for a graph G = (V, E) is a sub graph G
+1
+= (V
+1
+, E
+1
+) of
+G contains all the vertices of G.
+1. The vertex set V
+1
+is same as that at graph G.
+2. The edge set E
+1
+is a subset of G.
+3. And there is no cycle.
+If a graph G is not a connected graph, then it cannot have any spanning tree. In this case, it will have a spanning
+forest. Suppose a graph G with n vertices then the MST will have ( n – 1) edges, assuming that the graph is
+connected.
+A minimum spanning tree (MST) for a weighted graph is a spanning tree with minimum weight. That is all the
+vertices in the weighted graph will be connected with minimum edge with minimum weights. Figure below shows
+the minimum spanning tree of the weighted graph in Figure above.
+
+===== PAGE 108 =====
+108
+Two different famous algorithms can be used to obtain a minimum spanning tree of a connected weighted and
+undirected graph.
+1. Kruskal‘s Algorithm
+2. Prim‘s Algorithm
+7.4.1.
+KRUSKAL’S ALGORITHM
+This is a one of the popular algorithm and was developed by Joseph Kruskal. To create a minimum cost spanning
+trees, using Kruskalls, we begin by choosing the edge with the minimum cost (if there are several edges with the
+same minimum cost, select any one of them) and add it to the spanning tree. In the next step, select the edge with
+next lowest cost, and so on, until we have selected ( n – 1) edges to form the complete spanning tree. The only thing
+of which beware is that we don‘t form any cycles as we add edges to the spanning tree. Let us discuss this with an
+example. Consider a graph G in Figure below to generate the minimum spanning tree.
+The minimum cost edge in the graph G in Figure above is 1. If you analyze closely there are two edges ( i.e ., (7, 3),
+(4, 9)) with the minimum cost 1. As the algorithm says select any one of them. Here we select the edge (7, 3). Again
+we select minimum cost edge ( i.e., 1), which is (4, 9).
+Next we select minimum cost edge ( i.e., 2). If you analyze closely there are two edges ( i.e ., (1, 2), (2, 3), (3, 6)) with
+the minimum cost 2. As the algorithm says select any one of them. Here we select the edge (1, 2. Again we select
+minimum cost edge ( i.e., 2), which is (2, 3). Next we select minimum cost edge ( i.e., 2), which is (3, 6).
+Next minimum cost edge is (1, 9) with cost 3. Add the minimum cost edge to the minimum spanning tree as shown
+in Figure below. If we analyze, next minimum cost edge is (1, 5) with cost 4. Add the minimum cost edge to the
+minimum spanning tree.
+Next minimum cost edge is (4, 8) with cost 5. Add the minimum cost edge to the minimum spanning tree.
+
+===== PAGE 109 =====
+109
+Above figures shows different stages of Kruskasl‘s Algorithm.
+ALGORITHM
+Suppose G = (V, E) is a graph, and T is a minimum spanning tree of graph G.
+1. Initialize the spanning tree T to contain all the vertices in the graph G but no edges.
+2. Choose the edge e with lowest weight from graph G.
+3. Check if both vertices from e are within the same set in the tree T, for all such sets of T. If it is not present, add
+the edge e to the tree T, and replace the two sets that this edge connects.
+4. Delete the edge e from the graph G and repeat the step 2 and 3 until there is no more edge to add or until the
+panning tree T contains (n-1) vertices.
+5. Exit
+7.4.2.
+JARNIK- PRIM’S ALGORITHM
+Consider all the edges adjacent to the vertices of the recently selected edge (here recently selected edge is (4, 9)).
+And find the minimum cost edge that connects from recently selected edge. Here it is (9, 1) as shown in Figure
+below.
+Again consider all the edges adjacent to the vertices of the recently selected edge (here recently selected edge is (9,
+1)). And find the minimum cost edge that connects from recently selected edge. Here it is (1, 2) as shown in Figure
+below.
+Consider all the edges adjacent to the vertices of the recently selected edge (here recently selected edge is (1, 2)).
+And find the minimum cost edge that connects from recently selected edge. Here it is (2, 3) as shown in Figure
+below. And repeat the process of finding the minimum cost edge that connects from recently selected edge.
+Since all the vertices in the adjacent edges that can be reached from the recently selected edge ( i.e., (2, 3)) are
+visited, backtrack (or go back) to the path so as any other minimum cost adjacent edges is there to connect the
+vertices which are not connected yet. Thus we find the adjacent edge (3, 6) as shown in the Figure below.
+Again since all the vertices in the adjacent edges that can be reached from the recently selected edge ( i.e., (3, 6)) are
+visited, backtrack (or go back) to the path so as any other minimum cost adjacent edges is there to connect the
+vertices which are not connected yet. Thus we find the adjacent edge (1, 5) as shown in the Figure below.
+Next we find the minimum cost adjacent edges (4, 8) as shown in the Figure below.
+
+===== PAGE 110 =====
+110
+ALGORITHM
+Suppose G = (V, E) is a graph and T is a minimum spanning tree of graph G.
+1. Initialize the spanning tree T to contain a vertex v
+1
+.
+2. Choose an edge e = ( v
+1
+, v
+2
+) of G such that v
+2
+not equal to v
+1
+and e has smallest weight among the edges of
+G incident with v
+1
+.
+3. Select an edge e = ( v
+2
+, v
+3
+) of G such that v
+2
+is not equal to v
+3
+and e has smallest weight among the edge of
+G incident with v
+2
+.
+4. Suppose the edge e
+1
+, e
+2
+, e
+3
+... e
+i
+Then select an edge e
+i
++ 1 = (V
+j
+, V
+k
+) such that
+( a ) V
+j
+
+{ v
+1
+, v
+2
+, v
+3
+, ...... v
+i
+, v
+i
++ 1} and
+( b ) V
+k
+
+{ v
+1
+, v
+2
+, v
+3
+, ...... v
+i
+, v
+i
++ 1} such that ei+1 has smallest weight among the edge of G
+5. Repeat the step 4 until ( n – 1) edges have been chosen
+6. Exit
+
+===== PAGE 111 =====
+111
+8. Advanced Sorting and Searching Algorithms
+8.1. Shell Sort
+Shell sort is an improvement of insertion sort. It is developed by Donald Shell in 1959. Insertion
+sort works best when the array elements are sorted in a reasonable order. Thus, shell sort first
+creates this reasonable order.
+Algorithm:
+1.
+Choose gap g
+k
+between elements to be partly ordered.
+2.
+Generate a sequence (called increment sequence) g
+k
+, g
+k-1
+,…., g
+2
+, g
+1
+where for each
+sequence g
+i
+, A[j]<=A[j+g
+i
+] for 0<=j<=n-1-g
+i
+and k>=i>=1
+It is advisable to choose g
+k
+=n/2 and g
+i-1
+= g
+i
+/2 for k>=i>=1. After each sequence g
+k-1
+is done and
+the list is said to be g
+i
+-sorted. Shell sorting is done when the list is 1-sorted (which is sorted
+using insertion sort) and A[j]<=A[j+1] for 0<=j<=n-2. Time complexity is O(n
+3/2
+).
+Example: Sort the following list using shell sort algorithm.
+5
+8
+2
+4
+1
+3
+9
+7
+6
+0
+Choose g
+3
+=5 (n/2 where n is the number of elements =10)
+Sort (5, 3)
+3
+8
+2
+4
+1
+5
+9
+7
+6
+0
+Sort (8, 9)
+3
+8
+2
+4
+1
+5
+9
+7
+6
+0
+Sort (2, 7)
+3
+8
+2
+4
+1
+5
+9
+7
+6
+0
+Sort (4, 6)
+3
+8
+2
+4
+1
+5
+9
+7
+6
+0
+Sort (1, 0)
+3
+8
+2
+4
+0
+5
+9
+7
+6
+1
+
+5- sorted list
+3
+8
+2
+4
+0
+5
+9
+7
+6
+1
+Choose g
+2
+=3
+Sort (3, 4, 9, 1)
+1
+8
+2
+3
+0
+5
+4
+7
+6
+9
+Sort (8, 0, 7)
+1
+0
+2
+3
+7
+5
+4
+8
+6
+9
+Sort (2, 5, 6)
+1
+0
+2
+3
+7
+5
+4
+8
+6
+9
+
+3- sorted list
+1
+0
+2
+3
+7
+5
+4
+8
+6
+9
+Choose g
+1
+=1 (the same as insertion sort algorithm)
+Sort (1, 0, 2, 3, 7, 5, 4, 8, 6, 9)
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+1- sorted (shell sorted) list
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+
+===== PAGE 112 =====
+112
+7.2. Quick Sort
+Quick sort is the fastest known algorithm. It uses divide and conquer strategy and in the worst
+case its complexity is O (n2). But its expected complexity is O(nlogn).
+Algorithm:
+1.
+Choose a pivot value (mostly the first element is taken as the pivot value)
+2.
+Position the pivot element and partition the list so that:
+
+the left part has items less than or equal to the pivot value
+
+the right part has items greater than or equal to the pivot value
+3.
+Recursively sort the left part
+4.
+Recursively sort the right part
+The following algorithm can be used to position a pivot value and create partition.
+Left=0;
+Right=n-1; // n is the total number of elements in the list
+PivotPos=Left;
+while(Left<Right)
+{
+if(PivotPos==Left)
+{
+if(Data[Left]>Data[Right])
+{
+swap(data[Left], Data[Right]);
+PivotPos=Right;
+Left++;
+}
+else
+Right--;
+}
+else
+{
+if(Data[Left]>Data[Right])
+{
+swap(data[Left], Data[Right]);
+PivotPos=Left;
+Right--;
+}
+else
+Left++;
+}
+}
+
+===== PAGE 113 =====
+113
+5
+8
+2
+4
+1
+3
+9
+7
+6
+0
+Example: Sort the following list using
+quick sort algorithm.
+Pivot
+Left
+0
+3
+2
+4
+1
+5
+9
+7
+6
+8
+Right
+Pivot
+Left
+Right
+5
+8
+2
+4
+1
+3
+9
+7
+6
+0
+Pivot
+Left
+Right
+0
+8
+2
+4
+1
+3
+9
+7
+6
+5
+Pivot
+Left
+Right
+0
+5
+2
+4
+1
+3
+9
+7
+6
+8
+Pivot
+Left
+Right
+0
+5
+2
+4
+1
+3
+9
+7
+6
+8
+Pivot
+Left
+Right
+0
+5
+2
+4
+1
+3
+9
+7
+6
+8
+Pivot
+Left
+0
+5
+2
+4
+1
+3
+9
+7
+6
+8
+Right
+Pivot
+Left
+0
+5
+2
+4
+1
+3
+9
+7
+6
+8
+Right
+Pivot
+Left
+0
+5
+2
+4
+1
+3
+9
+7
+6
+8
+Right
+Pivot
+Left
+0
+3
+2
+4
+1
+5
+9
+7
+6
+8
+Right
+Pivot
+Left
+0
+3
+2
+4
+1
+5
+9
+7
+6
+8
+Right
+5
+Pivot
+Left
+0
+3
+2
+4
+1
+Right
+9
+7
+6
+8
+Left
+Pivot
+Right
+8
+7
+6
+9
+Left
+Pivot
+Right
+5
+Pivot
+Left
+0
+3
+2
+4
+1
+Right
+8
+7
+6
+9
+Left
+Pivot
+Right
+5
+Pivot
+Left
+0
+3
+2
+4
+1
+Right
+8
+7
+6
+9
+Left
+Pivot
+Right
+5
+Pivot
+Left
+0
+3
+2
+4
+1
+Right
+6
+7
+8
+9
+Left
+Pivot
+Right
+5
+Pivot
+Left
+0
+3
+2
+4
+1
+Right
+6
+7
+8
+9
+Left
+Pivot
+Right
+Right
+5
+Pivot
+Left
+0
+1
+2
+4
+3
+Right
+6
+7
+8
+9
+5
+Pivot
+Left
+0
+1
+2
+4
+3
+Right
+6
+7
+8
+9
+5
+Pivot
+Left
+0
+1
+2
+3
+4
+Right
+6
+7
+8
+9
+5
+Pivot
+Left
+0
+1
+2
+3
+4
+Right
+6
+7
+8
+9
+5
+0
+1
+2
+3
+4
+
+===== PAGE 114 =====
+114
+7.3. Heap Sort
+Heap sort operates by first converting the list in to a heap tree. Heap tree is a binary tree in which
+each node has a value greater than both its children (if any). It uses a process called "adjust to
+accomplish its task (building a heap tree) whenever a value is larger than its parent. The time
+complexity of heap sort is O(nlogn).
+Algorithm:
+1.
+Construct a binary tree
+
+The root node corresponds to Data[0].
+
+If we consider the index associated with a particular node to be i ,
+then the left child of this node corresponds to the element with index 2* i +1 and the
+right child corresponds to the element with index 2* i +2. If any or both of these
+elements do not exist in the array, then the corresponding child node does not exist
+either.
+2.
+Construct the heap tree from initial binary tree using "adjust" process.
+3.
+Sort by swapping the root value with the lowest, right most value and deleting the lowest,
+right most value and inserting the deleted value in the array in it proper position.
+Example:
+Sort the following list using heap sort algorithm.
+5
+8
+2
+4
+1
+3
+9
+7
+6
+0
+Swap the root node with the lowest, right most node and delete the lowest, right most value;
+insert the deleted value in the array in its proper position; adjust the heap tree; and repeat this
+process until the tree is empty.
+5
+RootNodePtr
+8
+4
+7
+1
+0
+6
+2
+9
+3
+9
+RootNodePtr
+8
+7
+4
+1
+0
+6
+5
+2
+3
+Construct the initial binary tree
+Construct the heap tree
+
+===== PAGE 115 =====
+115
+8 9
+0
+RootNodePtr
+7
+6
+4
+1
+5
+2
+3
+7 8 9
+0
+RootNodePtr
+6
+4
+1
+5
+2
+3
+7
+RootNodePtr
+6
+4
+0
+1
+5
+2
+3
+6
+7
+8
+9
+2
+RootNodePtr
+4
+0
+1
+5
+3
+6
+RootNodePtr
+4
+0
+1
+5
+2
+3
+5 6 7 8 9
+2
+RootNodePtr
+4
+0
+1
+3
+8
+RootNodePtr
+7
+6
+4
+1
+0
+5
+2
+3
+5
+RootNodePtr
+4
+0
+1
+3
+2
+0
+RootNodePtr
+8
+7
+4
+1
+6
+5
+2
+3
+9
+9
+RootNodePtr
+8
+7
+4
+1
+0
+6
+5
+2
+3
+
+===== PAGE 116 =====
+116
+4
+RootNodePtr
+2
+0
+1
+3
+4
+5
+6
+7
+8
+9
+1
+RootNodePtr
+2
+0
+3
+3
+RootNodePtr
+2
+0
+1
+3
+4
+5
+6
+7
+8
+9
+0
+RootNodePtr
+2
+1
+2
+RootNodePtr
+0
+1
+2
+3 4
+5
+6
+7
+8 9
+1
+RootNodePtr
+0
+1
+RootNodePtr
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+0
+RootNodePtr
+0
+RootNodePtr
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+RootNodePtr
+
+===== PAGE 117 =====
+117
+7.4. Merge Sort
+Like quick sort, merge sort uses divide and conquer strategy and its time complexity is O(nlogn).
+Algorithm:
+1.
+Divide the array in to two halves.
+2.
+Recursively sort the first n/2 items.
+3.
+Recursively sort the last n/2 items.
+4.
+Merge sorted items (using an auxiliary array).
+Example:
+Sort the following list using merge sort algorithm.
+5
+8
+2
+4
+1
+3
+9
+7
+6
+0
+5
+8
+2
+4
+1
+3
+9
+7
+6
+0
+5
+8
+2
+4
+1
+3
+9
+7
+6
+0
+5
+8
+2
+4
+1
+3
+9
+7
+6
+0
+5
+8
+2
+4
+1
+3
+9
+7
+6
+0
+4
+1
+6
+0
+1
+4
+5
+8
+1
+2
+4
+3
+9
+0
+6
+7
+0
+6
+1
+2
+4
+5
+8
+0
+3
+6
+7
+9
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+Division phase
+Sorting and merging phase

@@ -1,0 +1,348 @@
+
+===== PAGE 1 =====
+1
+Chapter Seven
+Graphs
+
+===== PAGE 2 =====
+2
+Linear Data Structure
+Arrays
+Linked Lists
+Stacks
+Queues
+Non-Linear Data Structure
+Trees
+Graphs
+Classification of Data Structures
+
+===== PAGE 3 =====
+3
+What is a Graph?
+A data structure that
+consists of
+a set
+of
+nodes
+(vertices) and a set of edges that relate the nodes
+to each other.
+The set
+of
+edges describes relationships among
+the vertices .
+
+===== PAGE 4 =====
+4
+Formal Definition of Graphs
+A graph G is defined as follows:
+G=(V,E)
+V(G): a finite, nonempty set of vertices
+E(G): a set of edges (pairs of vertices)
+An edge e = (u,v) is a pair of vertices
+Example :
+
+===== PAGE 5 =====
+5
+Applications of Graphs
+Airline Routes
+
+===== PAGE 6 =====
+B/lIMYUWAAAAAElFTkSuQmCC 6
+Computer Networks
+Applications of Graphs (cont.)
+
+===== PAGE 7 =====
+7
+Directed vs. Undirected Graphs
+When the edges in a graph have no direction , the graph
+is called undirected .
+(a) Graph1 is undirected graph
+
+===== PAGE 8 =====
+B/lIMYUWAAAAAElFTkSuQmCC 8
+When the edges in a graph have a direction ,
+the graph is called directed (or digraph).
+Directed vs Undirected Graphs (cont.)
+E(Graph2) = {(1,3) (3,1) (5,9) (9,11) (5,7)
+Warning :
+if
+the graph is
+directed,
+the order
+of
+the
+vertices
+in each edge is
+important !!
+E is a set of ordered pairs
+of elements of V.
+
+===== PAGE 9 =====
+B/lIMYUWAAAAAElFTkSuQmCC 9
+Trees are special cases of graphs!!
+Trees vs Graphs
+
+===== PAGE 10 =====
+10
+Graph Terminology
+Adjacent nodes : two nodes are adjacent if they
+are connected by an edge .
+Path: a sequence of vertices that connect two
+nodes in a graph.
+5 is adjacent to 7
+7 is adjacent from 5
+
+===== PAGE 11 =====
+B/lIMYUWAAAAAElFTkSuQmCC 11
+Complete graph:
+a graph in which every vertex is
+directly connected to every other vertex.
+What
+is the number of edges in a complete directed
+graph with N vertices ?
+N * (N-1)
+Graph Terminology (cont.)
+2
+(
+)
+O N
+
+===== PAGE 12 =====
+B/lIMYUWAAAAAElFTkSuQmCC 12
+What
+is the number
+of
+edges
+in a complete
+undirected graph with N vertices ?
+N * (N-1) / 2
+Graph Terminology (cont.)
+2
+(
+)
+O N
+
+===== PAGE 13 =====
+B/lIMYUWAAAAAElFTkSuQmCC 13
+Weighted graph :
+a graph in which each edge
+carries a value.
+Graph Terminology (cont.)
+Airline route graph, in miles
+
+===== PAGE 14 =====
+14
+Graph Implementation
+Array-based Implementation
+» A 1D array is used to represent the vertices.
+» A 2D array (adjacency matrix) is used to represent the edges.
+1
+4
+
+===== PAGE 15 =====
+15
+Array-based Implementation
+1
+5
+
+===== PAGE 16 =====
+B/lIMYUWAAAAAElFTkSuQmCC 16
+Let G = (V,E), n = |V|, m = |E|, V = {v
+1
+, v
+2
+, …,v
+n
+)
+G can be represented by an n
+
+n matrix.
+Adjacency Matrix Representation
+Implemented using 2D array
+
+===== PAGE 17 =====
+RK5CYII= 17
+Adjacency Matrix Representation (cont.)
+
+===== PAGE 18 =====
+18
+Graph Implementation (cont.)
+Linked-list Implementation
+» A 1D array is used to represent the vertices.
+» A list
+is used for each vertex v which contains the
+vertices which are adjacent from v (adjacency list).
+
+===== PAGE 19 =====
+19
+Linked-list implementation
+Use a 1D array and linked lists
+
+===== PAGE 20 =====
+20
+Each list A[i] stores the ids of the vertices adjacent to vertex i.
+
+===== PAGE 21 =====
+21
+Adjacency Matrix vs Adjacency List Representation
+Adjacency Matrix
+» Good for dense graphs (more edges):| E |~ O (| V |
+2
+).
+» Memory requirements: O (|V| + | E| ) = O(| V |
+2
+).
+» Connectivity between two vertices can be tested quickly.
+Adjacency List
+» Good for sparse graphs(few edges) -- | E |~ O (| V |).
+» Memory requirements: O(|V| + |E|)=O(|V|).
+» Vertices adjacent to another vertex can be found quickly.
+
+===== PAGE 22 =====
+22
+Graph Searching
+Problem :
+find a path between two nodes of
+the
+graph (e.g., Austin and Washington).
+Methods :
+» Depth-First Search (DFS) or
+» Breadth-First Search (BFS)
+
+===== PAGE 23 =====
+23
+Depth-First Search (DFS)
+What is the idea behind DFS?
+» Travel as far as you can down a path .
+» Search deeper in the graph, when ever possible.
+Given an input graph G = (V, E) and a source vertex S ,
+from where the searching starts .
+» First we visit the starting node .
+» Then we travel
+through each node along a path, which begins
+at S.
+» That
+is
+we visit
+a neighbor
+vertex of
+S and again a
+neighbor of a neighbor of S , and so on
+.
+DFS can be implemented efficiently using a stack.
+
+===== PAGE 24 =====
+24
+Algorithm
+1.
+Input the vertices and edges of the graph G = (V, E).
+2.
+Input the source vertex and assign it to the variable S.
+3.
+Push the source vertex to the stack.
+4.
+Repeat
+the steps 5 and 6 until
+the stack is empty &
+destination is found .
+5.
+Pop the top element of the stack and display it.
+6.
+Push
+the
+vertices
+which
+is
+neighbor
+to
+just
+popped
+element, if it is not in the stack displayed (i.e; not visited).
+7.
+Exit.
+
+===== PAGE 25 =====
+25
+Set found to false
+Push(startVertex)
+DO
+Pop(vertex)
+IF vertex == endVertex
+Set found to true
+ELSE
+Push all adjacent vertices onto stack
+WHILE !IsEmpty() AND !found
+IF(!found)
+Write "Path does not exist"
+Algorithm
+
+===== PAGE 26 =====
+26
+start
+end
+(initialization)
+Example: Is there a path from Austin to Washington?
+
+===== PAGE 27 =====
+27
+
+===== PAGE 28 =====
+UUUUAf/Z 28
+Found!
+
+===== PAGE 29 =====
+29
+Breadth-First Search (BFS)
+What is the idea behind BFS?
+» Look at
+all
+possible paths at
+the same depth before you go at
+a
+deeper level.
+» Explore every vertex that is reachable from source vertex, S.
+» Examine the entire vertices neighbor to S.
+» Then traverse all the neighbors of the neighbors of S and so on.
+» A queue is used to keep track of
+the progress of
+traversing the
+neighbor nodes.
+» BFS can be implemented efficiently using a
+queue.
+
+===== PAGE 30 =====
+30
+Set found to false
+enqueue(startVertex)
+DO
+dequeue(vertex)
+IF vertex == endVertex
+Set found to true
+ELSE
+Enqueue all adjacent vertices onto queue
+WHILE !IsEmpty() AND !found
+IF(!found)
+Write "Path does not exist"
+Algorithm
+
+===== PAGE 31 =====
+31
+start
+end
+(initialization)
+Example: Is there a path from Austin to Washington?
+
+===== PAGE 32 =====
+32
+next:
+
+===== PAGE 33 =====
+ooA//9k= 33
+Found!
+
+===== PAGE 34 =====
+B/lIMYUWAAAAAElFTkSuQmCC 34
+Minimum Spanning Tree
+» Kruskal’s Algorithm
+» Prim‘s Algorithm
+Reading Assignment

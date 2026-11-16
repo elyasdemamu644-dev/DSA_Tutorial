@@ -1,0 +1,1503 @@
+
+===== PAGE 1 =====
+Sorting
+
+===== PAGE 2 =====
+Why Sorting?
+2
+
+Practical application
+
+People by last name
+
+Countries by population
+
+Search engine results by relevance
+
+Fundamental to other algorithms
+
+Different algorithms have different asymptotic and constant-
+factor trade-offs
+
+No single ‘best’ sort for all scenarios
+
+Knowing one way to sort just isn’t enough
+
+Many to approaches to sorting which can be used for other
+problems
+
+===== PAGE 3 =====
+Problem statement
+3
+
+There are n comparable elements in an array and we want to
+rearrange them to be in increasing/decreasing order
+
+Pre:
+
+An array
+A
+of data records
+
+A value in each data record
+
+A comparison function
+
+<
+,
+=
+,
+>
+,
+compareTo
+
+Post:
+
+For each distinct position
+i
+and
+j
+of
+A
+, if
+i<j
+then
+A[i]
+
+A[j]
+
+A
+has all the same data it started with
+
+===== PAGE 4 =====
+Sorting Classification
+4
+In memory sorting
+Reading
+Assignment
+Comparison sorting
+•
+Shell Sort
+•
+Heap Sort(tree)
+•
+Radix Sort
+O(N
+2
+)
+O(N log N)
+•
+Bubble Sort
+•
+Selection Sort
+•
+Insertion Sort
+•
+•
+Merge Sort
+•
+Quick Sort
+
+===== PAGE 5 =====
+O(n
+2
+) Comparison Sorting
+•
+Bubble Sort
+•
+Selection Sort
+•
+Insertion Sort
+
+===== PAGE 6 =====
+Bubble sort
+6
+
+bubble sort : orders a list of values by repetitively
+comparing neighboring elements and swapping their
+positions if necessary
+
+more specifically:
+
+scan the list, exchanging adjacent elements if they are not in
+relative order; this bubbles the highest value to the top
+
+scan the list again, bubbling up the second highest value
+
+repeat until all elements have been placed in their proper
+order
+
+===== PAGE 7 =====
+"Bubbling" largest element
+7
+
+Traverse a collection of elements
+
+Move from the front to the end
+
+"Bubble" the largest value to the end using pair-wise
+comparisons and swapping
+5
+12
+35
+42
+77
+101
+0 1 2 3 4 5
+Swap
+42
+77
+
+===== PAGE 8 =====
+"Bubbling" largest element
+8
+
+Traverse a collection of elements
+
+Move from the front to the end
+
+"Bubble" the largest value to the end using pair-wise
+comparisons and swapping
+5
+12
+35
+77
+42
+101
+0 1 2 3 4 5
+Swap
+35
+77
+
+===== PAGE 9 =====
+"Bubbling" largest element
+9
+
+Traverse a collection of elements
+
+Move from the front to the end
+
+"Bubble" the largest value to the end using pair-wise
+comparisons and swapping
+5
+12
+77
+35
+42
+101
+0 1 2 3 4 5
+Swap
+12
+77
+
+===== PAGE 10 =====
+"Bubbling" largest element
+10
+
+Traverse a collection of elements
+
+Move from the front to the end
+
+"Bubble" the largest value to the end using pair-wise
+comparisons and swapping
+5
+77
+12
+35
+42
+101
+0 1 2 3 4 5
+No need to swap
+
+===== PAGE 11 =====
+"Bubbling" largest element
+11
+
+Traverse a collection of elements
+
+Move from the front to the end
+
+"Bubble" the largest value to the end using pair-wise
+comparisons and swapping
+5
+77
+12
+35
+42
+101
+0 1 2 3 4 5
+Swap
+5
+101
+
+===== PAGE 12 =====
+"Bubbling" largest element
+12
+
+Traverse a collection of elements
+
+Move from the front to the end
+
+"Bubble" the largest value to the end using pair-wise
+comparisons and swapping
+77
+12
+35
+42
+5
+0 1 2 3 4 5
+101
+Largest value correctly placed
+
+===== PAGE 13 =====
+Bubble sort code
+13
+void bubbleSort(int* a, int n) {
+for (int i = 1; i < n; i++) {
+for (int j = i; j < n; j++) {
+// swap adjacent out-of-order elements
+if (a[j-1] > a[j]) {
+swap(*a, j-1, j);
+}
+}
+}
+}
+void swap(int* a,j-1,j){
+int tmp=a[j-1];
+a[j-1]=a[j];
+a[j]=tmp;
+}
+
+===== PAGE 14 =====
+Bubble sort runtime
+14
+
+Running time (# comparisons) for input size n :
+
+number of actual swaps performed depends on the data; out-of-
+order data performs many swaps
+
+1
+j
+=
+1
+n
+−
+1
+−
+i
+
+i
+=
+0
+n
+−
+1
+
+=
+( n
+−
+1
+−
+i )
+i
+=
+0
+n
+−
+1
+
+=
+n
+1
+i
+=
+0
+n
+−
+1
+
+−
+1
+i
+=
+0
+n
+−
+1
+
+−
+i
+i
+=
+0
+n
+−
+1
+
+=
+n
+2
+−
+n
+−
+( n
+−
+1) n
+2
+= 
+( n
+2
+)
+
+===== PAGE 15 =====
+Selection sort
+15
+
+selection sort : orders a list of values by repetitively
+putting a particular value into its final position
+
+more specifically:
+
+find the smallest value in the list
+
+switch it with the value in the first position
+
+find the next smallest value in the list
+
+switch it with the value in the second position
+
+repeat until all values are in their proper places
+
+===== PAGE 16 =====
+Selection sort example
+16
+
+===== PAGE 17 =====
+Index
+0
+1
+2
+3
+4
+5
+6
+7
+Value
+27
+63
+1
+72
+64
+58
+14
+9
+1
+st
+pass
+1
+63
+27
+72
+64
+58
+14
+9
+2
+nd
+pass
+1
+9
+27
+72
+64
+58
+14
+63
+3
+rd
+pass
+1
+9
+14
+72
+64
+58
+27
+63
+…
+Selection sort example 2
+17
+
+===== PAGE 18 =====
+Selection sort code
+18
+void selectionSort(int* a,int n) {
+for (int i = 0; i < n; i++) {
+// find index of smallest element
+int minIndex = i;
+for (int j = i + 1; j <n; j++) {
+if (a[j] < a[minIndex]) {
+minIndex = j;
+}
+}
+// swap smallest element with a[i]
+swap(a, i, minIndex);
+}
+}
+
+===== PAGE 19 =====
+Selection sort runtime
+19
+
+Running time for input size n :
+
+In practice, a bit faster than bubble sort. Why?
+
+1
+j
+=
+i
++
+1
+n
+−
+1
+
+i
+=
+0
+n
+−
+1
+
+=
+( n
+−
+1
+−
+( i
++
+1)
++
+1)
+i
+=
+0
+n
+−
+1
+
+=
+( n
+−
+i
+−
+1)
+i
+=
+0
+n
+−
+1
+
+=
+n
+1
+i
+=
+0
+n
+−
+1
+
+−
+i
+i
+=
+0
+n
+−
+1
+
+−
+1
+i
+=
+0
+n
+−
+1
+
+=
+n
+2
+−
+( n
+−
+1) n
+2
+−
+n
+= 
+( n
+2
+)
+
+===== PAGE 20 =====
+Insertion sort
+20
+
+insertion sort : orders a list of values by repetitively
+inserting a particular value into a sorted subset of the list
+
+more specifically:
+
+consider the first item to be a sorted sublist of length 1
+
+insert the second item into the sorted sublist, shifting the first
+item if needed
+
+insert the third item into the sorted sublist, shifting the other
+items as needed
+
+repeat until all values have been inserted into their proper
+positions
+
+===== PAGE 21 =====
+Insertion sort
+21
+
+Simple sorting algorithm.
+
+n-1 passes over the array
+
+At the end of pass i , the elements that occupied A[0]…A[ i ]
+originally are still in those spots and in sorted order.
+2
+8
+15
+1
+17
+10
+12
+5
+0
+1
+2
+3
+4
+5
+6
+7
+1
+2
+8
+15
+17
+10
+12
+5
+0
+1
+2
+3
+4
+5
+6
+7
+after
+pass 2
+after
+pass 3
+2
+15
+8
+1
+17
+10
+12
+5
+0
+1
+2
+3
+4
+5
+6
+7
+
+===== PAGE 22 =====
+Insertion sort example
+22
+
+===== PAGE 23 =====
+Insertion sort code
+23
+insertionSort(int* a, int n) {
+for (int i = 1; i < n; i++) {
+int temp = a[i];
+// slide elements down to make room for a[i]
+int j = i;
+while (j > 0 && a[j - 1] > temp) {
+a[j] = a[j - 1];
+j--;
+}
+a[j] = temp;
+}
+}
+
+===== PAGE 24 =====
+Insertion sort runtime
+24
+
+worst case: reverse-ordered elements in array.
+
+best case: array is in sorted ascending order.
+
+average case: each element is about halfway in order.
+)
+(
+)
+(
+2
+)
+1
+(
+)
+1
+(
+...
+3
+2
+1
+2
+2
+1
+1
+n
+O
+n
+n
+n
+n
+i
+n
+i
+=
+
+=
+−
+=
+−
++
++
++
++
+=
+
+−
+=
+
+1
+i
+=
+1
+n
+−
+1
+
+=
+n
+−
+1
+= 
+( n )
+
+i
+2
+i
+=
+1
+n
+−
+1
+
+=
+1
+2
+(1
++
+2
++
+3...
++
+( n
+−
+1))
+=
+( n
+−
+1) n
+4
+= 
+( n
+2
+)
+
+===== PAGE 25 =====
+Comparing sorts
+25
+
+We've seen "simple" sorting algorithms so far, such as
+selection sort and insertion sort.
+
+They all use nested loops and perform approximately n
+2
+comparisons
+
+They are relatively inefficient
+
+===== PAGE 26 =====
+Sorting practice problem
+26
+
+Consider the following array of int values.
+
+[22, 11, 34, -5, 3, 40, 9, 16, 6]
+
+(a) Write the contents of the array after 3 passes of the
+outermost loop of bubble sort.
+
+(b) Write the contents of the array after 5 passes of the
+outermost loop of insertion sort.
+
+(c) Write the contents of the array after 4 passes of the
+outermost loop of selection sort.
+
+===== PAGE 27 =====
+MergeSort
+Source: Gibbs & Tamassia
+
+===== PAGE 28 =====
+28
+MergeSort
+⚫
+MergeSort is a divide and conquer method of
+sorting
+
+===== PAGE 29 =====
+29
+MergeSort Algorithm
+⚫
+MergeSort is a recursive sorting procedure that
+uses at most O(n lg(n)) comparisons.
+⚫
+To sort an array of n elements, we perform the
+following steps in sequence:
+⚫
+If n < 2 then the array is already sorted.
+⚫
+Otherwise, n > 1 , and we perform the following
+three steps in sequence:
+1.
+Sort the left half of the the array using MergeSort.
+2.
+Sort the right half of the the array using MergeSort.
+3.
+Merge the sorted left and right halves.
+
+===== PAGE 30 =====
+30
+How to Merge
+Here are two lists to be merged:
+First:
+(12, 16, 17, 20, 21, 27)
+Second:
+(9, 10, 11, 12, 19)
+Compare 12 and 9
+First:
+(12, 16, 17, 20, 21, 27)
+Second:
+(10, 11, 12, 19)
+New:
+(9)
+Compare 12 and 10
+First:
+(12, 16, 17, 20, 21, 27)
+Second:
+(11, 12, 19)
+New:
+(9, 10)
+
+===== PAGE 31 =====
+31
+Merge Example
+Compare 12 and 11
+First:
+(12, 16, 17, 20, 21, 27)
+Second:
+(12, 19)
+New:
+(9, 10, 11)
+Compare 12 and 12
+First:
+(16, 17, 20, 21, 27)
+Second:
+(12, 19)
+New:
+(9, 10, 11, 12)
+
+===== PAGE 32 =====
+32
+Merge Example
+Compare 16 and 12
+First:
+(16, 17, 20, 21, 27)
+Second:
+(19)
+New:
+(9, 10, 11, 12, 12)
+Compare 16 and 19
+First:
+(17, 20, 21, 27)
+Second:
+(19)
+New:
+(9, 10, 11, 12, 12, 16)
+
+===== PAGE 33 =====
+33
+Merge Example
+Compare 17 and 19
+First:
+(20, 21, 27)
+Second:
+(19)
+New:
+(9, 10, 11, 12, 12, 16, 17)
+Compare 20 and 19
+First:
+(20, 21, 27)
+Second:
+( )
+New:
+(9, 10, 11, 12, 12, 16, 17, 19)
+
+===== PAGE 34 =====
+34
+Merge Example
+Checkout 20 and empty list
+First:
+( )
+Second:
+( )
+New:
+(9, 10, 11, 12, 12, 16, 17, 19, 20 , 21 , 27 )
+
+===== PAGE 35 =====
+35
+MergeSort
+Original
+24 13 26
+1 12 27 38 15
+Divide in 2
+24 13 26
+1
+12 27 38 15
+Divide in 4
+24 13
+26
+1
+12 27
+38 15
+Divide in 8
+24
+13
+26
+1
+12
+27
+38
+15
+Merge 2
+13 24
+1 26
+12 27
+15 38
+Merge 4
+1 13 24 26
+12 15 27 38
+Merge 8
+1 12 13 15 24 26 27 38
+
+===== PAGE 36 =====
+36
+Merge-Sort Tree
+⚫
+An execution of merge-sort is depicted by a binary tree
+–
+each node represents a recursive call of merge-sort and stores
+⚫
+unsorted sequence before the execution and its partition
+⚫
+sorted sequence at the end of the execution
+–
+the root is the initial call
+–
+the leaves are calls on subsequences of size 0 or 1
+7 2
+
+9 4
+→
+2 4 7 9
+7
+
+2
+→
+2 7
+9
+
+4
+→
+4 9
+7
+→
+7
+2
+→
+2
+9
+→
+9
+4
+→
+4
+
+===== PAGE 37 =====
+37
+Execution Example
+⚫
+Partition
+7 2 9 4
+
+3 8 6 1
+
+===== PAGE 38 =====
+38
+Execution Example (cont.)
+⚫
+Recursive call, partition
+7 2
+
+9 4
+7 2 9 4
+
+3 8 6 1
+
+===== PAGE 39 =====
+39
+Execution Example (cont.)
+⚫
+Recursive call, partition
+7 2
+
+9 4
+7
+
+2
+7 2 9 4
+
+3 8 6 1
+
+===== PAGE 40 =====
+40
+Execution Example (cont.)
+⚫
+Recursive call, base case
+7 2
+
+9 4
+7
+
+2
+7
+→
+7
+7 2 9 4
+
+3 8 6 1
+
+===== PAGE 41 =====
+41
+Execution Example (cont.)
+⚫
+Recursive call, base case
+7 2
+
+9 4
+7
+
+2
+7
+→
+7
+2
+→
+2
+7 2 9 4
+
+3 8 6 1
+
+===== PAGE 42 =====
+42
+Execution Example (cont.)
+⚫
+Merge
+7 2
+
+9 4
+7
+
+2
+→
+2 7
+7
+→
+7
+2
+→
+2
+7 2 9 4
+
+3 8 6 1
+
+===== PAGE 43 =====
+43
+Execution Example (cont.)
+⚫
+Recursive call, …, base case, merge
+7 2
+
+9 4
+7
+
+2
+→
+2 7
+9 4
+→
+4 9
+7
+→
+7
+2
+→
+2
+7 2 9 4
+
+3 8 6 1
+9
+→
+9
+4
+→
+4
+
+===== PAGE 44 =====
+44
+Execution Example (cont.)
+⚫
+Merge
+7 2
+
+9 4
+→
+2 4 7 9
+7
+
+2
+→
+2 7
+9 4
+→
+4 9
+7
+→
+7
+2
+→
+2
+9
+→
+9
+4
+→
+4
+7 2 9 4
+
+3 8 6 1
+
+===== PAGE 45 =====
+45
+Execution Example (cont.)
+⚫
+Recursive call, …, merge, merge
+7 2
+
+9 4
+→
+2 4 7 9
+3 8 6 1
+→
+1 3 6 8
+7
+
+2
+→
+2 7
+9 4
+→
+4 9
+3 8
+→
+3 8
+6 1
+→
+1 6
+7
+→
+7
+2
+→
+2
+9
+→
+9
+4
+→
+4
+3
+→
+3
+8
+→
+8
+6
+→
+6
+1
+→
+1
+7 2 9 4
+
+3 8 6 1
+
+===== PAGE 46 =====
+46
+Execution Example (cont.)
+⚫
+Merge
+7 2
+
+9 4
+→
+2 4 7 9
+3 8 6 1
+→
+1 3 6 8
+7
+
+2
+→
+2 7
+9 4
+→
+4 9
+3 8
+→
+3 8
+6 1
+→
+1 6
+7
+→
+7
+2
+→
+2
+9
+→
+9
+4
+→
+4
+3
+→
+3
+8
+→
+8
+6
+→
+6
+1
+→
+1
+7 2 9 4
+
+3 8 6 1
+→
+1 2 3 4 6 7 8 9
+
+===== PAGE 47 =====
+47
+Complexity of MergeSort
+Pass
+Number
+Number of
+merges
+Merge list
+length
+# of comps /
+moves per
+merge
+1
+2
+k-1
+or n/2
+1 or n/2
+k
+
+2
+1
+2
+2
+k-2
+or n/4
+2 or n/2
+k-1
+
+2
+2
+3
+2
+k-3
+or n/8
+4 or n/2
+k-2
+
+2
+3
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+k – 1
+2
+1
+or n/2
+k-1
+2
+k-2
+or n/4
+
+2
+k-1
+k
+2
+0
+or n/2
+k
+2
+k-1
+or n/2
+
+2
+k
+k = log n
+
+===== PAGE 48 =====
+48
+Multiplying
+the number of merges
+by the
+maximum
+number of comparisons
+per merge, we get:
+(2
+k-1
+)2
+1
+= 2
+k
+(2
+k-2
+)2
+2
+= 2
+k
+•
+•
+•
+(2
+1
+)2
+k-1
+= 2
+k
+(2
+0
+)2
+k
+= 2
+k
+Complexity of MergeSort
+k passes each require
+2
+k
+comparisons (and
+moves). But k = lg n
+and hence, we get
+lg(n)
+•
+n comparisons
+or O(n lgn)
+
+===== PAGE 49 =====
+49
+Merging Two Sequences
+
+===== PAGE 50 =====
+50
+Merging
+Merge(A[], T[] : integer array, left, right : integer) : {
+mid, i, j, k, l, target : integer;
+mid := (right + left)/2;
+i := left; j := mid + 1; target := left;
+while i < mid and j < right do
+if A[i] < A[j] then T[target] := A[i] ; i:= i + 1;
+else T[target] := A[j]; j := j + 1;
+target := target + 1;
+if i > mid then //left completed//
+for k := left to target-1 do A[k] := T[k];
+if j > right then //right completed//
+k : = mid; l := right;
+while k > i do A[l] := A[k]; k := k-1; l := l-1;
+for k := left to target-1 do A[k] := T[k];
+}
+
+===== PAGE 51 =====
+51
+Recursive Mergesort
+Mergesort(A[], T[] : integer array, left, right : integer) : {
+if left < right then
+mid := (left + right)/2;
+Mergesort(A,T,left,mid);
+Mergesort(A,T,mid+1,right);
+Merge(A,T,left,right);
+}
+MainMergesort(A[1..n]: integer array, n : integer) : {
+T[1..n]: integer array;
+Mergesort[A,T,1,n];
+}
+
+===== PAGE 52 =====
+52
+Mergesort Recurrence Relation
+
+The recurrence relation for T(N) is:
+
+T(1) < a
+
+base case: 1 element array
+→
+constant time
+
+T(N) < 2T(N/2) + bN
+
+Sorting N elements takes
+
+the time to sort the left half
+
+plus the time to sort the right half
+
+plus an O(N) time to merge the two halves
+
+T(N) = O(n log n)
+
+===== PAGE 53 =====
+53
+Mergesort Analysis
+Upper Bound
+logn)
+O(n
+n
+log
+dn
+cn
+2
+n
+if
+kdn
+nT(1)
+kdn
+)
+T(n/2
+2
+3dn
+8T(n/8)
+2dn
+dn/4)
+4(2T(n/8)
+2dn
+4T(n/4)
+dn
+dn/2)
+2(2T(n/4)
+2
+of
+power
+a
+is
+n
+Assuming
+dn
+2T(n/2)
+T(n)
+2
+k
+k
+k
+=
++
+
+=
++
+=
++
+
++
+=
++
++
+
++
+=
++
++
+
++
+
+
+n = 2
+k
+, k = log n

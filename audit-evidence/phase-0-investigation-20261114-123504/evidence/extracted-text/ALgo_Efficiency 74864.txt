@@ -1,0 +1,949 @@
+
+===== PAGE 1 =====
+Algorithmic Complexity
+
+===== PAGE 2 =====
+2
+(Efficiency)
+Learning outcomes
+➢
+Able to analyze space and Time complexities
+➢
+Able to carry out simple asymptotic analysis of
+algorithms
+
+===== PAGE 3 =====
+Two areas are important for performance:
+➢
+space efficiency - the memory required, also
+called, space complexity
+➢
+time efficiency - the time required, also
+called time complexity
+Algorithm Efficiency(Performance)
+3
+(Efficiency)
+
+===== PAGE 4 =====
+There are some circumstances where the
+space/memory used must be analyzed.
+For example,
+✓
+for large quantities of data
+✓
+for embedded systems programming
+Space Efficiency
+4
+(Efficiency)
+
+===== PAGE 5 =====
+Components of space/memory use:
+1.
+instruction space: Affected by: the compiler,
+compiler options, target computer (cpu)
+2.
+data space: Affected by: the data
+size/dynamically allocated memory, static
+program variables
+3.
+Run-time stack space: Affected by: the
+compiler, run-time function calls and
+recursion, local variables, parameters
+Space Efficiency(cont’ed)
+5
+(Efficiency)
+
+===== PAGE 6 =====
+The space requirement has
+fixed/static/compile time and a
+variable/dynamic/runtime components.
+•
+Fixed components are the machine language
+instructions and static variables.
+•
+Variable components are the runtime stack
+usage and dynamically allocated memory
+usage.
+Note: Variable size and recursive function
+Space Efficiency(cont’ed
+6
+(Efficiency)
+
+===== PAGE 7 =====
+Clearly the more quickly a program/function
+accomplishes its task the better .
+The actual running time depends on many
+factors:
+1.
+The speed of the computer: cpu (not just clock speed), I/O,
+etc.
+2.
+The compiler, compiler options .
+3.
+The quantity of data - ex. search a long list or short.
+4.
+The actual data - ex. in the sequential search if the name is
+first or last.
+Time Efficiency
+7
+(Efficiency)
+
+===== PAGE 8 =====
+By execution of the code we can:
+benchmark - run the program on various data
+sets and measure the performance.
+Code the algorithm and run the program, then
+measure the running time
+Drawbacks:
+Depend on the speed of the computer
+1.
+Waste time coding and testing if the
+algorithm is slow
+Time Efficiency - Approaches
+8
+(Efficiency)
+
+===== PAGE 9 =====
+Step Count
+Count the exact number of steps needed for an
+algorithm as a function of the problem size
+Each atomic operation is counted as one step:
+➢
+Arithmetic operations
+➢
+Comparison operations
+➢
+Other operations, such as “assignment” and
+“return”
+
+===== PAGE 10 =====
+2
+2
+7
+2
+3
+)
+1
+(
+3
+2
+2
+2
+1
++
++
+=
+−
++
++
++
+
+=
+n
+n
+i
+n
+n
+n
+i
+The running time is
+1
+
+=
+−
++
+n
+i
+i
+n
+1
+)
+1
+(
+
+=
+−
++
+n
+i
+i
+n
+1
+)
+1
+(
+2
+n
+2
+1
+Algorithm 1
+1 int count_1(int n)
+2 {
+3 sum = 0
+4 for i=1 to n {
+5 for j=i to n {
+6 sum++
+7 }
+8 }
+9 return sum
+10 }
+
+
+=
+=
++
+=
+=
+−
++
+n
+i
+n
+i
+n
+n
+i
+i
+n
+1
+1
+2
+/
+)
+1
+(
+)
+1
+(
+Note:
+
+===== PAGE 11 =====
+1 int count_2(int n)
+2 {
+3 sum = 0
+4 for i=1 to n {
+5 sum += n+1-i
+6 }
+7 return sum
+8 }
+n
+2
+1
+1
+n
+3
+The running time is
+2
+5
++
+n
+Algorithm 2
+
+===== PAGE 12 =====
+1 int count_3(int n)
+2 {
+3 sum = n(n+1)/2
+4 return sum
+5 }
+4
+The running time is 5 time unit
+1
+Algorithm 3
+
+===== PAGE 13 =====
+Asymptotics
+An exact step count is usually unnecessary
+➢
+Too dependent on programming languages and
+programmer’s style
+• But make little difference in whether the algorithm is
+feasible or not
+A change in fundamental method can make a
+vital difference
+➢
+If the number of operations is proportional to n ,
+then double n will double the running time
+➢
+If the number of operations is proportional to 2
+n
+,
+doubling n will square the number of operations
+
+===== PAGE 14 =====
+Instead of an exact step count, we want a
+notation that
+➢
+accurately reflects the increase of computation
+time with the size, but
+➢
+ignores details that has little effect on the total
+Asymptotics: the study of functions of a
+parameter n , as n becomes larger and larger
+without bound
+
+===== PAGE 15 =====
+Orders of Magnitude
+The idea:
+➢
+Suppose function f ( n ) measures the amount of
+work done by an algorithm on a problem of size n
+➢
+Compare f ( n ) for large values of n , with some well-
+known function g ( n ) whose behavior we already
+understand
+To compare f ( n ) against g ( n ):
+➢
+take the quotient f ( n ) / g( n ), and
+➢
+take the limit of the quotient as n increases
+without bound
+
+===== PAGE 16 =====
+➢
+Definition
+➢
+If then:
+f ( n ) has strictly smaller order of magnitude than g( n ).
+➢
+If is finite and nonzero then:
+f ( n ) has the same order of magnitude as g ( n ).
+➢
+If then:
+f ( n ) has strictly greater order of magnitude than g ( n ).
+0
+)
+(
+)
+(
+lim
+=
+
+→
+n
+g
+n
+f
+n
+)
+(
+)
+(
+lim
+n
+g
+n
+f
+n
+
+→
+
+=
+
+→
+)
+(
+)
+(
+lim
+n
+g
+n
+f
+n
+
+===== PAGE 17 =====
+Notes:
+➢
+The second case, when f ( n ) and g ( n ) have
+the same order of magnitude, includes all
+values of the limit except 0 and
+
+• Changing the running time of an algorithm by
+any nonzero constant factor will not affect its
+order of magnitude
+
+===== PAGE 18 =====
+Growth Rate of Common Functions
+
+===== PAGE 19 =====
+
+===== PAGE 20 =====
+20
+Complexity
+In general, we are not so much interested in the
+time and space complexity for small inputs.
+For example, while the difference in time
+complexity between linear and binary search is
+meaningless for a sequence with n = 10, it is
+gigantic for n = 2
+30
+.
+
+===== PAGE 21 =====
+21
+Complexity
+For example, let us assume two algorithms A and
+B that solve the same class of problems.
+The time complexity of A is 5,000n, the one for
+B is
+
+1.1
+n
+
+for an input with n elements.
+For n = 10, A requires 50,000 steps, but B only 3,
+so B seems to be superior to A.
+For n = 1000, however, A requires 5,000,000
+steps, while B requires 2.5
+
+10
+41
+steps.
+
+===== PAGE 22 =====
+22
+Complexity
+Comparison: time complexity of algorithms A and B
+Algorithm A
+Algorithm B
+Input Size
+n
+10
+100
+1,000
+SUVORK5CYII= 1,000,000
+AElFTkSuQmCC 5,000n
+50,000
+TkSuQmCC 500,000
+5,000,000
+5x10
+9
+1.1
+n
+3
+2.5x10
+41
+13,781
+4.8x10
+41392
+
+===== PAGE 23 =====
+23
+Complexity
+This means that algorithm B cannot be used for
+large inputs, while running algorithm A is still
+feasible.
+So what is important is the growth of the
+complexity functions.
+The growth of time and space complexity with
+increasing input size n is a suitable measure for
+the comparison of algorithms.
+
+===== PAGE 24 =====
+24
+The Growth of Functions
+The growth of functions is usually described
+using the big-O notation .
+Definition: Let f and g be functions from the
+integers or the real numbers to the real numbers.
+We say that f(x) is O(g(x)) if there are
+constants C and k such that
+|f(x)|
+
+C|g(x)|
+whenever x > k.
+
+===== PAGE 25 =====
+25
+The Growth of Functions
+When we analyze the growth of complexity
+functions , f(x) and g(x) are always positive.
+Therefore, we can simplify the big-O requirement
+to
+f(x)
+
+C
+
+g(x) whenever x > k.
+If we want to show that f(x) is O(g(x)), we only
+need to find one pair (C, k) (which is never unique).
+
+===== PAGE 26 =====
+26
+The Growth of Functions
+The idea behind the big-O notation is to establish
+an upper boundary for the growth of a function
+f(x) for large x.
+This boundary is specified by a function g(x) that
+is usually much simpler than f(x).
+We accept the constant C in the requirement
+f(x)
+
+C
+
+g(x) whenever x > k,
+because C does not grow with x.
+We are only interested in large x, so it is OK if
+f(x) > C
+
+g(x) for x
+
+k.
+
+===== PAGE 27 =====
+27
+The Growth of Functions
+Question: If f(x) is O(x
+2
+), is it also O(x
+3
+)?
+Yes. x
+3
+grows faster than x
+2
+, so x
+3
+grows also
+faster than f(x).
+Therefore, we always have to find the smallest
+simple function g(x) for which f(x) is O(g(x)).
+
+===== PAGE 28 =====
+28
+ASYMPTOTIC NOTATION
+•
+O notation: asymptotic “less than”:
+❖
+f(n)=O(g(n)) implies: f(n) “≤” g(n)
+•
+Ω notation: asymptotic “greater than”:
+❖
+f(n)= Ω (g(n)) implies: f(n) “≥” g(n)
+•
+θ notation: asymptotic “equality”:
+❖
+f(n)= θ (g(n)) implies: f(n) “=” g(n)
+Engineered for Tomorrow
+
+===== PAGE 29 =====
+The Big-O and Related Notations
+➢
+These notations are pronounced “little oh”, “Big
+Oh”, “Big Theta”, and “Big Omega”, respectively.
+
+===== PAGE 30 =====
+12/8/13
+ASYMPTOTIC NOTATIONS
+O-notation
+Engineered for Tomorrow
+
+===== PAGE 31 =====
+Examples
+➢
+f(n)=3n2+n
+= 3n
+2
++n
+2
+=4n
+2
+➢
+f(n)<=c*g(n)
+3n
+2
++n<=4n
+2
+=o(n
+2
+)
+Where n>=n
+0
+and n=1
+n2 ≤ cn2 ; c ≥ 1 ; c = 1 and n0= 1
+Engineered for Tomorrow
+
+===== PAGE 32 =====
+12/8/13
+ASYMPTOTIC NOTATIONS (CONT.)
+➢
+Ω
+- notation
+Ω
+(g(n)) is the set of functions with
+larger or same order of growth as
+g(n)
+Engineered for Tomorrow
+
+===== PAGE 33 =====
+Examples
+Engineered for Tomorrow
+➢
+f(n)=3n2+n
+= 3n
+2
++n
+=3n
+2
+➢
+f(n)>=c*g(n)
+3n
+2
++n>=3n
+2
+=
+Ω
+(n
+2
+)
+Where n<=n
+0
+and n=1
+
+===== PAGE 34 =====
+ASYMPTOTIC NOTATIONS (CONT.)
+•
+θ
+-notation
+θ
+(g(n))
+is the set of functions with
+the same order of growth as
+g(n)
+Engineered for Tomorrow
+
+===== PAGE 35 =====
+Examples
+Engineered for Tomorrow
+C2g(n)<=f(n)<=c1g(n) for all n>=n0
+3n2+n<=f(n)<=3n2+n2
+3n2<=f(n)<=4n2
+Where c2=3, c1=4 and n=1
+Therefore, 3n2+n
+∈
+θ(n2)
+
+===== PAGE 36 =====
+Establishing order of growth using limits
+lim
+T ( n )/ g ( n )
+=
+0
+RU5ErkJggg== zwDBqSeKAAAAAElFTkSuQmCC order of growth of T ( n)
+RU5ErkJggg== AABJRU5ErkJggg== RK5CYII= < order of growth of g ( n )
+RK5CYII= YII= RK5CYII= c > 0 order of growth of T ( n) = order of growth of g ( n )
+AABJRU5ErkJggg== ∞ order of growth of T ( n) > order of growth of g ( n )
+Examples:
+• 10 n
+vs. n
+2
+• n ( n +1)/2 vs. n
+2
+n →∞
+
+===== PAGE 37 =====
+Basic asymptotic efficiency classes
+1
+constant
+rkJggg== log n
+logarithmic
+n
+linear
+RK5CYII= RK5CYII= n log n
+RK5CYII= n- log -n
+n
+2
+quadratic
+n
+3
+cubic
+2
+n
+exponential
+n !
+factorial
+
+===== PAGE 38 =====
+38
+(Efficiency)
+Growth of functions
+
+===== PAGE 39 =====
+39
+Useful Rules for Big-O
+For any polynomial f(x) = a
+n
+x
+n
++ a
+n-1
+x
+n-1
++ … + a
+0
+,
+where a
+0
+, a
+1
+, …, a
+n
+are real numbers,
+f(x) is O(x
+n
+).
+If f
+1
+(x) is O(g
+1
+(x)) and f
+2
+(x) is O(g
+2
+(x)), then
+(f
+1
++ f
+2
+)(x) is O(max(g
+1
+(x), g
+2
+(x)))
+If f
+1
+(x) is O(g(x)) and f
+2
+(x) is O(g(x)), then
+(f
+1
++ f
+2
+)(x) is O(g(x)).
+If f
+1
+(x) is O(g
+1
+(x)) and f
+2
+(x) is O(g
+2
+(x)), then
+(f
+1
+f
+2
+)(x) is O(g
+1
+(x) g
+2
+(x)).
+
+===== PAGE 40 =====
+O( n )
+1 int count_0(int n)
+2 {
+3 sum = 0
+4 for i=1 to n {
+5 for j=1 to n {
+6 If i<=j then
+7 sum++
+8 }
+9 }
+10 return sum
+11 }
+O(1)
+O(1)
+The running time is O( n
+2
+)
+O( n
+2
+)
+O( n
+2
+)
+O( n
+2
+)
+Algorithm 4
+
+===== PAGE 41 =====
+More Examples
+1)
+int x = 0;
+for (int i = 0; i < 100; i++)
+x += i;
+2)
+int x = 0;
+for (int i = 0; i < n
+2
+; i++)
+x += i;
+* Assume that the value of
+n
+is the size of the problem
+
+===== PAGE 42 =====
+3)
+int x = 0;
+for (int i = 1; i < n; i *= 2)
+x += i;
+4)
+int x = 0;
+for (int i = 1; i < n; i++)
+for (int j = 1; j < i; j++)
+x += i + j;
+
+===== PAGE 43 =====
+5)
+int x = 0;
+for (int i = 1; i < n; i++)
+for (int j = i; j < 100; j++)
+x += i + j;
+6)
+int x = 0;
+for (int i = 1; i < n; i++)
+for (int j = n; j > i; j /= 3)
+x += i + j;
+7)
+int x = 0;
+for (int i = 1; i < n
+*
+n; i++)
+for (int j = 1; j < i; j++)
+x += i + j;
+
+===== PAGE 44 =====
+Example 1: Maximum element
+C(n) є Θ(n)
+
+===== PAGE 45 =====
+Example 2: Element uniqueness problem
+C(n) є Θ(n
+2
+)
+
+===== PAGE 46 =====
+Example 3: Matrix multiplication
+C(n) є Θ(n
+3
+)
+
+===== PAGE 47 =====
+47
+(Efficiency)
+i = 1
+count = 0
+while i < n
+begin
+i = 2 * i
+count = count + 1
+end
+output count
+O(?)
+O(log n)
+Ex.
+
+===== PAGE 48 =====
+Analyzing Recursive Algorithms
+Often a recurrence equation is used as the starting point
+to analyze a recursive algorithm
+➢
+In the recurrence equation, T ( n ) denotes the running time of
+the recursive algorithm for an input of size n
+We will try to convert the recurrence equation into a
+closed form equation to have a better understanding of
+the time complexity
+➢
+Closed Form: No reference to T ( n ) on the right side of the
+equation
+➢
+Conversions to the closed form solution can be very challenging
+
+===== PAGE 49 =====
+Example: Factorial
+int factorial (int n)
+/ * Pre: n is an integer no less than 0
+Post: The factorial of n (n!) is returned
+Uses: The function factorial recursively * /
+{
+if (n == 0)
+return 1 ;
+else
+return n * factorial (n - 1) ;
+}
+}
+3
+)
+1
+(
++
+−
+n
+T
+1
+1
+
+===== PAGE 50 =====
+➢
+The time complexity of factorial( n ) is:
+➢
+T ( n ) is an arithmetic sequence with the common
+difference 4 of successive members and T(0) equals 2
+➢
+The time complexity of factorial is O ( n )
+
+
+
+
++
+−
+=
+=
+0
+if
+4
+)
+1
+(
+0
+if
+2
+)
+(
+n
+n
+T
+n
+n
+T
+n
+nd
+T
+n
+T
+4
+2
+)
+0
+(
+)
+(
++
+=
++
+=
+3+1: The
+comparison
+is included
+
+===== PAGE 51 =====
+Fibonacci numbers
+int fibonacci( int n)
+/ * fibonacci : recursive version * /
+{
+if (n <= 0) return 0 ;
+else if (n == 1) return 1 ;
+else return fibonacci(n − 1) + fibonacci(n − 2) ;
+}

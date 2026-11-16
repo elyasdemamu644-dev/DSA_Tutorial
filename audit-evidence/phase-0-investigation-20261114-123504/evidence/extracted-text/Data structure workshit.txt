@@ -1,0 +1,49 @@
+﻿Data Structure and Algorithm: Worksheet 
+
+
+    1. Can you have an algorithm without a data structure? Can you have a data structure without an algorithm?
+    2. Design a spelling checker algorithm over a dictionary of words [Just sketch it on paper]. What primitive operations must be implemented on the dictionary, and what is a reasonable time constraint for each operation?
+    3. Graph the following expressions. For each expression, state the range of values of n for which that expression is the most efficient.
+
+    4. Arrange the following expressions by growth rate from slowest to fastest.
+
+    5. [Text book: Section 3.4.5]
+Given functions f(n) and g(n) whose growth rates are expressed as algebraic equations, we might like to determine if one grows faster than the other. The best way to do this is to take the limit of the two functions as n grows towards infinity,
+
+If the limit goes to ∞, then f(n) is in Ω(g(n)) because f(n) grows faster. If the limit goes to zero, then f(n) is in O(g(n)) because g(n) grows faster. If the limit goes to some constant other than zero, then f(n) = Ѳ(g(n)) because both grow at the same rate.
+
+For each of the following pairs of functions, either f(n) is in O(g(n)), f(n) is in Ω (g(n)), or f(n) = Ѳ(g(n)). For each pair, determine which relationship is correct. Justify your answer, using the method of limits discussed above.
+
+
+
+    6. Which kind of growth best characterizes each of these functions? Choose among: [constant, linear, polynomial, exponential]
+    a. (3/2)n
+    b. 1
+    c. (3/2)n
+    d. 2n2
+    e. 2n
+    f. 3n2
+    g. 1000
+    h. 3n
+
+    7. When we study the runtime of algorithms, some functions occur frequently. The following table shows these common functions. For each function, give one example algorithm having runtime of that function.
+
+T(n)	Type
+c	constant
+log n	logarithmic
+n	linear
+n log n	"n log n"
+n2	quadratic
+n3	cubic
+2n	exponential
+
+    8. For the functions nk and cn, what is the asymptotic relationship between these functions? Assume that k>=1 and c>1 are constants. Choose all answers that apply:
+    a) nk  is O(cn)
+    b) nk  is Ω(cn)
+    c) nk  is Ѳ(cn)
+    9. Determine Ѳ for the following code fragments in the average case. Assume that all variables are of type int.
+
+    10. Sometimes the constants that you ignore in Big O notation are important. For example, suppose you have two algorithms that can do the same job. The first requires 1,500 × N steps, and the other requires 30 × N2 steps. For what values of N would you choose each algorithm?
+
+ 
+

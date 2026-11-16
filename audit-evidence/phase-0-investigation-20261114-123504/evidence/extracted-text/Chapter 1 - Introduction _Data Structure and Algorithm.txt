@@ -1,0 +1,1812 @@
+
+===== PAGE 1 =====
+1
+Eleni T.
+Addis Ababa Science & Technology University
+2015 E.C., Semester I
+Data Structures and Algorithms
+
+===== PAGE 2 =====
+
+Outline:
+•
+Introduction
+•
+Abstract Data Type & Data Structure
+•
+Algorithm
+•
+Algorithm Analysis
+Page 2
+Chapter One: Introduction
+
+===== PAGE 3 =====
+A program is written in order to solve a problem.
+A solution to a problem actually consists of two things:
+•
+A way to organize the data in memory : Data Structure
+•
+Sequence of steps to solve the problem: Algorithm
+
+Program = Data structure + Algorithm
+3
+Introduction
+
+===== PAGE 4 =====
+
+A primary concern of this course is efficiency .
+Efficient data structures
+Efficient Algorithms
+
+[You might believe that faster computers make it unnecessary to
+be concerned with efficiency.]
+
+More complex applications
+⇒
+More powerful computers
+
+YET
+more
+complex
+applications
+demand
+more
+calculations,
+computationally infeasible : taking years, even millions of years.
+
+So we need special training, efficient program design.
+4
+Why Study Data Structures & Algorithms?
+Efficient programs
+
+===== PAGE 5 =====
+
+Any
+organization for
+a collection of
+records
+can be
+searched, processed in any order, or modified.
+
+[If you are willing to pay enough in time delay.
+- Ex: Simple unordered array of records.]
+
+The choice of
+data structure and algorithm can make
+the difference between a program running in a few
+seconds or many days.
+5
+Why…?
+
+===== PAGE 6 =====
+
+A solution is said to be efficient if it solves the problem within
+its resource constraints .
+
+[Alt
+defn:
+Better
+than
+known
+alternatives
+(“relatively”
+efficient)]
+•
+Space
+•
+Time
+
+[This does not mean always strive for the most efficient program. If the
+program operates well within resource constraints, there is no benefit to
+making it faster or smaller.]
+
+The cost of
+a solution is the amount of
+resources that the
+solution consumes.
+6
+Efficiency
+[These are typical constraints for programs]
+
+===== PAGE 7 =====
+Select a data structure as follows:
+1.
+Analyze
+the
+problem to
+determine
+the
+resource
+constraints a solution must meet.
+2.
+Determine
+the
+basic
+operations
+that
+must
+be
+supported.
+Quantify the resource constraints for each
+operation.
+3.
+Select
+the
+data
+structure
+that
+best
+meets
+these
+requirements.
+7
+Selecting a Data Structure
+•
+[Typically we want the “simplest” data structure that will meet
+the requirements.]
+
+===== PAGE 8 =====
+
+These questions often help to narrow the possibilities
+•
+Are all
+data inserted into the data structure at the beginning, or are
+insertions interspersed with other operations?
+•
+Can data be deleted? [If
+so,
+a more complex
+representation is
+typically required]
+•
+Are all
+data processed in some well-defined order,
+or
+is random
+access allowed?
+8
+Some Questions to Ask
+
+===== PAGE 9 =====
+
+Each data structure has costs and benefits.
+
+Rarely is one data structure better
+than another
+in all
+situations.
+
+A data structure requires:
+•
+space for each data item it stores [Data + Overhead],
+•
+time to perform each basic operation,
+•
+programming
+effort.
+[Some
+data
+structures/
+algorithms
+more
+complicated than others]
+9
+Data Structure Philosophy
+
+===== PAGE 10 =====
+
+Each problem has constraints on available space and time.
+
+Only after a careful
+analysis of problem characteristics can
+we know the best data structure for the task.
+
+Bank example:
+•
+Start account: should take only a few minutes
+•
+Transactions: should take only a few seconds
+•
+Close/delete account: can take overnight
+10
+Data Structure Philosophy . . .
+We should choose a data structure that has little concern for the cost of deletion ,
+but is highly efficient for search and moderately efficient for insertion.
+
+===== PAGE 11 =====
+1.
+Learn the commonly used data structures.
+•
+These form a programmer's basic data structure ``toolkit.'‘
+2.
+Reinforce the concept
+that
+costs and benefits exist
+for
+every data structure.
+3.
+Learn commonly used Algorithms
+4.
+Understand
+how to
+measure
+the
+cost
+of
+a
+data
+structure or algorithm.
+11
+Goals of this Course:
+
+===== PAGE 12 =====
+
+A type is a collection of values. E.g. :
+•
+Boolean – {true, false}
+•
+Integer – {-,0,+}
+•
+Float – {integers, fractions}
+
+A data item is a piece of
+information or a record whose value
+drawn from a type.
+
+A data item is said to be a member of a type. [e.g. 2]
+
+A simple data item contains no subparts. [e.g: Integer]
+
+An aggregate data item may contain several pieces of information.
+e.g: bank account : name, address, account number, balance
+
+A data
+type
+is
+a
+type
+and a
+collection of
+operations
+that
+manipulate the type. [e.g: Addition ]
+12
+Definition of Terms
+
+===== PAGE 13 =====
+Abstract Data Type (ADT): a definition for a data type solely in
+terms of a set of values and a set of operations on that data
+type.
+
+Realization of a data type as a software component.
+
+ADT specifies:
+1.
+What can be stored in the Abstract Data Type – attributes.
+2.
+What operations can be done on/by the Abstract Data Type.
+E.g: model employees of an organization.
+•
+Data : stores employees with relevant attributes.
+•
+Operations : supports hiring, firing, retiring, . . .
+Encapsulation: Hide implementation details.
+13
+Abstract Data Types
+
+===== PAGE 14 =====
+Data structure :
+is the physical
+implementation of
+an
+ADT.
+
+Each operation associated with the ADT is implemented by
+one or more subroutines in the implementation – function
+member or method.
+
+The variables that define the space required by a data item
+are referred to as data members (attributes).
+
+Data structure usually refers to an organization for data in
+main memory.
+
+File structure : an organization for data on peripheral storage,
+such as a disk drive or tape.
+14
+Data Structure
+
+===== PAGE 15 =====
+
+Model of a data type.
+
+Collection of data plus
+operation on that data.
+
+From users point of view.
+
+One:
+Can have different
+implementations.
+
+Separates data type definition
+from its implementation.
+
+Implementation-independent
+
+It is like Java Interface.
+
+Organize the data that the ADT
+is encapsulating.
+•
+Concrete implementation
+
+Data member + functions.
+
+Programmers point of view.
+
+Many.
+Page 15
+ADT
+Data Structure
+
+===== PAGE 16 =====
+
+A list
+is
+a finite,
+ordered sequence of
+data items
+called
+elements, each having a position .
+
+Let us define an ADT for list of integers:
+
+Type (values): integer,
+i.e. list of integers
+
+Operations :
+•
+Insert a new integer at a particular position in the list.
+•
+Return true if the list is empty.
+•
+Reinitialize the list.
+•
+Return the number of integers currently in the list.
+•
+Delete the integer at a particular position in the list.
+=>No specification of the list’s implementation
+Page 16
+Example: List ADT
+
+===== PAGE 17 =====
+Two ways of doing that:
+
+Array-based : contiguous memory allocation
+
+Using linked lists : dynamic allocation
+Page 17
+Example: Implementation of the above list ADT
+
+===== PAGE 18 =====
+
+A List is an ADT,
+with well
+defined operations
+(add,
+delete,
+search,
+etc.)
+while a linked list
+is
+a pointer
+based data
+structure that can be used to create a representation of a List.
+
+Note:
+•
+Different
+applications
+have
+different
+requirements
+in
+using
+operations (functions) of an ADT (frequency, running time).
+•
+This is why an ADT might have more than one implementations.
+Page 18
+Therefore,
+
+===== PAGE 19 =====
+
+Data types have both a logical and a physical form.
+•
+The definition of the data type in terms of an ADT is its logical form.
+•
+The implementation of the data type as a data structure is its physical
+form.
+Page 19
+Logical & Physical Forms of a Data Type
+When you implement an ADT, you
+are dealing with the physical form of the
+associated data type.
+When you use an ADT elsewhere in your
+program, you are concerned with the
+associated data type’s logical form.
+
+===== PAGE 20 =====
+
+An ADT manages complexity through abstraction, metaphor .
+[Hierarchies of labels]
+
+[Ex: transistors → gates → CPU.]
+
+In a program,
+implement an ADT,
+then think only about the
+ADT, not its implementation].
+Page 20
+Abstraction:
+
+===== PAGE 21 =====
+
+Problem: a task to be performed.
+•
+Best thought of as inputs and matching outputs.
+•
+Problem definition should include constraints on the resources that
+may be consumed by any acceptable solution.
+•
+[But NO constraints on HOW the problem is solved].
+
+Problems
+⇔
+mathematical functions
+•
+A function is a matching between inputs (the domain ) and outputs
+(the range ).
+•
+An input
+to a function may be single number,
+or
+a collection of
+information.
+•
+The values making up an input
+are called the parameters of
+the
+function.
+•
+A particular input must always result in the same output every time
+the function is computed.
+Page 21
+Problems
+
+===== PAGE 22 =====
+•
+A data structure is a way of storing data in a computer so
+that it can be used efficiently.
+•
+It is the specification of the elements of the structure,
+the
+relationships between them, and the operation that may be
+performed upon them.
+•
+Consider as an example books in a library .
+–
+It can be stored in a shelf arbitrarily or using some defined orders
+such as sorted by Title, Author and so on.
+•
+It can be said that the study of data structures involves the
+storage , retrieval and manipulation of information.
+•
+In other
+words,
+DS is
+the possible logical
+and physical
+arrangement of data items to provide an efficient solution
+for a problem.
+Data Structure - summary
+
+===== PAGE 23 =====
+Operations on Data Structures
+•
+The various operations that can be performed over
+data structures are,
+–
+Create
+–
+Destroy
+–
+Access
+–
+Update
+
+===== PAGE 24 =====
+Classification of Data Structure
+•
+Primitive
+data
+structures
+:
+These
+are
+the
+basic
+data
+structures and are directly operated upon by the machine
+instructions, which is in a primitive level.
+–
+They are integers,
+floating point
+numbers,
+characters,
+string
+constants, pointers etc.
+–
+These
+primitive
+data
+structures
+are
+the
+basis
+for
+more
+sophisticated (non-primitive) data structures.
+•
+Non-primitive data structures :
+It is a more sophisticated
+data structure emphasizing on structuring of
+a group of
+homogeneous (same type) or heterogeneous (different type)
+data items.
+–
+Non-Primitive data structures are those that
+can be obtained
+from the primitive data structures .
+–
+Array, list, files, linked list, trees and graphs fall in this category.
+
+===== PAGE 25 =====
+Classification…
+–
+The non-primitive data structures and number of such
+data structures are not fixed.
+•
+If
+the
+allocation
+of
+memory
+is
+sequential
+or
+continuous then such a data structure is called a
+non-primitive linear structure.
+–
+Example: arrays, stacks, queues, linked lists , etc.
+•
+If the allocation of memory is not sequential
+but
+random or
+discontinuous
+then
+such
+a
+data
+structure
+is
+called
+a
+non-primitive
+non-linear
+structure.
+–
+Example: Trees, Graphs , etc.
+
+===== PAGE 26 =====
+Classification…
+
+===== PAGE 27 =====
+
+What is Algorithm?
+•
+a clearly specified set of simple instructions to be followed to
+solve a problem.
+•
+Takes a set of values, as input and
+•
+produces a value, or set of values, as output
+•
+May be specified
+•
+In English
+•
+As a computer program
+•
+As a pseudo-code
+
+A problem can have many algorithms (i.e. solutions).
+
+Computer
+program :
+is
+an
+instance,
+or
+concrete
+representation,
+for
+an
+algorithm in
+some
+programming
+language.
+27
+Algorithms
+
+===== PAGE 28 =====
+Page 28
+Problem
+Algorithm1
+Algorithm2
+Algorithm n
+Prog1
+(C++)
+Prog2
+(Java)
+Prog n
+(n
+th
+PL)
+An Algorithm may be efficient than another
+for a specific variation of the problem, or
+for a specific class of inputs.
+E.g.: One sorting algorithm might be the best for
+sorting a small collection of integers, another a large
+collection of integers, and a third for sorting a
+collection of variable-length strings .
+. . .
+
+===== PAGE 29 =====
+An algorithm possesses the following properties:
+1.
+It must be correct . [Computes proper function].
+2.
+It must be composed of a series of concrete steps . [Each step
+is completely understood & doable by that machine]
+3.
+There can be no ambiguity as to which step will be performed
+next.
+4.
+It must be composed of a finite number of steps.
+5.
+It must terminate .[Must not go into an infinite loop ]
+6.
+Efficiency:
+It
+must
+solve
+with
+the
+least
+amount
+of
+computational resources such as time and space.
+7.
+Generality : Algorithm should be valid on all possible inputs.
+8.
+Input/Output :
+There must
+be a specified number of
+input
+values, and one or more result values.
+29
+Algorithm Properties
+
+===== PAGE 30 =====
+30
+
+Algorithm analysis refers to the process of determining how much computing
+time and storage that algorithms will require.
+
+In other words, it’s a process of predicting the resource requirement of
+algorithms in a given environment.
+
+There are often many approaches (algorithms) to solve a problem. How do we
+choose between them?
+
+At the heart of computer program design are two (sometimes conflicting) goals:
+1. To design an algorithm that is easy to understand, code and debug.
+2. To design an algorithm that makes efficient use of the
+computer’s resources.
+
+Goal (1) is the concern of Software Engineering.
+
+Goal (2) is the concern of data structures and algorithm analysis.
+
+When goal (2) is important, how do we measure an algorithm’s cost?
+Algorithm Analysis
+
+===== PAGE 31 =====
+Two approaches:
+1.
+Computational
+(Empirical
+comparison)
+-
+run
+programs
+[Difficult to do “fairly.” Time consuming.]
+2.
+Asymptotic Algorithm Analysis
+
+First method is unsatisfactory:
+•
+Depends on programming effort.
+•
+One of the programs might be “better written” than the other.
+•
+Unfair choice of test cases.
+31
+How to Measure Efficiency?
+
+===== PAGE 32 =====
+
+Factors affecting running time:
+•
+Machine load
+•
+OS
+• Compiler
+• Problem size or Specific input values for given
+problem size.
+
+Critical resources for a program:
+•
+Time: required for an algorithm
+•
+Space (disk, RAM): required for a data structure
+•
+Programmer’s effort
+•
+Ease of use (user’s effort)
+32
+How to Measure Efficiency?
+
+===== PAGE 33 =====
+Two things to consider:
+
+Time
+Complexity :
+Determine
+the
+approximate
+number
+of
+operations required to solve a problem of size n.
+
+Space Complexity :
+Determine the approximate memory required
+to solve a problem of size n.
+
+For most algorithms,
+running time depends on “size” of
+the input.
+
+Running time is expressed as T(n) for some function T on
+input size n.
+33
+Complexity Analysis
+
+===== PAGE 34 =====
+[No generally accepted set of rules for algorithm analysis,
+but an exact count of
+operations is commonly used.]
+1.
+We assume an arbitrary time unit.
+2.
+Execution of one of the following operations takes time 1:
+•
+Assignment Operation
+•
+Single Input/Output Operation
+•
+Single Boolean Operations
+•
+Single Arithmetic Operations
+•
+Function Return
+3.
+Running time of a selection statement (if,
+switch)
+is the time for the
+condition evaluation + the maximum of
+the running times
+for
+the
+individual clauses in the selection.
+34
+Analysis Rules
+
+===== PAGE 35 =====
+4. Loops : Running time for a loop is:
+(
+running time for the statements inside the loop * number of iterations)
+•
+The total
+running time of a statement inside a group of nested
+loops is the running time of
+the statement multiplied by the
+product of the sizes of all the loops.
+•
+For nested loops, analyze inside out.
+•
+Always assume that the loop executes the maximum number of
+iterations possible.
+5.
+Running time of a function call
+is 1 for setup + the time for any
+parameter calculations + the time required for the execution of the
+function body.
+35
+Analysis Rules
+
+===== PAGE 36 =====
+1 .
+int count(){
+int k=0;
+cout <<“Enter an integer”;
+cin>>n;
+for (i=0;i<n;i++)
+k=k+1;
+return 0;
+}
+36
+Examples
+•
+1 for the assignment
+statement: int k=0
+•
+1 for the output statement.
+•
+1 for the input statement.
+•
+In the for loop:
+– 1 assignment, n+1 tests,
+and n increments.
+– n loops of 2 units for an
+assignment, and an
+addition.
+•
+1 for the return statement.
+T(n) = 1+1+1+(1+(n+1)+n)+2n+1)= 4n+6
+
+===== PAGE 37 =====
+2.
+void func(){
+int x=0;
+int i=0;
+int j=1;
+cout <<“Enter an Integer”;
+cin>>n;
+while (i<n){
+x++;
+i++;
+}
+while (j<n){
+j++;
+}
+}
+37
+Examples…
+•
+1 –each 3 assign stmts
+•
+1– output stmt
+•
+1 – input stmt.
+•
+1
+st
+while loop:
+– n+1 tests
+– n loops of 2 units for the
+two increment (addition)
+operations
+•
+2
+nd
+while loop:
+– n tests
+– n-1 increments
+T (n)= 1+1+1+1+1+n+1+2n+n+n-1 = 5n+5
+
+===== PAGE 38 =====
+3.
+sum = 0;
+for (i=1; i<=n; i++)
+for (j=1; j<=n; j++)
+sum=sum+1;
+38
+Examples…
+•
+1- assign stmt
+•
+Inner loop:
+•
+1 assign, n+1 tests, and n
+increments
+.
+•
+Loop executes n times
+•
+Outer loop:
+•
+1 assign, n+1 tests, and n
+increments
+.
+•
+Loop executes n times
+•
+Stmt inside nested loop:
+– 2 units, assign & increment
+– Total: 2 *(n*n) –>size of
+both loops
+T(n)= 1+2(1+(n+1)+n)+2n
+2
+= 2n
+2
++4n+5
+
+===== PAGE 39 =====
+Examples…
+•
+Class exercise:
+int sum=0;
+if(test==1)
+{
+for (int i=1;i<=n;i++)
+sum=sum+i;
+}
+else
+{
+cout<<sum;
+}
+
+===== PAGE 40 =====
+Examples…
+•
+Answer:
+int sum=0;
+if(test==1)
+{
+for (int i=1;i<=n;i++)
+sum=sum+i;
+}
+else
+{
+cout<<sum;
+}
+•
+T(n) = 1+1+Max(1+n+1+n+n+n,1)
+= 4n+4
+
+===== PAGE 41 =====
+Exercise
+•
+Calculate T(n) for the following codes
+•
+1) int sum=0;
+for(i=1;i<=n;i++)
+for(j=1;j<=m;j++)
+sum++;
+•
+2) int sum=0;
+for(i=1;i<=n;i++)
+for(j=1;j<=i;j++)
+sum++;
+
+===== PAGE 42 =====
+
+We can simplify analysis by ignoring:
+•
+Initializations
+•
+Loop control condition
+•
+Loop counter increments, etc.
+
+Primary consideration when estimating an algorithm’s
+performance is the number of basic operations required
+by the algorithm to process an input of a certain size .
+42
+Formal Approach to Analysis
+
+===== PAGE 43 =====
+
+Size : the number of inputs processed.
+•
+E.g.
+Sorting algorithms,
+size is the number of records to be
+sorted.
+
+A basic operation must have the property that its time to
+complete does not depend on the particular values of its
+operands.
+•
+E.g.
+»
+Adding or comparing two integer variables.
+»
+Summing
+the contents
+of
+an array
+containing
+n
+integers is not,
+because the cost
+depends on the
+value of n (i.e. the size of the input).
+43
+Formal Approach to Analysis
+
+===== PAGE 44 =====
+
+A for loop translates to a summation .
+
+The index and bounds of the summation are the same as the
+index and bounds of the for loop.
+
+Suppose we count the number of additions that are done.
+
+There is
+1 addition per
+iteration of
+the loop,
+hence N
+additions in total.
+44
+for
+Loops
+for (int i = 1; i<=N; i++){
+sum = sum + i;
+}
+
+===== PAGE 45 =====
+
+Nested for loops translate into multiple summations , one for
+each for loop.
+
+Again, count the number of additions. The outer summation
+is for the outer for loop.
+45
+Nested Loops
+
+===== PAGE 46 =====
+
+Add the running times of the separate blocks
+46
+Consecutive Statements
+
+===== PAGE 47 =====
+
+If (test) s1 else s2: Compute the maximum of the running
+time for s1 and s2.
+47
+Conditional Statements
+
+===== PAGE 48 =====
+E.g.1 : [As n grows, how does T(n) grow?]
+48
+Examples
+T(n) = cn
+
+===== PAGE 49 =====
+
+E.g.2 : Assignment statement
+
+The size of the input n has no effect on the running time.
+This is
+called a constant running time .
+
+E.g.3 :
+49
+Examples
+T(n) = C
+
+===== PAGE 50 =====
+Asymptotic Analysis
+•
+Estimates the time or space required by a program as
+function of the input size.
+•
+We analyze:
+–
+time required for an algorithm.
+–
+the space required for a data structure .
+50
+
+===== PAGE 51 =====
+Growth Rate
+T(n)
+Type
+c
+constant
+log n
+logarithmic
+n
+linear
+n log n
+"n log n"
+n
+2
+quadratic
+n
+3
+cubic
+2
+n
+exponential
+•
+The growth rate for an algorithm is the rate at which the cost of
+the algorithm grows as the size of its input grows.
+Examples :
+51
+
+===== PAGE 52 =====
+Growth Rate Graph
+52
+
+===== PAGE 53 =====
+Best, Worst and Average Cases
+•
+Largest-value sequential
+search algorithm -
+always
+examines
+every array value.
+
+However,
+for
+some algorithms,
+different
+inputs require
+different amounts of time.
+E.g. Sequential search for K in an array of n integers:
+•
+Begin at first element in array and look at each element in turn
+until K is found.
+Best case :
+Find at first position.
+Cost is 1 compare.
+Worst case :
+Find at last position.
+Cost is n compares.
+Average case :
+( n +1)/2 compares if
+we assume the element with
+value K is equally likely to be in any position in the array.
+53
+
+===== PAGE 54 =====
+Asymptotic Analysis:
+Upper Bounds
+•
+Several
+terms are used to describe the running-
+time equation for an algorithm.
+•
+Upper
+bound -
+indicates
+the upper
+or
+highest
+growth rate that an algorithm can have.
+•
+Measured on the best-case, average-case, or worst-
+case inputs.
+•
+Big-Oh notation:
+–
+If the upper bound for an algorithm’s growth rate (say,
+the worst case) is f(n), then this algorithm is “in the set
+O(f(n)) in the worst case”
+(or just “in O(f(n)) in the worst case”).
+54
+
+===== PAGE 55 =====
+Asymptotic Analysis: Big-oh Notation
+Definition : For T ( n ) a non-negatively valued function,
+T ( n ) is in the set O( f ( n )) if there exist two positive
+constants c and n
+0
+such that T ( n ) <= cf ( n ) for all
+n
+> n
+0
+.
+•
+n
+0
+is the smallest value of n for which the claim of an upper bound
+holds true.
+Usage : The algorithm is in O( n
+2
+) in [best, average, worst]
+case.
+[Must pick one of these to complete the statement.
+Big-oh notation
+applies to some set of inputs.]
+Meaning :
+For
+all
+data sets big enough (i.e.,
+n > n
+0
+),
+the
+algorithm always executes in less than c f ( n ) steps in
+[best, average, worst] case.
+55
+
+===== PAGE 56 =====
+Big-oh Notation (cont.)
+•
+Big-oh notation indicates an upper bound.
+T(n) grows at a rate no faster than f (n)
+•
+…“is in O(f(n))” or “ Є O(f(n))”, no strict equality actually.
+•
+Example: If T ( n ) = 3 n
+2
+then T ( n ) is in
+O( n
+2
+).
+Wish tightest upper bound:
+While T ( n ) = 3 n
+2
+is in O( n
+3
+), we prefer O( n
+2
+).
+56
+
+===== PAGE 57 =====
+Big-Oh Examples
+•
+Example 1: Finding value X in an array.
+(
+average cost, assuming
+equal probability of
+appearing in any position
+).
+T ( n ) = c
+s
+n /2.
+For all values of n > 1, c
+s
+n /2 <= c
+s
+n .
+•
+Therefore, by the definition, T ( n ) is in O( n ) for n
+0
+= 1 and c = c
+s
+.
+57
+
+===== PAGE 58 =====
+Big-Oh Examples
+•
+Example 2: T ( n ) = c
+1
+n
+2
++ c
+2
+n in average
+case.
+c
+1
+n
+2
++ c
+2
+n <= c
+1
+n
+2
++ c
+2
+n
+2
+<= ( c
+1
++ c
+2
+) n
+2
+for all n > 1.
+T ( n ) <= cn
+2
+for c = c
+1
++ c
+2
+and n
+0
+= 1.
+•
+Therefore, T ( n ) is in O( n
+2
+) by the
+definition.
+Example 3: T ( n ) = c . We say this is in O(1).
+58
+
+===== PAGE 59 =====
+A Common Misunderstanding
+•
+“The
+best
+case
+for
+my
+algorithm is
+n =1
+because that is the fastest.”
+WRONG!
+•
+Big-oh refers to a growth rate as n grows to
+
+.
+•
+It states a claim about the greatest amount of some resource (usually time)
+that is required by an algorithm for some class of inputs of size n (typically the
+worst such input, the average of all possible inputs, or the best such input).
+•
+Best
+case is defined as which input
+of
+size n
+is cheapest among all inputs of size n .
+59
+
+===== PAGE 60 =====
+Lower Bound
+•
+Describes the least amount of a resource that an
+algorithm needs for some class of input .
+•
+Like big-Oh notation,
+this is a measure of
+the
+algorithm’s growth rate.
+•
+Measured for some particular class of inputs:
+the worst-, average-, or best-case input of size n.
+60
+
+===== PAGE 61 =====
+Big-Omega
+Definition: For T ( n ) a non-negatively valued
+function, T ( n ) is in the set
+
+( g ( n )) if there
+exist two positive constants c and n
+0
+such that T ( n ) >= cg ( n ) for all n > n
+0
+.
+Meaning: For all data sets big enough (i.e.,
+n > n
+0
+), the algorithm always executes in
+more than cg ( n ) steps.
+wish to get the “tightest” (for
+
+notation, the largest) bound
+possible.
+61
+
+===== PAGE 62 =====
+Big-Omega Example
+T ( n ) = c
+1
+n
+2
++ c
+2
+n .
+c
+1
+n
+2
++ c
+2
+n >= c
+1
+n
+2
+for all n > 1.
+T ( n ) >= cn
+2
+for c = c
+1
+and n
+0
+= 1.
+Therefore, T ( n ) is in
+
+( n
+2
+) by the definition.
+We want the greatest lower bound.
+62
+
+===== PAGE 63 =====
+Theta Notation
+•
+When big-Oh and
+
+meet, we indicate this
+by using
+
+(big-Theta) notation.
+•
+Definition:
+An
+algorithm is
+said
+to
+be
+
+( h ( n )) if it is in O( h ( n )) and it is in
+
+( h ( n )).
+•
+For polynomial
+equations on T(n), we always have
+
+.
+There is no
+uncertainty,
+since
+once
+we
+have
+the
+equation,
+we
+have
+a
+“complete” analysis.
+63
+
+===== PAGE 64 =====
+A Common Misunderstanding
+•
+Confusing worst case with upper bound:
+•
+Upper bound refers to a growth rate .
+•
+Worst
+case refers to the worst
+input
+from
+among the choices for possible inputs of a
+given size.
+64
+
+===== PAGE 65 =====
+Simplifying Rules
+(1 ) If f ( n ) is in O( g ( n )) and g ( n ) is in O( h ( n )),
+then f ( n ) is in O( h ( n )).
+[
+if some function g(n) is an upper bound for your cost function, then any upper bound for
+g(n) is also an upper bound for your cost function.
+]
+(2)
+If f ( n ) is in O( kg ( n )) for any constant k > 0,
+then f ( n ) is in O( g ( n )).
+[
+Ignore constants
+]
+(3) If f
+1
+( n ) is in O( g
+1
+( n )) and f
+2
+( n ) is in O( g
+2
+( n )),
+then ( f
+1
++ f
+2
+)( n ) is in O(max( g
+1
+( n ), g
+2
+( n ))).
+[Given two parts of a program run in sequence consider only the more expensive part. Drop
+lower order terms]
+(4 ) If f
+1
+( n ) is in O( g
+1
+( n )) and f
+2
+( n ) is in O( g
+2
+( n )) then f
+1
+( n ) f
+2
+( n )
+is in O( g
+1
+( n ) g
+2
+( n )).
+[If some action is repeated some number of times, and each repetition has the same
+cost,
+then the total
+cost is the cost of the action multiplied by the number of times
+that the action takes place.
+Useful for analyzing loops]
+65
+
+===== PAGE 66 =====
+Simplifying Rules (cont.)
+•
+Taking the first three rules,
+ignore all
+constants and all
+lower-
+order terms to determine the asymptotic growth rate for any
+cost function.
+•
+The higher-order terms soon swamp the lower-order terms in
+their contribution to the total cost as n becomes larger.
+•
+Example: if T(n) = 3n
+4
++5n
+2
+, then T(n) is in O(n
+4
+).
+n
+2
+contributes
+relatively little to the total cost.
+66
+
+===== PAGE 67 =====
+Running Time Examples (1)
+[Asymptotic analysis is defined for equations. We need to convert
+programs to equations to analyze them.]
+Example 1
+:
+a = b;
+[This assignment takes constant time, so it is
+
+(1).]
+Example 2:
+sum = 0;
+for (i=1; i<=n; i++)
+sum += n;
+[1
+st
+line is
+
+(1). The for loop is repeated n times. 3
+rd
+line takes constant
+time so, by rule (4), total cost for the two lines is
+
+(n). By rule (3), the
+cost of the entire code fragment is also
+
+(n).]
+67
+
+===== PAGE 68 =====
+Running Time Examples (2)
+Example 3:
+sum = 0;
+for (i=1; i<=n; j++) //first for loop
+for (j=1; j<=i ; i++)// is double loop
+sum++;
+for (k=0; k<n; k++)//second for loop
+A[k] = k;
+[
+First statement is c
+1
+=>
+
+(1).
+Double for loop :
+- sum++ requires constant time,c
+2
+- inner for loop is executed i times, by rule (4), c
+2
+i
+- outer for loop is executed n times, but each time the cost
+of the inner loop is different ,c
+2
+i with i changing each time .
+-Thus, the total cost of the loop is c
+2
+times the sum of the
+integers 1 through n: =>
+
+(n
+2
+).
+Final for loop is c
+3
+n =
+
+(n) time
+
+(n ). Result:
+
+(n
+2
+) . ]
+68
+
+===== PAGE 69 =====
+Running Time Examples (3)
+Example 4:
+Compare.
+sum1 = 0;
+for (i=1; i<=n; i++)
+for (j=1; j<=n; j++)
+sum1++;
+sum2 = 0;
+for (i=1; i<=n; i++)
+for (j=1; j<=i ; j++)
+sum2++;
+[First loop, sum is n
+2
+. Second loop, sum is (n+1)(n)/2. Both are
+
+(n
+2
+).]
+In the first double loop, the inner
+for loop always executes n times
+In the second double loop, the inner for
+loop always executes i times
+69
+
+===== PAGE 70 =====
+Other Control Statements
+while
+loop: Analyze like a
+for
+loop.
+if
+statement: Take greater complexity of
+then
+/
+else
+clauses.
+[
+The probabilities for the then/else clauses being executed must be
+independent of n .
+]
+switch
+statement: Take complexity of most
+expensive case.
+Function call: add the cost of the subroutine.
+70
+
+===== PAGE 71 =====
+Space Bounds
+Space bounds can also be analyzed with asymptotic
+complexity analysis.
+Time: Algorithm
+Space: Data Structure
+[While time requirements are normally measured for an algorithm that manipulates
+a particular data structure, space requirements are normally determined for the data
+structure itself.]
+•
+A data structure’s primary purpose is to store data in a way
+that allows efficient access to those data.
+•
+To provide this, it stores additional information where the
+data are – overhead.
+71
+
+===== PAGE 72 =====
+Examples
+•
+E.g.1:
+•
+What are the space requirements for an array
+of n integers?
+–
+If each integer requires c bytes, then the array
+requires cn bytes, which is
+
+(n)
+72
+
+===== PAGE 73 =====
+Examples
+•
+E.g.
+2:
+Imagine
+that
+we
+want
+to
+keep
+track
+of
+friendships between n people. We can do this with an
+array of size nxn .
+•
+Each row of
+the array represents the friends of
+an
+individual,
+with the columns indicating who has that
+individual as a friend.
+•
+For example, if person j is a friend of person i, then we
+place a mark in column j of row i in the array.
+•
+Likewise,
+we should also place a mark in column i
+of
+row j if we assume that friendship works both ways.
+•
+For n people, the total size of the array is
+
+(n
+2
+).
+73
+
+===== PAGE 74 =====
+Space/Time Tradeoff Principle
+One can often reduce time if one is willing to sacrifice space, or vice
+versa.
+–
+Encoding or packing information :-
+reduces storage, but
+Unpacking” or
+decoding the requires additional time.
+–
+Lookup Table : for calculating factorials
+[For a program that
+often computes factorials,
+it is likely to be much more time
+efficient to simply pre-compute the storable values in a table (up to 12! for 32-bit
+int
+)]
+Disk-based Space/Time Tradeoff Principle: The smaller you make the
+disk storage requirements, the faster your program will run.
+•
+This is because the time to read information from disk is enormous
+compared to computation time.
+74
