@@ -3,13 +3,18 @@
    http(s) or localhost. On file:// this SW cannot register; the app still
    works but Google Fonts (if used) need the network. */
 
-const CACHE = 'dsa-academy-shell-v1';
+const CACHE = 'dsa-academy-shell-v3';
 const SHELL = [
     './',
     './index.html',
     './test-compiler.html',
     './styles/main.css',
+    './styles/course-chapters.css',
     './scripts/curriculum.js',
+    './content/course-chapters/chapter-01.js',
+    './content/course-chapters/chapter-02.js',
+    './content/course-chapters/chapter-03.js',
+    './scripts/course-chapters.js',
     './scripts/code-editor.js',
     './scripts/main.js',
     './scripts/compiler-service.js',
