@@ -517,7 +517,7 @@ for (auto& [k, v] : freq) {
                         id: 'comp-01',
                         title: 'Big-O, Omega, Theta Notation',
                         objectives: [
-                            'Define and distinguish O, Ω, Θ notations',
+                            'Define and distinguish O, ╬⌐, ╬ÿ notations',
                             'Analyze time complexity of iterative algorithms',
                             'Analyze space complexity'
                         ],
@@ -526,15 +526,15 @@ for (auto& [k, v] : freq) {
                             <p>Asymptotic notation describes the growth rate of functions as input size approaches infinity.</p>
                             
                             <h4>Big-O (Upper Bound)</h4>
-                            <p>f(n) = O(g(n)) if ∃ c > 0, n₀ > 0 such that 0 ≤ f(n) ≤ c·g(n) for all n ≥ n₀</p>
+                            <p>f(n) = O(g(n)) if Γêâ c > 0, nΓéÇ > 0 such that 0 Γëñ f(n) Γëñ c┬╖g(n) for all n ΓëÑ nΓéÇ</p>
                             <p>Meaning: f grows <strong>no faster than</strong> g (worst case)</p>
                             
                             <h4>Big-Omega (Lower Bound)</h4>
-                            <p>f(n) = Ω(g(n)) if ∃ c > 0, n₀ > 0 such that 0 ≤ c·g(n) ≤ f(n) for all n ≥ n₀</p>
+                            <p>f(n) = ╬⌐(g(n)) if Γêâ c > 0, nΓéÇ > 0 such that 0 Γëñ c┬╖g(n) Γëñ f(n) for all n ΓëÑ nΓéÇ</p>
                             <p>Meaning: f grows <strong>at least as fast as</strong> g (best case)</p>
                             
                             <h4>Big-Theta (Tight Bound)</h4>
-                            <p>f(n) = Θ(g(n)) if f(n) = O(g(n)) AND f(n) = Ω(g(n))</p>
+                            <p>f(n) = ╬ÿ(g(n)) if f(n) = O(g(n)) AND f(n) = ╬⌐(g(n))</p>
                             <p>Meaning: f grows at the <strong>same rate as</strong> g (average case)</p>
                             
                             <h4>Common Complexity Classes</h4>
@@ -546,11 +546,11 @@ for (auto& [k, v] : freq) {
                                 </tr>
                                 <tr><td style="padding:8px;border:1px solid #ddd;">O(1)</td><td style="padding:8px;border:1px solid #ddd;">Constant</td><td style="padding:8px;border:1px solid #ddd;">Array access</td></tr>
                                 <tr><td style="padding:8px;border:1px solid #ddd;">O(log n)</td><td style="padding:8px;border:1px solid #ddd;">Logarithmic</td><td style="padding:8px;border:1px solid #ddd;">Binary search</td></tr>
-                                <tr><td style="padding:8px;border:1px solid #ddd;">O(√n)</td><td style="padding:8px;border:1px solid #ddd;">Square root</td><td style="padding:8px;border:1px solid #ddd;">Trial division</td></tr>
+                                <tr><td style="padding:8px;border:1px solid #ddd;">O(ΓêÜn)</td><td style="padding:8px;border:1px solid #ddd;">Square root</td><td style="padding:8px;border:1px solid #ddd;">Trial division</td></tr>
                                 <tr><td style="padding:8px;border:1px solid #ddd;">O(n)</td><td style="padding:8px;border:1px solid #ddd;">Linear</td><td style="padding:8px;border:1px solid #ddd;">Linear search</td></tr>
                                 <tr><td style="padding:8px;border:1px solid #ddd;">O(n log n)</td><td style="padding:8px;border:1px solid #ddd;">Linearithmic</td><td style="padding:8px;border:1px solid #ddd;">Merge sort</td></tr>
-                                <tr><td style="padding:8px;border:1px solid #ddd;">O(n²)</td><td style="padding:8px;border:1px solid #ddd;">Quadratic</td><td style="padding:8px;border:1px solid #ddd;">Bubble sort</td></tr>
-                                <tr><td style="padding:8px;border:1px solid #ddd;">O(2ⁿ)</td><td style="padding:8px;border:1px solid #ddd;">Exponential</td><td style="padding:8px;border:1px solid #ddd;">Subset generation</td></tr>
+                                <tr><td style="padding:8px;border:1px solid #ddd;">O(n┬▓)</td><td style="padding:8px;border:1px solid #ddd;">Quadratic</td><td style="padding:8px;border:1px solid #ddd;">Bubble sort</td></tr>
+                                <tr><td style="padding:8px;border:1px solid #ddd;">O(2Γü┐)</td><td style="padding:8px;border:1px solid #ddd;">Exponential</td><td style="padding:8px;border:1px solid #ddd;">Subset generation</td></tr>
                                 <tr><td style="padding:8px;border:1px solid #ddd;">O(n!)</td><td style="padding:8px;border:1px solid #ddd;">Factorial</td><td style="padding:8px;border:1px solid #ddd;">Permutations</td></tr>
                             </table>
                         `,
@@ -561,7 +561,7 @@ for (auto& [k, v] : freq) {
                                 code: `// O(n) - Single loop
 int sum = 0;
 for (int i = 0; i < n; ++i) sum += arr[i];
-// O(n²) - Nested loops
+// O(n┬▓) - Nested loops
 for (int i = 0; i < n; ++i)
     for (int j = 0; j < n; ++j)
         process(i, j);
@@ -588,9 +588,9 @@ void mergeSort(vector<int>& a, int l, int r) {
                             {
                                 id: 'comp-01-q2',
                                 type: 'true-false',
-                                question: 'If f(n) = O(n²), then f(n) = O(n³) is also true.',
+                                question: 'If f(n) = O(n┬▓), then f(n) = O(n┬│) is also true.',
                                 correct: true,
-                                explanation: 'Big-O is an upper bound. If f grows no faster than n², it also grows no faster than n³.'
+                                explanation: 'Big-O is an upper bound. If f grows no faster than n┬▓, it also grows no faster than n┬│.'
                             }
                         ]
                     },
@@ -608,32 +608,32 @@ void mergeSort(vector<int>& a, int l, int r) {
                             
                             <h4>Common Recurrences</h4>
                             <ul>
-                                <li>T(n) = T(n/2) + O(1) → O(log n) — Binary search</li>
-                                <li>T(n) = 2T(n/2) + O(n) → O(n log n) — Merge sort</li>
-                                <li>T(n) = T(n-1) + O(1) → O(n) — Linear recursion</li>
-                                <li>T(n) = 2T(n-1) + O(1) → O(2ⁿ) — Fibonacci (naive)</li>
+                                <li>T(n) = T(n/2) + O(1) ΓåÆ O(log n) ΓÇö Binary search</li>
+                                <li>T(n) = 2T(n/2) + O(n) ΓåÆ O(n log n) ΓÇö Merge sort</li>
+                                <li>T(n) = T(n-1) + O(1) ΓåÆ O(n) ΓÇö Linear recursion</li>
+                                <li>T(n) = 2T(n-1) + O(1) ΓåÆ O(2Γü┐) ΓÇö Fibonacci (naive)</li>
                             </ul>
                             
                             <h4>Master Theorem</h4>
-                            <p>For T(n) = a·T(n/b) + f(n) where a ≥ 1, b > 1:</p>
+                            <p>For T(n) = a┬╖T(n/b) + f(n) where a ΓëÑ 1, b > 1:</p>
                             <ol>
-                                <li>If f(n) = O(n^(log_b(a) - ε)) for some ε > 0: T(n) = Θ(n^(log_b(a)))</li>
-                                <li>If f(n) = Θ(n^(log_b(a)) · log^k(n)): T(n) = Θ(n^(log_b(a)) · log^(k+1)(n))</li>
-                                <li>If f(n) = Ω(n^(log_b(a) + ε)) and a·f(n/b) ≤ c·f(n) for c < 1: T(n) = Θ(f(n))</li>
+                                <li>If f(n) = O(n^(log_b(a) - ╬╡)) for some ╬╡ > 0: T(n) = ╬ÿ(n^(log_b(a)))</li>
+                                <li>If f(n) = ╬ÿ(n^(log_b(a)) ┬╖ log^k(n)): T(n) = ╬ÿ(n^(log_b(a)) ┬╖ log^(k+1)(n))</li>
+                                <li>If f(n) = ╬⌐(n^(log_b(a) + ╬╡)) and a┬╖f(n/b) Γëñ c┬╖f(n) for c < 1: T(n) = ╬ÿ(f(n))</li>
                             </ol>
                             
                             <h4>Examples</h4>
                             <ul>
-                                <li>Merge sort: a=2, b=2, f(n)=n → log₂2=1, f(n)=n=Θ(n¹) → Case 2, k=0 → Θ(n log n)</li>
-                                <li>Binary search: a=1, b=2, f(n)=1 → log₂1=0, f(n)=1=Θ(n⁰) → Case 2, k=0 → Θ(log n)</li>
-                                <li>Strassen: a=7, b=2, f(n)=n² → log₂7≈2.81, f(n)=n²=O(n²·⁸¹⁻ε) → Case 1 → Θ(n²·⁸¹)</li>
+                                <li>Merge sort: a=2, b=2, f(n)=n ΓåÆ logΓéé2=1, f(n)=n=╬ÿ(n┬╣) ΓåÆ Case 2, k=0 ΓåÆ ╬ÿ(n log n)</li>
+                                <li>Binary search: a=1, b=2, f(n)=1 ΓåÆ logΓéé1=0, f(n)=1=╬ÿ(nΓü░) ΓåÆ Case 2, k=0 ΓåÆ ╬ÿ(log n)</li>
+                                <li>Strassen: a=7, b=2, f(n)=n┬▓ ΓåÆ logΓéé7Γëê2.81, f(n)=n┬▓=O(n┬▓┬╖Γü╕┬╣Γü╗╬╡) ΓåÆ Case 1 ΓåÆ ╬ÿ(n┬▓┬╖Γü╕┬╣)</li>
                             </ul>
                         `,
                         codeExamples: [
                             {
                                 language: 'cpp',
                                 title: 'Recursive Fibonacci - Exponential',
-                                code: `// T(n) = T(n-1) + T(n-2) + O(1) ≈ O(2ⁿ)
+                                code: `// T(n) = T(n-1) + T(n-2) + O(1) Γëê O(2Γü┐)
 int fib(int n) {
     if (n <= 1) return n;
     return fib(n-1) + fib(n-2);
@@ -655,7 +655,7 @@ int fibDP(int n) {
                                 id: 'comp-02-q1',
                                 type: 'mcq',
                                 question: 'For T(n) = 2T(n/2) + n, what is the time complexity?',
-                                options: ['O(n)', 'O(n log n)', 'O(n²)', 'O(log n)'],
+                                options: ['O(n)', 'O(n log n)', 'O(n┬▓)', 'O(log n)'],
                                 correct: 1
                             }
                         ]
@@ -676,11 +676,11 @@ int fibDP(int n) {
                             <ul>
                                 <li><strong>Aggregate:</strong> Total cost / number of operations</li>
                                 <li><strong>Accounting:</strong> Assign credits to operations</li>
-                                <li><strong>Potential:</strong> Define potential function Φ</li>
+                                <li><strong>Potential:</strong> Define potential function ╬ª</li>
                             </ul>
                             
                             <h4>Dynamic Array (vector) Example</h4>
-                            <p>When vector capacity is exceeded, it allocates 2× capacity and copies elements.</p>
+                            <p>When vector capacity is exceeded, it allocates 2├ù capacity and copies elements.</p>
                             <pre><code>// Push_back sequence: 1, 2, 4, 8, 16, 32...
 // Costs: 1, 2 (copy 1), 3 (copy 2), 5 (copy 4), 9 (copy 8)...
 // Total for n pushes: n + (1+2+4+...+n/2) < n + n = 2n
@@ -704,7 +704,7 @@ for (int i = 0; i < 100000; ++i) v.push_back(i);`
                                 id: 'comp-03-q1',
                                 type: 'mcq',
                                 question: 'What is the amortized cost of vector push_back?',
-                                options: ['O(1)', 'O(log n)', 'O(n)', 'O(n²)'],
+                                options: ['O(1)', 'O(log n)', 'O(n)', 'O(n┬▓)'],
                                 correct: 0
                             }
                         ]
@@ -1220,7 +1220,7 @@ for (int x : ll) std::cout << x << " ";`
                                 id: 'll-01-q1',
                                 type: 'mcq',
                                 question: 'What is the time complexity of inserting at the head of a singly linked list?',
-                                options: ['O(1)', 'O(n)', 'O(log n)', 'O(n²)'],
+                                options: ['O(1)', 'O(n)', 'O(log n)', 'O(n┬▓)'],
                                 correct: 0
                             },
                             {
@@ -1919,7 +1919,7 @@ public:
                                 id: 'sq-01-q1',
                                 type: 'mcq',
                                 question: 'What is the time complexity of stack push/pop operations?',
-                                options: ['O(1)', 'O(log n)', 'O(n)', 'O(n²)'],
+                                options: ['O(1)', 'O(log n)', 'O(n)', 'O(n┬▓)'],
                                 correct: 0
                             },
                             {
@@ -2298,7 +2298,7 @@ HuffmanNode* buildHuffmanTree(const vector<pair<char,int>>& freq) {
                                 id: 'pq-01-q1',
                                 type: 'mcq',
                                 question: 'What is the time complexity of building a heap from an unsorted array using heapify?',
-                                options: ['O(n log n)', 'O(n)', 'O(log n)', 'O(n²)'],
+                                options: ['O(n log n)', 'O(n)', 'O(log n)', 'O(n┬▓)'],
                                 correct: 1
                             },
                             {
@@ -2364,7 +2364,7 @@ int sum(int arr[], int n) {
 }</code></pre>
                             
                             <h5>2. Tree Recursion (Multiple Recursive Calls)</h5>
-                            <pre><code>// Fibonacci: T(n) = T(n-1) + T(n-2) + O(1) ≈ O(2ⁿ)
+                            <pre><code>// Fibonacci: T(n) = T(n-1) + T(n-2) + O(1) Γëê O(2Γü┐)
 int fib(int n) {
     if (n <= 1) return n;
     return fib(n-1) + fib(n-2);
@@ -2426,7 +2426,7 @@ auto memoize(function<T(Args...)> f) {
                             {
                                 language: 'cpp',
                                 title: 'Recursion Examples - Tower of Hanoi, Permutations',
-                                code: `// Tower of Hanoi - O(2ⁿ) moves
+                                code: `// Tower of Hanoi - O(2Γü┐) moves
 void hanoi(int n, char from, char to, char aux, vector<string>& moves) {
     if (n == 1) {
         moves.push_back("Move disk 1 from " + string(1, from) + " to " + string(1, to));
@@ -2511,7 +2511,7 @@ int numDecodings(string& s, int i, vector<int>& memo) {
                                 id: 'rec-01-q1',
                                 type: 'mcq',
                                 question: 'What is the time complexity of naive recursive Fibonacci?',
-                                options: ['O(n)', 'O(n²)', 'O(2ⁿ)', 'O(n log n)'],
+                                options: ['O(n)', 'O(n┬▓)', 'O(2Γü┐)', 'O(n log n)'],
                                 correct: 2
                             },
                             {
@@ -2524,7 +2524,7 @@ int numDecodings(string& s, int i, vector<int>& memo) {
                             {
                                 id: 'rec-01-q3',
                                 type: 'true-false',
-                                question: 'Memoization changes the time complexity of recursive Fibonacci from O(2ⁿ) to O(n).',
+                                question: 'Memoization changes the time complexity of recursive Fibonacci from O(2Γü┐) to O(n).',
                                 correct: true,
                                 explanation: 'Each subproblem fib(i) is computed only once, stored, and reused.'
                             }
@@ -2690,7 +2690,7 @@ int binarySearch(const vector<int>& arr, int target, int l, int r) {
                                 language: 'cpp',
                                 title: 'N-Queens Problem',
                                 code: `// LeetCode 51: N-Queens
-// Place n queens on n×n board so no two attack each other
+// Place n queens on n├ùn board so no two attack each other
 class NQueens {
     int n;
     vector<string> board;
@@ -2732,7 +2732,7 @@ public:
                                 language: 'cpp',
                                 title: 'Sudoku Solver',
                                 code: `// LeetCode 37: Sudoku Solver
-// Fill 9×9 grid following Sudoku rules
+// Fill 9├ù9 grid following Sudoku rules
 class SudokuSolver {
     bool rows[9][10] = {}, cols[9][10] = {}, boxes[9][10] = {};
     // rows[r][d] = digit d used in row r
@@ -2881,7 +2881,7 @@ void subsetsWithDup(vector<int>& nums, int start, vector<int>& curr,
                                 <li><strong>Level:</strong> Nodes at same depth</li>
                                 <li><strong>Complete tree:</strong> All levels full except last, filled left to right</li>
                                 <li><strong>Perfect tree:</strong> All levels completely full</li>
-                                <li><strong>Balanced tree:</strong> Height difference ≤ 1 for all nodes</li>
+                                <li><strong>Balanced tree:</strong> Height difference Γëñ 1 for all nodes</li>
                             </ul>
                             
                             <h4>Node Representation</h4>
@@ -2900,21 +2900,21 @@ struct TreeNode {
                             
                             <h4>Tree Traversals</h4>
                             <p>Three depth-first traversals (recursive):</p>
-                            <pre><code>// Preorder: Root → Left → Right
+                            <pre><code>// Preorder: Root ΓåÆ Left ΓåÆ Right
 void preorder(TreeNode* root, vector<int>& result) {
     if (!root) return;
     result.push_back(root->val);
     preorder(root->left.get(), result);
     preorder(root->right.get(), result);
 }
-// Inorder: Left → Root → Right (BST gives sorted order)
+// Inorder: Left ΓåÆ Root ΓåÆ Right (BST gives sorted order)
 void inorder(TreeNode* root, vector<int>& result) {
     if (!root) return;
     inorder(root->left.get(), result);
     result.push_back(root->val);
     inorder(root->right.get(), result);
 }
-// Postorder: Left → Right → Root
+// Postorder: Left ΓåÆ Right ΓåÆ Root
 void postorder(TreeNode* root, vector<int>& result) {
     if (!root) return;
     postorder(root->left.get(), result);
@@ -3427,7 +3427,7 @@ TreapNode* insert(TreapNode* root, TreapNode* item) {
                                 id: 'tree-03-q1',
                                 type: 'mcq',
                                 question: 'What is the maximum height of an AVL tree with n nodes?',
-                                options: ['O(n)', 'O(log n)', 'O(√n)', '1.44*log₂(n+2)'],
+                                options: ['O(n)', 'O(log n)', 'O(ΓêÜn)', '1.44*logΓéé(n+2)'],
                                 correct: 3
                             },
                             {
@@ -3624,7 +3624,7 @@ public:
                                 id: 'tree-04-q1',
                                 type: 'mcq',
                                 question: 'What is the space complexity of a segment tree for array of size n?',
-                                options: ['O(n)', 'O(n log n)', 'O(4n)', 'O(n²)'],
+                                options: ['O(n)', 'O(n log n)', 'O(4n)', 'O(n┬▓)'],
                                 correct: 2
                             },
                             {
@@ -3830,7 +3830,7 @@ unordered_map<pair<int,int>, int, SafeHash> safePairMap;
                                 language: 'cpp',
                                 title: 'Rabin-Karp String Matching with Rolling Hash',
                                 code: `// O(n+m) average, O(nm) worst case
-// Rolling hash: H = (c₁·p^(m-1) + c₂·p^(m-2) + ... + cₘ) mod MOD
+// Rolling hash: H = (cΓéü┬╖p^(m-1) + cΓéé┬╖p^(m-2) + ... + cΓéÿ) mod MOD
 vector<int> rabinKarp(const string& text, const string& pattern) {
     const int MOD = 1e9 + 7;
     const int BASE = 256;
@@ -4117,7 +4117,7 @@ class LFUCache {
                             <pre><code>// Adjacency List - O(V+E) space, best for sparse graphs
 vector<vector<int>> adjList(n); // Unweighted
 vector<vector<pair<int,int>>> adjWeighted(n); // (neighbor, weight)
-// Adjacency Matrix - O(V²) space, O(1) edge lookup
+// Adjacency Matrix - O(V┬▓) space, O(1) edge lookup
 vector<vector<int>> adjMatrix(n, vector<int>(n, 0));
 vector<vector<int>> weightMatrix(n, vector<int>(n, INF));
 // Edge List - O(E) space
@@ -4213,7 +4213,7 @@ bool hasCycleDirected(int u, vector<vector<int>>& adj, vector<int>& state) {
 </code></pre>
                             
                             <h4>Topological Sort</h4>
-                            <p>Linear ordering of vertices such that for every directed edge u→v, u comes before v. Only for DAGs.</p>
+                            <p>Linear ordering of vertices such that for every directed edge uΓåÆv, u comes before v. Only for DAGs.</p>
                             <pre><code>// Kahn's Algorithm (BFS-based) - O(V+E)
 vector<int> topoSortKahn(int n, vector<vector<int>>& adj) {
     vector<int> indeg(n, 0);
@@ -4307,7 +4307,7 @@ pair<vector<int>, vector<int>> shortestPath(int n, vector<vector<int>>& adj, int
                                 id: 'graph-01-q1',
                                 type: 'mcq',
                                 question: 'What is the time complexity of BFS with adjacency list?',
-                                options: ['O(V)', 'O(E)', 'O(V+E)', 'O(V²)'],
+                                options: ['O(V)', 'O(E)', 'O(V+E)', 'O(V┬▓)'],
                                 correct: 2
                             },
                             {
@@ -4432,7 +4432,7 @@ vector<int> spfa(int n, vector<vector<pair<int,int>>>& adj, int src) {
 </code></pre>
                             
                             <h4>Floyd-Warshall (All-Pairs Shortest Path)</h4>
-                            <p>O(V³) for dense graphs. Also detects negative cycles.</p>
+                            <p>O(V┬│) for dense graphs. Also detects negative cycles.</p>
                             <pre><code>vector<vector<int>> floydWarshall(int n, vector<vector<int>>& adjMatrix) {
     const int INF = 1e9;
     vector<vector<int>> dist = adjMatrix;
@@ -4547,7 +4547,7 @@ vector<int> zeroOneBFS(int n, vector<vector<pair<int,int>>>& adj, int src) {
                                 id: 'graph-02-q1',
                                 type: 'mcq',
                                 question: 'What is the time complexity of Dijkstra with binary heap?',
-                                options: ['O(V log V)', 'O(E log V)', 'O((V+E) log V)', 'O(V²)'],
+                                options: ['O(V log V)', 'O(E log V)', 'O((V+E) log V)', 'O(V┬▓)'],
                                 correct: 2
                             },
                             {
@@ -4562,7 +4562,7 @@ vector<int> zeroOneBFS(int n, vector<vector<pair<int,int>>>& adj, int src) {
                                 type: 'true-false',
                                 question: 'Floyd-Warshall is preferred over running Dijkstra from each vertex for sparse graphs.',
                                 correct: false,
-                                explanation: 'Floyd-Warshall is O(V³). For sparse graphs, V×Dijkstra is O(VE log V) which is better.'
+                                explanation: 'Floyd-Warshall is O(V┬│). For sparse graphs, V├ùDijkstra is O(VE log V) which is better.'
                             }
                         ]
                     }
@@ -4971,19 +4971,197 @@ int findPeakElement(const vector<int>& nums) {
                     {
                         id: 'sort-01',
                         title: 'Merge Sort, Quick Sort, Heap Sort',
-                        objectives: ['Implement O(n log n) sorts', 'Understand partitioning and heapify', 'Analyze stability and space'],
-                        content: `<h3>Efficient Comparison Sorts</h3><p>Merge sort, quick sort, heap sort implementations.</p>`,
-                        codeExamples: [],
+                        objectives: [
+                            'Implement the O(n log n) comparison sorts used in production C++ code',
+                            'Derive merge sort and formalize its O(n log n) bound',
+                            'Apply partitioning (Lomuto/Hoare) to implement quick sort',
+                            'Build a max-heap and extract elements to implement heap sort',
+                            'Choose between merge/quick/heap sort given constraints (stability, memory, adversarial input)'
+                        ],
+                        content: `
+                            <h3>Efficient Comparison Sorts</h3>
+                            <p>Comparison-based sorting has a hard information-theoretic floor of Ω(n log n) comparisons — the ⌈log₂(n!)⌉ decision-tree argument. Bubble, selection and insertion sort (see Chapter 2 of your course notes) are O(n²); the three algorithms in this lesson hit the bound and are the workhorses behind <code>std::sort</code>, <code>std::stable_sort</code> and <code>std::partial_sort</code>.</p>
+
+                            <h4>Merge Sort — divide, conquer, merge</h4>
+                            <p>Merge sort splits the array at the midpoint, recursively sorts both halves, then merges them with two pointers. Every level of the recursion tree touches n elements and the tree has log₂n levels, so the total work is Θ(n log n) — always, regardless of input distribution.</p>
+                            <ul>
+                                <li><strong>Stable:</strong> yes (equal elements keep their relative order if the merge prefers the left run)</li>
+                                <li><strong>Auxiliary space:</strong> O(n) for the merge buffer</li>
+                                <li><strong>When to use:</strong> linked lists (no random access needed), external sorting (sort chunks too big for RAM), stable output required</li>
+                                <li><strong>Practice in your materials:</strong> see <code>ch-2.pdf</code> (merge sort analysis), <code>sorting 74869.pdf</code> (merge/quick sort lectures), <code>ch-8.pdf</code> (advanced sorts and external sorting)</li>
+                            </ul>
+
+                            <h4>Quick Sort — partition in place</h4>
+                            <p>Quick sort picks a pivot and partitions the array so everything left of the pivot is smaller and everything right is larger. The recursion then sorts both sides. With a good pivot (e.g. median-of-three or randomized) the expected depth is O(log n); with a bad pivot (already-sorted data and first-element pivot) it degrades to O(n²).</p>
+                            <ul>
+                                <li><strong>Hoare partition:</strong> two pointers converge from both ends — fewer swaps than Lomuto</li>
+                                <li><strong>Lomuto partition:</strong> single scan, index j of last ≤ pivot — simpler to memorize</li>
+                                <li><strong>Worst case:</strong> O(n²) on adversarial input; fix with randomized pivot or introsort (quick sort + heap sort fallback)</li>
+                                <li><strong>Cache-friendly, in-place:</strong> no auxiliary buffer; the reason <code>std::sort</code> is typically introsort, not merge sort</li>
+                            </ul>
+
+                            <h4>Heap Sort — implicit heap, no recursion</h4>
+                            <p>Heap sort builds a max-heap in O(n) with bottom-up sift-down, then repeatedly swaps the root (maximum) with the last element and sifts the reduced heap — n extractions of O(log n) each give O(n log n) worst case.</p>
+                            <ul>
+                                <li><strong>In-place and not stable</strong></li>
+                                <li><strong>Worst case equals average case</strong> — safe choice against adversarial input</li>
+                                <li><strong>O(1) extra space</strong> — pairs naturally with priority queues (see the priority-queue lesson)</li>
+                            </ul>
+
+                            <h4>Picking the right sort</h4>
+                            <table>
+                                <thead><tr><th>Algorithm</th><th>Best</th><th>Average</th><th>Worst</th><th>Space</th><th>Stable</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Merge sort</td><td>n log n</td><td>n log n</td><td>n log n</td><td>O(n)</td><td>Yes</td></tr>
+                                    <tr><td>Quick sort</td><td>n log n</td><td>n log n</td><td>n²</td><td>O(log n) stack</td><td>No</td></tr>
+                                    <tr><td>Heap sort</td><td>n log n</td><td>n log n</td><td>n log n</td><td>O(1)</td><td>No</td></tr>
+                                    <tr><td>std::sort (introsort)</td><td>n log n</td><td>n log n</td><td>n log n</td><td>O(log n)</td><td>No</td></tr>
+                                </tbody>
+                            </table>
+                            <p><strong>Rule of thumb:</strong> in-place and cache-friendly beats everything else for arrays, so quick/introsort wins; when you need stability or worst-case guarantees with big data, merge sort; when memory is tight and input may be adversarial, heap sort.</p>
+
+                            <h4>Complexity verification</h4>
+                            <p>Use the recurrences T(n) = 2T(n/2) + Θ(n) (merge sort) and T(n) = T(n-1) + Θ(n) (quick sort, worst) solved with the master theorem / recursion-tree method — your Algorithm Analysis workbook and <code>ALgo_Efficiency 74864.pdf</code> cover the technique.</p>
+                        `,
+                        codeExamples: [
+                            {
+                                language: 'cpp',
+                                title: 'Merge Sort (top-down)',
+                                code: `// Merge sort — O(n log n) time, O(n) auxiliary, stable
+void merge(std::vector<int>& arr, int l, int m, int r) {
+    std::vector<int> left(arr.begin() + l, arr.begin() + m + 1);
+    std::vector<int> right(arr.begin() + m + 1, arr.begin() + r + 1);
+    size_t i = 0, j = 0;
+    int k = l;
+    while (i < left.size() && j < right.size())
+        arr[k++] = (left[i] <= right[j]) ? left[i++] : right[j++];
+    while (i < left.size()) arr[k++] = left[i++];
+    while (j < right.size()) arr[k++] = right[j++];
+}
+
+void mergeSort(std::vector<int>& arr, int l, int r) {
+    if (l >= r) return;
+    int m = l + (r - l) / 2;
+    mergeSort(arr, l, m);
+    mergeSort(arr, m + 1, r);
+    merge(arr, l, m, r);
+}`
+                            },
+                            {
+                                language: 'cpp',
+                                title: 'Quick Sort (Lomuto partition)',
+                                code: `// Quick sort — average O(n log n), in-place, not stable
+int partition(std::vector<int>& arr, int l, int r) {
+    int pivot = arr[r];
+    int i = l;
+    for (int j = l; j < r; ++j)
+        if (arr[j] <= pivot) std::swap(arr[i++], arr[j]);
+    std::swap(arr[i], arr[r]);
+    return i;
+}
+
+void quickSort(std::vector<int>& arr, int l, int r) {
+    if (l >= r) return;
+    int p = partition(arr, l, r);
+    quickSort(arr, l, p - 1);
+    quickSort(arr, p + 1, r);
+}`
+                            },
+                            {
+                                language: 'cpp',
+                                title: 'Heap Sort',
+                                code: `// Heap sort — O(n log n) worst case, O(1) extra, not stable
+void siftDown(std::vector<int>& arr, int n, int root) {
+    int i = root;
+    while (true) {
+        int l = 2 * i + 1, r = 2 * i + 2, largest = i;
+        if (l < n && arr[l] > arr[largest]) largest = l;
+        if (r < n && arr[r] > arr[largest]) largest = r;
+        if (largest == i) break;
+        std::swap(arr[i], arr[largest]);
+        i = largest;
+    }
+}
+
+void heapSort(std::vector<int>& arr) {
+    int n = static_cast<int>(arr.size());
+    for (int i = n / 2 - 1; i >= 0; --i) siftDown(arr, n, i);  // build O(n)
+    for (int end = n - 1; end > 0; --end) {
+        std::swap(arr[0], arr[end]);
+        siftDown(arr, end, 0);
+    }
+}`
+                            }
+                        ],
+                        exercises: [
+                            {
+                                type: 'code-complete',
+                                question: 'Implement the merge routine: combine two already-sorted contiguents arr[l..m] and arr[m+1..r] into one sorted range.',
+                                code: `void merge(std::vector<int>& arr, int l, int m, int r) {
+    std::vector<int> left(arr.begin() + l, arr.begin() + m + 1);
+    std::vector<int> right(arr.begin() + m + 1, arr.begin() + r + 1);
+    size_t i = 0, j = 0;
+    int k = l;
+    // TODO: fill arr[k..r] from left/right, then copy any remainder
+}`
+                            },
+                            {
+                                type: 'code-trace',
+                                question: 'Trace quick sort (Lomuto partition) on arr = [7, 2, 1, 6, 8, 5, 3, 4]. Show the array after each partition call and the final pivot indices.',
+                                code: `int partition(std::vector<int>& arr, int l, int r) {
+    int pivot = arr[r];   // pivot = 4
+    int i = l;
+    for (int j = l; j < r; ++j)
+        if (arr[j] <= pivot) std::swap(arr[i++], arr[j]);
+    std::swap(arr[i], arr[r]);
+    return i;
+}`
+                            }
+                        ],
                         quizQuestions: [
                             {
                                 id: 'sort-01-q1',
                                 type: 'mcq',
                                 question: 'Which of the following is an O(n log n) sort?',
                                 options: ['Bubble Sort', 'Insertion Sort', 'Merge Sort', 'Selection Sort'],
-                                correct: 2
+                                correct: 2,
+                                explanation: 'Merge sort always performs Θ(n log n) comparisons on every level of its recursion tree.'
+                            },
+                            {
+                                id: 'sort-01-q2',
+                                type: 'true-false',
+                                question: 'Heap sort guarantees O(n log n) worst-case time with O(1) auxiliary space, but is not stable.',
+                                options: ['True', 'False'],
+                                correct: true,
+                                explanation: 'Heap sort is in-place and has no per-level recursion allocation; relative order of equal keys is not preserved.'
+                            },
+                            {
+                                id: 'sort-01-q3',
+                                type: 'mcq',
+                                question: 'Quick sort degrades to O(n²) primarily when:',
+                                options: ['The array contains duplicates', 'Pivots are consistently extremes of the subarray', 'The array is smaller than 16 elements', 'Stability is required'],
+                                correct: 1,
+                                explanation: 'First/last-element pivot on already-sorted input yields maximally unbalanced partitions T(n) = T(n-1) + Θ(n) = Θ(n²). Randomized pivots or median-of-three fix this in expectation.'
+                            },
+                            {
+                                id: 'sort-01-q4',
+                                type: 'mcq',
+                                question: 'For external sorting of a 10 GB file on a machine with 1 GB RAM, the classic choice is:',
+                                options: ['Quick sort', 'Heap sort', 'Merge sort (multiway)', 'Insertion sort'],
+                                correct: 2,
+                                explanation: 'Multiway merge sort minimizes disk seeks by processing k sorted runs per pass; this is the canonical external-sort algorithm (see ch-8.pdf and Chapter 2 of your notes on internal/external sorting).'
+                            },
+                            {
+                                id: 'sort-01-q5',
+                                type: 'true-false',
+                                question: 'std::sort is typically implemented as introsort: quick sort that falls back to heap sort when recursion depth exceeds a threshold.',
+                                options: ['True', 'False'],
+                                correct: true,
+                                explanation: 'Introsort (Musser, 1997) bounds quick sort recursion depth to ⌊log₂ n⌋ and switches to heap sort, guaranteeing O(n log n) worst case with good practical constants.'
                             }
                         ]
                     }
+
                 ]
             }
         ]
@@ -5009,19 +5187,187 @@ int findPeakElement(const vector<int>& nums) {
                     {
                         id: 'greedy-01',
                         title: 'Interval Scheduling and Huffman Coding',
-                        objectives: ['Prove the greedy choice property', 'Solve interval scheduling', 'Implement Huffman coding'],
-                        content: `<h3>Greedy Algorithms</h3><p>Interval scheduling, Huffman coding, and exchange arguments.</p>`,
-                        codeExamples: [],
+                        objectives: [
+                            'Identify the greedy-choice property and the exchange-argument proof technique',
+                            'Solve maximum non-overlapping interval scheduling with earliest-finish-first selection',
+                            'Compare fractional vs 0/1 knapsack and see where greedy fails',
+                            'Build Huffman codes from a frequency table and decode a bitstream',
+                            'Know the classic greedy counterexamples before trusting the technique'
+                        ],
+                        content: `
+                            <h3>Greedy Algorithms</h3>
+                            <p>A greedy algorithm builds a solution piece by piece, committing to the locally best choice at each step without reconsidering it. It works when two properties hold:</p>
+                            <ul>
+                                <li><strong>Greedy-choice property:</strong> some globally optimal solution includes the locally best step</li>
+                                <li><strong>Optimal substructure:</strong> after making the greedy choice, the remaining subproblem is of the same form</li>
+                            </ul>
+                            <p><strong>Exchange argument</strong> — the standard way to prove optimality: take an arbitrary optimal solution, and show it can be transformed, one swap at a time, into the greedy solution without getting worse. Your AASTU syllabus (SWEG 3103, Week 12) explicitly covers greedy techniques; the canonical theory follows this lesson.</p>
+
+                            <h4>Maximum Interval Scheduling</h4>
+                            <p>Given n intervals with start and end times, select the largest subset of mutually non-overlapping intervals.</p>
+                            <ul>
+                                <li><strong>Wrong greedy choices:</strong> earliest start (blocks everything), shortest interval (can be surrounded by two longer ones), fewest conflicts (fails on crafted instances)</li>
+                                <li><strong>Correct greedy choice:</strong> pick the interval with the <strong>earliest finish time</strong> — it leaves maximum room for the rest. Proof: exchange any interval in an optimal solution that finishes later with the earliest-finishing one</li>
+                                <li><strong>Algorithm:</strong> sort by finish time, sweep once, take every interval that starts at or after the last chosen finish — Θ(n log n) sort + Θ(n) sweep</li>
+                            </ul>
+
+                            <h4>Knapsack — where greedy fails</h4>
+                            <p>Two variants matter:</p>
+                            <ul>
+                                <li><strong>Fractional knapsack:</strong> take items by value/weight ratio; the greedy solution is optimal (exchange argument: swap a unit of lower-density toward higher-density)</li>
+                                <li><strong>0/1 knapsack:</strong> take each item whole or not at all — greedy ratio fails. Weights {10, 20, 30}, values {60, 100, 120}, capacity 50: greedy ratio picks item 1 (60) then item 2 (100) — total 160 — but optimal is {item 2, item 3} = 220. Your course notes cover knapsack-adjacent dynamic programming in the DP lesson; greedy is the wrong tool here</li>
+                            </ul>
+
+                            <h4>Huffman Coding</h4>
+                            <p>Given character frequencies, build a prefix-free binary code minimizing total encoded length. The greedy step: <strong>repeatedly merge the two lowest-frequency nodes</strong> into a parent whose weight is their sum, until one tree remains.</p>
+                            <ul>
+                                <li>Depth of each leaf ∝ -log₂(freq/total) — the resulting code approaches entropy</li>
+                                <li>Implement with a min-heap; tie-breaking doesn't affect optimality</li>
+                                <li>Decoding is a root-to-leaf walk per bit — O(1) per bit with a small table</li>
+                            </ul>
+
+                            <h4>Greedy toolbox vs DP</h4>
+                            <table>
+                                <thead><tr><th>Problem</th><th>Technique</th><th>Property</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Interval scheduling</td><td>Greedy (earliest finish)</td><td>Exchange argument</td></tr>
+                                    <tr><td>Fractional knapsack</td><td>Greedy (ratio)</td><td>Density intuition, exchange proof</td></tr>
+                                    <tr><td>0/1 knapsack</td><td>Dynamic programming</td><td>Greedy fails (counterexample above)</td></tr>
+                                    <tr><td>Coin change (canonical coins)</td><td>Greedy</td><td>Works for 1,5,10,25 — fails for {1,3,4}</td></tr>
+                                    <tr><td>Huffman coding</td><td>Greedy (merge two smallest)</td><td>Priority-queue exchange</td></tr>
+                                    <tr><td>Dijkstra / Prim / Kruskal</td><td>Greedy</td><td>Covered in later lessons</td></tr>
+                                </tbody>
+                            </table>
+                            <p><strong>Decision rule:</strong> if you cannot exhibit a clean exchange argument, you cannot trust greedy — use DP or search.</p>
+                        `,
+                        codeExamples: [
+                            {
+                                language: 'cpp',
+                                title: 'Interval Scheduling (earliest finish first)',
+                                code: `struct Interval { int start, finish, id; };
+
+std::vector<int> maxIndependentIntervals(std::vector<Interval> v) {
+    std::sort(v.begin(), v.end(),
+              [](const Interval& a, const Interval& b) { return a.finish < b.finish; });
+    std::vector<int> chosen;
+    int lastFinish = INT_MIN;
+    for (const auto& iv : v) {
+        if (iv.start >= lastFinish) {
+            chosen.push_back(iv.id);
+            lastFinish = iv.finish;
+        }
+    }
+    return chosen;   // Θ(n log n)
+}`
+                            },
+                            {
+                                language: 'cpp',
+                                title: 'Fractional Knapsack',
+                                code: `struct Item { double value, weight; };
+
+double fractionalKnapsack(std::vector<Item> items, double capacity) {
+    std::sort(items.begin(), items.end(),
+              [](const Item& a, const Item& b) {
+                  return a.value / a.weight > b.value / b.weight;
+              });
+    double total = 0.0, remaining = capacity;
+    for (const auto& item : items) {
+        double take = std::min(item.weight, remaining);
+        total += take * (item.value / item.weight);
+        remaining -= take;
+        if (remaining == 0) break;
+    }
+    return total;
+}`
+                            },
+                            {
+                                language: 'cpp',
+                                title: 'Huffman Coding (build the tree)',
+                                code: `struct Node {
+    int freq;
+    char ch;
+    Node *left, *right;
+    bool operator>(const Node& o) const { return freq > o.freq; }
+};
+
+Node* buildHuffman(const std::unordered_map<char, int>& freq) {
+    std::priority_queue<Node*, std::vector<Node*>, std::greater<Node*>> pq;
+    for (auto& [c, f] : freq) pq.push(new Node{f, c, nullptr, nullptr});
+    while (pq.size() > 1) {
+        Node* a = pq.top(); pq.pop();
+        Node* b = pq.top(); pq.pop();
+        Node* merged = new Node{a->freq + b->freq, '\\0', a, b};
+        pq.push(merged);
+    }
+    return pq.top();
+}`
+                            }
+                        ],
+                        exercises: [
+                            {
+                                type: 'code-complete',
+                                question: 'Implement the earliest-finish-first interval scheduler: given intervals, return the maximum count of non-overlapping ones.',
+                                code: `int maxSchedule(std::vector<std::pair<int,int>> intervals) {
+    // pair = (start, finish)
+    // TODO: sort by finish, sweep, count non-overlapping intervals
+}`
+                            },
+                            {
+                                type: 'code-trace',
+                                question: 'Trace Huffman construction for frequencies A=5, B=9, C=12, D=13, E=16, F=45. Show the merge order and the depth of A in the final tree.',
+                                code: `Frequencies: A=5  B=9  C=12  D=13  E=16  F=45
+Min-heap pop order (each step merges the two smallest):
+  1. merge (5, 9)   -> node(14)
+  2. merge (12, 13) -> node(25)
+  3. merge (14, 16) -> node(30)
+  4. merge (25, 30) -> node(55)
+  5. merge (45, 55) -> node(100)`
+                            }
+                        ],
                         quizQuestions: [
                             {
                                 id: 'greedy-01-q1',
                                 type: 'mcq',
                                 question: 'Which strategy solves the maximum non-overlapping interval scheduling problem?',
                                 options: ['Earliest start time', 'Earliest finish time', 'Longest interval first', 'Shortest interval first'],
-                                correct: 1
+                                correct: 1,
+                                explanation: 'Earliest-finish-first maximizes remaining room; provable with an exchange argument.'
+                            },
+                            {
+                                id: 'greedy-01-q2',
+                                type: 'true-false',
+                                question: 'The greedy ratio strategy (value/weight) is optimal for 0/1 knapsack.',
+                                options: ['True', 'False'],
+                                correct: false,
+                                explanation: 'Counterexample: capacity 50, items (weight, value) = (10, 60), (20, 100), (30, 120). Greedy by ratio takes items 1 and 2 for 160; optimal is items 2 and 3 for 220.'
+                            },
+                            {
+                                id: 'greedy-01-q3',
+                                type: 'mcq',
+                                question: 'Huffman coding repeatedly merges:',
+                                options: ['The two most frequent nodes', 'The two least frequent nodes', 'Any two arbitrary nodes', 'The node with the most children'],
+                                correct: 1,
+                                explanation: 'Merging the two smallest frequencies each step yields the optimal prefix-free code (up to symbol symmetry).'
+                            },
+                            {
+                                id: 'greedy-01-q4',
+                                type: 'mcq',
+                                question: 'For canonical coin systems {1, 5, 10, 25}, greedy always gives the fewest coins. For the system {1, 3, 4}, which amount breaks greedy?',
+                                options: ['6', '7', '11', 'There is no counterexample'],
+                                correct: 0,
+                                explanation: 'Greedy gives 4+1+1 for 6 (3 coins) but optimal is 3+3 (2 coins). Always verify with small cases before trusting greedy.'
+                            },
+                            {
+                                id: 'greedy-01-q5',
+                                type: 'true-false',
+                                question: 'Interval scheduling is solvable in Θ(n log n): sort by finish time, then sweep once taking any interval that starts at or after the last chosen finish.',
+                                options: ['True', 'False'],
+                                correct: true,
+                                explanation: 'The sweep visits each interval once after the sort; exchange argument proves optimality.'
                             }
                         ]
                     }
+
                 ]
             }
         ]
@@ -5047,19 +5393,179 @@ int findPeakElement(const vector<int>& nums) {
                     {
                         id: 'dp-01',
                         title: 'Memoization and Tabulation',
-                        objectives: ['Identify overlapping subproblems', 'Implement top-down memoization', 'Convert to bottom-up tabulation'],
-                        content: `<h3>Dynamic Programming</h3><p>Memoization (top-down) and tabulation (bottom-up) for overlapping subproblems.</p>`,
-                        codeExamples: [],
+                        objectives: [
+                            'Recognize overlapping subproblems and optimal substructure',
+                            'Convert naive recursion into memoized top-down DP',
+                            'Convert memoized recursion into iterative bottom-up tabulation',
+                            'Solve the 0/1 knapsack, LIS and LCS problems',
+                            'Apply space optimization (rolling arrays) when only the previous row is needed'
+                        ],
+                        content: `
+                            <h3>Dynamic Programming — Memoization and Tabulation</h3>
+                            <p>Dynamic programming solves problems by <strong>solving each distinct subproblem once</strong> and reusing the results. Two prerequisites must hold:</p>
+                            <ul>
+                                <li><strong>Optimal substructure:</strong> an optimal solution contains optimal solutions to its subproblems</li>
+                                <li><strong>Overlapping subproblems:</strong> the recursion tree recomputes the same subproblems exponentially many times (plain Fibonacci recurses 2^n times but has only n distinct subproblems)</li>
+                            </ul>
+
+                            <h4>Top-down vs Bottom-up</h4>
+                            <table>
+                                <thead><tr><th>Style</th><th>Form</th><th>Complexity</th><th>Notes</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Naive recursion</td><td>fib(n) = fib(n-1) + fib(n-2)</td><td>O(2^n)</td><td>No state reuse; explodes fast</td></tr>
+                                    <tr><td>Memoization (top-down)</td><td>Recursive + cache</td><td>O(n)</td><td>Calls must match states; watch stack depth</td></tr>
+                                    <tr><td>Tabulation (bottom-up)</td><td>Iterative dp[]</td><td>O(n)</td><td>No recursion overhead; explicit loop order</td></tr>
+                                    <tr><td>Space-optimized</td><td>Rolling variables/array</td><td>O(1) or O(n)</td><td>Only keep what the recurrence reads</td></tr>
+                                </tbody>
+                            </table>
+                            <p><strong>Pattern:</strong> write the recurrence → choose state → check transitions → add base cases → decide data structure → optimize space.</p>
+
+                            <h4>Fibonacci, three ways</h4>
+                            <pre><code>// 1) exponential recursion — 2^n time
+long long fib(int n) { return n &lt; 2 ? n : fib(n - 1) + fib(n - 2); }
+
+// 2) memoized top-down — O(n)
+long long fibM(int n, vector&lt;long long&gt;&amp; memo) {
+    if (n &lt; 2) return n;
+    if (memo[n] != -1) return memo[n];
+    return memo[n] = fibM(n - 1, memo) + fibM(n - 2, memo);
+}
+
+// 3) tabulation — O(n) time, O(1) space
+long long fibT(int n) {
+    long long a = 0, b = 1;
+    for (int i = 2; i &lt;= n; ++i) { long long c = a + b; a = b; b = c; }
+    return n &lt; 2 ? n : b;
+}</code></pre>
+
+                            <h4>0/1 Knapsack (the anchor in your materials)</h4>
+                            <p>Capacity W, items with weight wᵢ and value vᵢ; choose a subset maximizing value with total weight ≤ W. Your course materials introduce the knapsack family (see the greedy lesson for the fractional variant and Preiss for the DP treatment):</p>
+                            <pre><code>int dp[i][w] = best value using first i items with capacity w
+dp[i][w] = max(dp[i-1][w],                    // skip item i
+               dp[i-1][w-w_i] + v_i)          // take item i (if w_i &lt;= w)
+dp[0][*] = dp[*][0] = 0</code></pre>
+                            <p>O(nW) time. Space-optimized to O(W) with a single descending row (iterate w from W down so each item is used at most once).</p>
+
+                            <h4>LCS and LIS</h4>
+                            <p><strong>Longest Common Subsequence:</strong> dp[i][j] = LCS of s1[0..i) and s2[0..j); if s1[i-1]==s2[j-1] then dp[i][j] = dp[i-1][j-1]+1 else max(dp[i-1][j], dp[i][j-1]). O(nm).</p>
+                            <p><strong>Longest Increasing Subsequence:</strong> two approaches — dp[n²] (dp[i] = best ending at i) or patience sorting with a tails array — O(n log n). Patience sorting: maintain <code>tails</code>, binary-search the first tail ≥ x.</p>
+
+                            <h4>Common DP categories to master</h4>
+                            <ul>
+                                <li><strong>Knapsack family:</strong> 0/1, bounded, unbounded (coin change min coins)</li>
+                                <li><strong>Sequence DP:</strong> LCS, LIS, edit distance, palindromic subsequence</li>
+                                <li><strong>Grid DP:</strong> paths, min-sum path, maximal square</li>
+                                <li><strong>Interval DP:</strong> matrix chain, burst balloons</li>
+                                <li><strong>Partition DP:</strong> integer partition, subset-sum</li>
+                            </ul>
+
+                            <h4>Practice &amp; source notes</h4>
+                            <p>The <code>worksheets</code> and complexity materials in your library drill the analysis; the knapsack connection is covered in Preiss. For recurrences, revisit the complexity lesson — DP recurrences follow the same growth-rate reasoning.</p>
+                        `,
+                        codeExamples: [
+                            {
+                                language: 'cpp',
+                                title: '0/1 Knapsack (space-optimized to O(W))',
+                                code: `int knapSack01(int W, const std::vector<int>& wt, const std::vector<int>& val) {
+    std::vector<int> dp(W + 1, 0);
+    for (size_t i = 0; i < wt.size(); ++i)
+        for (int w = W; w >= wt[i]; --w)        // descending keeps item i used once
+            dp[w] = std::max(dp[w], dp[w - wt[i]] + val[i]);
+    return dp[W];
+}`
+                            },
+                            {
+                                language: 'cpp',
+                                title: 'LIS in O(n log n) — patience sorting',
+                                code: `int lis(const std::vector<int>& a) {
+    std::vector<int> tails;
+    for (int x : a) {
+        auto it = std::lower_bound(tails.begin(), tails.end(), x);
+        if (it == tails.end()) tails.push_back(x);
+        else *it = x;
+    }
+    return static_cast<int>(tails.size());
+}`
+                            },
+                            {
+                                language: 'cpp',
+                                title: 'Edit Distance (Levenshtein)',
+                                code: `int editDistance(const std::string& a, const std::string& b) {
+    std::vector<std::vector<int>> dp(a.size() + 1, std::vector<int>(b.size() + 1));
+    for (size_t i = 0; i <= a.size(); ++i) dp[i][0] = static_cast<int>(i);
+    for (size_t j = 0; j <= b.size(); ++j) dp[0][j] = static_cast<int>(j);
+    for (size_t i = 1; i <= a.size(); ++i)
+        for (size_t j = 1; j <= b.size(); ++j)
+            dp[i][j] = (a[i - 1] == b[j - 1]) ? dp[i - 1][j - 1]
+                     : 1 + std::min({dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]});
+    return dp[a.size()][b.size()];
+}`
+                            }
+                        ],
+                        exercises: [
+                            {
+                                type: 'code-complete',
+                                question: 'Implement longest common subsequence length for two strings.',
+                                code: `int lcs(const std::string& a, const std::string& b) {
+    int n = (int)a.size(), m = (int)b.size();
+    std::vector<std::vector<int>> dp(n + 1, std::vector<int>(m + 1, 0));
+    // TODO: fill dp and return dp[n][m]
+}`
+                            },
+                            {
+                                type: 'code-trace',
+                                question: 'Trace the memoized fib cache for fib(5) — list the distinct calls computed and the final result. Compare against naive recursion call count.',
+                                code: `long long fibM(int n, vector<long long>& memo) {
+    if (n < 2) return n;
+    if (memo[n] != -1) return memo[n];   // memo hit
+    return memo[n] = fibM(n - 1, memo) + fibM(n - 2, memo);
+}`
+                            }
+                        ],
                         quizQuestions: [
                             {
                                 id: 'dp-01-q1',
                                 type: 'mcq',
-                                question: 'Which property is required for dynamic programming?',
-                                options: ['Overlapping subproblems', 'Random access', 'Sorted input', 'Constant memory'],
-                                correct: 0
+                                question: 'Which property guarantees DP will work on a problem?',
+                                options: ['Optimal substructure only', 'Overlapping subproblems only', 'Both optimal substructure and overlapping subproblems', 'Polynomial time budget'],
+                                correct: 2,
+                                explanation: 'Optimal substructure alone gives divide-and-conquer; overlapping subproblems alone give nothing. DP is the intersection.'
+                            },
+                            {
+                                id: 'dp-01-q2',
+                                type: 'true-false',
+                                question: 'Plain recursive fib(n) recomputes fib(k) roughly fib(n-k) times — exponential behavior from polynomially many distinct states.',
+                                options: ['True', 'False'],
+                                correct: true,
+                                explanation: 'fib(2) is recomputed ~n/2 times etc.; memoizing prunes to n distinct states → O(n).'
+                            },
+                            {
+                                id: 'dp-01-q3',
+                                type: 'mcq',
+                                question: '0/1 knapsack with capacity W and n items via tabulation runs in:',
+                                options: ['O(nW)', 'O(n + W)', 'O(2^n)', 'O(W log n)'],
+                                correct: 0,
+                                explanation: 'nW cells filled in O(1) each; pseudo-polynomial, not polynomial in the input size.'
+                            },
+                            {
+                                id: 'dp-01-q4',
+                                type: 'true-false',
+                                question: 'LIS can be solved in O(n log n) with a maintained `tails` array and binary search, and the tails array is sorted ascending.',
+                                options: ['True', 'False'],
+                                correct: true,
+                                explanation: 'Patience sorting: tails[i] is the smallest ending value of an increasing subsequence of length i+1; invariant tails sorted.'
+                            },
+                            {
+                                id: 'dp-01-q5',
+                                type: 'mcq',
+                                question: 'In the descending-row 0/1 knapsack space optimization (w from W to wtᵢ), the purpose of the descending direction is:',
+                                options: ['To preserve optimal substructure', 'To ensure each item is considered at most once', 'To improve cache locality', 'To reduce rounding error'],
+                                correct: 1,
+                                explanation: 'Ascending iteration would let the same item be taken multiple times (that is the unbounded knapsack loop order).'
                             }
                         ]
                     }
+
                 ]
             }
         ]
@@ -5085,19 +5591,177 @@ int findPeakElement(const vector<int>& nums) {
                     {
                         id: 'dc-01',
                         title: 'Merge Sort, Quick Select, Closest Pair',
-                        objectives: ['Apply the divide-and-conquer template', 'Implement quick select', 'Solve the closest pair problem'],
-                        content: `<h3>Divide and Conquer</h3><p>Merge sort, quick select, and closest pair of points.</p>`,
-                        codeExamples: [],
+                        objectives: [
+                            'Apply the divide-and-conquer template: divide, conquer, combine',
+                            'Use the master theorem to solve recurrences of the form T(n) = aT(n/b) + f(n)',
+                            'Implement merge sort revisited and quick select for kth smallest',
+                            'Sketch the O(n log n) closest-pair-of-points algorithm',
+                            'Recognize when a problem yields to D&C vs DP vs greedy'
+                        ],
+                        content: `
+                            <h3>Divide and Conquer</h3>
+                            <p>The divide-and-conquer paradigm: <strong>(1) Divide</strong> the problem into smaller instances of the same problem, <strong>(2) Conquer</strong> them recursively, <strong>(3) Combine</strong> their answers into the final answer. The recursion stops at small base cases.</p>
+                            <p>The sorting-line material in your library (e.g. <code>ch-2.pdf</code>, <code>sorting 74869.pdf</code> — merge sort, quick sort) is the canonical D&amp;C warmup. This lesson extends it to problems where the combine step is nontrivial.</p>
+
+                            <h4>Master theorem (quick reference)</h4>
+                            <p>For T(n) = aT(n/b) + f(n), compare f(n) with n^(log_b a):</p>
+                            <ul>
+                                <li><strong>f(n) = Θ(n^log_b a - ε)</strong> ⇒ T(n) = Θ(n^log_b a)</li>
+                                <li><strong>f(n) = Θ(n^log_b a)</strong> ⇒ T(n) = Θ(n^log_b a · log n)  (e.g. merge sort)</li>
+                                <li><strong>f(n) = Ω(n^log_b a + ε)</strong> and regularity af(n/b) ≤ cf(n) ⇒ T(n) = Θ(f(n))</li>
+                            </ul>
+                            <p><strong>Worked examples:</strong> T(n) = 2T(n/2) + n → Θ(n log n). T(n) = T(n/2) + c → Θ(log n). T(n) = 8T(n/2) + n² → Θ(n³) (case 1). T(n) = 2T(n/2) + n log n needs the extended version → Θ(n log² n).</p>
+
+                            <h4>Quick Select — kth smallest in average O(n)</h4>
+                            <p>Same partition routine as quick sort, but recurse only into the side containing index k:</p>
+                            <pre><code>int kthSmallest(vector&lt;int&gt;&amp; a, int l, int r, int k) {
+    if (l == r) return a[l];
+    int p = partition(a, l, r);   // Lomuto or Hoare, as in the sorting lesson
+    if (k == p) return a[p];
+    return k &lt; p ? kthSmallest(a, l, p - 1, k) : kthSmallest(a, p + 1, r, k);
+}</code></pre>
+                            <p>Expected O(n); worst O(n²) with bad pivots — randomized pivoting or median-of-medians restores O(n) worst case. Quickselect is effectively "quicksort that keeps only one side".</p>
+
+                            <h4>Closest Pair of Points</h4>
+                            <p>Given n points in the plane, find the pair with minimum Euclidean distance. The naive O(n²) approach checks every pair; the D&amp;C solution is O(n log n):</p>
+                            <ol>
+                                <li><strong>Pre-sort</strong> points by x once.</li>
+                                <li><strong>Divide</strong> by a vertical line x = medianX into L and R.</li>
+                                <li><strong>Conquer</strong>: recurse on both halves; let d = min(dl, dr).</li>
+                                <li><strong>Combine</strong>: any cross-pair closer than d must lie within a 2d-wide strip around the dividing line, and only a constant number (at most 6) of strip points must be checked per point (packing argument). Check points in the strip sorted by y.</li>
+                            </ol>
+                            <p>T(n) = 2T(n/2) + O(n log n) → O(n log² n); optimizing the strip merge to O(n) gives O(n log n) overall.</p>
+
+                            <h4>When D&amp;C vs other paradigms</h4>
+                            <table>
+                                <thead><tr><th>Problem</th><th>Paradigm</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Merge sort, inversions count, closest pair</td><td>Divide &amp; conquer</td></tr>
+                                    <tr><td>Quick select, majority element</td><td>Divide &amp; conquer (quick-partition)</td></tr>
+                                    <tr><td>Fibonacci with memo, subset sums</td><td>DP (shared subproblems)</td></tr>
+                                    <tr><td>Huffman, interval scheduling</td><td>Greedy (exchange argument)</td></tr>
+                                    <tr><td>Max subarray (Kadane)</td><td>DP / scan (not D&amp;C)</td></tr>
+                                </tbody>
+                            </table>
+
+                            <h4>Inversions via merge sort (nested reuse)</h4>
+                            <p>Counting inversions (pairs i &lt; j with a[i] &gt; a[j]) is a merge sort that adds a counter during merge: when taking from the right run, all remaining elements in the left run are inversions. Still O(n log n) — a beautiful example of piggybacking on an existing recurrence.</p>
+                        `,
+                        codeExamples: [
+                            {
+                                language: 'cpp',
+                                title: 'Quick Select',
+                                code: `int partition(std::vector<int>& a, int l, int r) {
+    int pivot = a[r], i = l;
+    for (int j = l; j < r; ++j)
+        if (a[j] <= pivot) std::swap(a[i++], a[j]);
+    std::swap(a[i], a[r]);
+    return i;
+}
+
+int quickSelect(std::vector<int>& a, int l, int r, int k) {
+    if (l == r) return a[l];
+    int p = partition(a, l, r);
+    return (k == p) ? a[p]
+         : (k < p) ? quickSelect(a, l, p - 1, k)
+                   : quickSelect(a, p + 1, r, k);
+}`
+                            },
+                            {
+                                language: 'cpp',
+                                title: 'Closest Pair (combine step, sketch)',
+                                code: `double stripClosest(std::vector<Point>& strip, double d) {
+    std::sort(strip.begin(), strip.end(),
+              [](const Point& a, const Point& b) { return a.y < b.y; });
+    double best = d;
+    for (size_t i = 0; i < strip.size(); ++i)
+        for (size_t j = i + 1; j < strip.size() && (strip[j].y - strip[i].y) < best; ++j)
+            best = std::min(best, dist(strip[i], strip[j]));
+    return best;   // at most 6 neighbors per point are ever checked
+}`
+                            },
+                            {
+                                language: 'cpp',
+                                title: 'Count Inversions (piggyback on merge sort)',
+                                code: `long long mergeCount(std::vector<int>& a, int l, int m, int r) {
+    std::vector<int> left(a.begin() + l, a.begin() + m + 1);
+    std::vector<int> right(a.begin() + m + 1, a.begin() + r + 1);
+    size_t i = 0, j = 0;
+    long long inv = 0;
+    int k = l;
+    while (i < left.size() && j < right.size()) {
+        if (left[i] <= right[j]) a[k++] = left[i++];
+        else { a[k++] = right[j++]; inv += (long long)(left.size() - i); }
+    }
+    while (i < left.size()) a[k++] = left[i++];
+    while (j < right.size()) a[k++] = right[j++];
+    return inv;
+}`
+                            }
+                        ],
+                        exercises: [
+                            {
+                                type: 'code-complete',
+                                question: 'Implement quick select to return the kth smallest element (1-indexed) of a vector.',
+                                code: `int quickSelect(std::vector<int>& a, int l, int r, int k) {
+    if (l == r) return a[l];
+    int p = l;  // TODO: partition in place around a[r], return pivot index
+    // TODO: recurse into left or right of p
+}`
+                            },
+                            {
+                                type: 'code-trace',
+                                question: 'Trace T(n) = 2T(n/2) + n for n = 8 by expanding the recurrence tree and verifying against the master theorem prediction Θ(n log n).',
+                                code: `T(8) = 2*T(4) + 8
+T(4) = 2*T(2) + 4
+T(2) = 2*T(1) + 2
+T(1) = 1`
+                            }
+                        ],
                         quizQuestions: [
                             {
                                 id: 'dc-01-q1',
                                 type: 'mcq',
-                                question: 'What is the average time complexity of quick select?',
-                                options: ['O(n)', 'O(n log n)', 'O(log n)', 'O(n²)'],
-                                correct: 0
+                                question: 'T(n) = 2T(n/2) + n corresponds to which of the following?',
+                                options: ['Binary search', 'Merge sort', 'Quick select', 'Matrix multiplication'],
+                                correct: 1,
+                                explanation: 'Halving with n work at each node, binary recursion tree, Θ(n log n) — classic merge sort.'
+                            },
+                            {
+                                id: 'dc-01-q2',
+                                type: 'true-false',
+                                question: 'Quick select keeps only one branch of the quicksort recursion, giving expected O(n) time.',
+                                options: ['True', 'False'],
+                                correct: true,
+                                explanation: 'Expected size of the kept branch shrinks geometrically; sum is O(n).'
+                            },
+                            {
+                                id: 'dc-01-q3',
+                                type: 'mcq',
+                                question: 'T(n) = 8T(n/2) + n² is solved by the master theorem as:',
+                                options: ['Θ(n)', 'Θ(n³)', 'Θ(n² log n)', 'Θ(n log n)'],
+                                correct: 1,
+                                explanation: 'log₂8 = 3; f(n) = n² is polynomially smaller than n³ ⇒ case 1 ⇒ Θ(n^3).'
+                            },
+                            {
+                                id: 'dc-01-q4',
+                                type: 'mcq',
+                                question: 'Closest pair compares at most how many strip points per point? (constant bound from packing argument)',
+                                options: ['1', '3', '6', 'n'],
+                                correct: 2,
+                                explanation: 'Points within a 2d-wide strip with mutual distances ≥ d pack at most 6 per d² cell; only 6 forward neighbors needed.'
+                            },
+                            {
+                                id: 'dc-01-q5',
+                                type: 'true-false',
+                                question: 'Counting inversions with a modified merge sort is O(n log n) — piggybacking on an existing recurrence.',
+                                options: ['True', 'False'],
+                                correct: true,
+                                explanation: 'Merge detection adds O(1) work per merge step; overall O(n log n).'
                             }
                         ]
                     }
+
                 ]
             }
         ]
@@ -5123,19 +5787,163 @@ int findPeakElement(const vector<int>& nums) {
                     {
                         id: 'bit-01',
                         title: 'Bit Tricks and Techniques',
-                        objectives: ['Use bitwise operators', 'Clear, set, and toggle bits', 'Apply bitmasks and subset enumeration'],
-                        content: `<h3>Bit Manipulation</h3><p>Bitwise operators, masks, subsets, and common bit tricks.</p>`,
-                        codeExamples: [],
+                        objectives: [
+                            'Master bitwise operators AND, OR, XOR, NOT, shifts',
+                            'Use bitmasks to get/set/clear/toggle individual bits',
+                            'Memorize the core tricks: isPow2, n&(n-1), n&-n, lowest set bit',
+                            'Enumerate all subsets of a set with bitmasks',
+                            'Understand two\'s complement, signed/unsigned behavior and shifts'
+                        ],
+                        content: `
+                            <h3>Bitwise Fundamentals</h3>
+                            <p>Integers are stored in binary; bitwise operators manipulate the bits directly. Understanding this model lets you do in micro-time what naive code does with loops or extra memory.</p>
+                            <table>
+                                <thead><tr><th>Operator</th><th>Name</th><th>Example (a=6 (0b110), b=3 (0b011))</th></tr></thead>
+                                <tbody>
+                                    <tr><td><code>&amp;</code></td><td>AND</td><td>6 &amp; 3 = 2 (0b010)</td></tr>
+                                    <tr><td><code>|</code></td><td>OR</td><td>6 | 3 = 7 (0b111)</td></tr>
+                                    <tr><td><code>^</code></td><td>XOR</td><td>6 ^ 3 = 5 (0b101)</td></tr>
+                                    <tr><td><code>~</code></td><td>NOT</td><td>~6 = …11111001 (two's complement)</td></tr>
+                                    <tr><td><code>&lt;&lt;</code></td><td>left shift</td><td>6 &lt;&lt; 1 = 12</td></tr>
+                                    <tr><td><code>&gt;&gt;</code></td><td>arithmetic shift (signed)</td><td>6 &gt;&gt; 1 = 3</td></tr>
+                                </tbody>
+                            </table>
+
+                            <h4>Single-bit toolkit</h4>
+                            <pre><code>// Get bit k (0-indexed):  (n >> k) &amp; 1
+// Set bit k:             n |= (1u << k)
+// Clear bit k:           n &amp;= ~(1u << k)
+// Toggle bit k:          n ^= (1u << k)
+// Check if power of 2:   (n > 0) &amp;&amp; (n &amp; (n - 1)) == 0
+// Lowest set bit:        n &amp; -n          (e.g. 12 -> 4)
+// Remove lowest set bit: n &amp; (n - 1)     (e.g. 12 -> 8, count ones by looping)
+// Count set bits (popcount):
+int popcount(unsigned n) { int c = 0; while (n) { n &amp;= n - 1; ++c; } return c; }</code></pre>
+
+                            <h4>Why <code>n &amp; (n - 1)</code> works</h4>
+                            <p>Flipping the lowest set bit to 0: subtracting 1 flips all bits from the lowest set bit rightwards (…1000 → …0111); AND-ing with n clears exactly that bit. This is the core of Brian Kernighan's popcount loop and of the isolated-lowest-set-bit (<code>n &amp; -n</code>, with two's complement negation) used in Fenwick trees and DSU internals.</p>
+
+                            <h4>Subset enumeration</h4>
+                            <p>For a set of n elements (bitmask with n bits), all 2^n subsets iterate as integers 0..2^n - 1; the i-th bit of s tells whether element i is present. Classic applications: traveling salesman (DP over subsets), max-clique, partition problems, brute-force verification.</p>
+                            <pre><code>int n = 4;
+for (int s = 0; s &lt; (1 &lt;&lt; n); ++s) {
+    std::vector&lt;int&gt; subset;
+    for (int i = 0; i &lt; n; ++i)
+        if (s &amp; (1 &lt;&lt; i)) subset.push_back(i);
+    // process subset...
+}</code></pre>
+
+                            <h4>Two's complement and the gotchas</h4>
+                            <ul>
+                                <li>Signed right shift on negative values is implementation-defined in C++ — cast to <code>unsigned</code> first for portable behavior</li>
+                                <li>Left shift of a negative signed value is UB; shifting by ≥ width of type is UB — prefer <code>1u &lt;&lt; k</code> with k &lt; 32</li>
+                                <li><code>int</code> literals: write <code>1u</code> or <code>1LL</code> when bits above 31 are involved</li>
+                                <li><code>std::bitset&lt;N&gt;</code> is the readable, modern alternative for compile-time sizes</li>
+                            </ul>
+
+                            <h4>Famous applications</h4>
+                            <ul>
+                                <li><strong>Hash of sets:</strong> bitmask keys for subset DP (e.g. DP over subsets with n ≤ 20)</li>
+                                <li><strong>Permissions flags:</strong> UNIX mode bits rwxr-xr-x</li>
+                                <li><strong>Toggle parity detection:</strong> XOR all elements to find the odd one out</li>
+                                <li><strong>Swap without temp:</strong> a ^= b ^= a ^= b (cute, rarely a good idea in production)</li>
+                                <li><strong>Counting trailing/leading zeros:</strong> <code>__builtin_ctz</code> / <code>__builtin_popcount</code> (GCC/Clang), <code>std::countl_zero</code> (C++20)</li>
+                            </ul>
+
+                            <h4>Practice &amp; sources</h4>
+                            <p>Bit manipulation is not explicitly covered in your current document library — this lesson is authored from the standard C++ model (see also your C++ Foundations notes on the memory model and <code>&amp;</code> addressing, which is a different use of <code>&amp;</code>). Mastering these operators pays off in DSU, Fenwick trees, heap bitmasks and subset-DP.</p>
+                        `,
+                        codeExamples: [
+                            {
+                                language: 'cpp',
+                                title: 'Bit toolkit',
+                                code: `bool isPow2(unsigned n) { return n && !(n & (n - 1)); }
+unsigned lowestBit(unsigned n) { return n & (0u - n); }
+unsigned clearLowestBit(unsigned n) { return n & (n - 1); }
+unsigned toggleBit(unsigned n, int k) { return n ^ (1u << k); }
+int popcount(unsigned n) { int c = 0; while (n) { n &= n - 1; ++c; } return c; }`
+                            },
+                            {
+                                language: 'cpp',
+                                title: 'Subset enumeration',
+                                code: `void enumerateSubsets(const std::vector<int>& items) {
+    int n = (int)items.size();
+    for (int s = 0; s < (1 << n); ++s) {
+        std::vector<int> cur;
+        for (int i = 0; i < n; ++i)
+            if (s & (1 << i)) cur.push_back(items[i]);
+        // use cur…
+    }
+}`
+                            }
+                        ],
+                        exercises: [
+                            {
+                                type: 'code-complete',
+                                question: 'Implement popcount (count of set bits) with and without builtins.',
+                                code: `int popcountNoBuiltin(unsigned n) {
+    int c = 0;
+    // TODO: use n & (n - 1) to count
+    return c;
+}
+int popcountBuiltin(unsigned n) {
+    // TODO: use __builtin_popcount
+}`
+                            },
+                            {
+                                type: 'code-trace',
+                                question: 'Trace which subsets get generated for n = 3 items [A, B, C]. List the membership of s as 0b101, 0b011 and 0b111.',
+                                code: `for (int s = 0; s < (1 << 3); ++s) {
+    if (s & (1 << 0)) { /* A is in subset */ }
+    if (s & (1 << 1)) { /* B is in subset */ }
+    if (s & (1 << 2)) { /* C is in subset */ }
+}`
+                            }
+                        ],
                         quizQuestions: [
                             {
                                 id: 'bit-01-q1',
                                 type: 'mcq',
-                                question: 'What does x & (x - 1) do?',
-                                options: ['Sets the lowest set bit', 'Clears the lowest set bit', 'Flips all bits', 'Doubles x'],
-                                correct: 1
+                                question: 'Which expression is true iff n is a power of two? (n ≥ 1)',
+                                options: ['(n & (n - 1)) == 0', '(n | (n - 1)) == 0', 'n == 2', '(n >> 1) == 0'],
+                                correct: 0,
+                                explanation: 'Powers of two have exactly one set bit; n & (n-1) clears that bit, leaving 0.'
+                            },
+                            {
+                                id: 'bit-01-q2',
+                                type: 'true-false',
+                                question: 'n & -n isolates the lowest set bit of n (two\'s complement).',
+                                options: ['True', 'False'],
+                                correct: true,
+                                explanation: '-n flips and adds 1; ANDing with n leaves only the lowest 1-bit.'
+                            },
+                            {
+                                id: 'bit-01-q3',
+                                type: 'mcq',
+                                question: 'How many times does the Brian Kernighan popcount loop iterate for n = 0b1010101?',
+                                options: ['3', '4', '7', '8'],
+                                correct: 1,
+                                explanation: 'n & (n-1) removes one set bit per iteration; 0b1010101 has 4 set bits.'
+                            },
+                            {
+                                id: 'bit-01-q4',
+                                type: 'mcq',
+                                question: 'For a set of n elements, how many subsets exist?',
+                                options: ['n', '2n', '2^n', 'n!'],
+                                correct: 2,
+                                explanation: 'Each element is independently in or out: 2 choices per element → 2^n.'
+                            },
+                            {
+                                id: 'bit-01-q5',
+                                type: 'true-false',
+                                question: 'Left-shifting a negative signed integer is undefined behavior in C++.',
+                                options: ['True', 'False'],
+                                correct: true,
+                                explanation: '(a)Signed left shift of a negative value, and shift counts ≥ bit-width, are both UB; prefer unsigned operands.'
                             }
                         ]
                     }
+
                 ]
             }
         ]
@@ -5160,20 +5968,219 @@ int findPeakElement(const vector<int>& nums) {
                 lessons: [
                     {
                         id: 'adv-graph-01',
-                        title: 'Prim\'s, Kruskal\'s, and Max Flow',
-                        objectives: ['Implement Prim\'s and Kruskal\'s MST', 'Apply Bellman-Ford, Floyd-Warshall', 'Solve max flow with Edmonds-Karp'],
-                        content: `<h3>Advanced Graph Algorithms</h3><p>MST algorithms, all-pairs shortest path, max flow.</p>`,
-                        codeExamples: [],
+                        title: "Prim's, Kruskal's, and Max Flow",
+                        objectives: [
+                            'Build minimum spanning trees with Prim\'s and Kruskal\'s algorithms',
+                            'Implement a disjoint-set union (DSU) with path compression and union by rank',
+                            'Compute shortest paths on dense graphs with Floyd-Warshall',
+                            'Understand the max-flow min-cut theorem via residual networks',
+                            'Implement Edmonds-Karp BFS augmenting paths and read off the min cut'
+                        ],
+                        content: `
+                            <h3>Advanced Graph Algorithms</h3>
+                            <p>Your library supports this topic end-to-end: <code>ch-7.pdf</code> (graphs, BFS/DFS, Prim, Kruskal, MST), Jimma COMP331 (edges, Prim/Kruskal, MST 29 hits, topological sort), and Preiss (MST Prim 63, Kruskal 24, MST 94 total, Dijkstra 38, Floyd 17, SCC 6, topological sort 55).</p>
+
+                            <h4>Minimum Spanning Trees</h4>
+                            <p>An MST of a connected undirected graph spans all vertices with minimum total edge weight — the backbone of network design. Cut property: the cheapest edge crossing any cut belongs to some MST.</p>
+
+                            <p><strong>Prim\'s algorithm (vertex-centric):</strong></p>
+                            <ul>
+                                <li>Start from any vertex; grow the tree one vertex at a time</li>
+                                <li>Use a min-heap of (edge weight, vertex); pop the cheapest connecting edge; skip already-visited vertices; push neighbors</li>
+                                <li>O(E log V) with a binary heap — the right choice for <strong>dense</strong> graphs</li>
+                            </ul>
+
+                            <p><strong>Kruskal\'s algorithm (edge-centric):</strong></p>
+                            <ul>
+                                <li>Sort all edges by weight ascending</li>
+                                <li>Add an edge if it connects two different components (DSU find/union)</li>
+                                <li>Stop when the tree has V-1 edges</li>
+                                <li>O(E log E) ≈ O(E log V) — the right choice for <strong>sparse</strong> graphs</li>
+                            </ul>
+
+                            <h4>Disjoint Set Union (DSU)</h4>
+                            <p>Maintain a partition of elements into disjoint sets with near-O(1) find/union via <strong>path compression</strong> and <strong>union by rank (or size)</strong>. This one structure powers Kruskal, cycle detection in undirected graphs, offline LCA preprocessing and clustering.</p>
+                            <pre><code>struct DSU {
+    vector&lt;int&gt; parent, rank;
+    DSU(int n) : parent(n), rank(n, 0) { iota(parent.begin(), parent.end(), 0); }
+    int find(int x) { return parent[x] == x ? x : parent[x] = find(parent[x]); }
+    bool unite(int a, int b) {
+        a = find(a); b = find(b);
+        if (a == b) return false;
+        if (rank[a] &lt; rank[b]) swap(a, b);
+        parent[b] = a;
+        if (rank[a] == rank[b]) ++rank[a];
+        return true;
+    }
+};</code></pre>
+
+                            <h4>Floyd-Warshall — all-pairs in O(V³)</h4>
+                            <p>dp[k][i][j] = shortest i→j path using only intermediate vertices ≤ k. Rewrite as in-place triple loop over k:</p>
+                            <pre><code>for (int k = 0; k &lt; n; ++k)
+    for (int i = 0; i &lt; n; ++i)
+        for (int j = 0; j &lt; n; ++j)
+            if (dist[i][k] + dist[k][j] &lt; dist[i][j])
+                dist[i][j] = dist[i][k] + dist[k][j];</code></pre>
+                            <p>Works with negative edges (no negative cycles); preferred for dense graphs and for immediate all-pairs transitive closure.</p>
+
+                            <h4>Max Flow — residual networks and Edmonds-Karp</h4>
+                            <p>Given a directed capacity graph and source s, sink t, find the maximum flow. A <strong>residual edge</strong> carries remaining capacity forward and flow backward; an <strong>augmenting path</strong> from s to t in the residual graph increases the flow by its bottleneck.</p>
+                            <p><strong>Edmonds-Karp</strong> = Ford-Fulkerson with BFS to pick the augmenting path with fewest edges — O(VE²) and avoids arbitrarily bad choices that plain Ford-Fulkerson makes on irrational capacities.</p>
+                            <p><strong>Max-flow min-cut theorem:</strong> the value of the maximum s-t flow equals the capacity of the minimum s-t cut. Compute the flow, then the reachable set from s in the final residual graph gives the min cut — a set of edges whose total capacity equals the flow.</p>
+                            <ul>
+                                <li><strong>Blocking-flow view:</strong> each DFS/BFS finds a blocking flow on acyclic residuals; Dinic's improves to O(V²E) with level graphs</li>
+                                <li><strong>Unit-capacity application:</strong> bipartite matching falls out directly (source→left, right→sink, 1-cap edges)</li>
+                            </ul>
+
+                            <h4>SCC and topological sort (quick review)</h4>
+                            <p><strong>Topological sort</strong> orders a DAG so every edge points forward — Kahn's BFS-with-indegree does it in O(V+E). <strong>Strongly connected components</strong> are maximal vertex sets with mutual reachability; Kosaraju's two-pass DFS computes them in O(V+E). Preiss treats both; your AASTU materials cover BFS/DFS/topsort.</p>
+
+                            <h4>Complexity cheat sheet</h4>
+                            <table>
+                                <thead><tr><th>Algorithm</th><th>Time</th><th>Use when</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Prim (binary heap)</td><td>O(E log V)</td><td>Dense graphs / total order on weight</td></tr>
+                                    <tr><td>Kruskal + DSU</td><td>O(E log E)</td><td>Sparse graphs</td></tr>
+                                    <tr><td>Dijkstra</td><td>O((V+E) log V)</td><td>Single-source, non-negative weights</td></tr>
+                                    <tr><td>Floyd-Warshall</td><td>O(V³)</td><td>All-pairs, dense, or negative edges</td></tr>
+                                    <tr><td>Edmonds-Karp</td><td>O(VE²)</td><td>Max flow, simple to implement</td></tr>
+                                    <tr><td>Kosaraju SCC</td><td>O(V+E)</td><td>Decomposition of cyclic graphs</td></tr>
+                                </tbody>
+                            </table>
+                        `,
+                        codeExamples: [
+                            {
+                                language: 'cpp',
+                                title: "Prim's MST",
+                                code: `int primMST(int n, const std::vector<std::vector<std::pair<int,int>>>& adj) {
+    std::vector<bool> used(n, false);
+    std::priority_queue<std::pair<int,int>, std::vector<std::pair<int,int>>, std::greater<>> pq; // (w, v)
+    pq.push({0, 0});
+    int total = 0, trees = 0;
+    while (!pq.empty() && trees < n) {
+        auto [w, u] = pq.top(); pq.pop();
+        if (used[u]) continue;
+        used[u] = true;
+        total += w;
+        ++trees;
+        for (auto [wt, v] : adj[u])
+            if (!used[v]) pq.push({wt, v});
+    }
+    return total;
+}`
+                            },
+                            {
+                                language: 'cpp',
+                                title: "Kruskal's MST with DSU",
+                                code: `int kruskal(int n, std::vector<std::tuple<int,int,int>> edges) {
+    DSU dsu(n);  // DSU as shown above
+    std::sort(edges.begin(), edges.end(),
+              [](const auto& a, const auto& b) { return std::get<0>(a) < std::get<0>(b); });
+    int total = 0, taken = 0;
+    for (auto [w, u, v] : edges) {
+        if (dsu.unite(u, v)) { total += w; if (++taken == n - 1) break; }
+    }
+    return total;
+}`
+                            },
+                            {
+                                language: 'cpp',
+                                title: 'Edmonds-Karp (max flow, BFS)',
+                                code: `int maxFlow(const std::vector<std::vector<int>>& capInput, int s, int t) {
+    int n = (int)capInput.size();
+    std::vector<std::vector<int>> cap = capInput;  // local copy; residual graph
+    int flow = 0;
+    while (true) {
+        std::vector<int> parent(n, -1);
+        std::queue<int> q; q.push(s); parent[s] = s;
+        while (!q.empty() && parent[t] == -1) {
+            int u = q.front(); q.pop();
+            for (int v = 0; v < n; ++v)
+                if (parent[v] == -1 && cap[u][v] > 0) { parent[v] = u; q.push(v); }
+        }
+        if (parent[t] == -1) break;
+        int pushed = INT_MAX;
+        for (int v = t; v != s; v = parent[v]) pushed = std::min(pushed, cap[parent[v]][v]);
+        for (int v = t; v != s; v = parent[v]) {
+            cap[parent[v]][v] -= pushed;
+            cap[v][parent[v]] += pushed;
+        }
+        flow += pushed;
+    }
+    return flow;
+}`
+                            }
+                        ],
+                        exercises: [
+                            {
+                                type: 'code-complete',
+                                question: 'Implement DSU with path compression and union by rank: find returns root of the component, unite merges two components and returns true if they were different.',
+                                code: `struct DSU {
+    std::vector<int> parent, rank;
+    DSU(int n) : parent(n), rank(n, 0) {}
+    int find(int x) {
+        // TODO: path compression
+    }
+    bool unite(int a, int b) {
+        // TODO: union by rank; return true if merged
+    }
+};`
+                            },
+                            {
+                                type: 'code-trace',
+                                question: 'Trace Edmonds-Karp on S->A (cap 3), S->B (cap 2), A->B (cap 1), A->T (cap 2), B->T (cap 3). Show each augmenting path, its bottleneck, and the residual capacities afterward.',
+                                code: `Graph: S -> A (3)   S -> B (2)   A -> B (1)   A -> T (2)   B -> T (3)
+Edmonds-Karp picks shortest augmenting paths by BFS from S to T:
+  1) S -> A -> T, bottleneck 2
+  2) S -> B -> T, bottleneck 2
+  3) S -> A -> B -> T, bottleneck 1
+Max flow = 5`
+                            }
+                        ],
                         quizQuestions: [
                             {
                                 id: 'adv-graph-01-q1',
                                 type: 'mcq',
-                                question: 'Prim\'s algorithm grows a tree from which starting point?',
-                                options: ['An arbitrary vertex', 'The root', 'The minimum degree vertex', 'The vertex with maximum edges'],
-                                correct: 0
+                                question: 'Which cut property drives both Prim\'s and Kruskal\'s algorithms?',
+                                options: ['Longest edge crossing', 'Lightest edge crossing any cut belongs to some MST', 'Most edges crossing', 'First edge added to graph'],
+                                correct: 1,
+                                explanation: 'The cut property: the minimum-weight edge crossing any cut is in some MST — this is why greedy MST algorithms are correct.'
+                            },
+                            {
+                                id: 'adv-graph-01-q2',
+                                type: 'true-false',
+                                question: "Kruskal's algorithm requires a disjoint-set union to detect cycles among selected edges.",
+                                options: ['True', 'False'],
+                                correct: true,
+                                explanation: 'find(u) == find(v) means u and v are already in the same component; skipping that edge prevents cycles.'
+                            },
+                            {
+                                id: 'adv-graph-01-q3',
+                                type: 'mcq',
+                                question: 'DSU with path compression and union by rank answers operations in:',
+                                options: ['O(log n)', 'O(α(n)) amortized (inverse Ackermann)', 'O(n)', 'O(1) worst case'],
+                                correct: 1,
+                                explanation: 'Amortized inverse-Ackermann time per op — effectively constant.'
+                            },
+                            {
+                                id: 'adv-graph-01-q4',
+                                type: 'mcq',
+                                question: 'Max-flow min-cut theorem states that the maximum s-t flow value equals:',
+                                options: ['The minimum number of edges between s and t', 'The capacity of the minimum s-t cut', 'The number of augmenting paths', 'The minimum vertex connectivity'],
+                                correct: 1,
+                                explanation: 'Link & Cutter min-cut equals max flow; reachable set in the final residual graph gives the cut.'
+                            },
+                            {
+                                id: 'adv-graph-01-q5',
+                                type: 'true-false',
+                                question: 'Floyd-Warshall handles graphs with negative edges as long as they contain no negative cycles.',
+                                options: ['True', 'False'],
+                                correct: true,
+                                explanation: 'Floyd-Warshall computes true shortest paths with negative weights; negative cycles can be detected when dist[i][i] < 0 appears.'
                             }
                         ]
                     }
+
                 ]
             }
         ]
@@ -5199,19 +6206,218 @@ int findPeakElement(const vector<int>& nums) {
                     {
                         id: 'cp-01',
                         title: 'Fast I/O, Templates, and Common Patterns',
-                        objectives: ['Speed up I/O', 'Build a reusable contest template', 'Recognize common problem patterns'],
-                        content: `<h3>Competitive Programming</h3><p>Fast I/O, contest templates, and pattern recognition.</p>`,
-                        codeExamples: [],
+                        objectives: [
+                            'Write C++ templates that compile fast and run fast under contest time limits',
+                            'Apply the competitive-programming I/O and precision techniques',
+                            'Recognize and implement the core patterns: two pointers, sliding window, prefix sums, binary search on answer',
+                            'Avoid the classic overflow and precision traps',
+                            'Adopt a contest workflow: constraints → brute force → optimize → verify'
+                        ],
+                        content: `
+                            <h3>Competitive Programming — Foundations</h3>
+                            <p>Competitive programming is algorithmics under a time-per-problem budget. The wins come from (1) fast, correct templates, (2) pattern recognition, (3) disciplined debugging. Your base course material (arrays, searching, binary search, sorting) is the foundation — this lesson adds speed and the standard toolkits.</p>
+
+                            <h4>Fast I/O in C++</h4>
+                            <pre><code>std::ios_base::sync_with_stdio(false);
+std::cin.tie(nullptr);
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;                 // ~10⁸ ops/sec with sync_with_stdio(false)
+    // Use '\n' not endl (endl flushes)
+    cout << n << '\n';
+}</code></pre>
+                            <ul>
+                                <li><code>sync_with_stdio(false)</code> + <code>cin.tie(nullptr)</code> is the single biggest I/O win in C++ (often 5–10×)</li>
+                                <li><code>scanf/printf</code> remain faster still for extreme cases; <code>getline</code> for string parsing</li>
+                                <li>Reserve vector capacity; avoid <code>push_back</code> inside hot loops (<code>vector::reserve</code>)</li>
+                                <li>Prefer <code>O(1)</code> output assembly: build with <code>std::string</code> then print once</li>
+                            </ul>
+
+                            <h4>Contest template checklist</h4>
+                            <ul>
+                                <li><strong>Headers policy:</strong> many use <code>#include &lt;bits/stdc++.h&gt;</code> in GCC builds — note the academy's toolchain differs (libc++); standard includes keep you portable</li>
+                                <li><strong>Types:</strong> <code>int64_t</code> for sums/products; <code>size_t</code> for indexing; never <code>int</code> for 10⁹·10⁹</li>
+                                <li><strong>Overflow in sums:</strong> <code>1e9 + 7</code> arithmetic; always use <code>long long</code> intermediate</li>
+                                <li><strong>Mod:</strong> <code>const int MOD = 1e9 + 7;</code> with <code>long long</code> intermediate in multiplication</li>
+                                <li><strong>Random:</strong> <code>mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());</code></li>
+                            </ul>
+
+                            <h4>Core patterns (memorize these)</h4>
+                            <table>
+                                <thead><tr><th>Pattern</th><th>Signal</th><th>Complexity</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Two pointers</td><td>sorted array, pair sums, partition</td><td>O(n)</td></tr>
+                                    <tr><td>Sliding window</td><td>subarray of length k / at-most-k distinct</td><td>O(n)</td></tr>
+                                    <tr><td>Prefix sum / difference array</td><td>range-sum queries, range updates</td><td>O(1) query / O(n) build</td></tr>
+                                    <tr><td>Binary search on answer</td><td>minimize/maximize a monotone predicate</td><td>O(n log n)</td></tr>
+                                    <tr><td>Coordinate compression</td><td>waarden ≤ 10¹⁸ but count small</td><td>O(n log n)</td></tr>
+                                    <tr><td>BFS/DFS on grid</td><td>shortest path in unweighted grid</td><td>O(R·C)</td></tr>
+                                    <tr><td>Greedy + exchange</td><td>interval scheduling, assigning</td><td>O(n log n)</td></tr>
+                                </tbody>
+                            </table>
+
+                            <h4>Binary search on answer (template)</h4>
+                            <p>When the question asks for min/max X such that a monotone <em>check(x)</em> holds:</p>
+                            <pre><code>int lo = lo_bound, hi = hi_bound;
+while (lo &lt; hi) {
+    int mid = lo + (hi - lo) / 2;
+    if (check(mid)) hi = mid; else lo = mid + 1;
+}
+// lo == hi is the minimal feasible answer</code></pre>
+                            <p>Classic use: split array into k segments minimizing max segment sum; allocate capacity so all tasks fit with min max load; Kth smallest pair distance. Your Searching lesson (Binary Search on Answer) builds this muscle.</p>
+
+                            <h4>Two pointers and sliding window</h4>
+                            <p><strong>Two pointers:</strong> pair-sum in sorted array, in-place removal, partition-style in-place edits, merge step of merge sort. <strong>Sliding window:</strong> fixed (length-k max sum) or dynamic (longest subarray with at most K distinct integers — maintain freq map + left pointer; shrink when violated). Both run in O(n) because each pointer moves monotonically.</p>
+
+                            <h4>Contest workflow</h4>
+                            <ol>
+                                <li>Read constraints first — n ≤ 10⁸ hints O(n log n) or O(n), not O(n²)</li>
+                                <li>Derive brute force, then look for structure (sorted? monotone? subproblems?)</li>
+                                <li>Estimate: if n·log n·constant ≳ 10⁸, optimize constant factor</li>
+                                <li>Write small and assert-tested code; print debug info to stderr</li>
+                                <li>Submit early; get partial credit via edge cases (empty, n=1, duplicates, negatives)</li>
+                            </ol>
+
+                            <h4>Honest note</h4>
+                            <p>Your current document library contains no dedicated competitive-programming material — this lesson is authored in-house, anchored in your binary-search-on-answer lesson and the sorting/searching lectures in <code>ch-2.pdf</code>, <code>Chapter 2 ….pdf</code> and <code>sorting 74869.pdf</code>, plus the exam-style timed practice in <code>DSA MID TEST 2023-ANSWERSHEET.pdf</code> (which is usable for timing drills).</p>
+                        `,
+                        codeExamples: [
+                            {
+                                language: 'cpp',
+                                title: 'Competitive-programming skeleton',
+                                code: `#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#include <string>
+using namespace std;
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        vector<long long> a(n);
+        for (auto& x : a) cin >> x;
+        sort(a.begin(), a.end());
+        cout << accumulate(a.begin(), a.end(), 0LL) << '\\n';
+    }
+}`
+                            },
+                            {
+                                language: 'cpp',
+                                title: 'Binary search on answer — split array into k parts minimizing max sum',
+                                code: `bool canSplit(const vector<long long>& a, long long maxSum, int k) {
+    int parts = 1;
+    long long cur = 0;
+    for (long long x : a) {
+        if (x > maxSum) return false;
+        if (cur + x <= maxSum) cur += x;
+        else { ++parts; cur = x; }
+    }
+    return parts <= k;
+}
+long long minimizeMaxSum(const vector<long long>& a, int k) {
+    long long lo = *max_element(a.begin(), a.end());
+    long long hi = accumulate(a.begin(), a.end(), 0LL);
+    while (lo < hi) {
+        long long mid = lo + (hi - lo) / 2;
+        if (canSplit(a, mid, k)) hi = mid; else lo = mid + 1;
+    }
+    return lo;
+}`
+                            },
+                            {
+                                language: 'cpp',
+                                title: 'Sliding window — longest subarray with at most K distinct',
+                                code: `int longestAtMostKDistinct(const vector<int>& a, int k) {
+    unordered_map<int,int> freq;
+    int left = 0, best = 0;
+    for (int right = 0; right < (int)a.size(); ++right) {
+        ++freq[a[right]];
+        while ((int)freq.size() > k) {
+            if (--freq[a[left]] == 0) freq.erase(a[left]);
+            ++left;
+        }
+        best = max(best, right - left + 1);
+    }
+    return best;
+}`
+                            }
+                        ],
+                        exercises: [
+                            {
+                                type: 'code-complete',
+                                question: 'Implement prefix sums and answer m range-sum queries in O(1) each: query(l, r) = a[l]+…+a[r].',
+                                code: `struct RangeSum {
+    std::vector<long long> prefix;
+    RangeSum(const std::vector<int>& a) { /* TODO: build prefix, size n+1 */ }
+    long long query(int l, int r) const { /* TODO: O(1) prefix difference */ }
+};`
+                            },
+                            {
+                                type: 'code-trace',
+                                question: 'Trace the binary search on answer for nums = [1,2,3,4,5,6,7,8,9], k = 3 (split into 3 contiguous parts minimizing the max part sum). Show lo/hi evolution.',
+                                code: `bool canSplit(const vector<long long>& a, long long maxSum, int k) {
+    int parts = 1; long long cur = 0;
+    for (long long x : a) {
+        if (x > maxSum) return false;
+        if (cur + x <= maxSum) cur += x;
+        else { ++parts; cur = x; }
+    }
+    return parts <= k;
+}`
+                            }
+                        ],
                         quizQuestions: [
                             {
                                 id: 'cp-01-q1',
                                 type: 'mcq',
-                                question: 'Which line speeds up C++ stream I/O for contests?',
-                                options: ['ios::sync_with_stdio(false);', 'std::cout.tie(nullptr);', 'setvbuf(stdout, NULL, _IONBF, 0);', 'All of the above'],
-                                correct: 3
+                                question: 'What is the standard first line to speed up cin/cout in competitive programming?',
+                                options: ['cin.tie(&cout)', 'ios_base::sync_with_stdio(false); cin.tie(nullptr);', 'fflush(stdin)', 'setbuf(stdout, NULL)'],
+                                correct: 1,
+                                explanation: 'sync_with_stdio(false) decouples C and C++ streams; cin.tie(nullptr) stops flushing before every cin.'
+                            },
+                            {
+                                id: 'cp-01-q2',
+                                type: 'true-false',
+                                question: 'endl prints a newline and flushes the buffer, which is slower than \'\\n\' in tight loops.',
+                                options: ['True', 'False'],
+                                correct: true,
+                                explanation: "endl is '\n' + flush; the flush is expensive when done thousands of times."
+                            },
+                            {
+                                id: 'cp-01-q3',
+                                type: 'mcq',
+                                question: 'Binary search on answer requires the predicate check(x) to be:',
+                                options: ['Monotonic (true…true then false…false, or vice versa)', 'Polynomial', 'Deterministic', 'Independent of x'],
+                                correct: 0,
+                                explanation: 'Binary search correctness needs a monotone boundary between feasible and infeasible; then the boundary is found in log(range) steps.'
+                            },
+                            {
+                                id: 'cp-01-q4',
+                                type: 'true-false',
+                                question: 'Two pointers runs in O(n) because each pointer only moves forward, so the total pointer advances are bounded by 2n.',
+                                options: ['True', 'False'],
+                                correct: true,
+                                explanation: 'Left and right pointers are monotonic; combined increments sum to ≤ 2n regardless of inner-loop repetitions.'
+                            },
+                            {
+                                id: 'cp-01-q5',
+                                type: 'mcq',
+                                question: 'The sum 10^18 + 10^18 fits into which type?',
+                                options: ['int32_t', 'int64_t', 'uint16_t', 'long double only'],
+                                correct: 1,
+                                explanation: 'int64_t holds ≈ 9.22×10^18; int32_t maxes at ≈ 2.15×10^9.'
                             }
                         ]
                     }
+
                 ]
             }
         ]
@@ -5237,19 +6443,210 @@ int findPeakElement(const vector<int>& nums) {
                     {
                         id: 'proj-01',
                         title: 'Text Editor with Undo/Redo',
-                        objectives: ['Design data structures for text editor', 'Implement undo/redo with stacks', 'Handle cursor movement efficiently'],
-                        content: `<h3>Project: Text Editor</h3><p>Gap buffer, rope data structure, or dual-stack approach for undo/redo.</p>`,
-                        codeExamples: [],
+                        objectives: [
+                            'Design a real feature from requirement to working code',
+                            'Apply the Command pattern with stacks for undo/redo',
+                            'Reason about data invariants (text, cursor, selection, clipboard)',
+                            'Structure a capstone: milestones, testing, polish, review',
+                            'Produce a small but complete, demo-able artifact'
+                        ],
+                        content: `
+                            <h3>Capstone Project — Text Editor with Undo/Redo</h3>
+                            <p>This project is the practical-projects capstone for the academy. Your AASTU syllabus includes a group project (15% weight); Preiss's book ends every chapter with programming projects of exactly this character. The deliverable is a <strong>working minimal text editor</strong> (console or light GUI) with real undo/redo — everything else is in service of that.</p>
+
+                            <h4>Requirements (v1 scope)</h4>
+                            <ul>
+                                <li>Open/create/save/<strong>save-as</strong> plain-text files (UTF-8)</li>
+                                <li>Render buffer line-oriented; navigate with arrow keys + Page Up/Down + Home/End</li>
+                                <li>Insert, delete, select-all, copy, cut, paste — each as a <em>command</em></li>
+                                <li><strong>Undo/redo</strong> across all editing commands (std::stack of command objects)</li>
+                                <li>Search (find next/previous); replace next</li>
+                                <li>Status bar: filename, dirty flag, cursor line:col</li>
+                            </ul>
+                            <p><strong>Non-goals:</strong> syntax highlighting, multiple tabs, plugins, scripting. v1 discipline is the point — finish something working and polish it.</p>
+
+                            <h4>Architecture (the part that actually matters)</h4>
+                            <pre><code>// Command — every edit is an object with undo()
+class Command {
+public:
+    virtual void execute() = 0;
+    virtual void undo() = 0;
+    virtual ~Command() = default;
+};
+
+class InsertText : public Command {
+    TextBuffer& buf; size_t pos; std::string text;
+public:
+    InsertText(TextBuffer& b, size_t p, std::string t)
+        : buf(b), pos(p), text(std::move(t)) {}
+    void execute() override { buf.insert(pos, text); }
+    void undo()    override { buf.erase(pos, text.size()); }
+};
+
+// Editor keeps two stacks of Command
+class Editor {
+    std::stack&lt;std::unique_ptr&lt;Command&gt;&gt; undoStack, redoStack;
+};</code></pre>
+                            <ul>
+                                <li><strong>Command objects own the minimum state</strong> to invert themselves — never a snapshot of the whole document</li>
+                                <li>Typing runs collapse consecutive single-character inserts into one command (debounce burst ≤ 500 ms)</li>
+                                <li>Cut/copy pastes are single replace-range commands, not N char-ops</li>
+                                <li>Redo stack is cleared on every new command (standard editor semantics)</li>
+                            </ul>
+
+                            <h4>Milestones (6 stages, strictly ordered)</h4>
+                            <ol>
+                                <li><strong>M0 — Spec:</strong> one page of requirement text + 1 ASCII-art UI sketch. Get feedback before code.</li>
+                                <li><strong>M1 — Buffer:</strong> line-oriented TextBuffer (vector of strings), insert/erase/cursor ops + unit tests</li>
+                                <li><strong>M2 — Command:</strong> Command pattern + undo/redo stacks with unit tests for insert/delete/paste/select-all-then-delete</li>
+                                <li><strong>M3 — Navigation:</strong> arrow keys, Page Up/Down, Home/End, word jump with Ctrl</li>
+                                <li><strong>M4 — Search:</strong> find next/previous (case-insensitive flag), highlight current match</li>
+                                <li><strong>M5 — Polish:</strong> dirty flag, confirm-on-quit-with-unsaved, status bar, keybindings, README + GIF</li>
+                            </ol>
+                            <p>Each milestone ends with a <em>demoable</em> artifact — no milestone is "90% of the work in M1".</p>
+
+                            <h4>Design decisions worth writing down</h4>
+                            <ul>
+                                <li><strong>Buffer model:</strong> <code>vector&lt;string&gt;</code> lines fits v1 easily (vector of lines amortizes appends); a rope or gap buffer is the "real editor" answer — know why you chose vector&lt;string&gt;</li>
+                                <li><strong>Undo representation:</strong> commands (stateless inversion) vs stored snapshots — commands scale better in memory and are the interview answer; mention the trade-off</li>
+                                <li><strong>Selection model:</strong> anchor + active (head) cursor; undo for a selection-delete is "re-insert at anchor"</li>
+                                <li><strong>Persistence:</strong> save by serializing lines joined with \n; atomic save = write to temp then rename</li>
+                                <li><strong>Testing:</strong> table-driven tests for buffer ops and command inverse round-trips</li>
+                            </ul>
+
+                            <h4>Extension ideas after v1 (pick at most one)</h4>
+                            <ul>
+                                <li>Multi-level undo <em>groups</em> (atomic "replace all" as one undo)</li>
+                                <li>Real search-and-replace with preview</li>
+                                <li>Session persistence (restore open files)</li>
+                                <li>Minimal regex search (std::regex is in the standard)</li>
+                                <li>ROPE rope-ish buffer with performance benchmark vs vector&lt;string&gt;</li>
+                            </ul>
+
+                            <h4>Rubric (self-check)</h4>
+                            <table>
+                                <thead><tr><th>Criterion</th><th>Weight</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Correct undo/redo on all editing commands</td><td>30%</td></tr>
+                                    <tr><td>Buffer correctness + test coverage</td><td>20%</td></tr>
+                                    <tr><td>UX: status bar, dirty flag, unsaved-quit confirm</td><td>15%</td></tr>
+                                    <tr><td>Code structure: commands, separation of concerns</td><td>20%</td></tr>
+                                    <tr><td>Documentation: README with run instructions + demo</td><td>15%</td></tr>
+                                </tbody>
+                            </table>
+
+                            <h4>Why this project matters</h4>
+                            <p>Data structures appear everywhere in real systems; this project forces you to combine stacks (undo/redo), sequences (buffer), iterators (rendering), and design (command pattern) into one artifact. It is also a portfolio-ready demonstration of ability — far better than another toy grader.</p>
+                        `,
+                        codeExamples: [
+                            {
+                                language: 'cpp',
+                                title: 'Undo/redo with stacks (core pattern)',
+                                code: `class Editor {
+public:
+    void apply(std::unique_ptr<Command> cmd) {
+        cmd->execute();
+        undoStack_.push(std::move(cmd));
+        redoStack_ = {};  // clear redo
+    }
+    void undo() {
+        if (undoStack_.empty()) return;
+        auto cmd = std::move(undoStack_.top()); undoStack_.pop();
+        cmd->undo();
+        redoStack_.push(std::move(cmd));
+    }
+    void redo() {
+        if (redoStack_.empty()) return;
+        auto cmd = std::move(redoStack_.top()); redoStack_.pop();
+        cmd->execute();
+        undoStack_.push(std::move(cmd));
+    }
+private:
+    std::stack<std::unique_ptr<Command>> undoStack_, redoStack_;
+};`
+                            },
+                            {
+                                language: 'cpp',
+                                title: 'TextBuffer core (lines-based)',
+                                code: `class TextBuffer {
+public:
+    void insert(size_t pos, const std::string& text) {
+        if (pos <= lineEnd()) { /* split line at pos and splice */ }
+        else { /* append across line boundaries */ }
+    }
+    void erase(size_t pos, size_t len) {
+        // find (line, col) from pos; delete across line boundaries
+    }
+    const std::vector<std::string>& lines() const { return lines_; }
+    bool empty() const { return lines_.empty() || (lines_.size() == 1 && lines_[0].empty()); }
+private:
+    static constexpr size_t lineEnd() { return static_cast<size_t>(-1); }
+    std::vector<std::string> lines_ = {""};
+};`
+                            }
+                        ],
+                        exercises: [
+                            {
+                                type: 'code-trace',
+                                question: 'Trace the undo/redo stacks for this sequence: type "abc", delete "b", paste "X", then Undo ×3. Show the undo/redo stack contents and buffer after every step.',
+                                code: `Editor: apply(Insert("a"))  apply(Insert("b"))  apply(Insert("c"))
+         apply(Delete(pos=1, len=1))
+         apply(Insert("X", pos=1))
+         undo()  undo()  undo()`
+                            },
+                            {
+                                type: 'code-complete',
+                                question: 'Implement ReplaceRange command (delete-then-insert in one command, for paste/replace operations).',
+                                code: `class ReplaceRange : public Command {
+    TextBuffer& buf; size_t pos, len; std::string text, removed;
+public:
+    ReplaceRange(TextBuffer& b, size_t p, size_t l, std::string t)
+        : buf(b), pos(p), len(l), text(std::move(t)) {}
+    void execute() override {
+        // TODO: save removed = buf.slice(pos, len); buf.erase(pos, len); buf.insert(pos, text);
+    }
+    void undo() override {
+        // TODO: buf.erase(pos, text.size()); buf.insert(pos, removed);
+    }
+};`
+                            }
+                        ],
                         quizQuestions: [
                             {
                                 id: 'proj-01-q1',
+                                type: 'true-false',
+                                question: 'In the Command pattern, each command should store the minimal state needed to invert itself.',
+                                options: ['True', 'False'],
+                                correct: true,
+                                explanation: 'Snapshot-based undo is simple but memory-heavy; command inversion scales and keeps memory proportional to edit complexity.'
+                            },
+                            {
+                                id: 'proj-01-q2',
                                 type: 'mcq',
-                                question: 'Which data structure pair is commonly used to implement undo and redo?',
-                                options: ['Two stacks', 'Two queues', 'A hash map and a set', 'A linked list and a heap'],
-                                correct: 0
+                                question: 'Why is the redo stack cleared on every fresh user command?',
+                                options: ['For performance', 'Because the new command invalidates the redo history branch', 'C++ stack semantics require it', 'To save memory'],
+                                correct: 1,
+                                explanation: 'Undo trees fork on new commands; keeping old redo paths would let redo resurrect edits that never happened.'
+                            },
+                            {
+                                id: 'proj-01-q3',
+                                type: 'mcq',
+                                question: 'Typing "hello" is best represented as:',
+                                options: ['5 single-char commands', 'One InsertText command for the whole burst', 'No command at all', 'A snapshot of the buffer'],
+                                correct: 1,
+                                explanation: 'Bursts within a short idle window coalesce into one undo unit — standard editor behavior (e.g., 500 ms coalescing).'
+                            },
+                            {
+                                id: 'proj-01-q4',
+                                type: 'true-false',
+                                question: 'A double-linked list of lines is always superior to vector<string> for a text editor buffer.',
+                                options: ['True', 'False'],
+                                correct: false,
+                                explanation: 'vector<string> amortizes appends and is cache-friendly; gap buffers/rope only win at very large sizes — know your trade-off, just pick one.'
                             }
                         ]
                     }
+
                 ]
             }
         ]
@@ -5257,7 +6654,7 @@ int findPeakElement(const vector<int>& nums) {
 };
 
 
-// Phase 1 — worked solutions for exercises.
+// Phase 1 ΓÇö worked solutions for exercises.
 // Key: "<lessonId>:<exerciseIndex>". Consumed by CurriculumRenderer.renderExercise.
 const EXERCISE_SOLUTIONS = {
     'cpp-02:0': `Only ONE Node exists at the end.
@@ -5521,5 +6918,193 @@ Output: 2 1 3`,
 - l=4, r=6, m=5 (val 1). nums[l]=0 <= nums[m]=1 -> left half [0,1] is sorted.
   target(0) >= nums[l](0) && target(0) <= nums[m](1) -> search the left half: r = m = 5.
 - l=4, r=5, m=4 (val 0). nums[m] == target -> return 4.
-Answer: index 4.`
+Answer: index 4.`,'sort-01:0': `void merge(std::vector<int>& arr, int l, int m, int r) {
+    std::vector<int> left(arr.begin() + l, arr.begin() + m + 1);
+    std::vector<int> right(arr.begin() + m + 1, arr.begin() + r + 1);
+    size_t i = 0, j = 0;
+    int k = l;
+    while (i < left.size() && j < right.size())
+        arr[k++] = (left[i] <= right[j]) ? left[i++] : right[j++];
+    while (i < left.size()) arr[k++] = left[i++];
+    while (j < right.size()) arr[k++] = right[j++];
+}
+// The leftover-copy loops handle any remainder once one side is exhausted.
+// Use <= (not <) on the left side to preserve stability.`,
+
+    'sort-01:1': `Lomuto partition trace on [7, 2, 1, 6, 8, 5, 3, 4] (pivot = 4, i.e. arr[7]):
+- j=0: 7 > 4, skip; j=1: 2 <= 4 swap(arr[0],arr[1]) -> [2, 7, ...], i=1
+- j=2: 1 <= 4 swap(arr[1],arr[2]) -> [2, 1, 7, ...], i=2
+- j=3: 6 > 4, skip; j=4: 8 > 4, skip; j=5: 5 > 4, skip; j=6: 3 <= 4 swap(arr[2],arr[6]) -> [2, 1, 3, ...], i=3
+- end: swap(arr[3], arr[7]) -> [2, 1, 3, 4, 8, 5, 7, 6]; return i = 3
+Recursion continues on [2,1,3] and [8,5,7,6]; final sorted order is [1,2,3,4,5,6,7,8].`,
+    'greedy-01:0': `int maxSchedule(std::vector<std::pair<int,int>> intervals) {
+    std::sort(intervals.begin(), intervals.end(),
+              [](const auto& a, const auto& b) { return a.second < b.second; });
+    int count = 0, lastFinish = INT_MIN;
+    for (const auto& [start, finish] : intervals) {
+        if (start >= lastFinish) {
+            ++count;
+            lastFinish = finish;
+        }
+    }
+    return count;
+}
+// Pair is (start, finish); finish-driven sort is what makes the sweep optimal.`,
+
+    'greedy-01:1': `Merge trace for A=5  B=9  C=12  D=13  E=16  F=45:
+- Step 1: merge two smallest (A=5, B=9)   -> node X = 14 (A depth 2nd tier)
+- Step 2: heap now {12, 13, 14, 16, 45}; merge two smallest (C=12, D=13) -> node Y = 25
+- Step 3: merge two smallest (X=14, E=16) -> node Z = 30
+- Step 4: merge (Y=25, Z=30) -> node W = 55
+- Step 5: merge (F=45, W=55) -> root = 100
+A's final depth: A -> X -> Z -> W -> root, i.e. 4 (code 0001-ish depending on tie-breaks).
+Weighted path length = 5*4 + 9*4 + 12*3 + 13*3 + 16*3 + 45*1 = 20 + 36 + 36 + 39 + 48 + 45 = 224.`,
+    'dp-01:0': `int lcs(const std::string& a, const std::string& b) {
+    int n = (int)a.size(), m = (int)b.size();
+    std::vector<std::vector<int>> dp(n + 1, std::vector<int>(m + 1, 0));
+    for (int i = 1; i <= n; ++i)
+        for (int j = 1; j <= m; ++j)
+            dp[i][j] = (a[i - 1] == b[j - 1]) ? dp[i - 1][j - 1] + 1
+                                                : std::max(dp[i - 1][j], dp[i][j - 1]);
+    return dp[n][m];
+}
+// dp[i][j] == LCS length of a[0..i) and b[0..j).
+// Reconstruct the string by backtracking from dp[n][m].`,
+
+    'dp-01:1': `fib(5) call trace with memoization:
+- fib(5) [compute] -> fib(4) + fib(3)
+- fib(4) [compute] -> fib(3) + fib(2)
+- fib(3) [compute] -> fib(2) + fib(1)
+- fib(2) [compute] -> fib(1) + fib(0)
+- fib(1) [base] = 1                      memo[1]=1
+- fib(0) [base] = 0                      memo[0]=0
+- fib(2) done = 1                        memo[2]=1
+- fib(3) [compute] -> fib(2) + fib(1)
+- fib(2) memo hit = 1
+- fib(1) memo hit = 1
+- fib(3) done = 2                        memo[3]=2
+- fib(4) -> fib(3) + fib(2)
+- fib(3) memo hit = 2
+- fib(2) memo hit = 1
+- fib(4) done = 3                        memo[4]=3
+- fib(5) -> fib(4) + fib(3)
+- fib(4) memo hit = 3
+- fib(3) memo hit = 2
+- fib(5) done = 5
+Distinct computed states: f0..f5 = 6. Naive recursion: fib(5) alone triggers 15 calls (2*fib(6)-1).`,
+    'dc-01:0': `int quickSelect(std::vector<int>& a, int l, int r, int k) {
+    if (l == r) return a[l];
+    int pivot = a[r], p = l;
+    for (int j = l; j < r; ++j)
+        if (a[j] <= pivot) std::swap(a[p++], a[j]);
+    std::swap(a[p], a[r]);
+    if (k == p) return a[p];
+    return (k < p) ? quickSelect(a, l, p - 1, k)
+                   : quickSelect(a, p + 1, r, k);
+}
+// k is a 0-based index. Every call does O(r - l) work on one side only.`,
+
+    'dc-01:1': `T(8) expansion by hand:
+- T(1) = 1                          (base)
+- T(2) = 2*T(1) + 2 = 4
+- T(4) = 2*T(2) + 4 = 12
+- T(8) = 2*T(4) + 8 = 32
+Guess pattern: T(2^k) = (k + 2) * 2^k? Check T(2)=4 with k=1: (1+2)*2 = 6 no.
+Direct: T(8) = 2*T(4)+8 = 2*(2*T(2)+4)+8 = 4*T(2)+16 = 4*(2*T(1)+2)+16 = 8*T(1)+24 = 8+24 = 32.
+Master theorem: a=2, b=2, log_b(a)=1; f(n)=n^1 => case 2 => T(n) = Θ(n log n) = 8*3 = 24 units vs 32 measured with constants 1 — same order.`,
+    'bit-01:0': `int popcountNoBuiltin(unsigned n) {
+    int c = 0;
+    while (n) {
+        n &= n - 1;   // drop one set bit per iteration
+        ++c;
+    }
+    return c;
+}
+int popcountBuiltin(unsigned n) {
+    return __builtin_popcount(n);   // or std::popcount (C++20)
+}
+// Builtin version compiles to a single POPCNT on x86-64 with -mpopcnt.`,
+
+    'bit-01:1': `items [A, B, C]; s as 0bABC (bit2=A bit1=B bit0=C index mapping here: i=0 is A and s&(1<<i)):
+- s = 0b101 (5): bits 0 and 2 set  -> {A, C}
+- s = 0b011 (3): bits 0 and 1 set  -> {A, B}
+- s = 0b111 (7): bits 0, 1 and 2   -> {A, B, C}
+(With i = index, A=0, B=1, C=2: s=0b101 means element 0 and element 2 are selected.)`,
+    'adv-graph-01:0': `struct DSU {
+    std::vector<int> parent, rank;
+    DSU(int n) : parent(n), rank(n, 0) { std::iota(parent.begin(), parent.end(), 0); }
+    int find(int x) {
+        if (parent[x] != x) parent[x] = find(parent[x]);  // path compression
+        return parent[x];
+    }
+    bool unite(int a, int b) {
+        a = find(a); b = find(b);
+        if (a == b) return false;
+        if (rank[a] < rank[b]) std::swap(a, b);
+        parent[b] = a;
+        if (rank[a] == rank[b]) ++rank[a];
+        return true;
+    }
 };
+// find() with path compression + union by rank => amortized near-O(1) per op.`,
+
+    'adv-graph-01:1': `Edmonds-Karp trace on S->A(3), S->B(2), A->B(1), A->T(2), B->T(3):
+Initial residual caps: S->A 3, S->B 2, A->B 1, A->T 2, B->T 3.
+
+Augmentation 1 (BFS): S -> A -> T, bottleneck = min(3, 2) = 2.
+  Residual: S->A 1, A->S 2, A->T 0, T->A 2. Flow = 2.
+
+Augmentation 2 (BFS): S -> B -> T, bottleneck = min(2, 3) = 2.
+  Residual: S->B 0, B->S 2, B->T 1, T->B 2. Flow = 4.
+
+Augmentation 3 (BFS): S -> A -> B -> T, bottleneck = min(1, 1, 1) = 1.
+  Residual: S->A 0, A->B 0, B->T 0. Flow = 5.
+
+No more s->t paths: done. Max flow = 5.
+Reachable set from S in final residual graph = {S} (no outgoing capacity left),
+so the min cut is S->A + S->B with capacity 3 + 2 = 5 = max flow.`,
+    'cp-01:0': `struct RangeSum {
+    std::vector<long long> prefix;
+    RangeSum(const std::vector<int>& a) {
+        prefix.assign(a.size() + 1, 0);
+        for (size_t i = 0; i < a.size(); ++i) prefix[i + 1] = prefix[i] + a[i];
+    }
+    long long query(int l, int r) const {
+        return prefix[r + 1] - prefix[l];
+    }
+};
+// prefix[i] = sum of first i elements; query(l, r) = prefix[r+1] - prefix[l].
+// O(n) build, O(1) per query.`,
+
+    'cp-01:1': `Minimize the max part sum, split [1,2,3,4,5,6,7,8,9] into 3 contiguous parts:
+Greedy build for a candidate maxSum: take as much as fits into the current part.
+
+lo = 9 (max element), hi = 45 (sum of all)
+- mid = 27: [1..6]=21, then 7+8+9 = 24 -> 2 parts -> feasible, hi = 27
+- mid = 18: [1..5]=15, [6+7]=13, [8+9]=17 -> 3 parts -> feasible, hi = 18
+- mid = 13: [1..4]=10, [5+6]=11, [7], [8], [9] -> 5 parts -> infeasible, lo = 14
+- mid = 16: [1..5]=15, [6+7]=13, [8+9]=17 > 16 -> 4 parts -> infeasible, lo = 17
+- mid = 17: [1..5]=15, [6+7]=13, [8+9]=17 <= 17 -> 3 parts -> feasible, hi = 17
+- lo == hi == 17 -> answer 17 (max partition sum).`,
+    'proj-01:0': `ReplaceRange final logic:
+- execute():
+  removed = buf.slice(pos, len)                 // e.g. "abc" for Replace at pos=5 len=3
+  buf.erase(pos, len)                           // buffer now without the removed range
+  buf.insert(pos, text)                         // e.g. insert "XYZ"
+- undo():
+  buf.erase(pos, text.size())                   // remove "XYZ"
+  buf.insert(pos, removed)                      // restore "abc"
+- Scenario trace for "abc", delete b, paste X at pos 1, Undo x3:
+  after Insert a,b,c : buffer "abc"             undoStack: [a][b][c]                  redoStack: []
+  Delete b           : buffer "ac"              undoStack: [a][b][c][Del(pos=1,'b')]   redoStack: []
+  Insert X at 1      : buffer "aXc"             undoStack: [a][b][c][Del(pos=1,'b')][Insert('X' @1)]  redoStack: []
+  Undo (Insert X)    : buffer "ac"              undoStack: [a][b][c][Del(pos=1,'b')]  redoStack: [Insert('X' @1)]
+  Undo (Delete b)    : buffer "abc"             undoStack: [a][b][c]                  redoStack: [Del(pos=1,'b')]
+  Undo (Insert c)    : buffer "ab"              undoStack: [a][b]                     redoStack: [Insert('c')]`,
+
+    'proj-01:1': `ReplaceRange command behavior:
+- execute() = save removed slice, erase it, insert new text.
+- undo()    = erase the text just inserted, re-insert the removed slice at the same position.
+- Net effect: a single command inverts a replace-range regardless of removed/inserted sizes,
+  so paste and replace operations are atomic single-undo steps.`,
+}
