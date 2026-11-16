@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ DSA Academy - Learn Data Structures &amp; Algorithms</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <script defer="" src="scripts/curriculum.js"></script>
+    <script defer="" src="scripts/code-editor.js"></script>
+    <script defer="" src="scripts/main.js"></script>
+    <script defer="" src="scripts/compiler-service.js"></script>
+    <script defer="" src="scripts/sorting-visualizer.js"></script>
+    <script defer="" src="scripts/sorting-visualizer-renderer.js"></script>
+    <script defer="" src="scripts/tree-visualizer.js"></script>
+    <script defer="" src="scripts/graph-visualizer.js"></script>
+    <script defer="" src="scripts/tree-graph-renderer.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header>
+        <div class="container header-content">
+            <div class="header-left">
+                <h1>C++ DSA Academy</h1>
+                <p>Understand ┬╖ Visualize ┬╖ Implement ┬╖ Practice ┬╖ Master</p>
+            </div>
+            <div class="header-center">
+                <input type="search" id="global-search" placeholder="Search topics, lessons, concepts..." aria-label="Global search" role="searchbox" aria-autocomplete="list" aria-controls="search-results">
+            </div>
+            <div class="header-right">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" aria-pressed="true">≡ƒîÖ</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="app-layout">
+        <aside class="sidebar" id="sidebar">
+            <nav class="navigation" role="navigation" aria-label="Main navigation">
+                <ul id="nav-list" role="navigation" aria-label="Main navigation">
+            <li class="nav-section"><strong>Main</strong></li>
+            <li><a href="#dashboard" role="menuitem">≡ƒôè Dashboard</a></li>
+            <li><a href="#visualizers" role="menuitem">≡ƒö¼ Visualization Lab</a></li>
+            <li><a href="#code-lab" role="menuitem">≡ƒÆ╗ C++ Code Lab</a></li>
+            <li><a href="#notes" role="menuitem">≡ƒô¥ My Notes</a></li>
+            <li><a href="#bookmarks" role="menuitem">Γÿà Bookmarks</a></li>
+            <li><a href="#assessments" role="menuitem">≡ƒº¬ Assessments</a></li>
+            <li><a href="#settings" role="menuitem">ΓÜÖ∩╕Å Settings</a></li>
+        <li class="nav-section"><strong>Level 1: Foundations</strong></li>
+                    <li>
+                        <a href="#cpp-foundations" data-topic="cpp-foundations" role="menuitem">
+                            C++ Foundations for DSA
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#complexity" data-topic="complexity" role="menuitem">
+                            Algorithm Analysis and Complexity
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#arrays" data-topic="arrays" role="menuitem">
+                            Arrays and Strings
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#linked-lists" data-topic="linked-lists" role="menuitem">
+                            Linked Lists
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#stacks-queues" data-topic="stacks-queues" role="menuitem">
+                            Stacks and Queues
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#recursion" data-topic="recursion" role="menuitem">
+                            Recursion and Backtracking
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li><li class="nav-section"><strong>Level 2: Intermediate</strong></li>
+                    <li>
+                        <a href="#trees" data-topic="trees" role="menuitem">
+                            Trees
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#hashing" data-topic="hashing" role="menuitem">
+                            Hashing
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#graphs" data-topic="graphs" role="menuitem">
+                            Graph Algorithms
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#searching" data-topic="searching" role="menuitem">
+                            Searching Algorithms
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#sorting" data-topic="sorting" role="menuitem">
+                            Sorting Algorithms
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#greedy" data-topic="greedy" role="menuitem">
+                            Greedy Algorithms
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li><li class="nav-section"><strong>Level 3: Advanced</strong></li>
+                    <li>
+                        <a href="#dynamic-programming" data-topic="dynamic-programming" role="menuitem">
+                            Dynamic Programming
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#divide-conquer" data-topic="divide-conquer" role="menuitem">
+                            Divide and Conquer
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#bit-manipulation" data-topic="bit-manipulation" role="menuitem">
+                            Bit Manipulation
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#advanced-graphs" data-topic="advanced-graphs" role="menuitem">
+                            Advanced Graph Algorithms
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#competitive-programming" data-topic="competitive-programming" role="menuitem">
+                            Competitive Programming
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#practical-projects" data-topic="practical-projects" role="menuitem">
+                            Practical DSA Projects
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li></ul>
+            </nav>
+        </aside>
+
+        <main class="main-content" id="main-content">
+            <div class="content-area" id="content-area">
+            <header class="page-header tree-graph-header">
+                <h2>≡ƒî│ Tree &amp; Graph Visualizer</h2>
+                <p>Interactive BST operations, tree traversals, and graph algorithms with step-by-step animation</p>
+            </header>
+            
+            <div class="tree-graph-layout">
+                <aside class="tree-graph-sidebar">
+                    <!-- Mode Selection -->
+                    <section class="sidebar-section">
+                        <h3>≡ƒÄ» Visualization Mode</h3>
+                        <div class="mode-tabs">
+                            <button class="mode-tab active" data-mode="bst">
+                                <span class="mode-icon">≡ƒî│</span>
+                                <span>Binary Search Tree</span>
+                            </button>
+                            <button class="mode-tab " data-mode="graph">
+                                <span class="mode-icon">≡ƒò╕∩╕Å</span>
+                                <span>Graph</span>
+                            </button>
+                        </div>
+                    </section>
+                    
+                    <!-- BST Mode Content -->
+                    <div class="mode-content" id="bst-content" style="">
+                        <section class="sidebar-section">
+                            <h3>ΓÜÖ∩╕Å BST Operations</h3>
+                            <div class="operation-tabs">
+                                
+                                    <button class="operation-tab active" data-operation="insert" title="Insert a value in the BST">
+                                        Γ₧ò Insert
+                                    </button>
+                                
+                                    <button class="operation-tab " data-operation="delete" title="Delete a value in the BST">
+                                        ≡ƒùæ∩╕Å Delete
+                                    </button>
+                                
+                                    <button class="operation-tab " data-operation="search" title="Search a value in the BST">
+                                        ≡ƒöì Search
+                                    </button>
+                                
+                            </div>
+                            <div class="control-group">
+                                <label for="bst-value">Value (1-99):</label>
+                                <input type="number" id="bst-value" min="1" max="99" value="42" step="1">
+                            </div>
+                            <div class="control-group">
+                                <button class="btn primary" id="bst-execute">Execute Insert</button>
+                            </div>
+                        </section>
+                        
+                        <section class="sidebar-section">
+                            <h3>≡ƒöä Tree Traversals</h3>
+                            <div class="traversal-list">
+                                
+                                    <button class="traversal-btn" data-traversal="preorder" title="Root ΓåÆ Left ΓåÆ Right">
+                                        <span class="trav-name">Preorder</span>
+                                        <span class="trav-desc">Root ΓåÆ Left ΓåÆ Right</span>
+                                    </button>
+                                
+                                    <button class="traversal-btn" data-traversal="inorder" title="Left ΓåÆ Root ΓåÆ Right (sorted)">
+                                        <span class="trav-name">Inorder</span>
+                                        <span class="trav-desc">Left ΓåÆ Root ΓåÆ Right (sorted)</span>
+                                    </button>
+                                
+                                    <button class="traversal-btn" data-traversal="postorder" title="Left ΓåÆ Right ΓåÆ Root">
+                                        <span class="trav-name">Postorder</span>
+                                        <span class="trav-desc">Left ΓåÆ Right ΓåÆ Root</span>
+                                    </button>
+                                
+                                    <button class="traversal-btn" data-traversal="levelorder" title="Level by level (BFS)">
+                                        <span class="trav-name">Level-order</span>
+                                        <span class="trav-desc">Level by level (BFS)</span>
+                                    </button>
+                                
+                            </div>
+                        </section>
+                        
+                        <section class="sidebar-section">
+                            <h3>≡ƒî▓ Tree Controls</h3>
+                            <div class="control-group">
+                                <label for="bst-size">Tree Size: <span id="bst-size-value">15</span></label>
+                                <input type="range" id="bst-size" min="5" max="25" value="15" step="1">
+                            </div>
+                            <div class="control-group">
+                                <label for="bst-speed">Animation Speed: <span id="bst-speed-value">5</span></label>
+                                <input type="range" id="bst-speed" min="1" max="10" value="5">
+                            </div>
+                            <div class="control-group">
+                                <button class="btn" id="bst-generate">≡ƒöÇ Generate Random BST</button>
+                                <button class="btn" id="bst-clear">≡ƒùæ∩╕Å Clear Tree</button>
+                            </div>
+                        </section>
+                    </div>
+                    
+                    <!-- Graph Mode Content -->
+                    <div class="mode-content" id="graph-content" style="display:none">
+                        <section class="sidebar-section">
+                            <h3>≡ƒöì Graph Algorithms</h3>
+                            <div class="algorithm-tabs">
+                                
+                                    <button class="algorithm-tab active" data-algorithm="bfs" title="Breadth-First Search (Queue)">
+                                        ≡ƒôï BFS
+                                    </button>
+                                
+                                    <button class="algorithm-tab " data-algorithm="dfs" title="Depth-First Search (Stack)">
+                                        ≡ƒôÜ DFS
+                                    </button>
+                                
+                            </div>
+                            <div class="control-group">
+                                <label for="graph-start">Start Node:</label>
+                                <select id="graph-start"></select>
+                            </div>
+                            <div class="control-group">
+                                <label for="graph-target">Target Node (optional):</label>
+                                <select id="graph-target">
+                                    <option value="">None (full traversal)</option>
+                                </select>
+                            </div>
+                            <div class="control-group">
+                                <button class="btn primary" id="graph-execute">Run BFS</button>
+                            </div>
+                        </section>
+                        
+                        <section class="sidebar-section">
+                            <h3>≡ƒò╕∩╕Å Graph Controls</h3>
+                            <div class="control-group">
+                                <label for="graph-nodes">Nodes: <span id="graph-nodes-value">8</span></label>
+                                <input type="range" id="graph-nodes" min="4" max="15" value="8" step="1">
+                            </div>
+                            <div class="control-group">
+                                <label for="graph-density">Edge Density: <span id="graph-density-value">30%</span></label>
+                                <input type="range" id="graph-density" min="10" max="60" value="30" step="5">
+                            </div>
+                            <div class="control-group">
+                                <label for="graph-speed">Animation Speed: <span id="graph-speed-value">5</span></label>
+                                <input type="range" id="graph-speed" min="1" max="10" value="5">
+                            </div>
+                            <div class="control-group">
+                                <button class="btn" id="graph-generate">≡ƒöÇ Generate Random Graph</button>
+                                <button class="btn" id="graph-clear">≡ƒùæ∩╕Å Clear Graph</button>
+                            </div>
+                        </section>
+                    </div>
+                    
+                    <!-- Common Stats Panel -->
+                    <section class="sidebar-section">
+                        <h3>≡ƒôè Statistics</h3>
+                        <div class="stats-panel" id="stats-panel">
+                            <div class="stat-row">
+                                <span class="stat-label">Steps:</span>
+                                <span class="stat-value" id="stat-steps">39</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Current Step:</span>
+                                <span class="stat-value" id="stat-current-step">1</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Comparisons:</span>
+                                <span class="stat-value" id="stat-comparisons">38</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Operations:</span>
+                                <span class="stat-value" id="stat-operations">14</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Nodes:</span>
+                                <span class="stat-value" id="stat-nodes">15</span>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Algorithm Info -->
+                    <section class="sidebar-section">
+                        <h3>≡ƒÆí Algorithm Info</h3>
+                        <div class="algorithm-info" id="algorithm-info">
+                            
+            <div class="algo-detail">
+                <h4>BST Insert</h4>
+                <p class="algo-desc">Insert a new value while maintaining BST property: left &lt; root &lt; right. Average O(log n), worst O(n) for unbalanced tree.</p>
+                <table class="complexity-table">
+                    <tbody><tr><th>Case</th><th>Time</th></tr>
+                    <tr><td>Best</td><td>O(log n)</td></tr>
+                    <tr><td>Average</td><td>O(log n)</td></tr>
+                    <tr><td>Worst</td><td>O(n)</td></tr>
+                </tbody></table>
+                <div class="space-stable">
+                    <span><strong>Space:</strong> O(h)</span>
+                </div>
+            </div>
+        
+                        </div>
+                    </section>
+                </aside>
+                
+                <main class="tree-graph-main">
+                    <div class="visualizer-container">
+                        <canvas id="tree-graph-canvas" class="tree-graph-canvas" width="681" height="500"></canvas>
+                        
+                        <div class="visualizer-controls-main">
+                            <div class="control-group-inline">
+                                <button class="btn control-btn" id="tg-btn-reset" title="Reset">Γå║ Reset</button>
+                                <button class="btn control-btn" id="tg-btn-step-back" title="Step Back">ΓÅ« Step Back</button>
+                                <button class="btn control-btn primary" id="tg-btn-play" title="Play" style="display: inline-flex;">Γû╢ Play</button>
+                                <button class="btn control-btn" id="tg-btn-pause" title="Pause" style="display:none;">ΓÅ╕ Pause</button>
+                                <button class="btn control-btn" id="tg-btn-step" title="Step Forward">ΓÅ¡ Step</button>
+                            </div>
+                            <div class="control-group-inline">
+                                <span class="step-indicator" id="tg-step-indicator">Step 1 / 39</span>
+                            </div>
+                        </div>
+                        
+                        <div class="step-description" id="tg-step-description">Compare 32 with 37</div>
+                    </div>
+                    
+                    <!-- Code Section -->
+                    <section class="code-section">
+                        <h3>≡ƒÆ╗ C++ Implementation</h3>
+                        <div class="code-tabs" id="tg-code-tabs">
+                            
+                <button class="code-tab active" data-code-tab="bst-insert">BST Insert</button>
+                <button class="code-tab" data-code-tab="bst-delete">BST Delete</button>
+                <button class="code-tab" data-code-tab="bst-search">BST Search</button>
+                <button class="code-tab" data-code-tab="bst-traversal">Tree Traversals</button>
+            
+                        </div>
+                        <pre><code id="tg-algorithm-code" class="language-cpp">Node* insert(Node* root, int key) {
+    if (!root) return new Node(key);
+    
+    if (key &lt; root-&gt;key)
+        root-&gt;left = insert(root-&gt;left, key);
+    else if (key &gt; root-&gt;key)
+        root-&gt;right = insert(root-&gt;right, key);
+    
+    return root;
+}
+
+// Iterative version
+Node* insertIterative(Node* root, int key) {
+    Node* node = new Node(key);
+    if (!root) return node;
+    
+    Node* curr = root;
+    Node* parent = nullptr;
+    
+    while (curr) {
+        parent = curr;
+        if (key &lt; curr-&gt;key)
+            curr = curr-&gt;left;
+        else if (key &gt; curr-&gt;key)
+            curr = curr-&gt;right;
+        else
+            return root; // duplicate
+    }
+    
+    if (key &lt; parent-&gt;key)
+        parent-&gt;left = node;
+    else
+        parent-&gt;right = node;
+    
+    return root;
+}</code></pre>
+                    </section>
+                </main>
+            </div>
+        </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>C++ DSA Academy | Interactive Educational Platform</p>
+        </div>
+    </footer>
+
+<div class="toast-container" role="region" aria-label="Notifications" aria-live="polite"></div></body></html>

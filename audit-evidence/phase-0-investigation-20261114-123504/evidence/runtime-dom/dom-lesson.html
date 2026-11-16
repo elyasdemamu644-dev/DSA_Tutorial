@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ DSA Academy - Learn Data Structures &amp; Algorithms</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <script defer="" src="scripts/curriculum.js"></script>
+    <script defer="" src="scripts/code-editor.js"></script>
+    <script defer="" src="scripts/main.js"></script>
+    <script defer="" src="scripts/compiler-service.js"></script>
+    <script defer="" src="scripts/sorting-visualizer.js"></script>
+    <script defer="" src="scripts/sorting-visualizer-renderer.js"></script>
+    <script defer="" src="scripts/tree-visualizer.js"></script>
+    <script defer="" src="scripts/graph-visualizer.js"></script>
+    <script defer="" src="scripts/tree-graph-renderer.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header>
+        <div class="container header-content">
+            <div class="header-left">
+                <h1>C++ DSA Academy</h1>
+                <p>Understand ┬╖ Visualize ┬╖ Implement ┬╖ Practice ┬╖ Master</p>
+            </div>
+            <div class="header-center">
+                <input type="search" id="global-search" placeholder="Search topics, lessons, concepts..." aria-label="Global search" role="searchbox" aria-autocomplete="list" aria-controls="search-results">
+            </div>
+            <div class="header-right">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" aria-pressed="true">≡ƒîÖ</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="app-layout">
+        <aside class="sidebar" id="sidebar">
+            <nav class="navigation" role="navigation" aria-label="Main navigation">
+                <ul id="nav-list" role="navigation" aria-label="Main navigation">
+            <li class="nav-section"><strong>Main</strong></li>
+            <li><a href="#dashboard" role="menuitem">≡ƒôè Dashboard</a></li>
+            <li><a href="#visualizers" role="menuitem">≡ƒö¼ Visualization Lab</a></li>
+            <li><a href="#code-lab" role="menuitem">≡ƒÆ╗ C++ Code Lab</a></li>
+            <li><a href="#notes" role="menuitem">≡ƒô¥ My Notes</a></li>
+            <li><a href="#bookmarks" role="menuitem">Γÿà Bookmarks</a></li>
+            <li><a href="#assessments" role="menuitem">≡ƒº¬ Assessments</a></li>
+            <li><a href="#settings" role="menuitem">ΓÜÖ∩╕Å Settings</a></li>
+        <li class="nav-section"><strong>Level 1: Foundations</strong></li>
+                    <li>
+                        <a href="#cpp-foundations" data-topic="cpp-foundations" role="menuitem">
+                            C++ Foundations for DSA
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#complexity" data-topic="complexity" role="menuitem">
+                            Algorithm Analysis and Complexity
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#arrays" data-topic="arrays" role="menuitem">
+                            Arrays and Strings
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#linked-lists" data-topic="linked-lists" role="menuitem">
+                            Linked Lists
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#stacks-queues" data-topic="stacks-queues" role="menuitem">
+                            Stacks and Queues
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#recursion" data-topic="recursion" role="menuitem">
+                            Recursion and Backtracking
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li><li class="nav-section"><strong>Level 2: Intermediate</strong></li>
+                    <li>
+                        <a href="#trees" data-topic="trees" role="menuitem">
+                            Trees
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#hashing" data-topic="hashing" role="menuitem">
+                            Hashing
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#graphs" data-topic="graphs" role="menuitem">
+                            Graph Algorithms
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#searching" data-topic="searching" role="menuitem">
+                            Searching Algorithms
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#sorting" data-topic="sorting" role="menuitem">
+                            Sorting Algorithms
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#greedy" data-topic="greedy" role="menuitem">
+                            Greedy Algorithms
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li><li class="nav-section"><strong>Level 3: Advanced</strong></li>
+                    <li>
+                        <a href="#dynamic-programming" data-topic="dynamic-programming" role="menuitem">
+                            Dynamic Programming
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#divide-conquer" data-topic="divide-conquer" role="menuitem">
+                            Divide and Conquer
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#bit-manipulation" data-topic="bit-manipulation" role="menuitem">
+                            Bit Manipulation
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#advanced-graphs" data-topic="advanced-graphs" role="menuitem">
+                            Advanced Graph Algorithms
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#competitive-programming" data-topic="competitive-programming" role="menuitem">
+                            Competitive Programming
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#practical-projects" data-topic="practical-projects" role="menuitem">
+                            Practical DSA Projects
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li></ul>
+            </nav>
+        </aside>
+
+        <main class="main-content" id="main-content">
+            <div class="content-area" id="content-area">
+            <header class="lesson-header">
+                <nav class="lesson-breadcrumb">
+                    <a href="#arrays">Arrays and Strings</a>
+                    <span>ΓÇ║</span>
+                    <a href="#arrays:array-basics">Array Fundamentals</a>
+                    <span>ΓÇ║</span>
+                    <span>Array Representation and Memory Layout</span>
+                </nav>
+                <div class="lesson-actions">
+                    <button class="btn " id="complete-btn" data-topic="arrays" data-module="array-basics" data-lesson="arr-01">
+                        Mark Complete
+                    </button>
+                    <button class="btn" id="notes-btn" title="Notes">≡ƒô¥</button>
+                </div>
+            </header>
+            
+            <article class="lesson-content">
+                <section class="objectives">
+                    <h3>≡ƒÄ» Learning Objectives</h3>
+                    <ul><li>Understand contiguous memory layout</li><li>Calculate addresses with pointer arithmetic</li><li>Distinguish static vs dynamic arrays</li></ul></section><section class="content">
+                            <h3>Array Memory Layout</h3>
+                            <p>Arrays store elements in <strong>contiguous memory</strong>. For an array <code>T arr[n]</code>:</p>
+                            <ul>
+                                <li>Element i is at address <code>base + i * sizeof(T)</code></li>
+                                <li>Cache-friendly: spatial locality</li>
+                                <li>No per-element overhead</li>
+                            </ul>
+                            
+                            <h4>C++ Array Types</h4>
+                            <pre><code><span class="&lt;span">"comment"</span>&gt;// Fixed-size (stack)
+<span class="&lt;span">"type"</span>&gt;int arr1[<span class="number">10</span>];              <span class="&lt;span">"comment"</span>&gt;// C-style
+std::array arr2;  <span class="&lt;span">"comment"</span>&gt;// C++<span class="number">11</span> wrapper
+<span class="&lt;span">"comment"</span>&gt;// Dynamic (heap-managed)
+std::<span class="&lt;span">"type"</span>&gt;vector arr3(<span class="number">10</span>); <span class="&lt;span">"comment"</span>&gt;// Preferred <span class="&lt;span">"keyword"</span>&gt;for variable size
+<span class="&lt;span">"type"</span>&gt;int* arr4 = <span class="&lt;span">"keyword"</span>&gt;new <span class="&lt;span">"type"</span>&gt;int[<span class="number">10</span>];   <span class="&lt;span">"comment"</span>&gt;// Manual (avoid)</code></pre>
+                            
+                            <h4>Pointer Arithmetic</h4>
+                            <pre><code><span class="&lt;span">"type"</span>&gt;int arr[<span class="number">5</span>] = {<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>};
+<span class="&lt;span">"type"</span>&gt;int* ptr = arr;           <span class="&lt;span">"comment"</span>&gt;// Points to arr[<span class="number">0</span>]
+*(ptr + <span class="number">2</span>) = <span class="number">30</span>;          <span class="&lt;span">"comment"</span>&gt;// arr[<span class="number">2</span>] = <span class="number">30</span>
+ptr[<span class="number">3</span>] = <span class="number">40</span>;              <span class="&lt;span">"comment"</span>&gt;// arr[<span class="number">3</span>] = <span class="number">40</span>
+<span class="&lt;span">"type"</span>&gt;int diff = (ptr + <span class="number">4</span>) - ptr; <span class="&lt;span">"comment"</span>&gt;// <span class="number">4</span> (elements, not bytes)</code></pre>
+                        </section><section class="code-examples">
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>Array Iteration Patterns</span>
+                            <span class="language">cpp</span>
+                            <button class="copy-btn" data-code="0">Copy</button>
+                        </div>
+                        <pre><code class="language-cpp"><span class="&lt;span">"comment"</span>&gt;// Index-based
+<span class="&lt;span">"keyword"</span>&gt;for (<span class="&lt;span">"type"</span>&gt;size_t i = <span class="number">0</span>; i &lt; v.size(); ++i) { }
+<span class="&lt;span">"comment"</span>&gt;// Iterator-based
+<span class="&lt;span">"keyword"</span>&gt;for (<span class="&lt;span">"type"</span>&gt;auto it = v.begin(); it != v.end(); ++it) { }
+<span class="&lt;span">"comment"</span>&gt;// Range-based <span class="&lt;span">"keyword"</span>&gt;for (C++<span class="number">11</span>)
+<span class="&lt;span">"keyword"</span>&gt;for (<span class="&lt;span">"type"</span>&gt;int&amp; x : v) { x *= <span class="number">2</span>; }
+<span class="&lt;span">"comment"</span>&gt;// Reverse iteration
+<span class="&lt;span">"keyword"</span>&gt;for (<span class="&lt;span">"type"</span>&gt;auto it = v.rbegin(); it != v.rend(); ++it) { }</code></pre>
+                    </div></section><section class="quiz-section">
+                <h3>≡ƒºá Quick Check</h3>
+                <form class="quiz-form" id="quiz-form"><div class="quiz-question mcq" data-id="arr-01-q1">
+                <p><strong>Q1.</strong> What is the memory layout of std::vector elements?</p>
+                <ul class="options"><li>
+                    <label>
+                        <input type="radio" name="quiz-arr-01-q1" value="0">
+                        Contiguous
+                    </label>
+                </li><li>
+                    <label>
+                        <input type="radio" name="quiz-arr-01-q1" value="1">
+                        Linked list
+                    </label>
+                </li><li>
+                    <label>
+                        <input type="radio" name="quiz-arr-01-q1" value="2">
+                        Tree
+                    </label>
+                </li><li>
+                    <label>
+                        <input type="radio" name="quiz-arr-01-q1" value="3">
+                        Hash table
+                    </label>
+                </li></ul></div>
+                    <button type="submit" class="btn primary">Submit Answers</button>
+                </form>
+                <div class="quiz-results" id="quiz-results" style="display:none;"></div>
+            </section>
+            <nav class="lesson-nav">
+                <span class="btn disabled">ΓåÉ Previous</span>
+                
+                    <a href="#arrays:array-basics:arr-02" class="btn next">
+                        Next: Two Pointer Technique ΓåÆ
+                    </a>
+            </nav>
+            <section class="notes-section" id="notes-section" style="display:none;">
+                <h3>≡ƒô¥ Your Notes</h3>
+                <textarea id="notes-textarea" placeholder="Write your notes here..."></textarea>
+                <button class="btn" id="save-notes-btn" data-topic="arrays" data-module="array-basics" data-lesson="arr-01">Save Notes</button>
+            </section></article></div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>C++ DSA Academy | Interactive Educational Platform</p>
+        </div>
+    </footer>
+
+<div class="toast-container" role="region" aria-label="Notifications" aria-live="polite"></div></body></html>

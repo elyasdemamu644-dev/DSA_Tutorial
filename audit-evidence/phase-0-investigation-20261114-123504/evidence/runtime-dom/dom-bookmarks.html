@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ DSA Academy - Learn Data Structures &amp; Algorithms</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <script defer="" src="scripts/curriculum.js"></script>
+    <script defer="" src="scripts/code-editor.js"></script>
+    <script defer="" src="scripts/main.js"></script>
+    <script defer="" src="scripts/compiler-service.js"></script>
+    <script defer="" src="scripts/sorting-visualizer.js"></script>
+    <script defer="" src="scripts/sorting-visualizer-renderer.js"></script>
+    <script defer="" src="scripts/tree-visualizer.js"></script>
+    <script defer="" src="scripts/graph-visualizer.js"></script>
+    <script defer="" src="scripts/tree-graph-renderer.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header>
+        <div class="container header-content">
+            <div class="header-left">
+                <h1>C++ DSA Academy</h1>
+                <p>Understand ┬╖ Visualize ┬╖ Implement ┬╖ Practice ┬╖ Master</p>
+            </div>
+            <div class="header-center">
+                <input type="search" id="global-search" placeholder="Search topics, lessons, concepts..." aria-label="Global search" role="searchbox" aria-autocomplete="list" aria-controls="search-results">
+            </div>
+            <div class="header-right">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" aria-pressed="true">≡ƒîÖ</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="app-layout">
+        <aside class="sidebar" id="sidebar">
+            <nav class="navigation" role="navigation" aria-label="Main navigation">
+                <ul id="nav-list" role="navigation" aria-label="Main navigation">
+            <li class="nav-section"><strong>Main</strong></li>
+            <li><a href="#dashboard" role="menuitem">≡ƒôè Dashboard</a></li>
+            <li><a href="#visualizers" role="menuitem">≡ƒö¼ Visualization Lab</a></li>
+            <li><a href="#code-lab" role="menuitem">≡ƒÆ╗ C++ Code Lab</a></li>
+            <li><a href="#notes" role="menuitem">≡ƒô¥ My Notes</a></li>
+            <li><a href="#bookmarks" role="menuitem" class="active">Γÿà Bookmarks</a></li>
+            <li><a href="#assessments" role="menuitem">≡ƒº¬ Assessments</a></li>
+            <li><a href="#settings" role="menuitem">ΓÜÖ∩╕Å Settings</a></li>
+        <li class="nav-section"><strong>Level 1: Foundations</strong></li>
+                    <li>
+                        <a href="#cpp-foundations" data-topic="cpp-foundations" role="menuitem">
+                            C++ Foundations for DSA
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#complexity" data-topic="complexity" role="menuitem">
+                            Algorithm Analysis and Complexity
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#arrays" data-topic="arrays" role="menuitem">
+                            Arrays and Strings
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#linked-lists" data-topic="linked-lists" role="menuitem">
+                            Linked Lists
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#stacks-queues" data-topic="stacks-queues" role="menuitem">
+                            Stacks and Queues
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#recursion" data-topic="recursion" role="menuitem">
+                            Recursion and Backtracking
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li><li class="nav-section"><strong>Level 2: Intermediate</strong></li>
+                    <li>
+                        <a href="#trees" data-topic="trees" role="menuitem">
+                            Trees
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#hashing" data-topic="hashing" role="menuitem">
+                            Hashing
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#graphs" data-topic="graphs" role="menuitem">
+                            Graph Algorithms
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#searching" data-topic="searching" role="menuitem">
+                            Searching Algorithms
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#sorting" data-topic="sorting" role="menuitem">
+                            Sorting Algorithms
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#greedy" data-topic="greedy" role="menuitem">
+                            Greedy Algorithms
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li><li class="nav-section"><strong>Level 3: Advanced</strong></li>
+                    <li>
+                        <a href="#dynamic-programming" data-topic="dynamic-programming" role="menuitem">
+                            Dynamic Programming
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#divide-conquer" data-topic="divide-conquer" role="menuitem">
+                            Divide and Conquer
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#bit-manipulation" data-topic="bit-manipulation" role="menuitem">
+                            Bit Manipulation
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#advanced-graphs" data-topic="advanced-graphs" role="menuitem">
+                            Advanced Graph Algorithms
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#competitive-programming" data-topic="competitive-programming" role="menuitem">
+                            Competitive Programming
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#practical-projects" data-topic="practical-projects" role="menuitem">
+                            Practical DSA Projects
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li></ul>
+            </nav>
+        </aside>
+
+        <main class="main-content" id="main-content">
+            <div class="content-area" id="content-area">
+            <header class="page-header">
+                <h2>Γÿà Bookmarks</h2>
+                <p>Quick access to important lessons</p>
+            </header>
+            
+            <div class="bookmarks-list">
+                <p class="empty">No bookmarks yet</p>
+            </div>
+        </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>C++ DSA Academy | Interactive Educational Platform</p>
+        </div>
+    </footer>
+
+<div class="toast-container" role="region" aria-label="Notifications" aria-live="polite"></div></body></html>

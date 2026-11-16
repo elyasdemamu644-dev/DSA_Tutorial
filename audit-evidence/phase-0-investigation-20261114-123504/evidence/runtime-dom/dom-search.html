@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ DSA Academy - Learn Data Structures &amp; Algorithms</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <script defer="" src="scripts/curriculum.js"></script>
+    <script defer="" src="scripts/code-editor.js"></script>
+    <script defer="" src="scripts/main.js"></script>
+    <script defer="" src="scripts/compiler-service.js"></script>
+    <script defer="" src="scripts/sorting-visualizer.js"></script>
+    <script defer="" src="scripts/sorting-visualizer-renderer.js"></script>
+    <script defer="" src="scripts/tree-visualizer.js"></script>
+    <script defer="" src="scripts/graph-visualizer.js"></script>
+    <script defer="" src="scripts/tree-graph-renderer.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header>
+        <div class="container header-content">
+            <div class="header-left">
+                <h1>C++ DSA Academy</h1>
+                <p>Understand ┬╖ Visualize ┬╖ Implement ┬╖ Practice ┬╖ Master</p>
+            </div>
+            <div class="header-center">
+                <input type="search" id="global-search" placeholder="Search topics, lessons, concepts..." aria-label="Global search" role="searchbox" aria-autocomplete="list" aria-controls="search-results">
+            </div>
+            <div class="header-right">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" aria-pressed="true">≡ƒîÖ</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="app-layout">
+        <aside class="sidebar" id="sidebar">
+            <nav class="navigation" role="navigation" aria-label="Main navigation">
+                <ul id="nav-list" role="navigation" aria-label="Main navigation">
+            <li class="nav-section"><strong>Main</strong></li>
+            <li><a href="#dashboard" role="menuitem">≡ƒôè Dashboard</a></li>
+            <li><a href="#visualizers" role="menuitem">≡ƒö¼ Visualization Lab</a></li>
+            <li><a href="#code-lab" role="menuitem">≡ƒÆ╗ C++ Code Lab</a></li>
+            <li><a href="#notes" role="menuitem">≡ƒô¥ My Notes</a></li>
+            <li><a href="#bookmarks" role="menuitem">Γÿà Bookmarks</a></li>
+            <li><a href="#assessments" role="menuitem">≡ƒº¬ Assessments</a></li>
+            <li><a href="#settings" role="menuitem">ΓÜÖ∩╕Å Settings</a></li>
+        <li class="nav-section"><strong>Level 1: Foundations</strong></li>
+                    <li>
+                        <a href="#cpp-foundations" data-topic="cpp-foundations" role="menuitem">
+                            C++ Foundations for DSA
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#complexity" data-topic="complexity" role="menuitem">
+                            Algorithm Analysis and Complexity
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#arrays" data-topic="arrays" role="menuitem">
+                            Arrays and Strings
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#linked-lists" data-topic="linked-lists" role="menuitem">
+                            Linked Lists
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#stacks-queues" data-topic="stacks-queues" role="menuitem">
+                            Stacks and Queues
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#recursion" data-topic="recursion" role="menuitem">
+                            Recursion and Backtracking
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li><li class="nav-section"><strong>Level 2: Intermediate</strong></li>
+                    <li>
+                        <a href="#trees" data-topic="trees" role="menuitem">
+                            Trees
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#hashing" data-topic="hashing" role="menuitem">
+                            Hashing
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#graphs" data-topic="graphs" role="menuitem">
+                            Graph Algorithms
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#searching" data-topic="searching" role="menuitem">
+                            Searching Algorithms
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#sorting" data-topic="sorting" role="menuitem">
+                            Sorting Algorithms
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#greedy" data-topic="greedy" role="menuitem">
+                            Greedy Algorithms
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li><li class="nav-section"><strong>Level 3: Advanced</strong></li>
+                    <li>
+                        <a href="#dynamic-programming" data-topic="dynamic-programming" role="menuitem">
+                            Dynamic Programming
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#divide-conquer" data-topic="divide-conquer" role="menuitem">
+                            Divide and Conquer
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#bit-manipulation" data-topic="bit-manipulation" role="menuitem">
+                            Bit Manipulation
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#advanced-graphs" data-topic="advanced-graphs" role="menuitem">
+                            Advanced Graph Algorithms
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#competitive-programming" data-topic="competitive-programming" role="menuitem">
+                            Competitive Programming
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#practical-projects" data-topic="practical-projects" role="menuitem">
+                            Practical DSA Projects
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li></ul>
+            </nav>
+        </aside>
+
+        <main class="main-content" id="main-content">
+            <div class="content-area" id="content-area">
+            <header class="lesson-header">
+                <nav class="lesson-breadcrumb">
+                    <a href="#searching">Searching Algorithms</a>
+                    <span>ΓÇ║</span>
+                    <a href="#searching:searching-basics">Binary Search and Variants</a>
+                    <span>ΓÇ║</span>
+                    <span>Binary Search on Answer</span>
+                </nav>
+                <div class="lesson-actions">
+                    <button class="btn " id="complete-btn" data-topic="searching" data-module="searching-basics" data-lesson="search-01">
+                        Mark Complete
+                    </button>
+                    <button class="btn" id="notes-btn" title="Notes">≡ƒô¥</button>
+                </div>
+            </header>
+            
+            <article class="lesson-content">
+                <section class="objectives">
+                    <h3>≡ƒÄ» Learning Objectives</h3>
+                    <ul><li>Apply binary search to monotonic functions</li><li>Find first/last occurrence</li><li>Search on answer space</li><li>Use STL lower_bound/upper_bound</li></ul></section><section class="content">
+                            <h3>Binary Search Fundamentals</h3>
+                            <p>Binary search finds a target in a <strong>sorted</strong> array in O(log n) by repeatedly dividing the search space.</p>
+                            
+                            <h4>Classic Binary Search</h4>
+                            <pre><code><span class="&lt;span">"comment"</span>&gt;// Returns index of target, or -<span class="number">1</span> <span class="&lt;span">"keyword"</span>&gt;if not found
+<span class="&lt;span">"type"</span>&gt;int binarySearch(<span class="&lt;span">"keyword"</span>&gt;const <span class="&lt;span">"type"</span>&gt;vector&amp; arr, <span class="&lt;span">"type"</span>&gt;int target) {
+    <span class="&lt;span">"type"</span>&gt;int l = <span class="number">0</span>, r = arr.size() - <span class="number">1</span>;
+    <span class="&lt;span">"keyword"</span>&gt;while (l &lt;= r) {
+        <span class="&lt;span">"type"</span>&gt;int m = l + (r - l) / <span class="number">2</span>;
+        <span class="&lt;span">"keyword"</span>&gt;if (arr[m] == target) <span class="&lt;span">"keyword"</span>&gt;return m;
+        <span class="&lt;span">"keyword"</span>&gt;else <span class="&lt;span">"keyword"</span>&gt;if (arr[m] &lt; target) l = m + <span class="number">1</span>;
+        <span class="&lt;span">"keyword"</span>&gt;else r = m - <span class="number">1</span>;
+    }
+    <span class="&lt;span">"keyword"</span>&gt;return -<span class="number">1</span>;
+}
+<span class="&lt;span">"comment"</span>&gt;// Template <span class="&lt;span">"keyword"</span>&gt;for finding FIRST true in [false...false, true...true]
+<span class="&lt;span">"type"</span>&gt;int firstTrue(<span class="&lt;span">"type"</span>&gt;int l, <span class="&lt;span">"type"</span>&gt;int r, <span class="&lt;span">"keyword"</span>&gt;function check) {
+    <span class="&lt;span">"keyword"</span>&gt;while (l &lt; r) {
+        <span class="&lt;span">"type"</span>&gt;int m = l + (r - l) / <span class="number">2</span>;
+        <span class="&lt;span">"keyword"</span>&gt;if (check(m)) r = m;
+        <span class="&lt;span">"keyword"</span>&gt;else l = m + <span class="number">1</span>;
+    }
+    <span class="&lt;span">"keyword"</span>&gt;return check(l) ? l : -<span class="number">1</span>;
+}
+<span class="&lt;span">"comment"</span>&gt;// Template <span class="&lt;span">"keyword"</span>&gt;for finding LAST true in [true...true, false...false]
+<span class="&lt;span">"type"</span>&gt;int lastTrue(<span class="&lt;span">"type"</span>&gt;int l, <span class="&lt;span">"type"</span>&gt;int r, <span class="&lt;span">"keyword"</span>&gt;function check) {
+    <span class="&lt;span">"keyword"</span>&gt;while (l &lt; r) {
+        <span class="&lt;span">"type"</span>&gt;int m = l + (r - l + <span class="number">1</span>) / <span class="number">2</span>; <span class="&lt;span">"comment"</span>&gt;// Upper mid
+        <span class="&lt;span">"keyword"</span>&gt;if (check(m)) l = m;
+        <span class="&lt;span">"keyword"</span>&gt;else r = m - <span class="number">1</span>;
+    }
+    <span class="&lt;span">"keyword"</span>&gt;return check(l) ? l : -<span class="number">1</span>;
+}
+</code></pre>
+                            
+                            <h4>STL Binary Search</h4>
+                            <pre><code><span class="&lt;span">"type"</span>&gt;vector v = {<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">5</span>};
+<span class="&lt;span">"type"</span>&gt;auto it = lower_bound(v.begin(), v.end(), <span class="number">3</span>); <span class="&lt;span">"comment"</span>&gt;// First &gt;= <span class="number">3</span> (index <span class="number">3</span>)
+<span class="&lt;span">"type"</span>&gt;auto it = upper_bound(v.begin(), v.end(), <span class="number">3</span>); <span class="&lt;span">"comment"</span>&gt;// First &gt; <span class="number">3</span> (index <span class="number">4</span>)
+<span class="&lt;span">"type"</span>&gt;auto range = equal_range(v.begin(), v.end(), <span class="number">4</span>); <span class="&lt;span">"comment"</span>&gt;// [first, last) of <span class="number">4</span>
+<span class="&lt;span">"type"</span>&gt;int count = range.second - range.first; <span class="&lt;span">"comment"</span>&gt;// <span class="number">3</span> occurrences
+<span class="&lt;span">"type"</span>&gt;bool exists = binary_search(v.begin(), v.end(), <span class="number">3</span>); <span class="&lt;span">"comment"</span>&gt;// true
+</code></pre>
+                            
+                            <h4>Binary Search on Answer</h4>
+                            <p>Search the answer space instead of array. Check if a candidate answer is valid (monotonic predicate).</p>
+                            <pre><code><span class="&lt;span">"comment"</span>&gt;// Example: Minimize maximum subarray sum (Split Array Largest Sum)
+<span class="&lt;span">"comment"</span>&gt;// Given array, split into k subarrays, minimize the maximum sum
+<span class="&lt;span">"type"</span>&gt;int splitArray(<span class="&lt;span">"type"</span>&gt;vector&amp; nums, <span class="&lt;span">"type"</span>&gt;int k) {
+    <span class="&lt;span">"type"</span>&gt;auto canSplit = [&amp;](<span class="&lt;span">"type"</span>&gt;int maxSum) {
+        <span class="&lt;span">"type"</span>&gt;int subarrays = <span class="number">1</span>, currSum = <span class="number">0</span>;
+        <span class="&lt;span">"keyword"</span>&gt;for (<span class="&lt;span">"type"</span>&gt;int x : nums) {
+            <span class="&lt;span">"keyword"</span>&gt;if (currSum + x &gt; maxSum) {
+                subarrays++;
+                currSum = x;
+                <span class="&lt;span">"keyword"</span>&gt;if (subarrays &gt; k) <span class="&lt;span">"keyword"</span>&gt;return false;
+            } <span class="&lt;span">"keyword"</span>&gt;else currSum += x;
+        }
+        <span class="&lt;span">"keyword"</span>&gt;return true;
+    };
+    
+    <span class="&lt;span">"type"</span>&gt;int left = *max_element(nums.begin(), nums.end());
+    <span class="&lt;span">"type"</span>&gt;int right = accumulate(nums.begin(), nums.end(), <span class="number">0</span>);
+    <span class="&lt;span">"keyword"</span>&gt;return firstTrue(left, right, canSplit);
+}
+<span class="&lt;span">"comment"</span>&gt;// Example: Koko Eating Bananas
+<span class="&lt;span">"type"</span>&gt;int minEatingSpeed(<span class="&lt;span">"type"</span>&gt;vector&amp; piles, <span class="&lt;span">"type"</span>&gt;int h) {
+    <span class="&lt;span">"type"</span>&gt;auto canEat = [&amp;](<span class="&lt;span">"type"</span>&gt;int speed) {
+        long long hours = <span class="number">0</span>;
+        <span class="&lt;span">"keyword"</span>&gt;for (<span class="&lt;span">"type"</span>&gt;int p : piles) hours += (p + speed - <span class="number">1</span>) / speed;
+        <span class="&lt;span">"keyword"</span>&gt;return hours &lt;= h;
+    };
+    <span class="&lt;span">"type"</span>&gt;int left = <span class="number">1</span>, right = *max_element(piles.begin(), piles.end());
+    <span class="&lt;span">"keyword"</span>&gt;return firstTrue(left, right, canEat);
+}
+<span class="&lt;span">"comment"</span>&gt;// Example: Capacity To Ship Packages Within D Days
+<span class="&lt;span">"type"</span>&gt;int shipWithinDays(<span class="&lt;span">"type"</span>&gt;vector&amp; weights, <span class="&lt;span">"type"</span>&gt;int days) {
+    <span class="&lt;span">"type"</span>&gt;auto canShip = [&amp;](<span class="&lt;span">"type"</span>&gt;int cap) {
+        <span class="&lt;span">"type"</span>&gt;int d = <span class="number">1</span>, load = <span class="number">0</span>;
+        <span class="&lt;span">"keyword"</span>&gt;for (<span class="&lt;span">"type"</span>&gt;int w : weights) {
+            <span class="&lt;span">"keyword"</span>&gt;if (load + w &gt; cap) { d++; load = w; }
+            <span class="&lt;span">"keyword"</span>&gt;else load += w;
+        }
+        <span class="&lt;span">"keyword"</span>&gt;return d &lt;= days;
+    };
+    <span class="&lt;span">"type"</span>&gt;int left = *max_element(weights.begin(), weights.end());
+    <span class="&lt;span">"type"</span>&gt;int right = accumulate(weights.begin(), weights.end(), <span class="number">0</span>);
+    <span class="&lt;span">"keyword"</span>&gt;return firstTrue(left, right, canShip);
+}
+</code></pre>
+                            
+                            <h4>Finding First/Last Occurrence</h4>
+                            <pre><code><span class="&lt;span">"comment"</span>&gt;// First occurrence of target
+<span class="&lt;span">"type"</span>&gt;int firstOccurrence(<span class="&lt;span">"keyword"</span>&gt;const <span class="&lt;span">"type"</span>&gt;vector&amp; arr, <span class="&lt;span">"type"</span>&gt;int target) {
+    <span class="&lt;span">"type"</span>&gt;int l = <span class="number">0</span>, r = arr.size() - <span class="number">1</span>, ans = -<span class="number">1</span>;
+    <span class="&lt;span">"keyword"</span>&gt;while (l &lt;= r) {
+        <span class="&lt;span">"type"</span>&gt;int m = l + (r - l) / <span class="number">2</span>;
+        <span class="&lt;span">"keyword"</span>&gt;if (arr[m] == target) { ans = m; r = m - <span class="number">1</span>; }
+        <span class="&lt;span">"keyword"</span>&gt;else <span class="&lt;span">"keyword"</span>&gt;if (arr[m] &lt; target) l = m + <span class="number">1</span>;
+        <span class="&lt;span">"keyword"</span>&gt;else r = m - <span class="number">1</span>;
+    }
+    <span class="&lt;span">"keyword"</span>&gt;return ans;
+}
+<span class="&lt;span">"comment"</span>&gt;// Last occurrence
+<span class="&lt;span">"type"</span>&gt;int lastOccurrence(<span class="&lt;span">"keyword"</span>&gt;const <span class="&lt;span">"type"</span>&gt;vector&amp; arr, <span class="&lt;span">"type"</span>&gt;int target) {
+    <span class="&lt;span">"type"</span>&gt;int l = <span class="number">0</span>, r = arr.size() - <span class="number">1</span>, ans = -<span class="number">1</span>;
+    <span class="&lt;span">"keyword"</span>&gt;while (l &lt;= r) {
+        <span class="&lt;span">"type"</span>&gt;int m = l + (r - l) / <span class="number">2</span>;
+        <span class="&lt;span">"keyword"</span>&gt;if (arr[m] == target) { ans = m; l = m + <span class="number">1</span>; }
+        <span class="&lt;span">"keyword"</span>&gt;else <span class="&lt;span">"keyword"</span>&gt;if (arr[m] &lt; target) l = m + <span class="number">1</span>;
+        <span class="&lt;span">"keyword"</span>&gt;else r = m - <span class="number">1</span>;
+    }
+    <span class="&lt;span">"keyword"</span>&gt;return ans;
+}
+<span class="&lt;span">"comment"</span>&gt;// Count occurrences
+<span class="&lt;span">"type"</span>&gt;int countOccurrences(<span class="&lt;span">"keyword"</span>&gt;const <span class="&lt;span">"type"</span>&gt;vector&amp; arr, <span class="&lt;span">"type"</span>&gt;int target) {
+    <span class="&lt;span">"type"</span>&gt;int first = firstOccurrence(arr, target);
+    <span class="&lt;span">"keyword"</span>&gt;if (first == -<span class="number">1</span>) <span class="&lt;span">"keyword"</span>&gt;return <span class="number">0</span>;
+    <span class="&lt;span">"keyword"</span>&gt;return lastOccurrence(arr, target) - first + <span class="number">1</span>;
+}
+<span class="&lt;span">"comment"</span>&gt;// Using STL
+<span class="&lt;span">"type"</span>&gt;int countSTL(<span class="&lt;span">"keyword"</span>&gt;const <span class="&lt;span">"type"</span>&gt;vector&amp; arr, <span class="&lt;span">"type"</span>&gt;int target) {
+    <span class="&lt;span">"keyword"</span>&gt;return upper_bound(arr.begin(), arr.end(), target) - 
+           lower_bound(arr.begin(), arr.end(), target);
+}
+</code></pre>
+                        </section><section class="code-examples">
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>Advanced Binary Search Patterns</span>
+                            <span class="language">cpp</span>
+                            <button class="copy-btn" data-code="0">Copy</button>
+                        </div>
+                        <pre><code class="language-cpp"><span class="&lt;span">"comment"</span>&gt;// Search in a rotated sorted array (distinct values)
+<span class="&lt;span">"comment"</span>&gt;// Example: nums = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>], target = <span class="number">0</span> -&gt; returns <span class="number">4</span>
+<span class="&lt;span">"type"</span>&gt;int searchRotated(<span class="&lt;span">"keyword"</span>&gt;const <span class="&lt;span">"type"</span>&gt;vector&lt;<span class="&lt;span">"type"</span>&gt;int&gt;&amp; nums, <span class="&lt;span">"type"</span>&gt;int target) {
+    <span class="&lt;span">"type"</span>&gt;int l = <span class="number">0</span>, r = static_cast&lt;<span class="&lt;span">"type"</span>&gt;int&gt;(nums.size()) - <span class="number">1</span>;
+    <span class="&lt;span">"keyword"</span>&gt;while (l &lt;= r) {
+        <span class="&lt;span">"type"</span>&gt;int m = l + (r - l) / <span class="number">2</span>;
+        <span class="&lt;span">"keyword"</span>&gt;if (nums[m] == target) <span class="&lt;span">"keyword"</span>&gt;return m;
+
+        <span class="&lt;span">"keyword"</span>&gt;if (nums[l] &lt;= nums[m]) { <span class="&lt;span">"comment"</span>&gt;// Left half [l..m] is sorted
+            <span class="&lt;span">"keyword"</span>&gt;if (nums[l] &lt;= target &amp;&amp; target &lt; nums[m]) r = m - <span class="number">1</span>;
+            <span class="&lt;span">"keyword"</span>&gt;else l = m + <span class="number">1</span>;
+        } <span class="&lt;span">"keyword"</span>&gt;else { <span class="&lt;span">"comment"</span>&gt;// Right half [m..r] is sorted
+            <span class="&lt;span">"keyword"</span>&gt;if (nums[m] &lt; target &amp;&amp; target &lt;= nums[r]) l = m + <span class="number">1</span>;
+            <span class="&lt;span">"keyword"</span>&gt;else r = m - <span class="number">1</span>;
+        }
+    }
+    <span class="&lt;span">"keyword"</span>&gt;return -<span class="number">1</span>;
+}
+
+<span class="&lt;span">"comment"</span>&gt;// Find minimum in a rotated sorted array (distinct values)
+<span class="&lt;span">"comment"</span>&gt;// Example: [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>] -&gt; returns <span class="number">0</span>
+<span class="&lt;span">"type"</span>&gt;int findMin(<span class="&lt;span">"keyword"</span>&gt;const <span class="&lt;span">"type"</span>&gt;vector&lt;<span class="&lt;span">"type"</span>&gt;int&gt;&amp; nums) {
+    <span class="&lt;span">"keyword"</span>&gt;if (nums.empty()) <span class="&lt;span">"keyword"</span>&gt;return -<span class="number">1</span>; <span class="&lt;span">"comment"</span>&gt;// empty input: guard so nums[l] is never read
+    <span class="&lt;span">"type"</span>&gt;int l = <span class="number">0</span>, r = static_cast&lt;<span class="&lt;span">"type"</span>&gt;int&gt;(nums.size()) - <span class="number">1</span>;
+    <span class="&lt;span">"keyword"</span>&gt;while (l &lt; r) {
+        <span class="&lt;span">"type"</span>&gt;int m = l + (r - l) / <span class="number">2</span>;
+        <span class="&lt;span">"keyword"</span>&gt;if (nums[m] &gt; nums[r]) l = m + <span class="number">1</span>;
+        <span class="&lt;span">"keyword"</span>&gt;else r = m;
+    }
+    <span class="&lt;span">"keyword"</span>&gt;return nums[l];
+}
+
+<span class="&lt;span">"comment"</span>&gt;// Find a peak element: <span class="&lt;span">"keyword"</span>&gt;return an index i such that nums[i] &gt; nums[i + <span class="number">1</span>]
+<span class="&lt;span">"comment"</span>&gt;// (the last index counts as a peak because nums[n] is treated as -infinity)
+<span class="&lt;span">"type"</span>&gt;int findPeakElement(<span class="&lt;span">"keyword"</span>&gt;const <span class="&lt;span">"type"</span>&gt;vector&lt;<span class="&lt;span">"type"</span>&gt;int&gt;&amp; nums) {
+    <span class="&lt;span">"keyword"</span>&gt;if (nums.empty()) <span class="&lt;span">"keyword"</span>&gt;return -<span class="number">1</span>;
+    <span class="&lt;span">"type"</span>&gt;int l = <span class="number">0</span>, r = static_cast&lt;<span class="&lt;span">"type"</span>&gt;int&gt;(nums.size()) - <span class="number">1</span>;
+    <span class="&lt;span">"keyword"</span>&gt;while (l &lt; r) {
+        <span class="&lt;span">"type"</span>&gt;int m = l + (r - l) / <span class="number">2</span>;
+        <span class="&lt;span">"keyword"</span>&gt;if (nums[m] &gt; nums[m + <span class="number">1</span>]) r = m;
+        <span class="&lt;span">"keyword"</span>&gt;else l = m + <span class="number">1</span>;
+    }
+    <span class="&lt;span">"keyword"</span>&gt;return l;
+}
+</code></pre>
+                    </div></section><section class="exercises">
+                <div class="exercise code-trace" data-idx="1">
+                    <h4>Exercise 2: Code Trace</h4>
+                    <pre><code><span class="&lt;span">"comment"</span>&gt;// Show l, m, r and which half is discarded at each step</code></pre>
+                    <textarea placeholder="Trace the output..."></textarea>
+                    <button class="check-btn">Check</button>
+                </div></section><section class="quiz-section">
+                <h3>≡ƒºá Quick Check</h3>
+                <form class="quiz-form" id="quiz-form"><div class="quiz-question mcq" data-id="search-01-q1">
+                <p><strong>Q1.</strong> What is the time complexity of binary search?</p>
+                <ul class="options"><li>
+                    <label>
+                        <input type="radio" name="quiz-search-01-q1" value="0">
+                        O(n)
+                    </label>
+                </li><li>
+                    <label>
+                        <input type="radio" name="quiz-search-01-q1" value="1">
+                        O(log n)
+                    </label>
+                </li><li>
+                    <label>
+                        <input type="radio" name="quiz-search-01-q1" value="2">
+                        O(n log n)
+                    </label>
+                </li><li>
+                    <label>
+                        <input type="radio" name="quiz-search-01-q1" value="3">
+                        O(1)
+                    </label>
+                </li></ul></div><div class="quiz-question mcq" data-id="search-01-q2">
+                <p><strong>Q2.</strong> In binary search on the answer, what property must the predicate have?</p>
+                <ul class="options"><li>
+                    <label>
+                        <input type="radio" name="quiz-search-01-q2" value="0">
+                        Monotonic (false...false, true...true)
+                    </label>
+                </li><li>
+                    <label>
+                        <input type="radio" name="quiz-search-01-q2" value="1">
+                        Random
+                    </label>
+                </li><li>
+                    <label>
+                        <input type="radio" name="quiz-search-01-q2" value="2">
+                        Linear
+                    </label>
+                </li><li>
+                    <label>
+                        <input type="radio" name="quiz-search-01-q2" value="3">
+                        Symmetric
+                    </label>
+                </li></ul></div><div class="quiz-question true-false" data-id="search-01-q3" data-correct="false">
+                <p><strong>Q3.</strong> std::lower_bound returns the first element greater than the given value.</p>
+                <label><input type="radio" name="quiz-search-01-q3" value="true"> True</label>
+                <label><input type="radio" name="quiz-search-01-q3" value="false"> False</label>
+            </div>
+                    <button type="submit" class="btn primary">Submit Answers</button>
+                </form>
+                <div class="quiz-results" id="quiz-results" style="display:none;"></div>
+            </section>
+            <nav class="lesson-nav">
+                <span class="btn disabled">ΓåÉ Previous</span>
+                <span class="btn disabled">Next ΓåÆ</span>
+            </nav>
+            <section class="notes-section" id="notes-section" style="display:none;">
+                <h3>≡ƒô¥ Your Notes</h3>
+                <textarea id="notes-textarea" placeholder="Write your notes here..."></textarea>
+                <button class="btn" id="save-notes-btn" data-topic="searching" data-module="searching-basics" data-lesson="search-01">Save Notes</button>
+            </section></article></div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>C++ DSA Academy | Interactive Educational Platform</p>
+        </div>
+    </footer>
+
+<div class="toast-container" role="region" aria-label="Notifications" aria-live="polite"></div></body></html>

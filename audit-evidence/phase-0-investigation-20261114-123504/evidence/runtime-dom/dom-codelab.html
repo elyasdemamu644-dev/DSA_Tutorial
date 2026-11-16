@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C++ DSA Academy - Learn Data Structures &amp; Algorithms</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <script defer="" src="scripts/curriculum.js"></script>
+    <script defer="" src="scripts/code-editor.js"></script>
+    <script defer="" src="scripts/main.js"></script>
+    <script defer="" src="scripts/compiler-service.js"></script>
+    <script defer="" src="scripts/sorting-visualizer.js"></script>
+    <script defer="" src="scripts/sorting-visualizer-renderer.js"></script>
+    <script defer="" src="scripts/tree-visualizer.js"></script>
+    <script defer="" src="scripts/graph-visualizer.js"></script>
+    <script defer="" src="scripts/tree-graph-renderer.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header>
+        <div class="container header-content">
+            <div class="header-left">
+                <h1>C++ DSA Academy</h1>
+                <p>Understand ┬╖ Visualize ┬╖ Implement ┬╖ Practice ┬╖ Master</p>
+            </div>
+            <div class="header-center">
+                <input type="search" id="global-search" placeholder="Search topics, lessons, concepts..." aria-label="Global search" role="searchbox" aria-autocomplete="list" aria-controls="search-results">
+            </div>
+            <div class="header-right">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" aria-pressed="true">≡ƒîÖ</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="app-layout">
+        <aside class="sidebar" id="sidebar">
+            <nav class="navigation" role="navigation" aria-label="Main navigation">
+                <ul id="nav-list" role="navigation" aria-label="Main navigation">
+            <li class="nav-section"><strong>Main</strong></li>
+            <li><a href="#dashboard" role="menuitem">≡ƒôè Dashboard</a></li>
+            <li><a href="#visualizers" role="menuitem">≡ƒö¼ Visualization Lab</a></li>
+            <li><a href="#code-lab" role="menuitem" class="active">≡ƒÆ╗ C++ Code Lab</a></li>
+            <li><a href="#notes" role="menuitem">≡ƒô¥ My Notes</a></li>
+            <li><a href="#bookmarks" role="menuitem">Γÿà Bookmarks</a></li>
+            <li><a href="#assessments" role="menuitem">≡ƒº¬ Assessments</a></li>
+            <li><a href="#settings" role="menuitem">ΓÜÖ∩╕Å Settings</a></li>
+        <li class="nav-section"><strong>Level 1: Foundations</strong></li>
+                    <li>
+                        <a href="#cpp-foundations" data-topic="cpp-foundations" role="menuitem">
+                            C++ Foundations for DSA
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#complexity" data-topic="complexity" role="menuitem">
+                            Algorithm Analysis and Complexity
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#arrays" data-topic="arrays" role="menuitem">
+                            Arrays and Strings
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#linked-lists" data-topic="linked-lists" role="menuitem">
+                            Linked Lists
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#stacks-queues" data-topic="stacks-queues" role="menuitem">
+                            Stacks and Queues
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#recursion" data-topic="recursion" role="menuitem">
+                            Recursion and Backtracking
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li><li class="nav-section"><strong>Level 2: Intermediate</strong></li>
+                    <li>
+                        <a href="#trees" data-topic="trees" role="menuitem">
+                            Trees
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#hashing" data-topic="hashing" role="menuitem">
+                            Hashing
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#graphs" data-topic="graphs" role="menuitem">
+                            Graph Algorithms
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#searching" data-topic="searching" role="menuitem">
+                            Searching Algorithms
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#sorting" data-topic="sorting" role="menuitem">
+                            Sorting Algorithms
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#greedy" data-topic="greedy" role="menuitem">
+                            Greedy Algorithms
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li><li class="nav-section"><strong>Level 3: Advanced</strong></li>
+                    <li>
+                        <a href="#dynamic-programming" data-topic="dynamic-programming" role="menuitem">
+                            Dynamic Programming
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#divide-conquer" data-topic="divide-conquer" role="menuitem">
+                            Divide and Conquer
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#bit-manipulation" data-topic="bit-manipulation" role="menuitem">
+                            Bit Manipulation
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#advanced-graphs" data-topic="advanced-graphs" role="menuitem">
+                            Advanced Graph Algorithms
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#competitive-programming" data-topic="competitive-programming" role="menuitem">
+                            Competitive Programming
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#practical-projects" data-topic="practical-projects" role="menuitem">
+                            Practical DSA Projects
+                            <span class="progress-indicator" style="width:0%"></span>
+                        </a>
+                    </li></ul>
+            </nav>
+        </aside>
+
+        <main class="main-content" id="main-content">
+            <div class="content-area" id="content-area">
+            <header class="page-header">
+                <h2>≡ƒÆ╗ C++ Code Laboratory</h2>
+                <p>Write, compile, and run C++ code in your browser</p>
+            </header>
+            
+            <div class="code-lab-layout">
+                <aside class="code-lab-sidebar">
+                    <h3>Templates</h3>
+                    <ul class="template-list">
+                        
+                            <li><button class="template-btn" data-template="hello">Hello World</button></li>
+                        
+                            <li><button class="template-btn" data-template="vector">Vector Basics</button></li>
+                        
+                            <li><button class="template-btn" data-template="linked-list">Linked List</button></li>
+                        
+                            <li><button class="template-btn" data-template="bst">Binary Search Tree</button></li>
+                        
+                    </ul>
+                    
+                    <h3>Saved Files</h3>
+                    <ul class="saved-files" id="saved-files"></ul>
+                    
+                    <h3>Editor Options</h3>
+                    <div class="editor-options">
+                        <label class="option-toggle">
+                            <input type="checkbox" id="opt-line-numbers" checked="">
+                            <span>Line Numbers</span>
+                        </label>
+                        <label class="option-toggle">
+                            <input type="checkbox" id="opt-syntax-highlight" checked="">
+                            <span>Syntax Highlighting</span>
+                        </label>
+                        <label class="option-toggle">
+                            <input type="checkbox" id="opt-bracket-match" checked="">
+                            <span>Bracket Matching</span>
+                        </label>
+                        <label class="option-toggle">
+                            <input type="checkbox" id="opt-auto-indent" checked="">
+                            <span>Auto Indent</span>
+                        </label>
+                        <label class="option-toggle">
+                            <input type="checkbox" id="opt-autocomplete" checked="">
+                            <span>Autocomplete</span>
+                        </label>
+                    </div>
+                </aside>
+                
+                <main class="code-lab-main">
+                    <div class="editor-toolbar">
+                        <select id="language-select">
+                            <option value="cpp">C++</option>
+                        </select>
+                        <div class="toolbar-spacer"></div>
+                        <button class="btn" id="format-btn" title="Format Code (Shift+Alt+F)">≡ƒôÉ Format</button>
+                        <button class="btn" id="comment-btn" title="Toggle Comment (Ctrl+/)">≡ƒÆ¼ Comment</button>
+                        <button class="btn primary" id="run-btn">Γû╢ Run</button>
+                        <button class="btn" id="save-btn">≡ƒÆ╛ Save</button>
+                        <button class="btn" id="clear-btn">≡ƒùæ Clear</button>
+                    </div>
+                    
+                    <div class="editor-wrapper" id="editor-wrapper">
+                        <div class="code-editor-wrapper" style="position: relative; display: flex; flex: 1 1 0%; background: var(--code-bg); border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow: hidden; font-family: &quot;JetBrains Mono&quot;, &quot;Fira Code&quot;, Consolas, monospace; font-size: 0.9rem; line-height: 1.6;"><div class="editor-line-numbers" style="padding: 1rem 0.75rem; background: rgba(0, 0, 0, 0.2); border-right: 1px solid var(--border-color); text-align: right; user-select: none; min-width: 50px; color: var(--text-muted); font-size: inherit; line-height: inherit;"></div><div class="editor-content" style="flex: 1 1 0%; position: relative; overflow: auto; padding: 1rem; white-space: pre; word-break: break-word;"><pre class="editor-highlighted" style="margin: 0px; padding: 0px; white-space: pre-wrap; word-break: break-word; font-family: inherit; font-size: inherit; line-height: inherit; color: var(--code-text); z-index: 1;"></pre><textarea class="editor-input" spellcheck="false" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; padding: 1rem; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; background: transparent; color: transparent; caret-color: var(--code-text); font-family: inherit; font-size: inherit; line-height: inherit; resize: none; outline: none; z-index: 10;"></textarea></div></div><textarea id="code-editor" spellcheck="false" style="display: none;">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+int main() {
+    cout &lt;&lt; "Hello, DSA Academy!" &lt;&lt; endl;
+    return 0;
+}
+                        </textarea>
+                    </div>
+                    
+                    <div class="output-panel">
+                        <div class="output-header">
+                            <span>Output</span>
+                            <button class="clear-output" id="clear-output">Clear</button>
+                        </div>
+                        <pre id="code-output" class="output-content"></pre>
+                    </div>
+                </main>
+            </div>
+        </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>C++ DSA Academy | Interactive Educational Platform</p>
+        </div>
+    </footer>
+
+<div class="toast-container" role="region" aria-label="Notifications" aria-live="polite"></div><div class="editor-autocomplete" style="position: absolute; background: var(--surface-color); border: 1px solid var(--border-color); border-radius: var(--radius-sm); box-shadow: var(--shadow-lg); max-height: 200px; overflow-y: auto; min-width: 200px; z-index: 100; display: none; font-size: 0.85rem;"></div><div class="editor-error-tooltip" style="position: absolute; background: var(--accent-color); color: white; padding: 0.5rem 0.75rem; border-radius: var(--radius-sm); font-size: 0.8rem; max-width: 300px; z-index: 101; display: none; box-shadow: var(--shadow-md);"></div></body></html>
