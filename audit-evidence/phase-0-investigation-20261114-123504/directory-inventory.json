@@ -1,0 +1,126 @@
+[
+  {
+    "path": "audit-evidence",
+    "immediatelyEmpty": false
+  },
+  {
+    "path": "audit-evidence\\20261114-audit1",
+    "immediatelyEmpty": false
+  },
+  {
+    "path": "audit-evidence\\20261114-audit1\\browser-test-results",
+    "immediatelyEmpty": true
+  },
+  {
+    "path": "audit-evidence\\20261114-audit1\\cpp-compilation-results",
+    "immediatelyEmpty": true
+  },
+  {
+    "path": "audit-evidence\\20261114-audit1\\known-issues",
+    "immediatelyEmpty": true
+  },
+  {
+    "path": "audit-evidence\\20261114-audit1\\offline-test-results",
+    "immediatelyEmpty": true
+  },
+  {
+    "path": "audit-evidence\\20261114-audit1\\screenshots",
+    "immediatelyEmpty": true
+  },
+  {
+    "path": "audit-evidence\\20261114-audit1\\source-diffs",
+    "immediatelyEmpty": true
+  },
+  {
+    "path": "audit-evidence\\phase-0-investigation-20261114-123504",
+    "immediatelyEmpty": false
+  },
+  {
+    "path": "backups",
+    "immediatelyEmpty": false
+  },
+  {
+    "path": "content",
+    "immediatelyEmpty": false
+  },
+  {
+    "path": "content\\arrays",
+    "immediatelyEmpty": false
+  },
+  {
+    "path": "content\\arrays\\submodules",
+    "immediatelyEmpty": true
+  },
+  {
+    "path": "content\\graphs",
+    "immediatelyEmpty": false
+  },
+  {
+    "path": "content\\graphs\\submodules",
+    "immediatelyEmpty": true
+  },
+  {
+    "path": "content\\linked-lists",
+    "immediatelyEmpty": false
+  },
+  {
+    "path": "content\\linked-lists\\submodules",
+    "immediatelyEmpty": true
+  },
+  {
+    "path": "content\\searching",
+    "immediatelyEmpty": false
+  },
+  {
+    "path": "content\\searching\\submodules",
+    "immediatelyEmpty": true
+  },
+  {
+    "path": "content\\sorting",
+    "immediatelyEmpty": false
+  },
+  {
+    "path": "content\\sorting\\submodules",
+    "immediatelyEmpty": true
+  },
+  {
+    "path": "content\\stacks-queues",
+    "immediatelyEmpty": false
+  },
+  {
+    "path": "content\\stacks-queues\\submodules",
+    "immediatelyEmpty": true
+  },
+  {
+    "path": "content\\trees",
+    "immediatelyEmpty": false
+  },
+  {
+    "path": "content\\trees\\submodules",
+    "immediatelyEmpty": true
+  },
+  {
+    "path": "document",
+    "immediatelyEmpty": false
+  },
+  {
+    "path": "graphs",
+    "immediatelyEmpty": true
+  },
+  {
+    "path": "images",
+    "immediatelyEmpty": true
+  },
+  {
+    "path": "scripts",
+    "immediatelyEmpty": false
+  },
+  {
+    "path": "styles",
+    "immediatelyEmpty": false
+  },
+  {
+    "path": "videos",
+    "immediatelyEmpty": true
+  }
+]
