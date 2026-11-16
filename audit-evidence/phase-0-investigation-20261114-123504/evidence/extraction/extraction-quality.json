@@ -1,0 +1,330 @@
+{
+  "generated": "2026-11-14T20:47:03.739Z",
+  "files": [
+    {
+      "file": "ALgo_Efficiency 74864.fodg",
+      "pages": 51,
+      "realPages": 42,
+      "emptyPages": 1,
+      "imagePages": 13,
+      "realWords": 2442,
+      "noiseWords": 10335,
+      "samples": [
+        "2 (Efficiency) Learning outcomes ➢ Able to analyze space and Time complexities ➢ Able to carry out simple asymptotic analysis of algorithms",
+        "Two areas are important for performance: ➢ space efficiency - the memory required, also called, space complexity ➢ time efficiency - the time required, also called time complexity Algorithm Efficiency(Performance) 3 (Eff",
+        "There are some circumstances where the space/memory used must be analyzed. For example, ✓ for large quantities of data ✓ for embedded systems programming Space Efficiency 4 (Efficiency)"
+      ],
+      "scanLikely": false
+    },
+    {
+      "file": "ch-1 .fodg",
+      "pages": 75,
+      "realPages": 69,
+      "emptyPages": 0,
+      "imagePages": 5,
+      "realWords": 4505,
+      "noiseWords": 653,
+      "samples": [
+        "2 Introduction A program • A set of instruction which is written in to solve a problem. • A solution to a problem actually consists of two things: ✓ A way to organize the data ✓ Sequence of steps to solve the problem • T",
+        "3 Data structures are used to model the world or part of the world. How? 1. The value held by a data structure represents some specific characteristic of the world. 2. The characteristic being modeled restricts the possi",
+        "4 • The model defines an abstract view to the problem. • The model should only focus on problem related stuff Introduction…"
+      ],
+      "scanLikely": false
+    },
+    {
+      "file": "ch-1.fodg",
+      "pages": 66,
+      "realPages": 63,
+      "emptyPages": 0,
+      "imagePages": 66,
+      "realWords": 4821,
+      "noiseWords": 30215,
+      "samples": [
+        "1 Alemitu M, and Ashenafi Ch. Addis Ababa Science & Technology University 2011 E.C., Semester III Data Structures and Algorithms",
+        "▪ Outline: • Introduction • Abstract Data Type & Data Structure • Algorithm • Algorithm Analysis Page 2 Chapter One: Introduction",
+        "A program is written in order to solve a problem. A solution to a problem actually consists of two things: • A way to organize the data in memory : Data Structure • Sequence of steps to solve the problem: Algorithm ▪ Pro"
+      ],
+      "scanLikely": false
+    },
+    {
+      "file": "ch-2.fodg",
+      "pages": 30,
+      "realPages": 26,
+      "emptyPages": 0,
+      "imagePages": 2,
+      "realWords": 2034,
+      "noiseWords": 1005,
+      "samples": [
+        "2 • These algorithms are the most common and useful tasks operated by computer system. • Computers spend a lot of time for searching and sorting. 1. Simple Searching algorithms Searching:- is a process of finding an elem",
+        "3 There are two simple searching algorithms: a) Sequential Search, and b) Binary Search a). Sequential Searching (Linear) • The most natural way of searching an item. • Easy to understand and implement. Algorithm: • In a",
+        "4 Implementation: Assume the size of the list is n. int LinearSearch(int list[ ], int key) { index=-1; for(int i=0; i<n; i++) { if(list[i]==key) { index=i; break; } } return index; } Complexity Analysis: • Big-Oh of sequ"
+      ],
+      "scanLikely": false
+    },
+    {
+      "file": "ch-3.fodg",
+      "pages": 64,
+      "realPages": 60,
+      "emptyPages": 0,
+      "imagePages": 11,
+      "realWords": 3138,
+      "noiseWords": 1228,
+      "samples": [
+        "Lists - Introduction • Some applications require processing data in a strict chronological order . Example: – Processing objects in the order that they arrived. OR – Processing objects in the reverse of the order that th",
+        "Lists – Definition • A list is a finite, ordered sequence of data items called elements . • Important concept: List elements have a position . – [1 st element in the list, 2 nd element, and so on.] • Notation: < a 0 , a ",
+        "Cont’d • The empty list contains no elements. • The length of the list is the number of elements currently stored. • The beginning of the list is called the head , the end of the list is called the tail ."
+      ],
+      "scanLikely": false
+    },
+    {
+      "file": "ch-4.fodg",
+      "pages": 40,
+      "realPages": 37,
+      "emptyPages": 0,
+      "imagePages": 12,
+      "realWords": 2614,
+      "noiseWords": 1822,
+      "samples": [
+        "2 Introduction • Stacks are linear lists. • All deletions and insertions occur at one end of the stack known as the TOP . • Data going into the stack first, leaves out last. • This is known as LIFO data structures( t he ",
+        "4 • There are many times where it is useful to use a list in a way where we always add to the end, and also always remove from the end. • Stack : a more restricted List with the following constraints: − Elements are stor",
+        "5 • Goal: every operation on a stack should be O(1). – Stacks are straightforward to implement in several different ways, and are very useful. • Operations on a stack – push : add an element to the top. – pop : remove an"
+      ],
+      "scanLikely": false
+    },
+    {
+      "file": "ch-5.fodg",
+      "pages": 39,
+      "realPages": 28,
+      "emptyPages": 0,
+      "imagePages": 15,
+      "realWords": 1552,
+      "noiseWords": 6064,
+      "samples": [
+        "2 Queue Abstract data type: Queue • Many times, we use a list in a way where we always add to the end, and always remove from the front. • The first element put into the list will be the first element we take out of the ",
+        "3 Queue … (continued) Operations on a queue • Offer or enqueue : add an element to the back. • Remove or dequeue : remove and return the element at the front. • peek : return (but not remove) front element: – peek on an ",
+        "4 Queue … (continued) • OPERATIONS : – Add element to end of list ('offer' or 'enqueue'). – Remove element from beginning of list ('remove' or 'dequeue') examine element at beginning of list ('peek'). – Clear all element"
+      ],
+      "scanLikely": false
+    },
+    {
+      "file": "ch-6.fodg",
+      "pages": 49,
+      "realPages": 44,
+      "emptyPages": 0,
+      "imagePages": 34,
+      "realWords": 2557,
+      "noiseWords": 2851,
+      "samples": [
+        "2 Linear Data Structure Arrays Linked Lists Stacks Queues Non-Linear Data Structure  Trees  Graphs Classification of Data Structures",
+        "3 Introduction A tree is a set of nodes and edges that connect pairs of nodes. It is an abstract model of a hierarchical structure . Unlike a real tree, tree data structures are typically depicted upside down , with the ",
+        "4 Trees Data Structures Tree » A way of representing hierarchical data. » Consist of nodes with a parent-child relationship. » Each node can have 0 or more children. » A node can have at most one parent."
+      ],
+      "scanLikely": false
+    },
+    {
+      "file": "ch-7.fodg",
+      "pages": 34,
+      "realPages": 18,
+      "emptyPages": 0,
+      "imagePages": 29,
+      "realWords": 987,
+      "noiseWords": 8629,
+      "samples": [
+        "3 What is a Graph? A data structure that consists of a set of nodes (vertices) and a set of edges that relate the nodes to each other. The set of edges describes relationships among the vertices .",
+        "4 Formal Definition of Graphs A graph G is defined as follows: G=(V,E) V(G): a finite, nonempty set of vertices E(G): a set of edges (pairs of vertices) An edge e = (u,v) is a pair of vertices Example :",
+        "7 Directed vs. Undirected Graphs When the edges in a graph have no direction , the graph is called undirected . (a) Graph1 is undirected graph"
+      ],
+      "scanLikely": false
+    },
+    {
+      "file": "ch-8.fodg",
+      "pages": 51,
+      "realPages": 33,
+      "emptyPages": 0,
+      "imagePages": 30,
+      "realWords": 2286,
+      "noiseWords": 950,
+      "samples": [
+        "2 Revision - Sorting Sorting is a technique to rearrange the elements of a list in ascending or descending order. A sorting algorithm is an algorithm that puts elements of a list in a certain order. The most-used orders ",
+        "3 Sorting Algorithms The sorting algorithms can be categorized as: » Insertion sort » Bubble sort » Selection sort » Shell sort » Quick sort » Heap sort » Merge sort » Radix sort Simple Sorting Algorithms Advanced (Effic",
+        "4 Shell Sort The shell sort, also known as the diminishing increment sort , was developed by Donald L. Shell in 1959. The idea behind shell sort is that it is faster to sort an array if parts of it are already sorted . T"
+      ],
+      "scanLikely": false
+    },
+    {
+      "file": "ch-9.fodg",
+      "pages": 35,
+      "realPages": 33,
+      "emptyPages": 0,
+      "imagePages": 30,
+      "realWords": 2116,
+      "noiseWords": 2,
+      "samples": [
+        "2 Revision - Searching Searching is a process of checking and finding an element from a list of elements. Let A be a collection of data elements, i.e., A is a linear array of say n elements. If we want to find the presen",
+        "3 Interpolation Search This method is even more efficient than binary search, if the elements are uniformly distributed (or sorted) in an array A. Its average case complexity is O(log log N) where N is the number of keys",
+        "4 Cont’d If key is lower than A[mid], reset high to mid–1; else reset low to mid+1. Repeat the process until the key has found or low > high. Example: 2, 25, 35, 39, 40, 47, 50 » CASE 1: Say we are searching 50 from the "
+      ],
+      "scanLikely": false
+    },
+    {
+      "file": "Chapter 1 - Introduction _Data Structure and Algorithm.fodg",
+      "pages": 74,
+      "realPages": 68,
+      "emptyPages": 0,
+      "imagePages": 13,
+      "realWords": 5300,
+      "noiseWords": 1210,
+      "samples": [
+        " Outline: • Introduction • Abstract Data Type & Data Structure • Algorithm • Algorithm Analysis Page 2 Chapter One: Introduction",
+        "A program is written in order to solve a problem. A solution to a problem actually consists of two things: • A way to organize the data in memory : Data Structure • Sequence of steps to solve the problem: Algorithm  Pro",
+        " A primary concern of this course is efficiency . Efficient data structures Efficient Algorithms  [You might believe that faster computers make it unnecessary to be concerned with efficiency.]  More complex applicatio"
+      ],
+      "scanLikely": false
+    },
+    {
+      "file": "Chapter 2 - Simple Sorting and Searching Algorithms.fodg",
+      "pages": 43,
+      "realPages": 40,
+      "emptyPages": 0,
+      "imagePages": 10,
+      "realWords": 2813,
+      "noiseWords": 1114,
+      "samples": [
+        "Sorting Algorithm • Sorting is a technique to rearrange the elements of a list in ascending or descending order. • A sorting algorithm is an algorithm that puts elements of a list in a certain order. The most-used orders",
+        "Classification • Sorting can be classified in two types: • Internal Sorting:- • Uses only the primary memory during sorting process. • All data items are held in main memory and no secondary memory is required • Limitati",
+        "Classification • External Sorting:- • Sorting large amount of data requires external or secondary memory. • This process uses external memory such as HDD, to store the data which is not fit into the main memory. • So, pr"
+      ],
+      "scanLikely": false
+    },
+    {
+      "file": "Chapter 3 - Linked Lists.fodg",
+      "pages": 56,
+      "realPages": 49,
+      "emptyPages": 0,
+      "imagePages": 10,
+      "realWords": 2467,
+      "noiseWords": 1737,
+      "samples": [
+        "Lists - Introduction • Some applications require processing data in a strict chronological order . Example: • Processing objects in the order that they arrived. OR • Processing objects in the reverse of the order that th",
+        "Lists – Definition •A list is a finite, ordered sequence of data items called elements . •Important concept: List elements have a position . • [1 st element in the list, 2 nd element, and so on.] •Notation: < a 0 , a 1 ,",
+        "Cont’d • The empty list contains no elements. • The length of the list is the number of elements currently stored. • The beginning of the list is called the head , the end of the list is called the tail ."
+      ],
+      "scanLikely": false
+    },
+    {
+      "file": "Chapter 3 - Linked Lists.fodp",
+      "pages": 129,
+      "realPages": 53,
+      "emptyPages": 57,
+      "imagePages": 13,
+      "realWords": 2639,
+      "noiseWords": 170,
+      "samples": [
+        "<number> Click to edit Master title style Click to edit Master text styles Second level Third level Fourth level Fifth level <number>",
+        "<number> Click to edit Master title style Click to edit Master text styles Second level Third level Fourth level Fifth level <number>",
+        "<number> Click to edit Master title style Click to edit Master text styles Second level Third level Fourth level Fifth level <number>"
+      ],
+      "scanLikely": false
+    },
+    {
+      "file": "data struct final exam collections.fodg",
+      "pages": 20,
+      "realPages": 0,
+      "emptyPages": 20,
+      "imagePages": 20,
+      "realWords": 0,
+      "noiseWords": 0,
+      "samples": [],
+      "scanLikely": true
+    },
+    {
+      "file": "Data structure and Algorithm in C++.fodg",
+      "pages": 738,
+      "realPages": 729,
+      "emptyPages": 1,
+      "imagePages": 730,
+      "realWords": 302613,
+      "noiseWords": 15710,
+      "samples": [
+        "i i “main” — 2011/1/13 — 9:10 — page i — #1 i i i i i i Data Structures and Algorithms in C ++ Second Edition",
+        "i i “main” — 2011/1/13 — 9:10 — page iii — #3 i i i i i i Data Structures and Algorithms in C ++ Second Edition Michael T. Goodrich Department of Computer Science University of California, Irvine Roberto Tamassia Departm",
+        "i i “main” — 2011/1/13 — 9:10 — page iv — #4 i i i i i i ACQUISITIONS EDITOR Beth Lang Golub MARKETING MANAGER Chris Ruel EDITORIAL ASSISTANT Elizabeth Mills MEDIA EDITOR Thomas Kulesa SENIOR DESIGNER Jim O’Shea CONTENT "
+      ],
+      "scanLikely": false
+    },
+    {
+      "file": "Data Structure and Algorithm_Worksheet.fodg",
+      "pages": 3,
+      "realPages": 2,
+      "emptyPages": 0,
+      "imagePages": 2,
+      "realWords": 454,
+      "noiseWords": 1029,
+      "samples": [
+        "Data Structure and Algorithm: Worksheet 1. Can you have an algorithm without a data structure? Can you have a data structure without an algorithm? 2. Design a spelling checker algorithm over a dictionary of words [Just s",
+        "f. 3n 2 g. 1000 h. 3n 7. When we study the runtime of algorithms, some functions occur frequently. The following table shows these common functions. For each function, give one example algorithm having runtime of that fu"
+      ],
+      "scanLikely": false
+    },
+    {
+      "file": "Data Structure and Algoritms-Jimma Univ.fodg",
+      "pages": 117,
+      "realPages": 113,
+      "emptyPages": 0,
+      "imagePages": 29,
+      "realWords": 26229,
+      "noiseWords": 576,
+      "samples": [
+        "2 Table of Contents Data Structures and Algorithms Analysis ....................................................................................... 4 1. Introduction to Data Structures and Algorithms Analysis ...........",
+        "3 4. Stacks ........................................................................................................................................ 44 4.1. Array Implementation of Stacks: The PUSH operation ............",
+        "4 Data Structures and Algorithms Analysis 1. Introduction to Data Structures and Algorithms Analysis A program is written in order to solve a problem. A solution to a problem actually consists of two things:  A way to o"
+      ],
+      "scanLikely": false
+    },
+    {
+      "file": "Data Structure Course Outline.fodg",
+      "pages": 4,
+      "realPages": 4,
+      "emptyPages": 0,
+      "imagePages": 0,
+      "realWords": 1284,
+      "noiseWords": 0,
+      "samples": [
+        "1 Addis Ababa Science and Technology University College of Electrical and Mechanical Eng. Dep’t of Software Engineering Course Syllabus 1. Course Information Course Title Data Structures and Algorithms Course Code SWEG 3",
+        "2 Addis Ababa Science and Technology University College of Electrical and Mechanical Eng. Dep’t of Software Engineering • Determine complexity of algorithms using Empirical analysis and Theoretical analysis • Compare and",
+        "3 Addis Ababa Science and Technology University College of Electrical and Mechanical Eng. Dep’t of Software Engineering 14 Lecture 14 Hashing Lab 14 Implementing hashes in C++ 15 &16 Final Exam weeks 6. Textbook CLIFFORD"
+      ],
+      "scanLikely": false
+    },
+    {
+      "file": "Data Structures and Algorithms in C++.fodg",
+      "pages": 1325,
+      "realPages": 1223,
+      "emptyPages": 0,
+      "imagePages": 1276,
+      "realWords": 202531,
+      "noiseWords": 7865,
+      "samples": [
+        "Data Structures and Algorithms with Object-Oriented Design Patterns in C++ Data Structures and Algorithms with Object-Oriented Design Patterns in C++ Data Structures and Algorithms with Object-Oriented Design Patterns in",
+        "Data Structures and Algorithms with Object-Oriented Design Patterns in C++ ● Character Codes ● References ● Index Copyright © 1997 by Bruno R. Preiss, P.Eng. All rights reserved. http://www.brpreiss.com/books/opus4/html/",
+        "Colophon Data Structures and Algorithms with Object-Oriented Design Patterns in C++ Colophon Copyright © 1997 by Bruno R. Preiss. All rights reserved. No part of this publication may be reproduced, stored in a retrieval "
+      ],
+      "scanLikely": false
+    },
+    {
+      "file": "Searching 74867.fodg",
+      "pages": 11,
+      "realPages": 10,
+      "emptyPages": 0,
+      "imagePages": 0,
+      "realWords": 569,
+      "noiseWords": 0,
+      "samples": [
+        "Given an array A storing n numbers, and a target number v, locate the position in A (if it exists) where A[i] = v Example ➢ Input: A = {3,8,2,15,99,52}, v = 99 ➢ Output: position 4 Notes ➢ Array positions (indexes) go fr",
+        "Algorithm LinearSearch(A,v): Input: An array A of n numbers, search target v Output: position i where A[i]=v, -1 if not found for i  0 to n - 1 do if A[i] = v then return I End If i==n return -1 Algorithm 1: Linear Sear",
+        "Worst-case: O( n ) ➢ If v does not exist or if v is the last element in the array Best-case: O( 1 ) ➢ When the target element v is the first element in the array Average-case: O( n ) ➢ e.g., if the target element is some"
+      ],
+      "scanLikely": false
+    }
+  ]
+}

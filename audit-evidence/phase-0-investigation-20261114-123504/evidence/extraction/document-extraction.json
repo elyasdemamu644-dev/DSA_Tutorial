@@ -1,0 +1,2383 @@
+{
+  "generated": "2026-11-14T20:47:52.626Z",
+  "files": [
+    {
+      "file": "ALgo_Efficiency 74864.fodg",
+      "size": 1694323,
+      "kind": "pdf",
+      "pages": 51,
+      "totalTextChars": 764699,
+      "totalWords": 12777,
+      "avgWordsPerPage": 251,
+      "imagePages": 13,
+      "lowTextPages": 4,
+      "codeSignals": 21,
+      "questionSignals": 4,
+      "keywords": {
+        "c++ foundations": 23,
+        "complexity": 42,
+        "arrays": 0,
+        "strings": 0,
+        "linked lists": 1,
+        "stacks": 19,
+        "queues": 1,
+        "recursion": 7,
+        "trees": 59,
+        "hashing": 1,
+        "graphs": 58,
+        "searching": 5,
+        "sorting": 1,
+        "greedy": 0,
+        "dynamic programming": 20,
+        "divide and conquer": 0,
+        "bit manipulation": 0,
+        "advanced graphs": 0,
+        "competitive programming": 0,
+        "projects": 0
+      },
+      "firstPageSample": "Algorithmic Complexity",
+      "pageStarts": [
+        {
+          "page": 1,
+          "words": 2,
+          "sample": "Algorithmic Complexity"
+        },
+        {
+          "page": 2,
+          "words": 22,
+          "sample": "2\n(Efficiency)\nLearning outcomes\n➢\nAble to analyze space and Time complexities\n➢\nAble to carry out simple asymptotic analysis of\nalgorithms"
+        },
+        {
+          "page": 3,
+          "words": 32,
+          "sample": "Two areas are important for performance:\n➢\nspace efficiency - the memory required, also\ncalled, space complexity\n➢\ntime efficiency - the time required, also\ncal"
+        },
+        {
+          "page": 4,
+          "words": 28,
+          "sample": "There are some circumstances where the\nspace/memory used must be analyzed.\nFor example,\n✓\nfor large quantities of data\n✓\nfor embedded systems programming\nSpace "
+        },
+        {
+          "page": 5,
+          "words": 49,
+          "sample": "Components of space/memory use:\n1.\ninstruction space: Affected by: the compiler,\ncompiler options, target computer (cpu)\n2.\ndata space: Affected by: the data\nsi"
+        },
+        {
+          "page": 6,
+          "words": 44,
+          "sample": "The space requirement has\nfixed/static/compile time and a\nvariable/dynamic/runtime components.\n•\nFixed components are the machine language\ninstructions and stat"
+        },
+        {
+          "page": 7,
+          "words": 73,
+          "sample": "Clearly the more quickly a program/function\naccomplishes its task the better .\nThe actual running time depends on many\nfactors:\n1.\nThe speed of the computer: cp"
+        },
+        {
+          "page": 8,
+          "words": 57,
+          "sample": "By execution of the code we can:\nbenchmark - run the program on various data\nsets and measure the performance.\nCode the algorithm and run the program, then\nmeas"
+        },
+        {
+          "page": 9,
+          "words": 41,
+          "sample": "Step Count\nCount the exact number of steps needed for an\nalgorithm as a function of the problem size\nEach atomic operation is counted as one step:\n➢\nArithmetic "
+        },
+        {
+          "page": 10,
+          "words": 126,
+          "sample": "2\n2\n7\n2\n3\n)\n1\n(\n3\n2\n2\n2\n1\n+\n+\n=\n−\n+\n+\n+\n\n=\nn\nn\ni\nn\nn\nn\ni\nThe running time is\n1\n\n=\n−\n+\nn\ni\ni\nn\n1\n)\n1\n(\n\n=\n−\n+\nn\ni\ni\nn\n1\n)\n1\n(\n2\nn\n2\n1\nAlgorithm 1\n1 int count_"
+        },
+        {
+          "page": 11,
+          "words": 43,
+          "sample": "1 int count_2(int n)\n2 {\n3 sum = 0\n4 for i=1 to n {\n5 sum += n+1-i\n6 }\n7 return sum\n8 }\nn\n2\n1\n1\nn\n3\nThe running time is\n2\n5\n+\nn\nAlgorithm 2"
+        },
+        {
+          "page": 12,
+          "words": 26,
+          "sample": "1 int count_3(int n)\n2 {\n3 sum = n(n+1)/2\n4 return sum\n5 }\n4\nThe running time is 5 time unit\n1\nAlgorithm 3"
+        }
+      ]
+    },
+    {
+      "file": "ch-1 .fodg",
+      "size": 723642,
+      "kind": "pdf",
+      "pages": 75,
+      "totalTextChars": 72582,
+      "totalWords": 5158,
+      "avgWordsPerPage": 69,
+      "imagePages": 5,
+      "lowTextPages": 5,
+      "codeSignals": 36,
+      "questionSignals": 8,
+      "keywords": {
+        "c++ foundations": 35,
+        "complexity": 87,
+        "arrays": 2,
+        "strings": 0,
+        "linked lists": 0,
+        "stacks": 0,
+        "queues": 0,
+        "recursion": 1,
+        "trees": 14,
+        "hashing": 0,
+        "graphs": 5,
+        "searching": 4,
+        "sorting": 10,
+        "greedy": 0,
+        "dynamic programming": 1,
+        "divide and conquer": 0,
+        "bit manipulation": 0,
+        "advanced graphs": 0,
+        "competitive programming": 0,
+        "projects": 0
+      },
+      "firstPageSample": "1\nChapter One\nIntroduction to Data Structures and\nAlgorithms",
+      "pageStarts": [
+        {
+          "page": 1,
+          "words": 9,
+          "sample": "1\nChapter One\nIntroduction to Data Structures and\nAlgorithms"
+        },
+        {
+          "page": 2,
+          "words": 84,
+          "sample": "2\nIntroduction\nA program\n•\nA set of instruction which is written in to solve a\nproblem.\n•\nA solution to a problem actually consists of two\nthings:\n✓\nA way to or"
+        },
+        {
+          "page": 3,
+          "words": 82,
+          "sample": "3\nData structures are used to model the world or part of\nthe world. How?\n1.\nThe value held by a data structure represents\nsome specific characteristic of the wo"
+        },
+        {
+          "page": 4,
+          "words": 22,
+          "sample": "4\n• The model defines an abstract view to the problem.\n• The model should only focus on problem related\nstuff\nIntroduction…"
+        },
+        {
+          "page": 5,
+          "words": 47,
+          "sample": "5\n•\nIs a process of classifying characteristics as relevant\nand irrelevant for the particular purpose at hand\nand ignoring the irrelevant ones.\nExample: model s"
+        },
+        {
+          "page": 6,
+          "words": 51,
+          "sample": "6\n• Using the model, a programmer tries to define the\nproperties of the problem.\n• These properties include\n✓\nThe data which are affected and\n✓\nThe operations\nt"
+        },
+        {
+          "page": 7,
+          "words": 69,
+          "sample": "7\nAbstract Data Types\n• Consists of data to be stored and operations\nsupported on them.\n• Is a specification that describes a data set and the\noperation on that"
+        },
+        {
+          "page": 8,
+          "words": 48,
+          "sample": "8\nExample : ADT employees of an organization:\n✓\nThis ADT stores employees with their\nrelevant\nattributes and discarding irrelevant\nattributes .\nRelevant:- Name,"
+        },
+        {
+          "page": 9,
+          "words": 59,
+          "sample": "9\nData Structure\n• In Contrast a data structure is a language construct\nthat the programmer has defined in order to\nimplement an\nabstract data type\n.\n• What is "
+        },
+        {
+          "page": 10,
+          "words": 73,
+          "sample": "10\nData Structure…\n• Attributes of each variable:\n– Name: Textual label.\n– Address : Location in memory.\n– Scope : Visibility in statements of a program.\n– Type"
+        },
+        {
+          "page": 11,
+          "words": 76,
+          "sample": "11\nAlgorithm\n• Is a concise specification of an operation for solving\na problem.\n• Is a well-defined computational procedure that takes\nsome value or a set of v"
+        },
+        {
+          "page": 12,
+          "words": 60,
+          "sample": "12\n• Data structures model the static part of the world.\nThey are unchanging while the world is changing.\n• In order to model the dynamic part of the world\nwe n"
+        }
+      ]
+    },
+    {
+      "file": "ch-1.fodg",
+      "size": 3457856,
+      "kind": "pdf",
+      "pages": 66,
+      "totalTextChars": 2228386,
+      "totalWords": 35036,
+      "avgWordsPerPage": 531,
+      "imagePages": 66,
+      "lowTextPages": 0,
+      "codeSignals": 9,
+      "questionSignals": 20,
+      "keywords": {
+        "c++ foundations": 13,
+        "complexity": 51,
+        "arrays": 17,
+        "strings": 1,
+        "linked lists": 2,
+        "stacks": 71,
+        "queues": 0,
+        "recursion": 0,
+        "trees": 210,
+        "hashing": 0,
+        "graphs": 4,
+        "searching": 6,
+        "sorting": 9,
+        "greedy": 0,
+        "dynamic programming": 1,
+        "divide and conquer": 0,
+        "bit manipulation": 0,
+        "advanced graphs": 0,
+        "competitive programming": 0,
+        "projects": 3
+      },
+      "firstPageSample": "iVBORw0KGgoAAAANSUhEUgAAAJMAAACTCAIAAAAFh7xCAAAACXBIWXMAAAsTAAALEwEAmpwY AAAgAElEQVR4nOy9d3yUxfY/fp62ve8m2fQGhIQeQEqkF0EBqQIqgiDSRERRvNhAropdQRGk KE1B6SDSa+gQAimkZ9M2yfZenja/P/ByFUOyAdTv575+7792Z+acOc9zZuY5c2bmDIYQgv8f /weB/9MC/P+4R/wva84b4P9pEf5C/M9qzubiho4umruo4tZfT+CfFefB439Tc/4g/8QTRUd2 tZo8Wjfx+VIAkIn+aZkeNLD/PQslp9T//JTyzBOpBIkBQG0t02VgXk1ex39argeM/7U+t/pH 864f7efPpN1SGwBERlI1eR1T03MqjDQA/M+00/8dzdmd3JDxhe3ixW+/GfVbkqvudu7NrHYf Lqtd/5MZ+2ek+wuA/iew44BtwpQSnv9jqsd6R7Hz590jny6uMdF/m2B/Hf7P9zmLgx00ulBK 4D9+l4z9oUMhqM2HX9//fVL37rIfVid98UX9Wx/V/L1iPnj837ZQ5r1TKWTwd9+OEokaaoJ+ B+AUCKV/zqmooMdP",
+      "pageStarts": [
+        {
+          "page": 1,
+          "words": 464,
+          "sample": "iVBORw0KGgoAAAANSUhEUgAAAJMAAACTCAIAAAAFh7xCAAAACXBIWXMAAAsTAAALEwEAmpwY AAAgAElEQVR4nOy9d3yUxfY/fp62ve8m2fQGhIQeQEqkF0EBqQIqgiDSRERRvNhAropdQRGk KE1B6SDSa+gQAi"
+        },
+        {
+          "page": 2,
+          "words": 465,
+          "sample": "iVBORw0KGgoAAAANSUhEUgAAAJMAAACTCAIAAAAFh7xCAAAACXBIWXMAAAsTAAALEwEAmpwY AAAgAElEQVR4nOy9d3yUxfY/fp62ve8m2fQGhIQeQEqkF0EBqQIqgiDSRERRvNhAropdQRGk KE1B6SDSa+gQAi"
+        },
+        {
+          "page": 3,
+          "words": 494,
+          "sample": "iVBORw0KGgoAAAANSUhEUgAAAJMAAACTCAIAAAAFh7xCAAAACXBIWXMAAAsTAAALEwEAmpwY AAAgAElEQVR4nOy9d3yUxfY/fp62ve8m2fQGhIQeQEqkF0EBqQIqgiDSRERRvNhAropdQRGk KE1B6SDSa+gQAi"
+        },
+        {
+          "page": 4,
+          "words": 517,
+          "sample": "iVBORw0KGgoAAAANSUhEUgAAAJMAAACTCAIAAAAFh7xCAAAACXBIWXMAAAsTAAALEwEAmpwY AAAgAElEQVR4nOy9d3yUxfY/fp62ve8m2fQGhIQeQEqkF0EBqQIqgiDSRERRvNhAropdQRGk KE1B6SDSa+gQAi"
+        },
+        {
+          "page": 5,
+          "words": 504,
+          "sample": "iVBORw0KGgoAAAANSUhEUgAAAJMAAACTCAIAAAAFh7xCAAAACXBIWXMAAAsTAAALEwEAmpwY AAAgAElEQVR4nOy9d3yUxfY/fp62ve8m2fQGhIQeQEqkF0EBqQIqgiDSRERRvNhAropdQRGk KE1B6SDSa+gQAi"
+        },
+        {
+          "page": 6,
+          "words": 528,
+          "sample": "iVBORw0KGgoAAAANSUhEUgAAAJMAAACTCAIAAAAFh7xCAAAACXBIWXMAAAsTAAALEwEAmpwY AAAgAElEQVR4nOy9d3yUxfY/fp62ve8m2fQGhIQeQEqkF0EBqQIqgiDSRERRvNhAropdQRGk KE1B6SDSa+gQAi"
+        },
+        {
+          "page": 7,
+          "words": 507,
+          "sample": "iVBORw0KGgoAAAANSUhEUgAAAJMAAACTCAIAAAAFh7xCAAAACXBIWXMAAAsTAAALEwEAmpwY AAAgAElEQVR4nOy9d3yUxfY/fp62ve8m2fQGhIQeQEqkF0EBqQIqgiDSRERRvNhAropdQRGk KE1B6SDSa+gQAi"
+        },
+        {
+          "page": 8,
+          "words": 505,
+          "sample": "iVBORw0KGgoAAAANSUhEUgAAAJMAAACTCAIAAAAFh7xCAAAACXBIWXMAAAsTAAALEwEAmpwY AAAgAElEQVR4nOy9d3yUxfY/fp62ve8m2fQGhIQeQEqkF0EBqQIqgiDSRERRvNhAropdQRGk KE1B6SDSa+gQAi"
+        },
+        {
+          "page": 9,
+          "words": 502,
+          "sample": "iVBORw0KGgoAAAANSUhEUgAAAJMAAACTCAIAAAAFh7xCAAAACXBIWXMAAAsTAAALEwEAmpwY AAAgAElEQVR4nOy9d3yUxfY/fp62ve8m2fQGhIQeQEqkF0EBqQIqgiDSRERRvNhAropdQRGk KE1B6SDSa+gQAi"
+        },
+        {
+          "page": 10,
+          "words": 533,
+          "sample": "iVBORw0KGgoAAAANSUhEUgAAAJMAAACTCAIAAAAFh7xCAAAACXBIWXMAAAsTAAALEwEAmpwY AAAgAElEQVR4nOy9d3yUxfY/fp62ve8m2fQGhIQeQEqkF0EBqQIqgiDSRERRvNhAropdQRGk KE1B6SDSa+gQAi"
+        },
+        {
+          "page": 11,
+          "words": 496,
+          "sample": "iVBORw0KGgoAAAANSUhEUgAAAJMAAACTCAIAAAAFh7xCAAAACXBIWXMAAAsTAAALEwEAmpwY AAAgAElEQVR4nOy9d3yUxfY/fp62ve8m2fQGhIQeQEqkF0EBqQIqgiDSRERRvNhAropdQRGk KE1B6SDSa+gQAi"
+        },
+        {
+          "page": 12,
+          "words": 554,
+          "sample": "iVBORw0KGgoAAAANSUhEUgAAAJMAAACTCAIAAAAFh7xCAAAACXBIWXMAAAsTAAALEwEAmpwY AAAgAElEQVR4nOy9d3yUxfY/fp62ve8m2fQGhIQeQEqkF0EBqQIqgiDSRERRvNhAropdQRGk KE1B6SDSa+gQAi"
+        }
+      ]
+    },
+    {
+      "file": "ch-2.fodg",
+      "size": 457734,
+      "kind": "pdf",
+      "pages": 30,
+      "totalTextChars": 84029,
+      "totalWords": 3039,
+      "avgWordsPerPage": 101,
+      "imagePages": 2,
+      "lowTextPages": 1,
+      "codeSignals": 5,
+      "questionSignals": 10,
+      "keywords": {
+        "c++ foundations": 1,
+        "complexity": 30,
+        "arrays": 27,
+        "strings": 0,
+        "linked lists": 1,
+        "stacks": 2,
+        "queues": 0,
+        "recursion": 0,
+        "trees": 6,
+        "hashing": 0,
+        "graphs": 5,
+        "searching": 41,
+        "sorting": 130,
+        "greedy": 0,
+        "dynamic programming": 3,
+        "divide and conquer": 1,
+        "bit manipulation": 0,
+        "advanced graphs": 0,
+        "competitive programming": 0,
+        "projects": 0
+      },
+      "firstPageSample": "1\nChapter Two\nSimple Sorting and Searching\nAlgorithms",
+      "pageStarts": [
+        {
+          "page": 1,
+          "words": 8,
+          "sample": "1\nChapter Two\nSimple Sorting and Searching\nAlgorithms"
+        },
+        {
+          "page": 2,
+          "words": 108,
+          "sample": "2\n•\nThese algorithms are the most common and useful\ntasks operated by computer system.\n•\nComputers spend a lot of time for searching and\nsorting.\n1.\nSimple Sear"
+        },
+        {
+          "page": 3,
+          "words": 99,
+          "sample": "3\nThere are two simple searching algorithms:\na)\nSequential Search, and\nb)\nBinary Search\na). Sequential Searching (Linear)\n•\nThe most natural way of searching an"
+        },
+        {
+          "page": 4,
+          "words": 53,
+          "sample": "4\nImplementation: Assume the size of the list is n.\nint LinearSearch(int list[ ], int key)\n{\nindex=-1;\nfor(int i=0; i<n; i++)\n{\nif(list[i]==key)\n{\nindex=i;\nbrea"
+        },
+        {
+          "page": 5,
+          "words": 119,
+          "sample": "5\nb). Binary Searching\n•\nAssume sorted data.\n•\nUse Divide and conquer strategy (approach).\nAlgorithm:\nI.\nIn a binary search, we look for the key in the\nmiddle\no"
+        },
+        {
+          "page": 6,
+          "words": 53,
+          "sample": "6\nImplementation:\nint BinarySearch(int list[ ], int key)\n{\nint found=0,index=0;\nint top=n-1,bottom=0,middle;\ndo{\nmiddle=(top + bottom)/2;\nif(key==list[middle])\n"
+        },
+        {
+          "page": 7,
+          "words": 76,
+          "sample": "7\n2. Simple Sorting Algorithms\nSorting: is a process of reordering a list of items in either\nincreasing or decreasing order.\n•\nOrdering a list of items is funda"
+        },
+        {
+          "page": 8,
+          "words": 67,
+          "sample": "8\nSimple Sorting Algorithms\nStable:\nIf two elements that are equal, they will remain in the\nsame relative position after sorting is completed.\nTwo classes of so"
+        },
+        {
+          "page": 9,
+          "words": 85,
+          "sample": "9\nI.\nSimple sorting\nAlgorithm:\n•\nIn simple sort algorithm the first element is\ncompared with the second, third and all\nsubsequent elements.\n•\nIf any one of the "
+        },
+        {
+          "page": 10,
+          "words": 24,
+          "sample": "10\nImplementation:\nVoid SimpleSort(int list[])\n{\nfor(int i=0; i<=n-2;i++)\nfor(int j=i+1; j<=n-1; j++)\nif(list[i] > list[j])\n{\nint temp;\ntemp=list[i];\nlist[i]=li"
+        },
+        {
+          "page": 11,
+          "words": 47,
+          "sample": "11\n`\nExample:\n4\n2 3 1\ni=0 j=1 2 4 3 1\nj=2 2 4 3 1\nj=3 1 4\n3 2\ni=1 j=2 1 3\n4 2\nj=3 1 2 4\n3\ni=2 j=3 1 2 3 4\n--------\ni\nj\nn-1\n1\n0\n2"
+        },
+        {
+          "page": 12,
+          "words": 61,
+          "sample": "12\n`\nAnalysis: O(?)\n1\nst\npass-----\n➔\n(n-1) comparisons\n2\nnd\npass----\n➔\n(n-2) comparisons\n|\n|\n(n-1)\nth\npass---\n➔\n1 comparison\nT(n)=1+2+3+4+-------+(n-2)+(n-1)\n= "
+        }
+      ]
+    },
+    {
+      "file": "ch-3.fodg",
+      "size": 721611,
+      "kind": "pdf",
+      "pages": 64,
+      "totalTextChars": 107367,
+      "totalWords": 4366,
+      "avgWordsPerPage": 68,
+      "imagePages": 11,
+      "lowTextPages": 1,
+      "codeSignals": 46,
+      "questionSignals": 5,
+      "keywords": {
+        "c++ foundations": 98,
+        "complexity": 25,
+        "arrays": 35,
+        "strings": 0,
+        "linked lists": 177,
+        "stacks": 5,
+        "queues": 0,
+        "recursion": 0,
+        "trees": 3,
+        "hashing": 1,
+        "graphs": 2,
+        "searching": 8,
+        "sorting": 5,
+        "greedy": 0,
+        "dynamic programming": 4,
+        "divide and conquer": 0,
+        "bit manipulation": 0,
+        "advanced graphs": 0,
+        "competitive programming": 0,
+        "projects": 4
+      },
+      "firstPageSample": "Chapter 3\nLinked List Data Structure and its\napplications\n1",
+      "pageStarts": [
+        {
+          "page": 1,
+          "words": 10,
+          "sample": "Chapter 3\nLinked List Data Structure and its\napplications\n1"
+        },
+        {
+          "page": 2,
+          "words": 49,
+          "sample": "Lists - Introduction\n•\nSome applications require processing data in a\nstrict chronological order .\nExample:\n–\nProcessing objects in the order that they arrived."
+        },
+        {
+          "page": 3,
+          "words": 80,
+          "sample": "Lists – Definition\n•\nA list is a finite, ordered sequence of data items called\nelements .\n•\nImportant concept: List elements have a position .\n–\n[1\nst\nelement i"
+        },
+        {
+          "page": 4,
+          "words": 42,
+          "sample": "Cont’d\n•\nThe empty list contains no elements.\n•\nThe length of\nthe list\nis\nthe number\nof\nelements\ncurrently stored.\n•\nThe beginning of the list is called the hea"
+        },
+        {
+          "page": 5,
+          "words": 38,
+          "sample": "•\nSorted\nlists\nhave\ntheir\nelements\npositioned\nin\nascending\nor\ndescending\norder\nof\nvalue,\nwhile\nunsorted lists have no necessary relationship between\nelement val"
+        },
+        {
+          "page": 6,
+          "words": 34,
+          "sample": "List Implementation Concepts\n•\nOur list implementation will support the concept of a\ncurrent position .\n•\nBasic operations :\n–\nAdd,\nfind and delete\nelement\nanyw"
+        },
+        {
+          "page": 7,
+          "words": 30,
+          "sample": "Types of Data Structures to implement\nlist\n•\nThere are two broad types of data structure based\non their memory allocation:\n–\nStatic Data Structures\n–\nDynamic Da"
+        },
+        {
+          "page": 8,
+          "words": 61,
+          "sample": "I.\nStatic Data Structures\n•\nAre data structures that are defined & allocated\nbefore execution, thus the size cannot be changed\nduring time of execution.\nExample"
+        },
+        {
+          "page": 9,
+          "words": 53,
+          "sample": "Array-Based List Implementation\n[There are two standard approaches to implementing lists, the\narray-based list and the linked list.]\nArray-Based List Insert:\n[P"
+        },
+        {
+          "page": 10,
+          "words": 65,
+          "sample": "Array-Based List Class (1)\n//Array-based list\nclass AList : public List{\nprivate:\nint maxSize; // Maximum size of list\nint listSize; // Actual elem count\nint cu"
+        },
+        {
+          "page": 11,
+          "words": 86,
+          "sample": "Array-Based List Class (2)\nvoid clear() { //\nReinitialize the list\ndelete [] listArray;\nlistSize = curr = 0;\nlistArray = new datatype[maxSize];\n}\nvoid setStart("
+        },
+        {
+          "page": 12,
+          "words": 61,
+          "sample": "Array-Based List Class (3)\n//get current value\nbool getValue(){\nif (listSize == 0)return false;\nelse{\nit = listArray[curr];\nreturn true;}\n}\n// Insert at current"
+        }
+      ]
+    },
+    {
+      "file": "ch-4.fodg",
+      "size": 666122,
+      "kind": "pdf",
+      "pages": 40,
+      "totalTextChars": 145053,
+      "totalWords": 4436,
+      "avgWordsPerPage": 111,
+      "imagePages": 12,
+      "lowTextPages": 2,
+      "codeSignals": 20,
+      "questionSignals": 1,
+      "keywords": {
+        "c++ foundations": 40,
+        "complexity": 2,
+        "arrays": 7,
+        "strings": 3,
+        "linked lists": 12,
+        "stacks": 153,
+        "queues": 2,
+        "recursion": 2,
+        "trees": 17,
+        "hashing": 0,
+        "graphs": 9,
+        "searching": 0,
+        "sorting": 0,
+        "greedy": 0,
+        "dynamic programming": 2,
+        "divide and conquer": 0,
+        "bit manipulation": 0,
+        "advanced graphs": 0,
+        "competitive programming": 0,
+        "projects": 3
+      },
+      "firstPageSample": "1\nStacks & Its Applications\nChapter Four",
+      "pageStarts": [
+        {
+          "page": 1,
+          "words": 7,
+          "sample": "1\nStacks & Its Applications\nChapter Four"
+        },
+        {
+          "page": 2,
+          "words": 75,
+          "sample": "2\nIntroduction\n• Stacks are linear lists.\n• All deletions and insertions occur at one end of the stack\nknown as the TOP .\n• Data going into the stack first, lea"
+        },
+        {
+          "page": 3,
+          "words": 858,
+          "sample": "iVBORw0KGgoAAAANSUhEUgAAAlkAAADaCAIAAAAaIcBPAAAACXBIWXMAAAsTAAALEwEAmpwY AAAgAElEQVR4nOydd1wT5x/HvwGBhBGSMMIKMxC2DGWJAwUBB25xVcXRqq3iqFZ/YmtVqtXW 1bqqLdo6sMVRtS"
+        },
+        {
+          "page": 4,
+          "words": 83,
+          "sample": "4\n•\nThere are many times where it is useful to use\na list in a way where we always add to the\nend, and also always remove from the end.\n•\nStack : a more restric"
+        },
+        {
+          "page": 5,
+          "words": 146,
+          "sample": "5\n•\nGoal: every operation on a stack should be O(1).\n–\nStacks are straightforward to implement in\nseveral different ways, and are very useful.\n•\nOperations on a"
+        },
+        {
+          "page": 6,
+          "words": 546,
+          "sample": "/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRof Hh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwh MjIyMjIyMjIyMj"
+        },
+        {
+          "page": 7,
+          "words": 85,
+          "sample": "Other Stack Operations\n• initialize():\n– Initialize the stack to be empty.\n• isFull():\n– Determine if stack is full or not. A Boolean operation\nneeded for\nstati"
+        },
+        {
+          "page": 8,
+          "words": 81,
+          "sample": "8\nStack features:\n•\nORDERING : maintains order elements were added\n(new elements are added to the end by default).\n•\nOPERATIONS :\n–\nAdd element to end of stack "
+        },
+        {
+          "page": 9,
+          "words": 102,
+          "sample": "9\nStacks in computer science\n•\nThe lowly stack is one of the most important data structures\nin all of computer science\n–\nFunction/method calls are placed onto a"
+        },
+        {
+          "page": 10,
+          "words": 24,
+          "sample": "10\n• Stacks structures are usually implemented using\narrays or linked lists.\n• We will be examining common Stack Applications .\nStack … (continued)"
+        },
+        {
+          "page": 11,
+          "words": 54,
+          "sample": "Array Based Stack Implementation\n11\n• Stacks can be represented in memory using\narrays.\n• We can declare an array named as STACK.\n• We also use TOP variable to "
+        },
+        {
+          "page": 12,
+          "words": 66,
+          "sample": "• Top is pointing to index number 03,\nwhich means\nstack has four items.\n• Sometimes when a new data is to be inserted into\nstack but there is no available space"
+        }
+      ]
+    },
+    {
+      "file": "ch-5.fodg",
+      "size": 1214545,
+      "kind": "pdf",
+      "pages": 39,
+      "totalTextChars": 450621,
+      "totalWords": 7616,
+      "avgWordsPerPage": 195,
+      "imagePages": 15,
+      "lowTextPages": 4,
+      "codeSignals": 8,
+      "questionSignals": 0,
+      "keywords": {
+        "c++ foundations": 9,
+        "complexity": 2,
+        "arrays": 20,
+        "strings": 0,
+        "linked lists": 12,
+        "stacks": 14,
+        "queues": 214,
+        "recursion": 0,
+        "trees": 34,
+        "hashing": 0,
+        "graphs": 36,
+        "searching": 0,
+        "sorting": 0,
+        "greedy": 0,
+        "dynamic programming": 12,
+        "divide and conquer": 0,
+        "bit manipulation": 0,
+        "advanced graphs": 0,
+        "competitive programming": 0,
+        "projects": 2
+      },
+      "firstPageSample": "1\nQueue\nChapter Five",
+      "pageStarts": [
+        {
+          "page": 1,
+          "words": 4,
+          "sample": "1\nQueue\nChapter Five"
+        },
+        {
+          "page": 2,
+          "words": 110,
+          "sample": "2\nQueue\nAbstract data type: Queue\n•\nMany times, we use a list in a way where we always\nadd to the end, and always remove from the front.\n•\nThe first element put"
+        },
+        {
+          "page": 3,
+          "words": 74,
+          "sample": "3\nQueue … (continued)\nOperations on a queue\n• Offer or enqueue : add an element to the back.\n• Remove or dequeue : remove and return the element at\nthe front.\n•"
+        },
+        {
+          "page": 4,
+          "words": 73,
+          "sample": "4\nQueue … (continued)\n•\nOPERATIONS :\n–\nAdd element to end of list ('offer' or 'enqueue').\n–\nRemove element from beginning of list ('remove'\nor 'dequeue') examin"
+        },
+        {
+          "page": 5,
+          "words": 64,
+          "sample": "5\n•\nisEmpty():\n− Determine whether queue is empty or not.\nA Boolean operation needed for all queues . Returns\ntrue if the queue is empty. Otherwise, returns fal"
+        },
+        {
+          "page": 6,
+          "words": 31,
+          "sample": "6\nThe Queue Operations\n• A queue is like a line of people waiting for a bank\nteller. The queue has a front and a rear .\n$ $\nFront\nRear"
+        },
+        {
+          "page": 7,
+          "words": 25,
+          "sample": "7\nThe Queue Operations\n• New people must enter the queue at the rear. it\nis usually called an enqueue operation.\n$ $\nFront\nRear"
+        },
+        {
+          "page": 8,
+          "words": 30,
+          "sample": "8\nThe Queue Operations\n• When an item is taken from the queue, it always\ncomes from the front. it is usually called a\ndequeue operation.\n$ $\nFront\nRear"
+        },
+        {
+          "page": 9,
+          "words": 5,
+          "sample": "9\nArray Implementation of Queue"
+        },
+        {
+          "page": 10,
+          "words": 72,
+          "sample": "10\n• A queue can be implemented with an array, as\nshown here.\nFor example, this queue contains the integers 4\n(at the front), 8 and 6 (at the rear).\n[ 0 ]\n[1]\n["
+        },
+        {
+          "page": 11,
+          "words": 526,
+          "sample": "11\nSimple Array Implementation of Queue\n• The easiest implementation also keeps\ntrack of the number of items in the\nqueue (Queue Size) and the index of the\nfirs"
+        },
+        {
+          "page": 12,
+          "words": 130,
+          "sample": "12\nA Dequeue Operation\n• When an element leaves the queue, size is\niVBORw0KGgoAAAANSUhEUgAAAMgAAACVCAYAAAAdSLW3AAARDUlEQVR42u2dd1QV6RnGdy8K 9i72hh3sotgwdhSDDSzY"
+        }
+      ]
+    },
+    {
+      "file": "ch-6.fodg",
+      "size": 7768051,
+      "kind": "pdf",
+      "pages": 49,
+      "totalTextChars": 221751,
+      "totalWords": 5408,
+      "avgWordsPerPage": 110,
+      "imagePages": 34,
+      "lowTextPages": 1,
+      "codeSignals": 18,
+      "questionSignals": 5,
+      "keywords": {
+        "c++ foundations": 18,
+        "complexity": 0,
+        "arrays": 1,
+        "strings": 0,
+        "linked lists": 145,
+        "stacks": 10,
+        "queues": 1,
+        "recursion": 8,
+        "trees": 181,
+        "hashing": 0,
+        "graphs": 18,
+        "searching": 34,
+        "sorting": 0,
+        "greedy": 0,
+        "dynamic programming": 2,
+        "divide and conquer": 0,
+        "bit manipulation": 0,
+        "advanced graphs": 0,
+        "competitive programming": 0,
+        "projects": 1
+      },
+      "firstPageSample": "1\nChapter Six\nTree Structures",
+      "pageStarts": [
+        {
+          "page": 1,
+          "words": 5,
+          "sample": "1\nChapter Six\nTree Structures"
+        },
+        {
+          "page": 2,
+          "words": 20,
+          "sample": "2\nLinear Data Structure\nArrays\nLinked Lists\nStacks\nQueues\nNon-Linear Data Structure\n\nTrees\n\nGraphs\nClassification of Data Structures"
+        },
+        {
+          "page": 3,
+          "words": 94,
+          "sample": "3\nIntroduction\nA tree is a set\nof\nnodes and edges that\nconnect\npairs of\nnodes.\nIt is an abstract model of a hierarchical structure .\nUnlike a real\ntree,\ntree da"
+        },
+        {
+          "page": 4,
+          "words": 38,
+          "sample": "4\nTrees Data Structures\nTree\n» A way of representing hierarchical\ndata.\n» Consist of nodes with a parent-child relationship.\n» Each node can have 0 or more chil"
+        },
+        {
+          "page": 5,
+          "words": 17,
+          "sample": "5\nExample\nAASTU (President)\nVPAA\nVPASA\nVPCE\nCCAE\nCAS\nCEME\nSoftware Engineering\nElectrical Engineering\nMechanical Engineering\nVPRA"
+        },
+        {
+          "page": 6,
+          "words": 32,
+          "sample": "6\nApplications of Tree in Computer Science\nStoring naturally hierarchical\ndata - File system .\nOrganize data for quick search,\ninsertion,\ndeletion -\nBinary sear"
+        },
+        {
+          "page": 7,
+          "words": 96,
+          "sample": "7\nTree Terminology\nA path through the tree to a node is a sequence of\narcs that connect the root to the node.\nThe length of\na path is the number of arcs in the\n"
+        },
+        {
+          "page": 8,
+          "words": 63,
+          "sample": "8\nTree Terminology\nRoot node - a node which has no parent.\nInternal node – which has at least one child\nLeaf node - which has no child\nAncestor- nodes which are"
+        },
+        {
+          "page": 9,
+          "words": 32,
+          "sample": "9\n» Root\n\nno parent\n» Leaf\n\nno child\n» Interior\n\nnon-leaf\n» Height\n\ndistance from root to leaf\nRoot node\nLeaf nodes\nInterior nodes\nHeight\nTree Terminology"
+        },
+        {
+          "page": 10,
+          "words": 51,
+          "sample": "10\nExample of a Tree\n•\nNo. of nodes = 9\n•\nHeight = 4\n•\nLevels = 1,2,3,4\n•\nRoot Node = 8\n•\nLeaves = 1,4,7,13\n•\nInterior Nodes = 3,10,6,14\n•\nAncestors of 6 = 3,8\n"
+        },
+        {
+          "page": 11,
+          "words": 57,
+          "sample": "11\nBinary Tree\n◼\nA tree in which each node has\nat\nmost\ntwo children called left\nchild and right child.\n❑\nA node have only left\nand right\nchild or\n❑\nOnly left ch"
+        },
+        {
+          "page": 12,
+          "words": 877,
+          "sample": "iVBORw0KGgoAAAANSUhEUgAAAxkAAAHECAIAAADavnBwAAAACXBIWXMAAAsTAAALEwEAmpwY AAAgAElEQVR4nOzde1wU1f8/8DMzu8slQkNNd9VEQ9ZM/KSilpGtqEt+vKRoaiqX4JN20S5+ ArLMLEk/gh/NT1"
+        }
+      ]
+    },
+    {
+      "file": "ch-7.fodg",
+      "size": 7711847,
+      "kind": "pdf",
+      "pages": 34,
+      "totalTextChars": 635192,
+      "totalWords": 9616,
+      "avgWordsPerPage": 283,
+      "imagePages": 29,
+      "lowTextPages": 7,
+      "codeSignals": 28,
+      "questionSignals": 10,
+      "keywords": {
+        "c++ foundations": 28,
+        "complexity": 1,
+        "arrays": 8,
+        "strings": 0,
+        "linked lists": 12,
+        "stacks": 30,
+        "queues": 11,
+        "recursion": 0,
+        "trees": 29,
+        "hashing": 0,
+        "graphs": 162,
+        "searching": 7,
+        "sorting": 0,
+        "greedy": 0,
+        "dynamic programming": 18,
+        "divide and conquer": 0,
+        "bit manipulation": 0,
+        "advanced graphs": 0,
+        "competitive programming": 0,
+        "projects": 2
+      },
+      "firstPageSample": "1\nChapter Seven\nGraphs",
+      "pageStarts": [
+        {
+          "page": 1,
+          "words": 4,
+          "sample": "1\nChapter Seven\nGraphs"
+        },
+        {
+          "page": 2,
+          "words": 18,
+          "sample": "2\nLinear Data Structure\nArrays\nLinked Lists\nStacks\nQueues\nNon-Linear Data Structure\nTrees\nGraphs\nClassification of Data Structures"
+        },
+        {
+          "page": 3,
+          "words": 38,
+          "sample": "3\nWhat is a Graph?\nA data structure that\nconsists of\na set\nof\nnodes\n(vertices) and a set of edges that relate the nodes\nto each other.\nThe set\nof\nedges describe"
+        },
+        {
+          "page": 4,
+          "words": 328,
+          "sample": "4\nFormal Definition of Graphs\nA graph G is defined as follows:\nG=(V,E)\nV(G): a finite, nonempty set of vertices\nE(G): a set of edges (pairs of vertices)\nAn edge"
+        },
+        {
+          "page": 5,
+          "words": 2829,
+          "sample": "5\n/9j/4AAQSkZJRgABAQEAAAAAAAD/4QBiRXhpZgAATU0AKgAAAAgAAgExAAIAAAAHAAAAJodp AAQAAAABAAAALgAAAABHb29nbGUAAAADkAAABwAAAAQwMjIwoAIABAAAAAEAAAZAoAMABAAA AAEAAANcAAAA"
+        },
+        {
+          "page": 6,
+          "words": 9,
+          "sample": "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAD0lEQVR42mP4zwCBDDAGAEvG B/lIMYUWAAAAAElFTkSuQmCC 6\nComputer Networks\nApplications of Graphs (cont.)"
+        },
+        {
+          "page": 7,
+          "words": 26,
+          "sample": "7\nDirected vs. Undirected Graphs\nWhen the edges in a graph have no direction , the graph\nis called undirected .\n(a) Graph1 is undirected graph"
+        },
+        {
+          "page": 8,
+          "words": 61,
+          "sample": "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAD0lEQVR42mP4zwCBDDAGAEvG B/lIMYUWAAAAAElFTkSuQmCC 8\nWhen the edges in a graph have a direction ,\nthe graph is ca"
+        },
+        {
+          "page": 9,
+          "words": 12,
+          "sample": "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAD0lEQVR42mP4zwCBDDAGAEvG B/lIMYUWAAAAAElFTkSuQmCC 9\nTrees are special cases of graphs!!\nTrees vs Graphs"
+        },
+        {
+          "page": 10,
+          "words": 40,
+          "sample": "10\nGraph Terminology\nAdjacent nodes : two nodes are adjacent if they\nare connected by an edge .\nPath: a sequence of vertices that connect two\nnodes in a graph.\n"
+        },
+        {
+          "page": 11,
+          "words": 44,
+          "sample": "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAD0lEQVR42mP4zwCBDDAGAEvG B/lIMYUWAAAAAElFTkSuQmCC 11\nComplete graph:\na graph in which every vertex is\ndirectly c"
+        },
+        {
+          "page": 12,
+          "words": 31,
+          "sample": "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAD0lEQVR42mP4zwCBDDAGAEvG B/lIMYUWAAAAAElFTkSuQmCC 12\nWhat\nis the number\nof\nedges\nin a complete\nundirected graph "
+        }
+      ]
+    },
+    {
+      "file": "ch-8.fodg",
+      "size": 6745150,
+      "kind": "pdf",
+      "pages": 51,
+      "totalTextChars": 79917,
+      "totalWords": 3236,
+      "avgWordsPerPage": 63,
+      "imagePages": 30,
+      "lowTextPages": 9,
+      "codeSignals": 3,
+      "questionSignals": 4,
+      "keywords": {
+        "c++ foundations": 4,
+        "complexity": 13,
+        "arrays": 54,
+        "strings": 0,
+        "linked lists": 16,
+        "stacks": 0,
+        "queues": 0,
+        "recursion": 4,
+        "trees": 92,
+        "hashing": 0,
+        "graphs": 3,
+        "searching": 0,
+        "sorting": 121,
+        "greedy": 0,
+        "dynamic programming": 2,
+        "divide and conquer": 3,
+        "bit manipulation": 0,
+        "advanced graphs": 0,
+        "competitive programming": 0,
+        "projects": 0
+      },
+      "firstPageSample": "1\nChapter Eight\nAdvanced Sorting Algorithms",
+      "pageStarts": [
+        {
+          "page": 1,
+          "words": 6,
+          "sample": "1\nChapter Eight\nAdvanced Sorting Algorithms"
+        },
+        {
+          "page": 2,
+          "words": 103,
+          "sample": "2\nRevision - Sorting\nSorting is a technique to rearrange the elements of\na list\nin\nascending or descending order.\nA sorting algorithm is an algorithm that puts "
+        },
+        {
+          "page": 3,
+          "words": 41,
+          "sample": "3\nSorting Algorithms\nThe sorting algorithms can be categorized as:\n» Insertion sort\n» Bubble sort\n» Selection sort\n» Shell sort\n» Quick sort\n» Heap sort\n» Merge"
+        },
+        {
+          "page": 4,
+          "words": 72,
+          "sample": "4\nShell Sort\nThe shell\nsort,\nalso known as\nthe diminishing\nincrement sort ,\nwas developed by Donald L.\nShell\nin 1959.\nThe idea behind shell\nsort is that it is f"
+        },
+        {
+          "page": 5,
+          "words": 112,
+          "sample": "5\nHow Shell Sort Works?\nOne approach would be to divide the array into a number of\nsub arrays consisting of\ncontiguous elements (i.e.\nelements\nthat are next to "
+        },
+        {
+          "page": 6,
+          "words": 81,
+          "sample": "6\nCont ’ d\nActually,\nshell\nsort\nuses\nseveral\niterations\nof\nthis\ntechnique.\nFirst,\na large number\nof\nsub arrays,\nconsisting of\nwidely spaced elements, are sorted"
+        },
+        {
+          "page": 7,
+          "words": 658,
+          "sample": "iVBORw0KGgoAAAANSUhEUgAAAj8AAAHLCAIAAACoJW7yAAAACXBIWXMAAAsTAAALEwEAmpwY AAAgAElEQVR4nOzdbVBTZ74A8Ie798MahJGgu7UtoU4HSNpay6QyhrpYS1fWhcIOpLswA1uC V0iYMTgldMaEWS"
+        },
+        {
+          "page": 8,
+          "words": 108,
+          "sample": "8\nCont ’ d\nIn the above example,\nwe used three iterations :\na 5-sort,\na\n3-sort and a 1-sort.\nThis sequence is known as the diminishing increment .\nBut how do we"
+        },
+        {
+          "page": 9,
+          "words": 94,
+          "sample": "9\nCont ’ d\nAn\nexperimental\nanalysis\nhas\nshown\nthat\nthe\ncomplexity of shell sort is approximately O(n\n1.25\n),\n» which is\nbetter\nthan the O(n\n2\n)\noffered by\nthe s"
+        },
+        {
+          "page": 10,
+          "words": 93,
+          "sample": "10\nCont ’ d\nExample: Sort the following list using shell sort algorithm.\n» 5 8 2 4 1 3 9 7 6 0\nChoose g\n3\n=5 (n/2 where n is the number of elements =10)\nSort (5"
+        },
+        {
+          "page": 11,
+          "words": 92,
+          "sample": "11\nCont ’ d\nSort (1, 0)\n» 3 8 2 4\n0 5\n9 7 6\n1\n5- sorted list\n» 3 8 2 4 0 5\n9\n7 6\n1\nSort (3, 4, 9, 1)\n» 1 8\n2 3\n0 5 4\n7\n6 9\nSort (8, 0, 7)\n» 1 0\n2 3\n7 5 4\n8 6 9\n"
+        },
+        {
+          "page": 12,
+          "words": 52,
+          "sample": "12\nCont ’ d\nChoose g 1 =1 (the same as insertion sort algorithm)\nSort (1, 0, 2, 3, 7, 5, 4, 8, 6, 9)\n» 0 1\n2 3\n4 5 6\n7 8\n9\n1- sorted (shell sorted) list\n» 0 1\n2"
+        }
+      ]
+    },
+    {
+      "file": "ch-9.fodg",
+      "size": 4625185,
+      "kind": "pdf",
+      "pages": 35,
+      "totalTextChars": 10657,
+      "totalWords": 2118,
+      "avgWordsPerPage": 61,
+      "imagePages": 30,
+      "lowTextPages": 2,
+      "codeSignals": 16,
+      "questionSignals": 2,
+      "keywords": {
+        "c++ foundations": 17,
+        "complexity": 5,
+        "arrays": 26,
+        "strings": 1,
+        "linked lists": 2,
+        "stacks": 1,
+        "queues": 0,
+        "recursion": 0,
+        "trees": 2,
+        "hashing": 78,
+        "graphs": 0,
+        "searching": 37,
+        "sorting": 3,
+        "greedy": 0,
+        "dynamic programming": 0,
+        "divide and conquer": 0,
+        "bit manipulation": 0,
+        "advanced graphs": 0,
+        "competitive programming": 0,
+        "projects": 1
+      },
+      "firstPageSample": "1\nChapter Nine\nSearching and Hashing",
+      "pageStarts": [
+        {
+          "page": 1,
+          "words": 6,
+          "sample": "1\nChapter Nine\nSearching and Hashing"
+        },
+        {
+          "page": 2,
+          "words": 106,
+          "sample": "2\nRevision - Searching\nSearching is a process of checking and finding an element from\na list of elements.\nLet A be a collection of data elements, i.e., A is a l"
+        },
+        {
+          "page": 3,
+          "words": 112,
+          "sample": "3\nInterpolation Search\nThis method is even more efficient than binary search, if the\nelements are uniformly distributed (or sorted) in an array A.\nIts average c"
+        },
+        {
+          "page": 4,
+          "words": 102,
+          "sample": "4\nCont’d\nIf key is lower than A[mid], reset high to mid–1; else reset low to mid+1.\nRepeat the process until the key has found or low > high.\nExample:\n2, 25, 35"
+        },
+        {
+          "page": 5,
+          "words": 86,
+          "sample": "5\nCont’d\nCASE 2 : Say we are searching 34 from the array\n» Here n = 7 Key = 34\n» low = 0\n» high = n – 1 = 6\n» mid = 0 + (6 – 0)\n×\n((34 – 2)/(34 – 2))\n» = 6\n×\n(3"
+        },
+        {
+          "page": 6,
+          "words": 67,
+          "sample": "6\nCont’d\n» Since(low < high)\n» mid = 0+(3–0)\n×\n((34–2)/(39–2))\n» = 3\n×\n(32/37)\n» = 2.59\nHere we consider only the integer part of the mid\n– i.e., mid = 2\n» if ("
+        },
+        {
+          "page": 7,
+          "words": 70,
+          "sample": "7\nCont’d\n» Since (low < high)\n» mid = 0+(1–0)\n×\n((34–2)/(25–2))\n» = 3\n×\n(32/23)\n» = 1\n» here (key > A[mid])\n»\n⇒\nkey > A[1]\n»\n⇒\n34 > 25\n» so reset low = mid+1\n»\n"
+        },
+        {
+          "page": 8,
+          "words": 101,
+          "sample": "8\nAlgorithm\n1. Input a sorted array of n elements and the key to be searched\n2. Initialize low = 0 and high = n – 1\n3. Repeat the steps 4 through 7 until if(low"
+        },
+        {
+          "page": 9,
+          "words": 55,
+          "sample": "9\nImplementation\nclass interpolation\n{\nint Key;\nint Low,High,Mid;\npublic:\nvoid InterSearch(int*,int);\n};\n//This function will search the element using interpola"
+        },
+        {
+          "page": 10,
+          "words": 75,
+          "sample": "10\nCont’d\nwhile(Low < High)\n{\n//Finding the Mid position of the array to be searched\nMid=Low+(High – Low)*((Key – Arr[Low])/(Arr[High] – Arr[Low]));\nif (Key < A"
+        },
+        {
+          "page": 11,
+          "words": 53,
+          "sample": "11\nCont’d\n//of the array, the key is found\ncout<<“ \\ nThe key “<<Key<<” is found at the location ”<<Mid;\nreturn;\n}\n};\ncout<<“ \\n\\ nThe Key “<<Key<<” is NOT foun"
+        },
+        {
+          "page": 12,
+          "words": 39,
+          "sample": "12\nCont’d\n//Input the elements in the array\nfor (int i=0;i<n;i++)\n{\ncout<<“ \\ nEnter the “<<i<<” element : ”;\ncin>>*a;\na++;\n}\n//calling the InterSearch function"
+        }
+      ]
+    },
+    {
+      "file": "Chapter 1 - Introduction _Data Structure and Algorithm.fodg",
+      "size": 1156685,
+      "kind": "pdf",
+      "pages": 74,
+      "totalTextChars": 116047,
+      "totalWords": 6510,
+      "avgWordsPerPage": 88,
+      "imagePages": 13,
+      "lowTextPages": 1,
+      "codeSignals": 11,
+      "questionSignals": 22,
+      "keywords": {
+        "c++ foundations": 17,
+        "complexity": 51,
+        "arrays": 19,
+        "strings": 2,
+        "linked lists": 4,
+        "stacks": 7,
+        "queues": 1,
+        "recursion": 0,
+        "trees": 22,
+        "hashing": 0,
+        "graphs": 6,
+        "searching": 6,
+        "sorting": 10,
+        "greedy": 0,
+        "dynamic programming": 2,
+        "divide and conquer": 0,
+        "bit manipulation": 0,
+        "advanced graphs": 0,
+        "competitive programming": 0,
+        "projects": 3
+      },
+      "firstPageSample": "1\nEleni T.\nAddis Ababa Science & Technology University\n2015 E.C., Semester I\nData Structures and Algorithms",
+      "pageStarts": [
+        {
+          "page": 1,
+          "words": 17,
+          "sample": "1\nEleni T.\nAddis Ababa Science & Technology University\n2015 E.C., Semester I\nData Structures and Algorithms"
+        },
+        {
+          "page": 2,
+          "words": 21,
+          "sample": "\nOutline:\n•\nIntroduction\n•\nAbstract Data Type & Data Structure\n•\nAlgorithm\n•\nAlgorithm Analysis\nPage 2\nChapter One: Introduction"
+        },
+        {
+          "page": 3,
+          "words": 50,
+          "sample": "A program is written in order to solve a problem.\nA solution to a problem actually consists of two things:\n•\nA way to organize the data in memory : Data Structu"
+        },
+        {
+          "page": 4,
+          "words": 73,
+          "sample": "\nA primary concern of this course is efficiency .\nEfficient data structures\nEfficient Algorithms\n\n[You might believe that faster computers make it unnecessary"
+        },
+        {
+          "page": 5,
+          "words": 60,
+          "sample": "\nAny\norganization for\na collection of\nrecords\ncan be\nsearched, processed in any order, or modified.\n\n[If you are willing to pay enough in time delay.\n- Ex: Si"
+        },
+        {
+          "page": 6,
+          "words": 84,
+          "sample": "\nA solution is said to be efficient if it solves the problem within\nits resource constraints .\n\n[Alt\ndefn:\nBetter\nthan\nknown\nalternatives\n(“relatively”\neffici"
+        },
+        {
+          "page": 7,
+          "words": 63,
+          "sample": "Select a data structure as follows:\n1.\nAnalyze\nthe\nproblem to\ndetermine\nthe\nresource\nconstraints a solution must meet.\n2.\nDetermine\nthe\nbasic\noperations\nthat\nmu"
+        },
+        {
+          "page": 8,
+          "words": 61,
+          "sample": "\nThese questions often help to narrow the possibilities\n•\nAre all\ndata inserted into the data structure at the beginning, or are\ninsertions interspersed with o"
+        },
+        {
+          "page": 9,
+          "words": 58,
+          "sample": "\nEach data structure has costs and benefits.\n\nRarely is one data structure better\nthan another\nin all\nsituations.\n\nA data structure requires:\n•\nspace for eac"
+        },
+        {
+          "page": 10,
+          "words": 89,
+          "sample": "\nEach problem has constraints on available space and time.\n\nOnly after a careful\nanalysis of problem characteristics can\nwe know the best data structure for t"
+        },
+        {
+          "page": 11,
+          "words": 52,
+          "sample": "1.\nLearn the commonly used data structures.\n•\nThese form a programmer's basic data structure ``toolkit.'‘\n2.\nReinforce the concept\nthat\ncosts and benefits exist"
+        },
+        {
+          "page": 12,
+          "words": 110,
+          "sample": "\nA type is a collection of values. E.g. :\n•\nBoolean – {true, false}\n•\nInteger – {-,0,+}\n•\nFloat – {integers, fractions}\n\nA data item is a piece of\ninformation"
+        }
+      ]
+    },
+    {
+      "file": "Chapter 2 - Simple Sorting and Searching Algorithms.fodg",
+      "size": 979991,
+      "kind": "pdf",
+      "pages": 43,
+      "totalTextChars": 93976,
+      "totalWords": 3927,
+      "avgWordsPerPage": 91,
+      "imagePages": 10,
+      "lowTextPages": 1,
+      "codeSignals": 10,
+      "questionSignals": 2,
+      "keywords": {
+        "c++ foundations": 6,
+        "complexity": 6,
+        "arrays": 11,
+        "strings": 0,
+        "linked lists": 0,
+        "stacks": 2,
+        "queues": 0,
+        "recursion": 0,
+        "trees": 4,
+        "hashing": 0,
+        "graphs": 2,
+        "searching": 45,
+        "sorting": 124,
+        "greedy": 0,
+        "dynamic programming": 3,
+        "divide and conquer": 2,
+        "bit manipulation": 0,
+        "advanced graphs": 0,
+        "competitive programming": 0,
+        "projects": 0
+      },
+      "firstPageSample": "Simple Sorting & Searching Algorithms\nEleni T.\nAddis Ababa Science and Technology University (AASTU)\nChapter Two",
+      "pageStarts": [
+        {
+          "page": 1,
+          "words": 16,
+          "sample": "Simple Sorting & Searching Algorithms\nEleni T.\nAddis Ababa Science and Technology University (AASTU)\nChapter Two"
+        },
+        {
+          "page": 2,
+          "words": 108,
+          "sample": "Sorting Algorithm\n•\nSorting is a technique to rearrange the elements of\na list in ascending or\ndescending order.\n•\nA sorting algorithm is an algorithm that puts"
+        },
+        {
+          "page": 3,
+          "words": 66,
+          "sample": "Classification\n•\nSorting can be classified in two types:\n•\nInternal Sorting:-\n•\nUses only the primary memory during sorting process.\n•\nAll data items are held i"
+        },
+        {
+          "page": 4,
+          "words": 72,
+          "sample": "Classification\n•\nExternal Sorting:-\n•\nSorting large amount of data requires external or secondary memory.\n•\nThis process uses external\nmemory such as HDD,\nto st"
+        },
+        {
+          "page": 5,
+          "words": 41,
+          "sample": "Popular Sorting Algorithms\n•\nWhile there are a large number of sorting algorithms, in practical\nimplementations a few algorithms predominate:\n•\nInsertion sort\n•"
+        },
+        {
+          "page": 6,
+          "words": 71,
+          "sample": "Insertion Sort: Idea\n1.\nCreate two group of items:\n•\nsorted group, and\n•\nunsorted group\n2.\nWe assume that items in the unsorted group are unsorted, and we have "
+        },
+        {
+          "page": 7,
+          "words": 178,
+          "sample": "Insertion Sort process:\n•\nSorting cards:\n•\n8 | 5 9 2 6 3\n•\n5 8 | 9 2 6 3\n•\n5 8 9 | 2 6 3\n•\n2 5 8 9 | 6 3\n•\n2 5 6 8 9 | 3\n•\n2 3 5 6 8 9 |\n7\n\n1.\nThe left\nmost\nva"
+        },
+        {
+          "page": 8,
+          "words": 41,
+          "sample": "40\n2\n1\n43\n3\n65\n0\n-1\n58\n3\n42\n4\n2\n40\n1\n43\n3\n65\n0\n-1\n58\n3\n42\n4\n1\n2\n40\n43\n3\n65\n0\n-1\n58\n3\n42\n4\n40\nInsertion Sort: Example\n8"
+        },
+        {
+          "page": 9,
+          "words": 40,
+          "sample": "1\n2\n3\n40\n43\n65\n0\n-1\n58\n3\n42\n4\n1\n2\n40\n43\n3\n65\n0\n-1\n58\n3\n42\n4\n1\n2\n3\n40\n43\n65\n0\n-1\n58\n3\n42\n4\nInsertion Sort: Example\n9"
+        },
+        {
+          "page": 10,
+          "words": 47,
+          "sample": "1\n2\n3\n40\n43\n65\n0\n-1\n58\n3\n42\n4\n1\n2\n3\n40\n43\n65\n0\n-1\n58\n3\n42\n4\n1\n2\n3\n40\n43\n65\n0\n58\n3\n42\n4\n1\n2\n3\n40\n43\n65\n0\n-1\nInsertion Sort: Example\n10"
+        },
+        {
+          "page": 11,
+          "words": 91,
+          "sample": "1\n2\n3\n40\n43\n65\n0\n58\n3\n42\n4\n1\n2\n3\n40\n43\n65\n0\n-1\n1\n2\n3\n40\n43\n65\n0\n58\n42\n4\n1\n2\n3\n3\n43\n65\n0\n-1\n58\n40\n43\n65\n1\n2\n3\n40\n43\n65\n0\n42\n4\n1\n2\n3\n3\n43\n65\n0\n-1\n58\n40\n43\n65\nInse"
+        },
+        {
+          "page": 12,
+          "words": 296,
+          "sample": "Implementation:\niVBORw0KGgoAAAANSUhEUgAAAWsAAAEXCAIAAADkxPKVAAAACXBIWXMAAAsTAAALEwEAmpwY AAAgAElEQVR4nO3de3gT15038J9EH5dNhcOTZTeM7CxecG1obZZgv9ASNxWGyGGdUB5zcRt"
+        }
+      ]
+    },
+    {
+      "file": "Chapter 3 - Linked Lists.fodg",
+      "size": 979305,
+      "kind": "pdf",
+      "pages": 56,
+      "totalTextChars": 141071,
+      "totalWords": 4204,
+      "avgWordsPerPage": 75,
+      "imagePages": 10,
+      "lowTextPages": 2,
+      "codeSignals": 49,
+      "questionSignals": 3,
+      "keywords": {
+        "c++ foundations": 57,
+        "complexity": 25,
+        "arrays": 35,
+        "strings": 0,
+        "linked lists": 160,
+        "stacks": 6,
+        "queues": 0,
+        "recursion": 0,
+        "trees": 14,
+        "hashing": 2,
+        "graphs": 6,
+        "searching": 8,
+        "sorting": 4,
+        "greedy": 0,
+        "dynamic programming": 3,
+        "divide and conquer": 0,
+        "bit manipulation": 0,
+        "advanced graphs": 0,
+        "competitive programming": 0,
+        "projects": 3
+      },
+      "firstPageSample": "Chapter Three\nLists\n1\nEleni T.\nAddis Ababa Science & Technology University\n2015 E.C., Semester I",
+      "pageStarts": [
+        {
+          "page": 1,
+          "words": 16,
+          "sample": "Chapter Three\nLists\n1\nEleni T.\nAddis Ababa Science & Technology University\n2015 E.C., Semester I"
+        },
+        {
+          "page": 2,
+          "words": 49,
+          "sample": "Lists - Introduction\n•\nSome applications require processing data in a strict\nchronological order .\nExample:\n•\nProcessing objects in the order that they arrived."
+        },
+        {
+          "page": 3,
+          "words": 76,
+          "sample": "Lists – Definition\n•A list is a finite, ordered sequence of data items\ncalled\nelements .\n•Important concept: List elements have a position .\n•\n[1\nst\nelement in "
+        },
+        {
+          "page": 4,
+          "words": 42,
+          "sample": "Cont’d\n•\nThe empty list contains no elements.\n•\nThe length of the list is the number of elements currently\nstored.\n•\nThe beginning of the list is called the hea"
+        },
+        {
+          "page": 5,
+          "words": 35,
+          "sample": "•\nSorted lists have their elements positioned in ascending\norder of value, while unsorted lists have no necessary\nrelationship between element values and positi"
+        },
+        {
+          "page": 6,
+          "words": 33,
+          "sample": "List Implementation Concepts\n•Our list implementation will support the concept of a\ncurrent position .\n• Basic operations :\n•\nadd, find and delete element anywh"
+        },
+        {
+          "page": 7,
+          "words": 29,
+          "sample": "Virtual Functions\nclass Drink{\npublic:\nvirtual void pour(){\ncout<<“Drink poured.”;\n}};\nclass milk: public Drink{\npublic:\nvoid pour(){\ncout<<“Milk poured.”;\n}};\n"
+        },
+        {
+          "page": 8,
+          "words": 28,
+          "sample": "Pure Virtual Functions\nclass Drink{\npublic:\nvirtual void pour()=0;\n};\nclass milk: public Drink{\npublic:\nvoid pour(){\ncout<<“Milk poured.”;\n}};\nint main(){\nDrink"
+        },
+        {
+          "page": 9,
+          "words": 116,
+          "sample": "List ADT\n[We will use the C++ notation of an abstract class to formally define the list ADT.]\n[An abstract class does not specify how operations are implemented"
+        },
+        {
+          "page": 10,
+          "words": 53,
+          "sample": "List ADT (cont’d)\nvirtual int length() = 0;\n// Return curr length\nvirtual bool setPos(int pos) = 0;\n// Set curr position\nvirtual bool getValue() = 0;\n// Return "
+        },
+        {
+          "page": 11,
+          "words": 62,
+          "sample": "List ADT Examples\nList: (12, 32, 15)\nMyList.insert(element);\n[The above is an example use of the insert function. “element” is a data item of\nthe list element d"
+        },
+        {
+          "page": 12,
+          "words": 56,
+          "sample": "Array-Based List Implementation\n[There are two standard approaches to implementing lists, the array-\nbased list and the linked list.]\nArray-Based List Insert:\n["
+        }
+      ]
+    },
+    {
+      "file": "Chapter 3 - Linked Lists.fodp",
+      "size": 1513205,
+      "kind": "presentation",
+      "pages": 129,
+      "totalTextChars": 28346,
+      "totalWords": 2809,
+      "avgWordsPerPage": 22,
+      "imagePages": 13,
+      "lowTextPages": 69,
+      "codeSignals": 48,
+      "questionSignals": 4,
+      "keywords": {
+        "c++ foundations": 56,
+        "complexity": 25,
+        "arrays": 35,
+        "strings": 0,
+        "linked lists": 161,
+        "stacks": 2,
+        "queues": 0,
+        "recursion": 0,
+        "trees": 5,
+        "hashing": 2,
+        "graphs": 0,
+        "searching": 8,
+        "sorting": 4,
+        "greedy": 0,
+        "dynamic programming": 0,
+        "divide and conquer": 0,
+        "bit manipulation": 0,
+        "advanced graphs": 0,
+        "competitive programming": 0,
+        "projects": 3
+      },
+      "firstPageSample": "",
+      "pageStarts": [
+        {
+          "page": 1,
+          "words": 0,
+          "sample": ""
+        },
+        {
+          "page": 2,
+          "words": 0,
+          "sample": ""
+        },
+        {
+          "page": 3,
+          "words": 0,
+          "sample": ""
+        },
+        {
+          "page": 4,
+          "words": 0,
+          "sample": ""
+        },
+        {
+          "page": 5,
+          "words": 0,
+          "sample": ""
+        },
+        {
+          "page": 6,
+          "words": 14,
+          "sample": "<number>\nClick to edit Master title style\nClick to edit Master subtitle style\n<number>"
+        },
+        {
+          "page": 7,
+          "words": 22,
+          "sample": "<number>\nClick to edit Master title style\nClick to edit Master text styles\nSecond level\nThird level\nFourth level\nFifth level\n<number>"
+        },
+        {
+          "page": 8,
+          "words": 22,
+          "sample": "<number>\nClick to edit Master title style\nClick to edit Master text styles\nSecond level\nThird level\nFourth level\nFifth level\n<number>"
+        },
+        {
+          "page": 9,
+          "words": 22,
+          "sample": "<number>\nClick to edit Master title style\nClick to edit Master text styles\nSecond level\nThird level\nFourth level\nFifth level\n<number>"
+        },
+        {
+          "page": 10,
+          "words": 14,
+          "sample": "<number>\nClick to edit Master title style\nClick to edit Master text styles\n<number>"
+        },
+        {
+          "page": 11,
+          "words": 36,
+          "sample": "<number>\nClick to edit Master title style\nClick to edit Master text styles\nSecond level\nThird level\nFourth level\nFifth level\nClick to edit Master text styles\nSe"
+        },
+        {
+          "page": 12,
+          "words": 48,
+          "sample": "<number>\nClick to edit Master title style\nClick to edit Master text styles\nClick to edit Master text styles\nSecond level\nThird level\nFourth level\nFifth level\nCl"
+        }
+      ]
+    },
+    {
+      "file": "data struct final exam collections.fodg",
+      "size": 2506543,
+      "kind": "pdf",
+      "pages": 20,
+      "totalTextChars": 0,
+      "totalWords": 0,
+      "avgWordsPerPage": 0,
+      "imagePages": 20,
+      "lowTextPages": 20,
+      "codeSignals": 0,
+      "questionSignals": 0,
+      "keywords": {
+        "c++ foundations": 0,
+        "complexity": 0,
+        "arrays": 0,
+        "strings": 0,
+        "linked lists": 0,
+        "stacks": 0,
+        "queues": 0,
+        "recursion": 0,
+        "trees": 0,
+        "hashing": 0,
+        "graphs": 0,
+        "searching": 0,
+        "sorting": 0,
+        "greedy": 0,
+        "dynamic programming": 0,
+        "divide and conquer": 0,
+        "bit manipulation": 0,
+        "advanced graphs": 0,
+        "competitive programming": 0,
+        "projects": 0
+      },
+      "firstPageSample": "",
+      "pageStarts": [
+        {
+          "page": 1,
+          "words": 0,
+          "sample": ""
+        },
+        {
+          "page": 2,
+          "words": 0,
+          "sample": ""
+        },
+        {
+          "page": 3,
+          "words": 0,
+          "sample": ""
+        },
+        {
+          "page": 4,
+          "words": 0,
+          "sample": ""
+        },
+        {
+          "page": 5,
+          "words": 0,
+          "sample": ""
+        },
+        {
+          "page": 6,
+          "words": 0,
+          "sample": ""
+        },
+        {
+          "page": 7,
+          "words": 0,
+          "sample": ""
+        },
+        {
+          "page": 8,
+          "words": 0,
+          "sample": ""
+        },
+        {
+          "page": 9,
+          "words": 0,
+          "sample": ""
+        },
+        {
+          "page": 10,
+          "words": 0,
+          "sample": ""
+        },
+        {
+          "page": 11,
+          "words": 0,
+          "sample": ""
+        },
+        {
+          "page": 12,
+          "words": 0,
+          "sample": ""
+        }
+      ]
+    },
+    {
+      "file": "Data structure and Algorithm in C++.fodg",
+      "size": 82980408,
+      "kind": "pdf",
+      "pages": 738,
+      "totalTextChars": 2601585,
+      "totalWords": 318323,
+      "avgWordsPerPage": 431,
+      "imagePages": 730,
+      "lowTextPages": 9,
+      "codeSignals": 680,
+      "questionSignals": 621,
+      "keywords": {
+        "c++ foundations": 1894,
+        "complexity": 186,
+        "arrays": 1182,
+        "strings": 667,
+        "linked lists": 2218,
+        "stacks": 684,
+        "queues": 1179,
+        "recursion": 459,
+        "trees": 3382,
+        "hashing": 537,
+        "graphs": 2177,
+        "searching": 833,
+        "sorting": 1114,
+        "greedy": 55,
+        "dynamic programming": 80,
+        "divide and conquer": 17,
+        "bit manipulation": 14,
+        "advanced graphs": 48,
+        "competitive programming": 1,
+        "projects": 174
+      },
+      "firstPageSample": "",
+      "pageStarts": [
+        {
+          "page": 1,
+          "words": 0,
+          "sample": ""
+        },
+        {
+          "page": 2,
+          "words": 5,
+          "sample": "This page intentionally left blank"
+        },
+        {
+          "page": 3,
+          "words": 43,
+          "sample": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEX///////9VfPVsAAAA AnRSTlP/AOW3MEoAAAAKSURBVHjaY2AAAAACAAHlJ978AAAAAElFTkSuQmCC i\niVBORw0KGgoAAAANSUhEUgAA"
+        },
+        {
+          "page": 4,
+          "words": 5,
+          "sample": "This page intentionally left blank"
+        },
+        {
+          "page": 5,
+          "words": 79,
+          "sample": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEX///////9VfPVsAAAA AnRSTlP/AOW3MEoAAAAKSURBVHjaY2AAAAACAAHlJ978AAAAAElFTkSuQmCC i\niVBORw0KGgoAAAANSUhEUgAA"
+        },
+        {
+          "page": 6,
+          "words": 452,
+          "sample": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEX///////9VfPVsAAAA AnRSTlP/AOW3MEoAAAAKSURBVHjaY2AAAAACAAHlJ978AAAAAElFTkSuQmCC i\niVBORw0KGgoAAAANSUhEUgAA"
+        },
+        {
+          "page": 7,
+          "words": 55,
+          "sample": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEX///////9VfPVsAAAA AnRSTlP/AOW3MEoAAAAKSURBVHjaY2AAAAACAAHlJ978AAAAAElFTkSuQmCC i\niVBORw0KGgoAAAANSUhEUgAA"
+        },
+        {
+          "page": 8,
+          "words": 5,
+          "sample": "This page intentionally left blank"
+        },
+        {
+          "page": 9,
+          "words": 448,
+          "sample": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEX///////9VfPVsAAAA AnRSTlP/AOW3MEoAAAAKSURBVHjaY2AAAAACAAHlJ978AAAAAElFTkSuQmCC i\niVBORw0KGgoAAAANSUhEUgAA"
+        },
+        {
+          "page": 10,
+          "words": 491,
+          "sample": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEX///////9VfPVsAAAA AnRSTlP/AOW3MEoAAAAKSURBVHjaY2AAAAACAAHlJ978AAAAAElFTkSuQmCC i\niVBORw0KGgoAAAANSUhEUgAA"
+        },
+        {
+          "page": 11,
+          "words": 364,
+          "sample": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEX///////9VfPVsAAAA AnRSTlP/AOW3MEoAAAAKSURBVHjaY2AAAAACAAHlJ978AAAAAElFTkSuQmCC i\niVBORw0KGgoAAAANSUhEUgAA"
+        },
+        {
+          "page": 12,
+          "words": 444,
+          "sample": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEX///////9VfPVsAAAA AnRSTlP/AOW3MEoAAAAKSURBVHjaY2AAAAACAAHlJ978AAAAAElFTkSuQmCC i\niVBORw0KGgoAAAANSUhEUgAA"
+        }
+      ]
+    },
+    {
+      "file": "Data Structure and Algorithm_Worksheet.fodg",
+      "size": 238961,
+      "kind": "pdf",
+      "pages": 3,
+      "totalTextChars": 77591,
+      "totalWords": 1483,
+      "avgWordsPerPage": 494,
+      "imagePages": 2,
+      "lowTextPages": 0,
+      "codeSignals": 1,
+      "questionSignals": 6,
+      "keywords": {
+        "c++ foundations": 1,
+        "complexity": 4,
+        "arrays": 0,
+        "strings": 0,
+        "linked lists": 0,
+        "stacks": 1,
+        "queues": 0,
+        "recursion": 0,
+        "trees": 3,
+        "hashing": 0,
+        "graphs": 8,
+        "searching": 0,
+        "sorting": 0,
+        "greedy": 0,
+        "dynamic programming": 4,
+        "divide and conquer": 0,
+        "bit manipulation": 0,
+        "advanced graphs": 0,
+        "competitive programming": 0,
+        "projects": 0
+      },
+      "firstPageSample": "Data Structure and Algorithm: Worksheet\n1.\nCan you have an algorithm without a data structure? Can you have a data structure without an\nalgorithm?\n2.\nDesign a spelling checker algorithm over a dictionary of words [Just sketch it on paper]. What\nprimitive operations must be implemented on the dictionary, and what is a reasonable time constraint\nfor each operation?\n3.\nGraph the following expressions. For each expression, state the range of values of n for which that\nexpression is the most efficient.\n4.\nArrange the following expressions by growth rate from slowest to fastest.\n5.\n[Text book: Secti",
+      "pageStarts": [
+        {
+          "page": 1,
+          "words": 787,
+          "sample": "Data Structure and Algorithm: Worksheet\n1.\nCan you have an algorithm without a data structure? Can you have a data structure without an\nalgorithm?\n2.\nDesign a s"
+        },
+        {
+          "page": 2,
+          "words": 185,
+          "sample": "f.\n3n\n2\ng.\n1000\nh.\n3n\n7.\nWhen we study the runtime of algorithms, some functions occur frequently. The following table\nshows these common functions. For each fu"
+        },
+        {
+          "page": 3,
+          "words": 511,
+          "sample": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRof Hh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwh MjIyMjIyMjIyMj"
+        }
+      ]
+    },
+    {
+      "file": "Data Structure and Algoritms-Jimma Univ.fodg",
+      "size": 5471412,
+      "kind": "pdf",
+      "pages": 117,
+      "totalTextChars": 172334,
+      "totalWords": 26805,
+      "avgWordsPerPage": 229,
+      "imagePages": 29,
+      "lowTextPages": 3,
+      "codeSignals": 71,
+      "questionSignals": 47,
+      "keywords": {
+        "c++ foundations": 202,
+        "complexity": 129,
+        "arrays": 113,
+        "strings": 1,
+        "linked lists": 638,
+        "stacks": 320,
+        "queues": 319,
+        "recursion": 24,
+        "trees": 319,
+        "hashing": 0,
+        "graphs": 319,
+        "searching": 182,
+        "sorting": 170,
+        "greedy": 0,
+        "dynamic programming": 0,
+        "divide and conquer": 7,
+        "bit manipulation": 0,
+        "advanced graphs": 0,
+        "competitive programming": 0,
+        "projects": 10
+      },
+      "firstPageSample": "1\nJIMMA UNIVERSITY\nCOLLEGE OF ENGINEERING AND\nTECHNOLOGY\nDEPARTMENT OF COMPUTER\nSCIENCE\nDATA STRUCTURE AND\nALGORITHM (COMP331)",
+      "pageStarts": [
+        {
+          "page": 1,
+          "words": 17,
+          "sample": "1\nJIMMA UNIVERSITY\nCOLLEGE OF ENGINEERING AND\nTECHNOLOGY\nDEPARTMENT OF COMPUTER\nSCIENCE\nDATA STRUCTURE AND\nALGORITHM (COMP331)"
+        },
+        {
+          "page": 2,
+          "words": 292,
+          "sample": "2\nTable of Contents\nData Structures and Algorithms Analysis ....................................................................................... 4\n1. Introdu"
+        },
+        {
+          "page": 3,
+          "words": 209,
+          "sample": "3\n4. Stacks ........................................................................................................................................ 44\n4.1. Arr"
+        },
+        {
+          "page": 4,
+          "words": 196,
+          "sample": "4\nData Structures and Algorithms Analysis\n1. Introduction to Data Structures and Algorithms Analysis\nA program is written in order to solve a problem. A solutio"
+        },
+        {
+          "page": 5,
+          "words": 323,
+          "sample": "5\nAn entity with the properties just described is called an abstract data type (ADT).\n1.1.1. Abstract Data Types\nAn ADT consists of an abstract data structure a"
+        },
+        {
+          "page": 6,
+          "words": 332,
+          "sample": "6\ndynamic part of the world we need to work with algorithms. Algorithms are the dynamic part of\na program‘s world model.\nAn algorithm transforms data structures"
+        },
+        {
+          "page": 7,
+          "words": 301,
+          "sample": "7\nAlgorithm analysis refers to the process of determining the amount of computing time and\nstorage space required by different algorithms. In other words, it‘s "
+        },
+        {
+          "page": 8,
+          "words": 328,
+          "sample": "8\nThere are two things to consider:\n\nTime Complexity : Determine the approximate number of operations required to solve a\nproblem of size n.\n\nSpace Complexity"
+        },
+        {
+          "page": 9,
+          "words": 149,
+          "sample": "9\n1 for the input statement.\nIn the for loop:\n1 assignment, n+1 tests, and n increments.\nn loops of 2 units for an assignment, and an addition.\n1 for the return"
+        },
+        {
+          "page": 10,
+          "words": 219,
+          "sample": "10\n1 for the third assignment statement: j=1;\n1 for the output statement.\n1 for the input statement.\nIn the first while loop:\nn+1 tests\nn loops of 2 units for t"
+        },
+        {
+          "page": 11,
+          "words": 334,
+          "sample": "11\n•\nSuppose we count the number of additions that are done. There is 1 addition per iteration of\nthe loop, hence N additions in total.\nNested Loops: Formally\n•"
+        },
+        {
+          "page": 12,
+          "words": 196,
+          "sample": "12\nThe total number of operations to be performed would be T (10\n8\n):\nT(10\n8\n) = 2*(10\n8\n)\n2\n=2*10\n16\nThe required number of seconds\nrequired would be given by\n"
+        }
+      ]
+    },
+    {
+      "file": "Data Structure Course Outline.fodg",
+      "size": 440149,
+      "kind": "pdf",
+      "pages": 4,
+      "totalTextChars": 8074,
+      "totalWords": 1284,
+      "avgWordsPerPage": 321,
+      "imagePages": 0,
+      "lowTextPages": 0,
+      "codeSignals": 0,
+      "questionSignals": 12,
+      "keywords": {
+        "c++ foundations": 7,
+        "complexity": 2,
+        "arrays": 0,
+        "strings": 0,
+        "linked lists": 8,
+        "stacks": 3,
+        "queues": 4,
+        "recursion": 2,
+        "trees": 11,
+        "hashing": 3,
+        "graphs": 8,
+        "searching": 12,
+        "sorting": 23,
+        "greedy": 1,
+        "dynamic programming": 1,
+        "divide and conquer": 1,
+        "bit manipulation": 0,
+        "advanced graphs": 0,
+        "competitive programming": 0,
+        "projects": 2
+      },
+      "firstPageSample": "1\nAddis Ababa Science and Technology University\nCollege of Electrical and Mechanical Eng.\nDep’t of Software Engineering\nCourse Syllabus\n1.\nCourse Information\nCourse Title\nData Structures and Algorithms\nCourse Code\nSWEG 3103\nCredit Hrs.\n4\nPre-requisite(s)\nFundamentals of Programming I & II\nTarget Group:\n3\nrd\nyear SE\nAcademic Year:\n2021/2022\nSemester:\nI\n2.\nObjective of the course\nTo enable students,\n•\nuse the concepts related to data structures and algorithms to solve real world problems\n•\npractice Recursion, Sorting, and Searching on the different data structures\n•\nimplement the data structures",
+      "pageStarts": [
+        {
+          "page": 1,
+          "words": 491,
+          "sample": "1\nAddis Ababa Science and Technology University\nCollege of Electrical and Mechanical Eng.\nDep’t of Software Engineering\nCourse Syllabus\n1.\nCourse Information\nCo"
+        },
+        {
+          "page": 2,
+          "words": 328,
+          "sample": "2\nAddis Ababa Science and Technology University\nCollege of Electrical and Mechanical Eng.\nDep’t of Software Engineering\n•\nDetermine complexity of algorithms usi"
+        },
+        {
+          "page": 3,
+          "words": 277,
+          "sample": "3\nAddis Ababa Science and Technology University\nCollege of Electrical and Mechanical Eng.\nDep’t of Software Engineering\n14\nLecture 14\nHashing\nLab 14\nImplementin"
+        },
+        {
+          "page": 4,
+          "words": 188,
+          "sample": "4\nAddis Ababa Science and Technology University\nCollege of Electrical and Mechanical Eng.\nDep’t of Software Engineering\n•\nCheating : zero tolerance on cheating "
+        }
+      ]
+    },
+    {
+      "file": "Data Structures and Algorithms in C++.fodg",
+      "size": 47340597,
+      "kind": "pdf",
+      "pages": 1325,
+      "totalTextChars": 1817080,
+      "totalWords": 210396,
+      "avgWordsPerPage": 159,
+      "imagePages": 1276,
+      "lowTextPages": 8,
+      "codeSignals": 134,
+      "questionSignals": 386,
+      "keywords": {
+        "c++ foundations": 2079,
+        "complexity": 251,
+        "arrays": 1020,
+        "strings": 86,
+        "linked lists": 1231,
+        "stacks": 430,
+        "queues": 1057,
+        "recursion": 177,
+        "trees": 4014,
+        "hashing": 606,
+        "graphs": 1849,
+        "searching": 809,
+        "sorting": 1529,
+        "greedy": 84,
+        "dynamic programming": 34,
+        "divide and conquer": 75,
+        "bit manipulation": 11,
+        "advanced graphs": 24,
+        "competitive programming": 0,
+        "projects": 282
+      },
+      "firstPageSample": "Data Structures and Algorithms with Object-Oriented Design Patterns in C++\nData Structures and Algorithms with Object-Oriented Design Patterns in C++\nData Structures and Algorithms\nwith Object-Oriented Design Patterns in C++\nBruno R. Preiss\nB.A.Sc., M.A.Sc., Ph.D., P.Eng.\nAssociate Professor\nDepartment of Electrical and Computer Engineering\nUniversity of Waterloo, Waterloo, Canada\n●\nColophon\n●\nDedication\n●\nPreface\n●\nContents\n●\nIntroduction\n●\nAlgorithm Analysis\n●\nAsymptotic Notation\n●\nFoundational Data Structures\n●\nData Types and Abstraction\n●\nStacks, Queues and Deques\n●\nOrdered Lists and Sorte",
+      "pageStarts": [
+        {
+          "page": 1,
+          "words": 147,
+          "sample": "Data Structures and Algorithms with Object-Oriented Design Patterns in C++\nData Structures and Algorithms with Object-Oriented Design Patterns in C++\nData Struc"
+        },
+        {
+          "page": 2,
+          "words": 38,
+          "sample": "Data Structures and Algorithms with Object-Oriented Design Patterns in C++\n●\nCharacter Codes\n●\nReferences\n●\niVBORw0KGgoAAAANSUhEUgAAACUAAAAYCAIAAADyGKMnAAAACXBI"
+        },
+        {
+          "page": 3,
+          "words": 154,
+          "sample": "Colophon\nData Structures and Algorithms with Object-Oriented Design Patterns in C++\nColophon\nCopyright © 1997 by Bruno R. Preiss.\nAll rights reserved. No part o"
+        },
+        {
+          "page": 4,
+          "words": 40,
+          "sample": "Dedication\nData Structures and Algorithms with Object-Oriented Design Patterns in C++\nDedication\nTo my children,\nAnna Kristina,\nKatherine Lila\nand\nAlexander Edg"
+        },
+        {
+          "page": 5,
+          "words": 205,
+          "sample": "Preface\nData Structures and Algorithms with Object-Oriented Design Patterns in C++\nPreface\nThis book was motivated by my experience in teaching the course E&CE "
+        },
+        {
+          "page": 6,
+          "words": 283,
+          "sample": "Goals\nData Structures and Algorithms with Object-Oriented Design Patterns in C++\nGoals\nThe primary goal of this book is to promote object-oriented design using "
+        },
+        {
+          "page": 7,
+          "words": 193,
+          "sample": "Approach\nData Structures and Algorithms with Object-Oriented Design Patterns in C++\nApproach\nOne cannot learn to program just by reading a book. It is a skill t"
+        },
+        {
+          "page": 8,
+          "words": 355,
+          "sample": "Outline\nData Structures and Algorithms with Object-Oriented Design Patterns in C++\nOutline\nThis book presents material identified in the Computing Curricula 199"
+        },
+        {
+          "page": 9,
+          "words": 372,
+          "sample": "Outline\nChapter\nintroduces hashing and the notion of a hash table. This chapter addresses the design of\nhashing functions for the various basic data types as we"
+        },
+        {
+          "page": 10,
+          "words": 125,
+          "sample": "Outline\nFinally, Chapter\npresents an overview of graphs and graph algorithms. Both depth-first and breadth-\nfirst graph traversals are presented. Topological so"
+        },
+        {
+          "page": 11,
+          "words": 258,
+          "sample": "Suggested Course Outline\nData Structures and Algorithms with Object-Oriented Design Patterns in C++\nSuggested Course Outline\nThis text may be used in either a o"
+        },
+        {
+          "page": 12,
+          "words": 75,
+          "sample": "Online Course Materials\nData Structures and Algorithms with Object-Oriented Design Patterns in C++\nOnline Course Materials\nAdditional material supporting this b"
+        }
+      ]
+    },
+    {
+      "file": "Drozdek_A_Data_Structures_and_Algorithms_in_C++Bookos_org.fodg",
+      "size": 64153869,
+      "kind": "pdf",
+      "pages": 664,
+      "totalTextChars": 67488,
+      "totalWords": 938,
+      "avgWordsPerPage": 1,
+      "imagePages": 663,
+      "lowTextPages": 663,
+      "codeSignals": 1,
+      "questionSignals": 0,
+      "keywords": {
+        "c++ foundations": 1,
+        "complexity": 0,
+        "arrays": 0,
+        "strings": 0,
+        "linked lists": 0,
+        "stacks": 2,
+        "queues": 0,
+        "recursion": 0,
+        "trees": 3,
+        "hashing": 0,
+        "graphs": 6,
+        "searching": 0,
+        "sorting": 0,
+        "greedy": 0,
+        "dynamic programming": 2,
+        "divide and conquer": 0,
+        "bit manipulation": 0,
+        "advanced graphs": 0,
+        "competitive programming": 0,
+        "projects": 0
+      },
+      "firstPageSample": "",
+      "pageStarts": [
+        {
+          "page": 1,
+          "words": 0,
+          "sample": ""
+        },
+        {
+          "page": 2,
+          "words": 0,
+          "sample": ""
+        },
+        {
+          "page": 3,
+          "words": 0,
+          "sample": ""
+        },
+        {
+          "page": 4,
+          "words": 938,
+          "sample": "iVBORw0KGgoAAAANSUhEUgAAB8QAAAB9AQMAAADulksWAAAABlBMVEX///////9VfPVsAAAA AnRSTlP/AOW3MEoAAAA1SURBVHja7cGBAAAAAMOg+VPf4ARVAQAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAA"
+        },
+        {
+          "page": 5,
+          "words": 0,
+          "sample": ""
+        },
+        {
+          "page": 6,
+          "words": 0,
+          "sample": ""
+        },
+        {
+          "page": 7,
+          "words": 0,
+          "sample": ""
+        },
+        {
+          "page": 8,
+          "words": 0,
+          "sample": ""
+        },
+        {
+          "page": 9,
+          "words": 0,
+          "sample": ""
+        },
+        {
+          "page": 10,
+          "words": 0,
+          "sample": ""
+        },
+        {
+          "page": 11,
+          "words": 0,
+          "sample": ""
+        },
+        {
+          "page": 12,
+          "words": 0,
+          "sample": ""
+        }
+      ]
+    },
+    {
+      "file": "DSA MID TEST 2023-ANSWERSHEET.fodg",
+      "size": 198424,
+      "kind": "pdf",
+      "pages": 4,
+      "totalTextChars": 4345,
+      "totalWords": 868,
+      "avgWordsPerPage": 217,
+      "imagePages": 1,
+      "lowTextPages": 0,
+      "codeSignals": 1,
+      "questionSignals": 10,
+      "keywords": {
+        "c++ foundations": 2,
+        "complexity": 14,
+        "arrays": 0,
+        "strings": 0,
+        "linked lists": 0,
+        "stacks": 0,
+        "queues": 0,
+        "recursion": 0,
+        "trees": 2,
+        "hashing": 0,
+        "graphs": 0,
+        "searching": 3,
+        "sorting": 23,
+        "greedy": 0,
+        "dynamic programming": 0,
+        "divide and conquer": 1,
+        "bit manipulation": 0,
+        "advanced graphs": 0,
+        "competitive programming": 0,
+        "projects": 0
+      },
+      "firstPageSample": "1\nData Structure and Algorithms Test (20%)\nDate 21/12/2023\nTime allowed - 1hr.\nName: ___________________________________ID No.: ____________Section: _____\nPart I. Choose and ENCIRCLE the best answer (\n1 point each)\n1.\nA sorting machine can sort numbers in ascending order only. This machine can be used\nfor sorting all negative numbers in descending order by?\nA.\nAdd 100 to all numbers, sort and subtract 100 again form each number.\nB.\nSort numbers, change sign of all numbers.\nC.\nSubtract numbers from 100, sort and add 100 again to each number.\nD.\nChange sign of all numbers, sort numbers, change s",
+      "pageStarts": [
+        {
+          "page": 1,
+          "words": 342,
+          "sample": "1\nData Structure and Algorithms Test (20%)\nDate 21/12/2023\nTime allowed - 1hr.\nName: ___________________________________ID No.: ____________Section: _____\nPart "
+        },
+        {
+          "page": 2,
+          "words": 203,
+          "sample": "2\n8.\nWhich statement is true about a solution to a problem?\nA.\nA solution can be written in many algorithms.\nB.\nA solution can have many ways of concrete-implem"
+        },
+        {
+          "page": 3,
+          "words": 264,
+          "sample": "3\n13.\nGiven T(n) = n!. Find and proof its upper bound and lower bound using mathematical\nfunctions. (3 pts)\nSolution:\nT(n) = n!\nT(n) = n * (n-1) * (n-2) * (n-3)"
+        },
+        {
+          "page": 4,
+          "words": 59,
+          "sample": "4\nlist[Mid] = Q\nCompare the key with list[Mid]: Z ≠ Q, the value of Z > Q.\nStep 5: If the value of key is greater than list[Mid] then calculate Low again.\nLow ="
+        }
+      ]
+    },
+    {
+      "file": "DSA-Final Exam-ANSWER SHEET -.fodg",
+      "size": 413267,
+      "kind": "pdf",
+      "pages": 4,
+      "totalTextChars": 4800,
+      "totalWords": 620,
+      "avgWordsPerPage": 155,
+      "imagePages": 4,
+      "lowTextPages": 0,
+      "codeSignals": 0,
+      "questionSignals": 4,
+      "keywords": {
+        "c++ foundations": 0,
+        "complexity": 0,
+        "arrays": 0,
+        "strings": 0,
+        "linked lists": 4,
+        "stacks": 0,
+        "queues": 37,
+        "recursion": 0,
+        "trees": 4,
+        "hashing": 0,
+        "graphs": 6,
+        "searching": 1,
+        "sorting": 0,
+        "greedy": 0,
+        "dynamic programming": 0,
+        "divide and conquer": 0,
+        "bit manipulation": 0,
+        "advanced graphs": 0,
+        "competitive programming": 0,
+        "projects": 0
+      },
+      "firstPageSample": "አዲስ አበባ ሳይንስና ቴክኖሎጂ ዩኒቨርሲቲ\nADDIS ABABA SCIENCE & TECHNOLOGY UNIVERSITY\nDocument No.\nVPAA/DPT/OF/032\nFINAL EXAMINATION\nIssue No.\n1\nPage No.\nPage 1 of 8\nCollege of Engineering\nDepartment of Software Engineering\nFinal Examination for Data Structure and Algorithms (SWEG3103)\nExamination Date: January 29, 2024\nMaximum score: 50%\nTime Allowed: 2hrs.\nTick the box, where it applies you.\nFreshman\nApplied Science\nEngineering\nRegular:\nUndergraduate\nPostgraduate\nContinuing Education\nUndergraduate\nPostgraduate\nName: _____________________________________ ID No.: ____________ Section: _______\nCourse instruct",
+      "pageStarts": [
+        {
+          "page": 1,
+          "words": 219,
+          "sample": "አዲስ አበባ ሳይንስና ቴክኖሎጂ ዩኒቨርሲቲ\nADDIS ABABA SCIENCE & TECHNOLOGY UNIVERSITY\nDocument No.\nVPAA/DPT/OF/032\nFINAL EXAMINATION\nIssue No.\n1\nPage No.\nPage 1 of 8\nCollege o"
+        },
+        {
+          "page": 2,
+          "words": 159,
+          "sample": "አዲስ አበባ ሳይንስና ቴክኖሎጂ ዩኒቨርሲቲ\nADDIS ABABA SCIENCE & TECHNOLOGY UNIVERSITY\nDocument No.\nVPAA/DPT/OF/032\nFINAL EXAMINATION\nIssue No.\n1\nPage No.\nPage 2 of 8\nAnswer Sh"
+        },
+        {
+          "page": 3,
+          "words": 155,
+          "sample": "አዲስ አበባ ሳይንስና ቴክኖሎጂ ዩኒቨርሲቲ\nADDIS ABABA SCIENCE & TECHNOLOGY UNIVERSITY\nDocument No.\nVPAA/DPT/OF/032\nFINAL EXAMINATION\nIssue No.\n1\nPage No.\nPage 3 of 8\nPre-order"
+        },
+        {
+          "page": 4,
+          "words": 87,
+          "sample": "አዲስ አበባ ሳይንስና ቴክኖሎጂ ዩኒቨርሲቲ\nADDIS ABABA SCIENCE & TECHNOLOGY UNIVERSITY\nDocument No.\nVPAA/DPT/OF/032\nFINAL EXAMINATION\nIssue No.\n1\nPage No.\nPage 4 of 8\nStep 4) d"
+        }
+      ]
+    },
+    {
+      "file": "Searching 74867.fodg",
+      "size": 104365,
+      "kind": "pdf",
+      "pages": 11,
+      "totalTextChars": 3033,
+      "totalWords": 569,
+      "avgWordsPerPage": 52,
+      "imagePages": 0,
+      "lowTextPages": 1,
+      "codeSignals": 0,
+      "questionSignals": 1,
+      "keywords": {
+        "c++ foundations": 0,
+        "complexity": 7,
+        "arrays": 15,
+        "strings": 0,
+        "linked lists": 0,
+        "stacks": 0,
+        "queues": 0,
+        "recursion": 2,
+        "trees": 0,
+        "hashing": 0,
+        "graphs": 0,
+        "searching": 40,
+        "sorting": 5,
+        "greedy": 0,
+        "dynamic programming": 0,
+        "divide and conquer": 0,
+        "bit manipulation": 0,
+        "advanced graphs": 0,
+        "competitive programming": 0,
+        "projects": 0
+      },
+      "firstPageSample": "Searching",
+      "pageStarts": [
+        {
+          "page": 1,
+          "words": 1,
+          "sample": "Searching"
+        },
+        {
+          "page": 2,
+          "words": 66,
+          "sample": "Given an array A storing n numbers, and a\ntarget number v, locate the position in A (if\nit exists) where A[i] = v\nExample\n➢\nInput:\nA = {3,8,2,15,99,52}, v = 99\n"
+        },
+        {
+          "page": 3,
+          "words": 47,
+          "sample": "Algorithm LinearSearch(A,v):\nInput:\nAn array A of n numbers, search target\nv\nOutput:\nposition i where A[i]=v, -1 if not found\nfor i\n\n0 to n - 1 do\nif A[i] = v "
+        },
+        {
+          "page": 4,
+          "words": 70,
+          "sample": "Worst-case: O( n )\n➢\nIf v does not exist or if v is the last element in\nthe array\nBest-case: O( 1 )\n➢\nWhen the target element v is the first element\nin the arra"
+        },
+        {
+          "page": 5,
+          "words": 59,
+          "sample": "Suppose the array is arranged in increasing or\nnon-decreasing order\nLinear search on a sorted array still yields the\nsame analysis\n➢\nO( n ) worst-case time comp"
+        },
+        {
+          "page": 6,
+          "words": 62,
+          "sample": "Algorithm BinarySearch(A,v):\nInput:\nA SORTED array A of n numbers, search target v\nOutput:\nposition i where A[i]=v, -1 if not found\nlow\n\n0, high\n\nn-1\nwhile lo"
+        },
+        {
+          "page": 7,
+          "words": 59,
+          "sample": "Time complexity analysis: how many\niterations of the while loop?\n(assume worst-case)\nObserve values for low and high\n➢\nNote that before loop entry,\nsize of sear"
+        },
+        {
+          "page": 8,
+          "words": 52,
+          "sample": "search space size\niteration number\nn\n1\nn/2\n2\nn/4\n3\n…\n…\n1\nx\nx = number of iterations\nObserve 2\nx\n= n, log 2\nx\n= log n,\nx = log n iterations carried out\nBinary Se"
+        },
+        {
+          "page": 9,
+          "words": 53,
+          "sample": "Worst-case: O( log n )\n➢\nIf v does not exist\nBest-case: O( 1 )\n➢\nWhen the target element v happens to be in the\nmiddle of the array\nAverage-case: O( log n )\n➢\nT"
+        },
+        {
+          "page": 10,
+          "words": 43,
+          "sample": "Can use recursion instead of iteration\nBinSearch(A,v):\nreturn BinSearchHelper(A,0,n-1,v)\nBinSearchHelper(A,low,high,v):\nif low > high then\nreturn -1\nmid\n\n(low+"
+        },
+        {
+          "page": 11,
+          "words": 57,
+          "sample": "Linear search on an array takes O( n ) time in\nthe worst-case\nIf the array is sorted, can perform binary\nsearch in O( log n ) time\n➢\nIterative and recursive ver"
+        }
+      ]
+    },
+    {
+      "file": "sorting  74869.fodg",
+      "size": 1213370,
+      "kind": "pdf",
+      "pages": 53,
+      "totalTextChars": 11996,
+      "totalWords": 2897,
+      "avgWordsPerPage": 55,
+      "imagePages": 3,
+      "lowTextPages": 8,
+      "codeSignals": 3,
+      "questionSignals": 3,
+      "keywords": {
+        "c++ foundations": 0,
+        "complexity": 11,
+        "arrays": 24,
+        "strings": 0,
+        "linked lists": 1,
+        "stacks": 1,
+        "queues": 0,
+        "recursion": 13,
+        "trees": 5,
+        "hashing": 0,
+        "graphs": 0,
+        "searching": 1,
+        "sorting": 141,
+        "greedy": 0,
+        "dynamic programming": 0,
+        "divide and conquer": 2,
+        "bit manipulation": 0,
+        "advanced graphs": 0,
+        "competitive programming": 0,
+        "projects": 1
+      },
+      "firstPageSample": "Sorting",
+      "pageStarts": [
+        {
+          "page": 1,
+          "words": 1,
+          "sample": "Sorting"
+        },
+        {
+          "page": 2,
+          "words": 66,
+          "sample": "Why Sorting?\n2\n\nPractical application\n\nPeople by last name\n\nCountries by population\n\nSearch engine results by relevance\n\nFundamental to other algorithms\n\n"
+        },
+        {
+          "page": 3,
+          "words": 80,
+          "sample": "Problem statement\n3\n\nThere are n comparable elements in an array and we want to\nrearrange them to be in increasing/decreasing order\n\nPre:\n\nAn array\nA\nof data"
+        },
+        {
+          "page": 4,
+          "words": 41,
+          "sample": "Sorting Classification\n4\nIn memory sorting\nReading\nAssignment\nComparison sorting\n•\nShell Sort\n•\nHeap Sort(tree)\n•\nRadix Sort\nO(N\n2\n)\nO(N log N)\n•\nBubble Sort\n•\n"
+        },
+        {
+          "page": 5,
+          "words": 14,
+          "sample": "O(n\n2\n) Comparison Sorting\n•\nBubble Sort\n•\nSelection Sort\n•\nInsertion Sort"
+        },
+        {
+          "page": 6,
+          "words": 71,
+          "sample": "Bubble sort\n6\n\nbubble sort : orders a list of values by repetitively\ncomparing neighboring elements and swapping their\npositions if necessary\n\nmore specifical"
+        },
+        {
+          "page": 7,
+          "words": 46,
+          "sample": "\"Bubbling\" largest element\n7\n\nTraverse a collection of elements\n\nMove from the front to the end\n\n\"Bubble\" the largest value to the end using pair-wise\ncompar"
+        },
+        {
+          "page": 8,
+          "words": 46,
+          "sample": "\"Bubbling\" largest element\n8\n\nTraverse a collection of elements\n\nMove from the front to the end\n\n\"Bubble\" the largest value to the end using pair-wise\ncompar"
+        },
+        {
+          "page": 9,
+          "words": 46,
+          "sample": "\"Bubbling\" largest element\n9\n\nTraverse a collection of elements\n\nMove from the front to the end\n\n\"Bubble\" the largest value to the end using pair-wise\ncompar"
+        },
+        {
+          "page": 10,
+          "words": 47,
+          "sample": "\"Bubbling\" largest element\n10\n\nTraverse a collection of elements\n\nMove from the front to the end\n\n\"Bubble\" the largest value to the end using pair-wise\ncompa"
+        },
+        {
+          "page": 11,
+          "words": 46,
+          "sample": "\"Bubbling\" largest element\n11\n\nTraverse a collection of elements\n\nMove from the front to the end\n\n\"Bubble\" the largest value to the end using pair-wise\ncompa"
+        },
+        {
+          "page": 12,
+          "words": 47,
+          "sample": "\"Bubbling\" largest element\n12\n\nTraverse a collection of elements\n\nMove from the front to the end\n\n\"Bubble\" the largest value to the end using pair-wise\ncompa"
+        }
+      ]
+    }
+  ]
+}

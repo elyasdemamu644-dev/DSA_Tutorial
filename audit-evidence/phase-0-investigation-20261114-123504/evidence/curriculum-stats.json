@@ -1,0 +1,921 @@
+{
+  "generated": "2026-11-14T20:37:08.663Z",
+  "totals": {
+    "topics": 18,
+    "modules": 25,
+    "lessons": 39,
+    "quizzes": 70,
+    "exercises": 21,
+    "codeExamples": 41,
+    "contentChars": 96508,
+    "stubLessons": 8,
+    "lessonsWithExercises": 14,
+    "lessonsWithCode": 31
+  },
+  "quizTypes": {
+    "mcq": 54,
+    "true-false": 16
+  },
+  "topics": [
+    {
+      "key": "cpp-foundations",
+      "id": "cpp-foundations",
+      "title": "C++ Foundations for DSA",
+      "level": 1,
+      "order": 1,
+      "prerequisites": [],
+      "estimatedHours": 8,
+      "modules": [
+        {
+          "id": "cpp-basics",
+          "title": "C++ Basics for DSA",
+          "order": 1,
+          "lessons": [
+            {
+              "id": "cpp-01",
+              "title": "Memory Model: Stack vs Heap",
+              "objectives": 3,
+              "contentChars": 2260,
+              "quizzes": 2,
+              "exercises": 1,
+              "codeExamples": 1,
+              "stub": false
+            },
+            {
+              "id": "cpp-02",
+              "title": "Smart Pointers and RAII",
+              "objectives": 3,
+              "contentChars": 2420,
+              "quizzes": 1,
+              "exercises": 1,
+              "codeExamples": 1,
+              "stub": false
+            },
+            {
+              "id": "cpp-03",
+              "title": "Templates and Generic Programming",
+              "objectives": 3,
+              "contentChars": 1498,
+              "quizzes": 1,
+              "exercises": 0,
+              "codeExamples": 1,
+              "stub": false
+            }
+          ]
+        },
+        {
+          "id": "stl-containers",
+          "title": "STL Containers for DSA",
+          "order": 2,
+          "lessons": [
+            {
+              "id": "cpp-04",
+              "title": "Sequence Containers: vector, list, deque",
+              "objectives": 3,
+              "contentChars": 3639,
+              "quizzes": 1,
+              "exercises": 0,
+              "codeExamples": 1,
+              "stub": false
+            },
+            {
+              "id": "cpp-05",
+              "title": "Associative Containers: map, set, unordered_*",
+              "objectives": 3,
+              "contentChars": 3105,
+              "quizzes": 1,
+              "exercises": 0,
+              "codeExamples": 1,
+              "stub": false
+            }
+          ]
+        }
+      ],
+      "lessonCount": 5,
+      "quizCount": 6,
+      "exerciseCount": 2,
+      "contentChars": 12922,
+      "stubLessons": 0
+    },
+    {
+      "key": "complexity",
+      "id": "complexity",
+      "title": "Algorithm Analysis and Complexity",
+      "level": 1,
+      "order": 2,
+      "prerequisites": [
+        "cpp-foundations"
+      ],
+      "estimatedHours": 6,
+      "modules": [
+        {
+          "id": "complexity-basics",
+          "title": "Asymptotic Notation and Analysis",
+          "order": 1,
+          "lessons": [
+            {
+              "id": "comp-01",
+              "title": "Big-O, Omega, Theta Notation",
+              "objectives": 3,
+              "contentChars": 3522,
+              "quizzes": 2,
+              "exercises": 0,
+              "codeExamples": 1,
+              "stub": false
+            },
+            {
+              "id": "comp-02",
+              "title": "Recurrence Relations and Master Theorem",
+              "objectives": 3,
+              "contentChars": 1792,
+              "quizzes": 1,
+              "exercises": 0,
+              "codeExamples": 1,
+              "stub": false
+            },
+            {
+              "id": "comp-03",
+              "title": "Amortized Analysis",
+              "objectives": 3,
+              "contentChars": 1382,
+              "quizzes": 1,
+              "exercises": 0,
+              "codeExamples": 1,
+              "stub": false
+            }
+          ]
+        }
+      ],
+      "lessonCount": 3,
+      "quizCount": 4,
+      "exerciseCount": 0,
+      "contentChars": 6696,
+      "stubLessons": 0
+    },
+    {
+      "key": "arrays",
+      "id": "arrays",
+      "title": "Arrays and Strings",
+      "level": 1,
+      "order": 3,
+      "prerequisites": [
+        "cpp-foundations",
+        "complexity"
+      ],
+      "estimatedHours": 10,
+      "modules": [
+        {
+          "id": "array-basics",
+          "title": "Array Fundamentals",
+          "order": 1,
+          "lessons": [
+            {
+              "id": "arr-01",
+              "title": "Array Representation and Memory Layout",
+              "objectives": 3,
+              "contentChars": 1241,
+              "quizzes": 1,
+              "exercises": 0,
+              "codeExamples": 1,
+              "stub": false
+            },
+            {
+              "id": "arr-02",
+              "title": "Two Pointer Technique",
+              "objectives": 3,
+              "contentChars": 1666,
+              "quizzes": 1,
+              "exercises": 0,
+              "codeExamples": 1,
+              "stub": false
+            }
+          ]
+        },
+        {
+          "id": "string-algorithms",
+          "title": "String Algorithms",
+          "order": 2,
+          "lessons": [
+            {
+              "id": "str-01",
+              "title": "String Basics and Operations",
+              "objectives": 3,
+              "contentChars": 1623,
+              "quizzes": 1,
+              "exercises": 0,
+              "codeExamples": 1,
+              "stub": false
+            }
+          ]
+        }
+      ],
+      "lessonCount": 3,
+      "quizCount": 3,
+      "exerciseCount": 0,
+      "contentChars": 4530,
+      "stubLessons": 0
+    },
+    {
+      "key": "linked-lists",
+      "id": "linked-lists",
+      "title": "Linked Lists",
+      "level": 1,
+      "order": 4,
+      "prerequisites": [
+        "cpp-foundations"
+      ],
+      "estimatedHours": 8,
+      "modules": [
+        {
+          "id": "ll-basics",
+          "title": "Linked List Fundamentals",
+          "order": 1,
+          "lessons": [
+            {
+              "id": "ll-01",
+              "title": "Singly Linked List Implementation",
+              "objectives": 4,
+              "contentChars": 2712,
+              "quizzes": 3,
+              "exercises": 2,
+              "codeExamples": 2,
+              "stub": false
+            },
+            {
+              "id": "ll-02",
+              "title": "Doubly Linked List and Circular Lists",
+              "objectives": 3,
+              "contentChars": 1742,
+              "quizzes": 2,
+              "exercises": 0,
+              "codeExamples": 1,
+              "stub": false
+            },
+            {
+              "id": "ll-03",
+              "title": "Linked List Algorithms",
+              "objectives": 4,
+              "contentChars": 2852,
+              "quizzes": 2,
+              "exercises": 2,
+              "codeExamples": 2,
+              "stub": false
+            }
+          ]
+        },
+        {
+          "id": "ll-advanced",
+          "title": "Advanced Linked List Techniques",
+          "order": 2,
+          "lessons": [
+            {
+              "id": "ll-04",
+              "title": "Linked List in STL and Custom Allocators",
+              "objectives": 3,
+              "contentChars": 2815,
+              "quizzes": 2,
+              "exercises": 0,
+              "codeExamples": 1,
+              "stub": false
+            }
+          ]
+        }
+      ],
+      "lessonCount": 4,
+      "quizCount": 9,
+      "exerciseCount": 4,
+      "contentChars": 10121,
+      "stubLessons": 0
+    },
+    {
+      "key": "stacks-queues",
+      "id": "stacks-queues",
+      "title": "Stacks and Queues",
+      "level": 1,
+      "order": 5,
+      "prerequisites": [
+        "cpp-foundations"
+      ],
+      "estimatedHours": 6,
+      "modules": [
+        {
+          "id": "stack-queue-basics",
+          "title": "Stack and Queue Implementations",
+          "order": 1,
+          "lessons": [
+            {
+              "id": "sq-01",
+              "title": "Stack Implementation and Applications",
+              "objectives": 4,
+              "contentChars": 3638,
+              "quizzes": 3,
+              "exercises": 2,
+              "codeExamples": 2,
+              "stub": false
+            },
+            {
+              "id": "sq-02",
+              "title": "Queue and Deque Implementations",
+              "objectives": 3,
+              "contentChars": 2880,
+              "quizzes": 2,
+              "exercises": 0,
+              "codeExamples": 2,
+              "stub": false
+            }
+          ]
+        },
+        {
+          "id": "priority-queue",
+          "title": "Priority Queue and Heap",
+          "order": 2,
+          "lessons": [
+            {
+              "id": "pq-01",
+              "title": "Heap Implementation and Priority Queue",
+              "objectives": 4,
+              "contentChars": 3315,
+              "quizzes": 3,
+              "exercises": 1,
+              "codeExamples": 2,
+              "stub": false
+            }
+          ]
+        }
+      ],
+      "lessonCount": 3,
+      "quizCount": 8,
+      "exerciseCount": 3,
+      "contentChars": 9833,
+      "stubLessons": 0
+    },
+    {
+      "key": "recursion",
+      "id": "recursion",
+      "title": "Recursion and Backtracking",
+      "level": 1,
+      "order": 6,
+      "prerequisites": [
+        "cpp-foundations",
+        "complexity"
+      ],
+      "estimatedHours": 10,
+      "modules": [
+        {
+          "id": "recursion-basics",
+          "title": "Recursion Fundamentals",
+          "order": 1,
+          "lessons": [
+            {
+              "id": "rec-01",
+              "title": "Recursion Patterns and Memoization",
+              "objectives": 4,
+              "contentChars": 3331,
+              "quizzes": 3,
+              "exercises": 2,
+              "codeExamples": 2,
+              "stub": false
+            },
+            {
+              "id": "rec-02",
+              "title": "Tail Recursion and Optimization",
+              "objectives": 3,
+              "contentChars": 1947,
+              "quizzes": 2,
+              "exercises": 0,
+              "codeExamples": 1,
+              "stub": false
+            }
+          ]
+        },
+        {
+          "id": "backtracking",
+          "title": "Backtracking Algorithms",
+          "order": 2,
+          "lessons": [
+            {
+              "id": "bt-01",
+              "title": "Backtracking Fundamentals",
+              "objectives": 3,
+              "contentChars": 1966,
+              "quizzes": 2,
+              "exercises": 2,
+              "codeExamples": 3,
+              "stub": false
+            }
+          ]
+        }
+      ],
+      "lessonCount": 3,
+      "quizCount": 7,
+      "exerciseCount": 4,
+      "contentChars": 7244,
+      "stubLessons": 0
+    },
+    {
+      "key": "trees",
+      "id": "trees",
+      "title": "Trees",
+      "level": 2,
+      "order": 7,
+      "prerequisites": [
+        "linked-lists",
+        "recursion"
+      ],
+      "estimatedHours": 12,
+      "modules": [
+        {
+          "id": "tree-basics",
+          "title": "Binary Tree Fundamentals",
+          "order": 1,
+          "lessons": [
+            {
+              "id": "tree-01",
+              "title": "Tree Terminology and Representation",
+              "objectives": 4,
+              "contentChars": 5058,
+              "quizzes": 3,
+              "exercises": 2,
+              "codeExamples": 2,
+              "stub": false
+            },
+            {
+              "id": "tree-02",
+              "title": "Binary Search Tree (BST) Operations",
+              "objectives": 4,
+              "contentChars": 3032,
+              "quizzes": 2,
+              "exercises": 1,
+              "codeExamples": 1,
+              "stub": false
+            }
+          ]
+        },
+        {
+          "id": "tree-advanced",
+          "title": "Advanced Tree Structures",
+          "order": 2,
+          "lessons": [
+            {
+              "id": "tree-03",
+              "title": "AVL Trees and Self-Balancing",
+              "objectives": 3,
+              "contentChars": 4599,
+              "quizzes": 2,
+              "exercises": 0,
+              "codeExamples": 1,
+              "stub": false
+            },
+            {
+              "id": "tree-04",
+              "title": "Segment Tree and Fenwick Tree",
+              "objectives": 4,
+              "contentChars": 4507,
+              "quizzes": 2,
+              "exercises": 0,
+              "codeExamples": 1,
+              "stub": false
+            }
+          ]
+        }
+      ],
+      "lessonCount": 4,
+      "quizCount": 9,
+      "exerciseCount": 3,
+      "contentChars": 17196,
+      "stubLessons": 0
+    },
+    {
+      "key": "hashing",
+      "id": "hashing",
+      "title": "Hashing",
+      "level": 2,
+      "order": 8,
+      "prerequisites": [
+        "arrays",
+        "complexity"
+      ],
+      "estimatedHours": 8,
+      "modules": [
+        {
+          "id": "hashing-basics",
+          "title": "Hash Table Implementation",
+          "order": 1,
+          "lessons": [
+            {
+              "id": "hash-01",
+              "title": "Hash Functions and Collision Resolution",
+              "objectives": 4,
+              "contentChars": 4950,
+              "quizzes": 3,
+              "exercises": 1,
+              "codeExamples": 2,
+              "stub": false
+            },
+            {
+              "id": "hash-02",
+              "title": "Hash Table Applications",
+              "objectives": 3,
+              "contentChars": 3514,
+              "quizzes": 2,
+              "exercises": 0,
+              "codeExamples": 1,
+              "stub": false
+            }
+          ]
+        }
+      ],
+      "lessonCount": 2,
+      "quizCount": 5,
+      "exerciseCount": 1,
+      "contentChars": 8464,
+      "stubLessons": 0
+    },
+    {
+      "key": "graphs",
+      "id": "graphs",
+      "title": "Graph Algorithms",
+      "level": 2,
+      "order": 9,
+      "prerequisites": [
+        "trees",
+        "hashing"
+      ],
+      "estimatedHours": 15,
+      "modules": [
+        {
+          "id": "graph-basics",
+          "title": "Graph Representation and Traversal",
+          "order": 1,
+          "lessons": [
+            {
+              "id": "graph-01",
+              "title": "Graph Representations and BFS/DFS",
+              "objectives": 4,
+              "contentChars": 5171,
+              "quizzes": 3,
+              "exercises": 1,
+              "codeExamples": 1,
+              "stub": false
+            },
+            {
+              "id": "graph-02",
+              "title": "Shortest Path Algorithms",
+              "objectives": 3,
+              "contentChars": 5207,
+              "quizzes": 3,
+              "exercises": 1,
+              "codeExamples": 1,
+              "stub": false
+            }
+          ]
+        },
+        {
+          "id": "graph-advanced",
+          "title": "Advanced Graph Algorithms",
+          "order": 2,
+          "lessons": [
+            {
+              "id": "graph-03",
+              "title": "Minimum Spanning Tree (Prim's and Kruskal's)",
+              "objectives": 4,
+              "contentChars": 3613,
+              "quizzes": 2,
+              "exercises": 0,
+              "codeExamples": 1,
+              "stub": false
+            }
+          ]
+        }
+      ],
+      "lessonCount": 3,
+      "quizCount": 8,
+      "exerciseCount": 2,
+      "contentChars": 13991,
+      "stubLessons": 0
+    },
+    {
+      "key": "searching",
+      "id": "searching",
+      "title": "Searching Algorithms",
+      "level": 2,
+      "order": 10,
+      "prerequisites": [
+        "arrays",
+        "complexity"
+      ],
+      "estimatedHours": 6,
+      "modules": [
+        {
+          "id": "searching-basics",
+          "title": "Binary Search and Variants",
+          "order": 1,
+          "lessons": [
+            {
+              "id": "search-01",
+              "title": "Binary Search on Answer",
+              "objectives": 4,
+              "contentChars": 4748,
+              "quizzes": 3,
+              "exercises": 2,
+              "codeExamples": 1,
+              "stub": false
+            }
+          ]
+        }
+      ],
+      "lessonCount": 1,
+      "quizCount": 3,
+      "exerciseCount": 2,
+      "contentChars": 4748,
+      "stubLessons": 0
+    },
+    {
+      "key": "sorting",
+      "id": "sorting",
+      "title": "Sorting Algorithms",
+      "level": 2,
+      "order": 11,
+      "prerequisites": [
+        "arrays",
+        "complexity",
+        "recursion"
+      ],
+      "estimatedHours": 10,
+      "modules": [
+        {
+          "id": "sorting-basics",
+          "title": "Comparison Sorts",
+          "order": 1,
+          "lessons": [
+            {
+              "id": "sort-01",
+              "title": "Merge Sort, Quick Sort, Heap Sort",
+              "objectives": 3,
+              "contentChars": 92,
+              "quizzes": 1,
+              "exercises": 0,
+              "codeExamples": 0,
+              "stub": true
+            }
+          ]
+        }
+      ],
+      "lessonCount": 1,
+      "quizCount": 1,
+      "exerciseCount": 0,
+      "contentChars": 92,
+      "stubLessons": 1
+    },
+    {
+      "key": "greedy",
+      "id": "greedy",
+      "title": "Greedy Algorithms",
+      "level": 2,
+      "order": 12,
+      "prerequisites": [
+        "sorting",
+        "complexity"
+      ],
+      "estimatedHours": 8,
+      "modules": [
+        {
+          "id": "greedy-basics",
+          "title": "Greedy Techniques",
+          "order": 1,
+          "lessons": [
+            {
+              "id": "greedy-01",
+              "title": "Interval Scheduling and Huffman Coding",
+              "objectives": 3,
+              "contentChars": 93,
+              "quizzes": 1,
+              "exercises": 0,
+              "codeExamples": 0,
+              "stub": true
+            }
+          ]
+        }
+      ],
+      "lessonCount": 1,
+      "quizCount": 1,
+      "exerciseCount": 0,
+      "contentChars": 93,
+      "stubLessons": 1
+    },
+    {
+      "key": "dynamic-programming",
+      "id": "dynamic-programming",
+      "title": "Dynamic Programming",
+      "level": 3,
+      "order": 13,
+      "prerequisites": [
+        "recursion",
+        "complexity"
+      ],
+      "estimatedHours": 14,
+      "modules": [
+        {
+          "id": "dp-basics",
+          "title": "DP Fundamentals",
+          "order": 1,
+          "lessons": [
+            {
+              "id": "dp-01",
+              "title": "Memoization and Tabulation",
+              "objectives": 3,
+              "contentChars": 113,
+              "quizzes": 1,
+              "exercises": 0,
+              "codeExamples": 0,
+              "stub": true
+            }
+          ]
+        }
+      ],
+      "lessonCount": 1,
+      "quizCount": 1,
+      "exerciseCount": 0,
+      "contentChars": 113,
+      "stubLessons": 1
+    },
+    {
+      "key": "divide-conquer",
+      "id": "divide-conquer",
+      "title": "Divide and Conquer",
+      "level": 3,
+      "order": 14,
+      "prerequisites": [
+        "recursion",
+        "sorting"
+      ],
+      "estimatedHours": 10,
+      "modules": [
+        {
+          "id": "dc-basics",
+          "title": "Divide and Conquer Techniques",
+          "order": 1,
+          "lessons": [
+            {
+              "id": "dc-01",
+              "title": "Merge Sort, Quick Select, Closest Pair",
+              "objectives": 3,
+              "contentChars": 87,
+              "quizzes": 1,
+              "exercises": 0,
+              "codeExamples": 0,
+              "stub": true
+            }
+          ]
+        }
+      ],
+      "lessonCount": 1,
+      "quizCount": 1,
+      "exerciseCount": 0,
+      "contentChars": 87,
+      "stubLessons": 1
+    },
+    {
+      "key": "bit-manipulation",
+      "id": "bit-manipulation",
+      "title": "Bit Manipulation",
+      "level": 3,
+      "order": 15,
+      "prerequisites": [
+        "cpp-foundations"
+      ],
+      "estimatedHours": 6,
+      "modules": [
+        {
+          "id": "bit-basics",
+          "title": "Bitwise Fundamentals",
+          "order": 1,
+          "lessons": [
+            {
+              "id": "bit-01",
+              "title": "Bit Tricks and Techniques",
+              "objectives": 3,
+              "contentChars": 89,
+              "quizzes": 1,
+              "exercises": 0,
+              "codeExamples": 0,
+              "stub": true
+            }
+          ]
+        }
+      ],
+      "lessonCount": 1,
+      "quizCount": 1,
+      "exerciseCount": 0,
+      "contentChars": 89,
+      "stubLessons": 1
+    },
+    {
+      "key": "advanced-graphs",
+      "id": "advanced-graphs",
+      "title": "Advanced Graph Algorithms",
+      "level": 3,
+      "order": 16,
+      "prerequisites": [
+        "graphs",
+        "dynamic-programming"
+      ],
+      "estimatedHours": 15,
+      "modules": [
+        {
+          "id": "adv-graph-basics",
+          "title": "Minimum Spanning Tree and Flow",
+          "order": 1,
+          "lessons": [
+            {
+              "id": "adv-graph-01",
+              "title": "Prim's, Kruskal's, and Max Flow",
+              "objectives": 3,
+              "contentChars": 91,
+              "quizzes": 1,
+              "exercises": 0,
+              "codeExamples": 0,
+              "stub": true
+            }
+          ]
+        }
+      ],
+      "lessonCount": 1,
+      "quizCount": 1,
+      "exerciseCount": 0,
+      "contentChars": 91,
+      "stubLessons": 1
+    },
+    {
+      "key": "competitive-programming",
+      "id": "competitive-programming",
+      "title": "Competitive Programming",
+      "level": 3,
+      "order": 17,
+      "prerequisites": [
+        "dynamic-programming",
+        "advanced-graphs"
+      ],
+      "estimatedHours": 12,
+      "modules": [
+        {
+          "id": "cp-basics",
+          "title": "Contest Fundamentals",
+          "order": 1,
+          "lessons": [
+            {
+              "id": "cp-01",
+              "title": "Fast I/O, Templates, and Common Patterns",
+              "objectives": 3,
+              "contentChars": 92,
+              "quizzes": 1,
+              "exercises": 0,
+              "codeExamples": 0,
+              "stub": true
+            }
+          ]
+        }
+      ],
+      "lessonCount": 1,
+      "quizCount": 1,
+      "exerciseCount": 0,
+      "contentChars": 92,
+      "stubLessons": 1
+    },
+    {
+      "key": "practical-projects",
+      "id": "practical-projects",
+      "title": "Practical DSA Projects",
+      "level": 3,
+      "order": 18,
+      "prerequisites": [
+        "competitive-programming"
+      ],
+      "estimatedHours": 15,
+      "modules": [
+        {
+          "id": "projects-basics",
+          "title": "Capstone Projects",
+          "order": 1,
+          "lessons": [
+            {
+              "id": "proj-01",
+              "title": "Text Editor with Undo/Redo",
+              "objectives": 3,
+              "contentChars": 106,
+              "quizzes": 1,
+              "exercises": 0,
+              "codeExamples": 0,
+              "stub": true
+            }
+          ]
+        }
+      ],
+      "lessonCount": 1,
+      "quizCount": 1,
+      "exerciseCount": 0,
+      "contentChars": 106,
+      "stubLessons": 1
+    }
+  ]
+}

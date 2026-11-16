@@ -1,0 +1,506 @@
+navigatingΓÇª
+loaded; waiting for __pocDone (up to 6 min)ΓÇª
+[console:error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[console:log] [Emception:Worker] Worker script loaded, waiting for boot message...
+[console:log] [Emception:Worker] Worker script loaded, waiting for boot message...
+[console:log] [Emception:Worker] local brotli (Emscripten) loaded from http://127.0.0.1:8723/node_modules/@gameguild/emception-toolchain/cdn/brotli_wasm.wasm and injected into LazyFS
+[console:log] [Emception:Worker] local brotli (Emscripten) loaded from http://127.0.0.1:8723/node_modules/@gameguild/emception-toolchain/cdn/brotli_wasm.wasm and injected into LazyFS
+[console:log] [Emception:Worker] ===== BOOT START =====
+[console:log] [Emception:Worker] Async strategy: asyncify
+[console:log] [Emception:Worker] ===== BOOT START =====
+[console:log] [Emception:Worker] Async strategy: asyncify
+[console:log] [Emception:Worker] Step 1/6 done: manifest loaded (11697 files, 29 bundles, baseUrl=http://127.0.0.1:8723/node_modules/@gameguild/emception-toolchain/cdn) in 48.3ms
+[console:log] [Emception:Worker] Step 1/6 done: manifest loaded (11697 files, 29 bundles, baseUrl=http://127.0.0.1:8723/node_modules/@gameguild/emception-toolchain/cdn) in 48.3ms
+[console:log] [Emception:LazyFS] Initializing (dbName=lazyfs-cache-v3)...
+[console:log] [Emception:LazyFS] Initializing (dbName=lazyfs-cache-v3)...
+[console:log] [Emception:LazyFS]   IDB opened
+[console:log] [Emception:LazyFS]   IDB opened
+[console:log] [Emception:LazyFS]   Stale cache entries invalidated
+[console:log] [Emception:LazyFS]   Stale cache entries invalidated
+[console:log] [Emception:LazyFS] Init complete in 21.6ms (manifest: 11697 files)
+[console:log] [Emception:Worker] Step 2/6 done: LazyFS ready in 30.8ms
+[console:log] [Emception:LazyFS] Init complete in 21.6ms (manifest: 11697 files)
+[console:log] [Emception:Worker] Step 2/6 done: LazyFS ready in 30.8ms
+[console:log] [IDBFS:overlay-writes] Version changed (null ΓåÆ http://127.0.0.1:8723/node_modules/@gameguild/emception-toolchain/cdn:2:1970-01-01T00:00:00Z:11697), clearing store
+[console:log] [IDBFS:overlay-writes] Version changed (null ΓåÆ http://127.0.0.1:8723/node_modules/@gameguild/emception-toolchain/cdn:2:1970-01-01T00:00:00Z:11697), clearing store
+[console:log] [Emception:Worker] Step 3/6 done: writable FS layers ready in 6.3ms
+[console:log] [Emception:Worker] Step 3/6 done: writable FS layers ready in 6.3ms
+[console:log] [Emception:Worker] Step 4/6 done: VFS assembled in 1.8ms
+[console:log] [Emception:Worker] Step 4/6 done: VFS assembled in 1.8ms
+[console:log] [Emception:Worker] Step 5/6 done: all components created in 0.0ms
+[console:log] [Emception:Worker] Step 5/6 done: all components created in 0.0ms
+[console:log] [Emception:Worker] Step 6/6 done: shell started
+[console:log] [Emception:Worker] ===== BOOT COMPLETE in 88.0ms =====
+[console:log] [Emception:Worker] Step 6/6 done: shell started
+[console:log] [Emception:Worker] ===== BOOT COMPLETE in 88.0ms =====
+[console:log] [Emception:Kernel] ===== RUN: clang =====
+[console:log] [Emception:Kernel]   argv: ["clang", "-cc1", "-triple", "wasm32-unknown-emscripten", "-emit-obj", "-O1", "-disable-free", "-clear-ast-before-backend", "-disable-llvm-verifier", "-discard-value-names", "-mrelocation-model", "static", "-mframe-pointer=none", "-ffp-contract=on", "-fno-rounding-math", "-mconstructor-aliases", "-target-cpu", "generic", "-fvisibility=hidden", "-internal-isystem", "/usr/include/c++/v1", "-internal-isystem", "/usr/include/compat", "-internal-isystem", "/usr/lib/clang/23/include", "-resource-dir", "/usr/lib/clang/23", "-internal-isystem", "/usr/include", "-std=c++2c", "-fdeprecated-macro", "-ferror-limit", "19", "-fgnuc-version=4.2.1", "-fcxx-exceptions", "-fexceptions", "-main-file-name", "main.cpp", "-o", "/home/user/main.o", "-x", "c++", "/home/user/main.cpp"]
+[console:log] [Emception:Kernel] ===== RUN: clang =====
+[console:log] [Emception:Kernel]   resolveToolDescriptor: "clang" ΓåÆ registry match
+[console:log] [Emception:Kernel]   argv: ["clang", "-cc1", "-triple", "wasm32-unknown-emscripten", "-emit-obj", "-O1", "-disable-free", "-clear-ast-before-backend", "-disable-llvm-verifier", "-discard-value-names", "-mrelocation-model", "static", "-mframe-pointer=none", "-ffp-contract=on", "-fno-rounding-math", "-mconstructor-aliases", "-target-cpu", "generic", "-fvisibility=hidden", "-internal-isystem", "/usr/include/c++/v1", "-internal-isystem", "/usr/include/compat", "-internal-isystem", "/usr/lib/clang/23/include", "-resource-dir", "/usr/lib/clang/23", "-internal-isystem", "/usr/include", "-std=c++2c", "-fdeprecated-macro", "-ferror-limit", "19", "-fgnuc-version=4.2.1", "-fcxx-exceptions", "-fexceptions", "-main-file-name", "main.cpp", "-o", "/home/user/main.o", "-x", "c++", "/home/user/main.cpp"]
+[console:log] [Emception:Kernel]   resolveToolDescriptor: "clang" ΓåÆ registry match
+[console:log] [Emception:Kernel]   Descriptor: module=/usr/lib/clang.wasm
+[console:log] [Emception:Kernel]   Descriptor: module=/usr/lib/clang.wasm
+[console:log] [Emception:LazyFS]   fetchFile: /usr/lib/clang.wasm ΓÇö loading from bundle "clang"
+[console:log] [Emception:LazyFS]   fetchFile: /usr/lib/clang.wasm ΓÇö loading from bundle "clang"
+[console:log] [Emception:LazyFS]   loadBundle: fetching "clang" (2 files, expected 21.5MB) ΓÇö triggered by: /usr/lib/clang.wasm
+[console:log] [Emception:LazyFS]   loadBundle: fetching "clang" (2 files, expected 21.5MB) ΓÇö triggered by: /usr/lib/clang.wasm
+[console:log] [Emception:LazyFS]   loadBundle: received 21.5MB
+[console:log] [Emception:LazyFS]   loadBundle: received 21.5MB
+[console:warning] [Emception:LazyFS] DecompressionStream("br") not supported, falling back to bundled WASM (21.5MB)
+[console:warning] [Emception:LazyFS] DecompressionStream("br") not supported, falling back to bundled WASM (21.5MB)
+[console:log] [Emception:LazyFS]   loadBundle: brotli decompressed 21.5MB ΓåÆ 109.9MB in 638.6ms
+[console:log] [Emception:LazyFS]   loadBundle: brotli decompressed 21.5MB ΓåÆ 109.9MB in 638.6ms
+[console:log] [Emception:LazyFS]   loadBundle: "clang" extracted 2 files in 1143.3ms
+[console:log] [Emception:LazyFS]   loadBundle: "clang" extracted 2 files in 1143.3ms
+[console:log] [Emception:Kernel]   Step 1/4: Loading module factory for /usr/lib/clang.wasm...
+[console:log] [Emception:Kernel]   Step 1/4: Loading module factory for /usr/lib/clang.wasm...
+[console:log] [Emception:Kernel]   loadModuleFactory: /usr/lib/clang.wasm
+[console:log] [Emception:Kernel]   loadModuleFactory: preloading bundle "clang" for /usr/lib/clang.wasm
+[console:log] [Emception:Kernel]   loadModuleFactory: /usr/lib/clang.wasm
+[console:log] [Emception:Kernel]   loadModuleFactory: preloading bundle "clang" for /usr/lib/clang.wasm
+[console:log] [Emception:WasmLoader] loadModuleFactory: /usr/lib/clang.wasm ΓÇö importing glue from blob:http://127.0.0.1:8723/4e1bce80-2c58-4d76-b193-b8b8c39dd697...
+[console:log] [Emception:WasmLoader] loadModuleFactory: /usr/lib/clang.wasm ΓÇö importing glue from blob:http://127.0.0.1:8723/4e1bce80-2c58-4d76-b193-b8b8c39dd697...
+[console:log] [Emception:WasmLoader]   Glue JS imported in 2.4ms
+[console:log] [Emception:WasmLoader] loadModuleFactory: /usr/lib/clang.wasm ΓÇö ready in 2.7ms
+[console:log] [Emception:WasmLoader]   Glue JS imported in 2.4ms
+[console:log] [Emception:Kernel]   Step 1/4 done: factory loaded in 4.1ms
+[console:log] [Emception:Kernel]   Step 2/4: Instantiating isolated WASM process...
+[console:log] [Emception:WasmLoader] loadModuleFactory: /usr/lib/clang.wasm ΓÇö ready in 2.7ms
+[console:log] [Emception:Kernel]   Step 1/4 done: factory loaded in 4.1ms
+[console:log] [Emception:Kernel]   Step 2/4: Instantiating isolated WASM process...
+[console:log] [Emception:Kernel]   Step 2/4 done: process instantiated in 148.7ms
+[console:log] [Emception:Kernel]   Step 2/4 done: process instantiated in 148.7ms
+[console:log] [Emception:Kernel]   callMain patch probe: hasWhenDone=true hasCurrData=true head="function callMain(args=[]){var entryFunction=_main;args.unshift(thisProgram);var argc=args.length;var argv=stackAlloc((argc+1)*4);var argv_ptr=argv;for(var arg of args){HEAPU32[argv_ptr>>2]=stringToUTF8OnStack(arg);argv_"
+[console:log] [Emception:Kernel]   Step 3/4: Mounting VFSFS + Asyncify hooks...
+[console:log] [Emception:Kernel]   callMain patch probe: hasWhenDone=true hasCurrData=true head="function callMain(args=[]){var entryFunction=_main;args.unshift(thisProgram);var argc=args.length;var argv=stackAlloc((argc+1)*4);var argv_ptr=argv;for(var arg of args){HEAPU32[argv_ptr>>2]=stringToUTF8OnStack(arg);argv_"
+[console:log] [Emception:Kernel]   Step 3/4: Mounting VFSFS + Asyncify hooks...
+[console:log] [Emception:VFSFS] Mounted VFSFS at /usr
+[console:log] [Emception:VFSFS] Mounted VFSFS at /etc
+[console:log] [Emception:VFSFS] Mounted VFSFS at /usr
+[console:log] [Emception:VFSFS] Mounted VFSFS at /etc
+[console:log] [Emception:VFSFS] Mounted VFSFS at /home
+[console:log] [Emception:VFSFS] Mounted VFSFS at /home
+[console:log] [Emception:VFSFS] Mounted VFSFS at /tmp
+[console:log] [Emception:VFSFS] Mounted VFSFS at /tmp
+[console:log] [Emception:Kernel]   Step 3/4 done: FS set up in 13.4ms
+[console:log] [Emception:LazyFS]   loadBundle: fetching "clang-headers" (273 files, expected 431.0KB) ΓÇö triggered by: unknown
+[console:log] [Emception:Kernel]   Step 3/4 done: FS set up in 13.4ms
+[console:log] [Emception:LazyFS]   loadBundle: fetching "clang-headers" (273 files, expected 431.0KB) ΓÇö triggered by: unknown
+[console:log] [Emception:LazyFS]   loadBundle: fetching "usr-include" (2083 files, expected 2.6MB) ΓÇö triggered by: unknown
+[console:log] [Emception:LazyFS]   loadBundle: fetching "usr-include" (2083 files, expected 2.6MB) ΓÇö triggered by: unknown
+[console:log] [Emception:LazyFS]   loadBundle: fetching "sdl3" (89 files, expected 2.4MB) ΓÇö triggered by: unknown
+[console:log] [Emception:LazyFS]   loadBundle: fetching "sdl3" (89 files, expected 2.4MB) ΓÇö triggered by: unknown
+[console:log] [Emception:LazyFS]   loadBundle: fetching "cache-core" (14 files, expected 2.7MB) ΓÇö triggered by: unknown
+[console:log] [Emception:LazyFS]   loadBundle: fetching "cache-core" (14 files, expected 2.7MB) ΓÇö triggered by: unknown
+[console:log] [Emception:LazyFS]   loadBundle: received 431.0KB
+[console:log] [Emception:LazyFS]   loadBundle: received 431.0KB
+[console:warning] [Emception:LazyFS] DecompressionStream("br") not supported, falling back to bundled WASM (431.0KB)
+[console:warning] [Emception:LazyFS] DecompressionStream("br") not supported, falling back to bundled WASM (431.0KB)
+[console:log] [Emception:LazyFS]   loadBundle: brotli decompressed 431.0KB ΓåÆ 7.6MB in 13.2ms
+[console:log] [Emception:LazyFS]   loadBundle: brotli decompressed 431.0KB ΓåÆ 7.6MB in 13.2ms
+[console:log] [Emception:LazyFS]   loadBundle: received 2.6MB
+[console:log] [Emception:LazyFS]   loadBundle: received 2.6MB
+[console:warning] [Emception:LazyFS] DecompressionStream("br") not supported, falling back to bundled WASM (2.6MB)
+[console:warning] [Emception:LazyFS] DecompressionStream("br") not supported, falling back to bundled WASM (2.6MB)
+[console:log] [Emception:LazyFS]   loadBundle: brotli decompressed 2.6MB ΓåÆ 27.8MB in 58.8ms
+[console:log] [Emception:LazyFS]   loadBundle: brotli decompressed 2.6MB ΓåÆ 27.8MB in 58.8ms
+[console:log] [Emception:LazyFS]   loadBundle: received 2.4MB
+[console:log] [Emception:LazyFS]   loadBundle: received 2.4MB
+[console:warning] [Emception:LazyFS] DecompressionStream("br") not supported, falling back to bundled WASM (2.4MB)
+[console:warning] [Emception:LazyFS] DecompressionStream("br") not supported, falling back to bundled WASM (2.4MB)
+[console:log] [Emception:LazyFS]   loadBundle: brotli decompressed 2.4MB ΓåÆ 10.7MB in 62.3ms
+[console:log] [Emception:LazyFS]   loadBundle: brotli decompressed 2.4MB ΓåÆ 10.7MB in 62.3ms
+[console:log] [Emception:LazyFS]   loadBundle: received 2.7MB
+[console:log] [Emception:LazyFS]   loadBundle: received 2.7MB
+[console:warning] [Emception:LazyFS] DecompressionStream("br") not supported, falling back to bundled WASM (2.7MB)
+[console:warning] [Emception:LazyFS] DecompressionStream("br") not supported, falling back to bundled WASM (2.7MB)
+[console:log] [Emception:LazyFS]   loadBundle: brotli decompressed 2.7MB ΓåÆ 11.7MB in 64.9ms
+[console:log] [Emception:LazyFS]   loadBundle: brotli decompressed 2.7MB ΓåÆ 11.7MB in 64.9ms
+[console:log] [Emception:LazyFS]   loadBundle: "clang-headers" extracted 273 files in 452.9ms
+[console:log] [Emception:LazyFS]   loadBundle: "clang-headers" extracted 273 files in 452.9ms
+[console:log] [Emception:LazyFS]   loadBundle: "usr-include" extracted 2083 files in 544.0ms
+[console:log] [Emception:LazyFS]   loadBundle: "usr-include" extracted 2083 files in 544.0ms
+[console:log] [Emception:LazyFS]   loadBundle: "sdl3" extracted 89 files in 567.6ms
+[console:log] [Emception:LazyFS]   loadBundle: "sdl3" extracted 89 files in 567.6ms
+[console:log] [Emception:LazyFS]   loadBundle: "cache-core" extracted 14 files in 576.5ms
+[console:log] [Emception:Kernel]   Preloaded clang-headers + usr-include + sdl3 + cache-core bundles for clang in 577.6ms
+[console:log] [Emception:LazyFS]   loadBundle: "cache-core" extracted 14 files in 576.5ms
+[console:log] [Emception:Kernel]   Preloaded clang-headers + usr-include + sdl3 + cache-core bundles for clang in 577.6ms
+[console:log] [Emception:VFSFS] [stream.open #1] /usr/lib/clang/23/include/cuda_wrappers/algorithm hasData=false
+[console:log] [Emception:VFSFS] [stream.open #1] /usr/lib/clang/23/include/cuda_wrappers/algorithm hasData=false
+[console:log] [Emception:VFSFS] [stream.write #1] /usr/lib/clang/23/include/cuda_wrappers/algorithm +4612B @0 (total=4612B, accBytes=4612)
+[console:log] [Emception:VFSFS] [stream.write #1] /usr/lib/clang/23/include/cuda_wrappers/algorithm +4612B @0 (total=4612B, accBytes=4612)
+[console:log] [Emception:VFSFS] [stream.open #2] /usr/lib/clang/23/include/cuda_wrappers/cmath hasData=false
+[console:log] [Emception:VFSFS] [stream.open #2] /usr/lib/clang/23/include/cuda_wrappers/cmath hasData=false
+[console:log] [Emception:VFSFS] [stream.write #2] /usr/lib/clang/23/include/cuda_wrappers/cmath +2045B @0 (total=2045B, accBytes=6657)
+[console:log] [Emception:VFSFS] [stream.write #2] /usr/lib/clang/23/include/cuda_wrappers/cmath +2045B @0 (total=2045B, accBytes=6657)
+[console:log] [Emception:VFSFS] [stream.open #3] /usr/lib/clang/23/include/cuda_wrappers/complex hasData=false
+[console:log] [Emception:VFSFS] [stream.open #3] /usr/lib/clang/23/include/cuda_wrappers/complex hasData=false
+[console:log] [Emception:VFSFS] [stream.write #3] /usr/lib/clang/23/include/cuda_wrappers/complex +3618B @0 (total=3618B, accBytes=10275)
+[console:log] [Emception:VFSFS] [stream.write #3] /usr/lib/clang/23/include/cuda_wrappers/complex +3618B @0 (total=3618B, accBytes=10275)
+[console:log] [Emception:VFSFS] [stream.open #4] /usr/lib/clang/23/include/cuda_wrappers/new hasData=false
+[console:log] [Emception:VFSFS] [stream.open #4] /usr/lib/clang/23/include/cuda_wrappers/new hasData=false
+[console:log] [Emception:VFSFS] [stream.write #4] /usr/lib/clang/23/include/cuda_wrappers/new +3739B @0 (total=3739B, accBytes=14014)
+[console:log] [Emception:VFSFS] [stream.write #4] /usr/lib/clang/23/include/cuda_wrappers/new +3739B @0 (total=3739B, accBytes=14014)
+[console:log] [Emception:VFSFS] [stream.open #5] /usr/lib/clang/23/include/openmp_wrappers/cmath hasData=false
+[console:log] [Emception:VFSFS] [stream.open #5] /usr/lib/clang/23/include/openmp_wrappers/cmath hasData=false
+[console:log] [Emception:VFSFS] [stream.write #5] /usr/lib/clang/23/include/openmp_wrappers/cmath +5251B @0 (total=5251B, accBytes=19265)
+[console:log] [Emception:VFSFS] [stream.write #5] /usr/lib/clang/23/include/openmp_wrappers/cmath +5251B @0 (total=5251B, accBytes=19265)
+[console:log] [Emception:VFSFS] [stream.open #6] /usr/lib/clang/23/include/openmp_wrappers/complex hasData=false
+[console:log] [Emception:VFSFS] [stream.open #6] /usr/lib/clang/23/include/openmp_wrappers/complex hasData=false
+[console:log] [Emception:VFSFS] [stream.write #6] /usr/lib/clang/23/include/openmp_wrappers/complex +1941B @0 (total=1941B, accBytes=21206)
+[console:log] [Emception:VFSFS] [stream.write #6] /usr/lib/clang/23/include/openmp_wrappers/complex +1941B @0 (total=1941B, accBytes=21206)
+[console:log] [Emception:VFSFS] [stream.open #7] /usr/lib/clang/23/include/openmp_wrappers/new hasData=false
+[console:log] [Emception:VFSFS] [stream.open #7] /usr/lib/clang/23/include/openmp_wrappers/new hasData=false
+[console:log] [Emception:VFSFS] [stream.write #7] /usr/lib/clang/23/include/openmp_wrappers/new +1409B @0 (total=1409B, accBytes=22615)
+[console:log] [Emception:VFSFS] [stream.write #7] /usr/lib/clang/23/include/openmp_wrappers/new +1409B @0 (total=1409B, accBytes=22615)
+[console:log] [Emception:VFSFS] [stream.open #8] /usr/lib/clang/23/include/__clang_cuda_builtin_vars.h hasData=false
+[console:log] [Emception:VFSFS] [stream.open #8] /usr/lib/clang/23/include/__clang_cuda_builtin_vars.h hasData=false
+[console:log] [Emception:VFSFS] [stream.write #8] /usr/lib/clang/23/include/__clang_cuda_builtin_vars.h +4892B @0 (total=4892B, accBytes=27507)
+[console:log] [Emception:VFSFS] [stream.write #8] /usr/lib/clang/23/include/__clang_cuda_builtin_vars.h +4892B @0 (total=4892B, accBytes=27507)
+[console:log] [Emception:VFSFS] [stream.open #9] /usr/lib/clang/23/include/__clang_cuda_cmath.h hasData=false
+[console:log] [Emception:VFSFS] [stream.write #9] /usr/lib/clang/23/include/__clang_cuda_cmath.h +18493B @0 (total=18493B, accBytes=46000)
+[console:log] [Emception:VFSFS] [stream.open #9] /usr/lib/clang/23/include/__clang_cuda_cmath.h hasData=false
+[console:log] [Emception:VFSFS] [stream.write #9] /usr/lib/clang/23/include/__clang_cuda_cmath.h +18493B @0 (total=18493B, accBytes=46000)
+[console:log] [Emception:VFSFS] [stream.open #10] /usr/lib/clang/23/include/__clang_cuda_complex_builtins.h hasData=false
+[console:log] [Emception:VFSFS] [stream.open #10] /usr/lib/clang/23/include/__clang_cuda_complex_builtins.h hasData=false
+[console:log] [Emception:VFSFS] [stream.write #10] /usr/lib/clang/23/include/__clang_cuda_complex_builtins.h +9140B @0 (total=9140B, accBytes=55140)
+[console:log] [Emception:VFSFS] [stream.open #11] /usr/lib/clang/23/include/__clang_cuda_device_functions.h hasData=false
+[console:log] [Emception:VFSFS] [stream.write #10] /usr/lib/clang/23/include/__clang_cuda_complex_builtins.h +9140B @0 (total=9140B, accBytes=55140)
+[console:log] [Emception:VFSFS] [stream.open #11] /usr/lib/clang/23/include/__clang_cuda_device_functions.h hasData=false
+[console:log] [Emception:VFSFS] [stream.write #11] /usr/lib/clang/23/include/__clang_cuda_device_functions.h +58753B @0 (total=58753B, accBytes=113893)
+[console:log] [Emception:VFSFS] [stream.write #11] /usr/lib/clang/23/include/__clang_cuda_device_functions.h +58753B @0 (total=58753B, accBytes=113893)
+[console:log] [Emception:VFSFS] [stream.open #12] /usr/lib/clang/23/include/__clang_cuda_intrinsics.h hasData=false
+[console:log] [Emception:VFSFS] [stream.write #12] /usr/lib/clang/23/include/__clang_cuda_intrinsics.h +48862B @0 (total=48862B, accBytes=162755)
+[console:log] [Emception:VFSFS] [stream.open #12] /usr/lib/clang/23/include/__clang_cuda_intrinsics.h hasData=false
+[console:log] [Emception:VFSFS] [stream.write #12] /usr/lib/clang/23/include/__clang_cuda_intrinsics.h +48862B @0 (total=48862B, accBytes=162755)
+[console:log] [Emception:VFSFS] [stream.open #13] /usr/lib/clang/23/include/__clang_cuda_libdevice_declares.h hasData=false
+[console:log] [Emception:VFSFS] [stream.write #13] /usr/lib/clang/23/include/__clang_cuda_libdevice_declares.h +22414B @0 (total=22414B, accBytes=185169)
+[console:log] [Emception:VFSFS] [stream.open #13] /usr/lib/clang/23/include/__clang_cuda_libdevice_declares.h hasData=false
+[console:log] [Emception:VFSFS] [stream.write #13] /usr/lib/clang/23/include/__clang_cuda_libdevice_declares.h +22414B @0 (total=22414B, accBytes=185169)
+[console:log] [Emception:VFSFS] [stream.open #14] /usr/lib/clang/23/include/__clang_cuda_math_forward_declares.h hasData=false
+[console:log] [Emception:VFSFS] [stream.write #14] /usr/lib/clang/23/include/__clang_cuda_math_forward_declares.h +8694B @0 (total=8694B, accBytes=193863)
+[console:log] [Emception:VFSFS] [stream.open #14] /usr/lib/clang/23/include/__clang_cuda_math_forward_declares.h hasData=false
+[console:log] [Emception:VFSFS] [stream.write #14] /usr/lib/clang/23/include/__clang_cuda_math_forward_declares.h +8694B @0 (total=8694B, accBytes=193863)
+[console:log] [Emception:VFSFS] [stream.open #15] /usr/lib/clang/23/include/__clang_cuda_math.h hasData=false
+[console:log] [Emception:VFSFS] [stream.open #15] /usr/lib/clang/23/include/__clang_cuda_math.h hasData=false
+[console:log] [Emception:VFSFS] [stream.write #15] /usr/lib/clang/23/include/__clang_cuda_math.h +16602B @0 (total=16602B, accBytes=210465)
+[console:log] [Emception:VFSFS] [stream.write #15] /usr/lib/clang/23/include/__clang_cuda_math.h +16602B @0 (total=16602B, accBytes=210465)
+[console:log] [Emception:VFSFS] [stream.open #16] /usr/lib/clang/23/include/__clang_cuda_runtime_wrapper.h hasData=false
+[console:log] [Emception:VFSFS] [stream.open #16] /usr/lib/clang/23/include/__clang_cuda_runtime_wrapper.h hasData=false
+[console:log] [Emception:VFSFS] [stream.write #16] /usr/lib/clang/23/include/__clang_cuda_runtime_wrapper.h +18634B @0 (total=18634B, accBytes=229099)
+[console:log] [Emception:VFSFS] [stream.write #16] /usr/lib/clang/23/include/__clang_cuda_runtime_wrapper.h +18634B @0 (total=18634B, accBytes=229099)
+[console:log] [Emception:VFSFS] [stream.open #17] /usr/lib/clang/23/include/__clang_cuda_texture_intrinsics.h hasData=false
+[console:log] [Emception:VFSFS] [stream.open #17] /usr/lib/clang/23/include/__clang_cuda_texture_intrinsics.h hasData=false
+[console:log] [Emception:VFSFS] [stream.write #17] /usr/lib/clang/23/include/__clang_cuda_texture_intrinsics.h +56680B @0 (total=56680B, accBytes=285779)
+[console:log] [Emception:VFSFS] [stream.write #17] /usr/lib/clang/23/include/__clang_cuda_texture_intrinsics.h +56680B @0 (total=56680B, accBytes=285779)
+[console:log] [Emception:VFSFS] [stream.open #18] /usr/lib/clang/23/include/__clang_hip_cmath.h hasData=false
+[console:log] [Emception:VFSFS] [stream.open #18] /usr/lib/clang/23/include/__clang_hip_cmath.h hasData=false
+[console:log] [Emception:VFSFS] [stream.write #18] /usr/lib/clang/23/include/__clang_hip_cmath.h +27196B @0 (total=27196B, accBytes=312975)
+[console:log] [Emception:VFSFS] [stream.write #18] /usr/lib/clang/23/include/__clang_hip_cmath.h +27196B @0 (total=27196B, accBytes=312975)
+[console:log] [Emception:VFSFS] [stream.open #19] /usr/lib/clang/23/include/__clang_hip_libdevice_declares.h hasData=false
+[console:log] [Emception:VFSFS] [stream.write #19] /usr/lib/clang/23/include/__clang_hip_libdevice_declares.h +20133B @0 (total=20133B, accBytes=333108)
+[console:log] [Emception:VFSFS] [stream.open #19] /usr/lib/clang/23/include/__clang_hip_libdevice_declares.h hasData=false
+[console:log] [Emception:VFSFS] [stream.write #19] /usr/lib/clang/23/include/__clang_hip_libdevice_declares.h +20133B @0 (total=20133B, accBytes=333108)
+[console:log] [Emception:VFSFS] [stream.open #20] /usr/lib/clang/23/include/__clang_hip_math.h hasData=false
+[console:log] [Emception:VFSFS] [stream.open #20] /usr/lib/clang/23/include/__clang_hip_math.h hasData=false
+[console:log] [Emception:VFSFS] [stream.write #20] /usr/lib/clang/23/include/__clang_hip_math.h +36679B @0 (total=36679B, accBytes=369787)
+[console:log] [Emception:VFSFS] [stream.write #20] /usr/lib/clang/23/include/__clang_hip_math.h +36679B @0 (total=36679B, accBytes=369787)
+[console:log] [Emception:VFSFS] [stream.write #100] /usr/lib/clang/23/include/avx512vlintrin.h +327830B @0 (total=327830B, accBytes=3182996)
+[console:log] [Emception:VFSFS] [stream.write #100] /usr/lib/clang/23/include/avx512vlintrin.h +327830B @0 (total=327830B, accBytes=3182996)
+[console:log] [Emception:VFSFS] [stream.write #200] /usr/lib/clang/23/include/ppc_wrappers/smmintrin.h +23559B @0 (total=23559B, accBytes=6357631)
+[console:log] [Emception:VFSFS] [stream.write #200] /usr/lib/clang/23/include/ppc_wrappers/smmintrin.h +23559B @0 (total=23559B, accBytes=6357631)
+[console:log] [Emception:VFSFS] [stream.write #300] /usr/include/c++/v1/cfloat +2048B @0 (total=2048B, accBytes=8312765)
+[console:log] [Emception:VFSFS] [stream.write #300] /usr/include/c++/v1/cfloat +2048B @0 (total=2048B, accBytes=8312765)
+[console:log] [Emception:VFSFS] [stream.write #400] /usr/include/c++/v1/utility +12062B @0 (total=12062B, accBytes=10712391)
+[console:log] [Emception:VFSFS] [stream.write #400] /usr/include/c++/v1/utility +12062B @0 (total=12062B, accBytes=10712391)
+[console:log] [Emception:VFSFS] [stream.write #500] /usr/include/allegro5/internal/aintern_prim_opengl.h +1427B @0 (total=1427B, accBytes=11348315)
+[console:log] [Emception:VFSFS] [stream.write #500] /usr/include/allegro5/internal/aintern_prim_opengl.h +1427B @0 (total=1427B, accBytes=11348315)
+[console:log] [Emception:VFSFS] [stream.write #600] /usr/include/allegro5/utf8.h +6195B @0 (total=6195B, accBytes=12110835)
+[console:log] [Emception:VFSFS] [stream.write #600] /usr/include/allegro5/utf8.h +6195B @0 (total=6195B, accBytes=12110835)
+[console:log] [Emception:VFSFS] [stream.write #700] /usr/include/c++/v1/__algorithm/move_backward.h +6664B @0 (total=6664B, accBytes=12396003)
+[console:log] [Emception:VFSFS] [stream.write #700] /usr/include/c++/v1/__algorithm/move_backward.h +6664B @0 (total=6664B, accBytes=12396003)
+[console:log] [Emception:VFSFS] [stream.write #800] /usr/include/c++/v1/__algorithm/ranges_stable_partition.h +3200B @0 (total=3200B, accBytes=12739862)
+[console:log] [Emception:VFSFS] [stream.write #800] /usr/include/c++/v1/__algorithm/ranges_stable_partition.h +3200B @0 (total=3200B, accBytes=12739862)
+[console:log] [Emception:VFSFS] [stream.write #900] /usr/include/c++/v1/__chrono/literals.h +1309B @0 (total=1309B, accBytes=13224685)
+[console:log] [Emception:VFSFS] [stream.write #900] /usr/include/c++/v1/__chrono/literals.h +1309B @0 (total=1309B, accBytes=13224685)
+[console:log] [Emception:VFSFS] [stream.write #1000] /usr/include/c++/v1/__filesystem/recursive_directory_iterator.h +6007B @0 (total=6007B, accBytes=13709483)
+[console:log] [Emception:VFSFS] [stream.write #1000] /usr/include/c++/v1/__filesystem/recursive_directory_iterator.h +6007B @0 (total=6007B, accBytes=13709483)
+[console:log] [Emception:VFSFS] [stream.write #1100] /usr/include/c++/v1/__fwd/vector.h +782B @0 (total=782B, accBytes=14501946)
+[console:log] [Emception:VFSFS] [stream.write #1100] /usr/include/c++/v1/__fwd/vector.h +782B @0 (total=782B, accBytes=14501946)
+[console:log] [Emception:VFSFS] [stream.write #1200] /usr/include/c++/v1/__memory_resource/monotonic_buffer_resource.h +3999B @0 (total=3999B, accBytes=15072686)
+[console:log] [Emception:VFSFS] [stream.write #1200] /usr/include/c++/v1/__memory_resource/monotonic_buffer_resource.h +3999B @0 (total=3999B, accBytes=15072686)
+[console:log] [Emception:VFSFS] [stream.write #1300] /usr/include/c++/v1/__random/exponential_distribution.h +4700B @0 (total=4700B, accBytes=15586872)
+[console:log] [Emception:VFSFS] [stream.write #1300] /usr/include/c++/v1/__random/exponential_distribution.h +4700B @0 (total=4700B, accBytes=15586872)
+[console:log] [Emception:VFSFS] [stream.write #1400] /usr/include/c++/v1/__thread/support.h +3780B @0 (total=3780B, accBytes=16189361)
+[console:log] [Emception:VFSFS] [stream.write #1400] /usr/include/c++/v1/__thread/support.h +3780B @0 (total=3780B, accBytes=16189361)
+[console:log] [Emception:VFSFS] [stream.write #1500] /usr/include/c++/v1/__type_traits/is_trivially_copyable.h +1191B @0 (total=1191B, accBytes=16399369)
+[console:log] [Emception:VFSFS] [stream.write #1500] /usr/include/c++/v1/__type_traits/is_trivially_copyable.h +1191B @0 (total=1191B, accBytes=16399369)
+[console:log] [Emception:VFSFS] [stream.write #1600] /usr/include/c++/v1/uchar.h +1806B @0 (total=1806B, accBytes=16752023)
+[console:log] [Emception:VFSFS] [stream.write #1600] /usr/include/c++/v1/uchar.h +1806B @0 (total=1806B, accBytes=16752023)
+[console:log] [Emception:VFSFS] [stream.write #1700] /usr/include/GLES2/gl2platform.h +1160B @0 (total=1160B, accBytes=24718375)
+[console:log] [Emception:VFSFS] [stream.write #1700] /usr/include/GLES2/gl2platform.h +1160B @0 (total=1160B, accBytes=24718375)
+[console:log] [Emception:VFSFS] [stream.write #1800] /usr/include/python3.13/cpython/fileobject.h +652B @0 (total=652B, accBytes=26825366)
+[console:log] [Emception:VFSFS] [stream.write #1800] /usr/include/python3.13/cpython/fileobject.h +652B @0 (total=652B, accBytes=26825366)
+[console:log] [Emception:VFSFS] [stream.write #1900] /usr/include/python3.13/internal/pycore_floatobject.h +1495B @0 (total=1495B, accBytes=27440046)
+[console:log] [Emception:VFSFS] [stream.write #1900] /usr/include/python3.13/internal/pycore_floatobject.h +1495B @0 (total=1495B, accBytes=27440046)
+[console:log] [Emception:VFSFS] [stream.write #2000] /usr/include/python3.13/objimpl.h +8380B @0 (total=8380B, accBytes=28338612)
+[console:log] [Emception:VFSFS] [stream.write #2000] /usr/include/python3.13/objimpl.h +8380B @0 (total=8380B, accBytes=28338612)
+[console:log] [Emception:VFSFS] [stream.write #2100] /usr/include/SDL/SDL_image.h +5513B @0 (total=5513B, accBytes=30325625)
+[console:log] [Emception:VFSFS] [stream.write #2100] /usr/include/SDL/SDL_image.h +5513B @0 (total=5513B, accBytes=30325625)
+[console:log] [Emception:VFSFS] [stream.write #2200] /usr/include/SDL2/SDL_surface.h +36909B @0 (total=36909B, accBytes=33181339)
+[console:log] [Emception:VFSFS] [stream.write #2200] /usr/include/SDL2/SDL_surface.h +36909B @0 (total=36909B, accBytes=33181339)
+[console:log] [Emception:VFSFS] [stream.write #2300] /usr/include/ucontext.h +495B @0 (total=495B, accBytes=34181504)
+[console:log] [Emception:VFSFS] [stream.write #2300] /usr/include/ucontext.h +495B @0 (total=495B, accBytes=34181504)
+[console:log] [Emception:VFSFS] [stream.write #2400] /usr/include/SDL3/SDL_mutex.h +36726B @0 (total=36726B, accBytes=44162697)
+[console:log] [Emception:VFSFS] [stream.write #2400] /usr/include/SDL3/SDL_mutex.h +36726B @0 (total=36726B, accBytes=44162697)
+[console:log] [Emception:Kernel]   Pre-warmed 2445/2445 header files for clang in 2299.4ms
+[console:log] [Emception:Kernel]   Pre-warmed 2445/2445 header files for clang in 2299.4ms
+[console:log] [Emception:Kernel]   Step 4/4: callMain(["-cc1", "-triple", "wasm32-unknown-emscripten", "-emit-obj", "-O1", "-disable-free", "-clear-ast-before-backend", "-disable-llvm-verifier", "-discard-value-names", "-mrelocation-model", "static", "-mframe-pointer=none", "-ffp-contract=on", "-fno-rounding-math", "-mconstructor-aliases", "-target-cpu", "generic", "-fvisibility=hidden", "-internal-isystem", "/usr/include/c++/v1", "-internal-isystem", "/usr/include/compat", "-internal-isystem", "/usr/lib/clang/23/include", "-resource-dir", "/usr/lib/clang/23", "-internal-isystem", "/usr/include", "-std=c++2c", "-fdeprecated-macro", "-ferror-limit", "19", "-fgnuc-version=4.2.1", "-fcxx-exceptions", "-fexceptions", "-main-file-name", "main.cpp", "-o", "/home/user/main.o", "-x", "c++", "/home/user/main.cpp"])...
+[console:log] [Emception:Kernel]   Step 4/4: callMain(["-cc1", "-triple", "wasm32-unknown-emscripten", "-emit-obj", "-O1", "-disable-free", "-clear-ast-before-backend", "-disable-llvm-verifier", "-discard-value-names", "-mrelocation-model", "static", "-mframe-pointer=none", "-ffp-contract=on", "-fno-rounding-math", "-mconstructor-aliases", "-target-cpu", "generic", "-fvisibility=hidden", "-internal-isystem", "/usr/include/c++/v1", "-internal-isystem", "/usr/include/compat", "-internal-isystem", "/usr/lib/clang/23/include", "-resource-dir", "/usr/lib/clang/23", "-internal-isystem", "/usr/include", "-std=c++2c", "-fdeprecated-macro", "-ferror-limit", "19", "-fgnuc-version=4.2.1", "-fcxx-exceptions", "-fexceptions", "-main-file-name", "main.cpp", "-o", "/home/user/main.o", "-x", "c++", "/home/user/main.cpp"])...
+[console:log] [Emception:VFSFS] [stream.write #2500] /home/user/main-a236aa27.o.tmp +5B @2208 (total=4173B, accBytes=46458322)
+[console:log] [Emception:VFSFS] [stream.write #2500] /home/user/main-a236aa27.o.tmp +5B @2208 (total=4173B, accBytes=46458322)
+[console:log] [Emception:VFSFS] [onExit] streams: opens=3205 writes=2586 bytes=46463123; mmaps=0
+[console:log] [Emception:VFSFS] [onExit] non-/usr fileData entries (2): /home/user/main.cpp(729B), /home/user/main.o(8593B)
+[console:log] [Emception:VFSFS] [onExit] streams: opens=3205 writes=2586 bytes=46463123; mmaps=0
+[console:log] [Emception:VFSFS] [onExit] non-/usr fileData entries (2): /home/user/main.cpp(729B), /home/user/main.o(8593B)
+[console:log] [Emception:Kernel]   Step 4/4 done: exitCode=0 in 11367.6ms
+[console:log] [Emception:Kernel]   Step 4/4 done: exitCode=0 in 11367.6ms
+[console:log] [Emception:Kernel]   Persisted output artifact: /home/user/main.o (8593B)
+[console:log] [Emception:Kernel]   Persisted output artifact: /home/user/main.o (8593B)
+[console:log] [Emception:Kernel]   Process complete, releasing WASM instance (total spawn: 14425.0ms)
+[console:log] [Emception:Kernel] ===== RUN COMPLETE: clang ΓÇö exitCode=0, total=15692.3ms =====
+[console:log] [Emception:Kernel]   Process complete, releasing WASM instance (total spawn: 14425.0ms)
+[console:log] [Emception:Kernel] ===== RUN COMPLETE: clang ΓÇö exitCode=0, total=15692.3ms =====
+[console:log] [Emception:Kernel] ===== RUN: wasm-ld =====
+[console:log] [Emception:Kernel]   argv: ["wasm-ld", "/home/user/main.o", "-o", "/home/user/main.wasm", "-L/usr/lib/emscripten/cache-lib/wasm32-emscripten", "--entry=main", "--import-undefined", "--allow-undefined", "--export-table", "--table-base=1", "--export=__wasm_call_ctors", "-lc++-noexcept", "-lc++abi-noexcept", "-lc", "-ldlmalloc", "-lcompiler_rt", "-lsockets"]
+[console:log] [Emception:Kernel] ===== RUN: wasm-ld =====
+[console:log] [Emception:Kernel]   resolveToolDescriptor: "wasm-ld" ΓåÆ registry match
+[console:log] [Emception:Kernel]   Descriptor: module=/usr/lib/lld.wasm
+[console:log] [Emception:Kernel]   argv: ["wasm-ld", "/home/user/main.o", "-o", "/home/user/main.wasm", "-L/usr/lib/emscripten/cache-lib/wasm32-emscripten", "--entry=main", "--import-undefined", "--allow-undefined", "--export-table", "--table-base=1", "--export=__wasm_call_ctors", "-lc++-noexcept", "-lc++abi-noexcept", "-lc", "-ldlmalloc", "-lcompiler_rt", "-lsockets"]
+[console:log] [Emception:Kernel]   resolveToolDescriptor: "wasm-ld" ΓåÆ registry match
+[console:log] [Emception:Kernel]   Descriptor: module=/usr/lib/lld.wasm
+[console:log] [Emception:LazyFS]   fetchFile: /usr/lib/lld.wasm ΓÇö loading from bundle "lld"
+[console:log] [Emception:LazyFS]   loadBundle: fetching "lld" (2 files, expected 11.7MB) ΓÇö triggered by: /usr/lib/lld.wasm
+[console:log] [Emception:LazyFS]   fetchFile: /usr/lib/lld.wasm ΓÇö loading from bundle "lld"
+[console:log] [Emception:LazyFS]   loadBundle: fetching "lld" (2 files, expected 11.7MB) ΓÇö triggered by: /usr/lib/lld.wasm
+[console:log] [Emception:LazyFS]   loadBundle: received 11.7MB
+[console:log] [Emception:LazyFS]   loadBundle: received 11.7MB
+[console:warning] [Emception:LazyFS] DecompressionStream("br") not supported, falling back to bundled WASM (11.7MB)
+[console:warning] [Emception:LazyFS] DecompressionStream("br") not supported, falling back to bundled WASM (11.7MB)
+[console:log] [Emception:LazyFS]   loadBundle: brotli decompressed 11.7MB ΓåÆ 55.0MB in 399.3ms
+[console:log] [Emception:LazyFS]   loadBundle: brotli decompressed 11.7MB ΓåÆ 55.0MB in 399.3ms
+[console:log] [Emception:LazyFS]   loadBundle: "lld" extracted 2 files in 788.1ms
+[console:log] [Emception:LazyFS]   loadBundle: "lld" extracted 2 files in 788.1ms
+[console:log] [Emception:Kernel]   Step 1/4: Loading module factory for /usr/lib/lld.wasm...
+[console:log] [Emception:Kernel]   loadModuleFactory: /usr/lib/lld.wasm
+[console:log] [Emception:Kernel]   Step 1/4: Loading module factory for /usr/lib/lld.wasm...
+[console:log] [Emception:Kernel]   loadModuleFactory: preloading bundle "lld" for /usr/lib/lld.wasm
+[console:log] [Emception:Kernel]   loadModuleFactory: /usr/lib/lld.wasm
+[console:log] [Emception:Kernel]   loadModuleFactory: preloading bundle "lld" for /usr/lib/lld.wasm
+[console:log] [Emception:WasmLoader] loadModuleFactory: /usr/lib/lld.wasm ΓÇö importing glue from blob:http://127.0.0.1:8723/36c6af7c-21fc-48e5-ac29-f477282c6471...
+[console:log] [Emception:WasmLoader] loadModuleFactory: /usr/lib/lld.wasm ΓÇö importing glue from blob:http://127.0.0.1:8723/36c6af7c-21fc-48e5-ac29-f477282c6471...
+[console:log] [Emception:WasmLoader]   Glue JS imported in 4.4ms
+[console:log] [Emception:WasmLoader] loadModuleFactory: /usr/lib/lld.wasm ΓÇö ready in 4.8ms
+[console:log] [Emception:WasmLoader]   Glue JS imported in 4.4ms
+[console:log] [Emception:Kernel]   Step 1/4 done: factory loaded in 5.2ms
+[console:log] [Emception:WasmLoader] loadModuleFactory: /usr/lib/lld.wasm ΓÇö ready in 4.8ms
+[console:log] [Emception:Kernel]   Step 1/4 done: factory loaded in 5.2ms
+[console:log] [Emception:Kernel]   Step 2/4: Instantiating isolated WASM process...
+[console:log] [Emception:Kernel]   Step 2/4: Instantiating isolated WASM process...
+[console:log] [Emception:Kernel]   Step 2/4 done: process instantiated in 127.8ms
+[console:log] [Emception:Kernel]   callMain patch probe: hasWhenDone=true hasCurrData=true head="function callMain(args=[]){var entryFunction=_main;args.unshift(thisProgram);var argc=args.length;var argv=stackAlloc((argc+1)*4);var argv_ptr=argv;for(var arg of args){HEAPU32[argv_ptr>>2]=stringToUTF8OnStack(arg);argv_"
+[console:log] [Emception:Kernel]   Step 3/4: Mounting VFSFS + Asyncify hooks...
+[console:log] [Emception:Kernel]   Step 2/4 done: process instantiated in 127.8ms
+[console:log] [Emception:Kernel]   callMain patch probe: hasWhenDone=true hasCurrData=true head="function callMain(args=[]){var entryFunction=_main;args.unshift(thisProgram);var argc=args.length;var argv=stackAlloc((argc+1)*4);var argv_ptr=argv;for(var arg of args){HEAPU32[argv_ptr>>2]=stringToUTF8OnStack(arg);argv_"
+[console:log] [Emception:Kernel]   Step 3/4: Mounting VFSFS + Asyncify hooks...
+[console:log] [Emception:VFSFS] Mounted VFSFS at /usr
+[console:log] [Emception:VFSFS] Mounted VFSFS at /etc
+[console:log] [Emception:VFSFS] Mounted VFSFS at /usr
+[console:log] [Emception:VFSFS] Mounted VFSFS at /home
+[console:log] [Emception:VFSFS] Mounted VFSFS at /etc
+[console:log] [Emception:VFSFS] Mounted VFSFS at /tmp
+[console:log] [Emception:VFSFS] Mounted VFSFS at /home
+[console:log] [Emception:VFSFS] Mounted VFSFS at /tmp
+[console:log] [Emception:Kernel]   Step 3/4 done: FS set up in 7.4ms
+[console:log] [Emception:LazyFS]   loadBundle: fetching "cache-crt" (4 files, expected 5.2KB) ΓÇö triggered by: unknown
+[console:log] [Emception:Kernel]   Step 3/4 done: FS set up in 7.4ms
+[console:log] [Emception:LazyFS]   loadBundle: fetching "cache-crt" (4 files, expected 5.2KB) ΓÇö triggered by: unknown
+[console:log] [Emception:LazyFS]   loadBundle: fetching "cache-libc-variants" (40 files, expected 2.4MB) ΓÇö triggered by: unknown
+[console:log] [Emception:LazyFS]   loadBundle: fetching "cache-libc-variants" (40 files, expected 2.4MB) ΓÇö triggered by: unknown
+[console:log] [Emception:LazyFS]   loadBundle: fetching "cache-libcxx-variants" (17 files, expected 4.6MB) ΓÇö triggered by: unknown
+[console:log] [Emception:LazyFS]   loadBundle: fetching "cache-libcxx-variants" (17 files, expected 4.6MB) ΓÇö triggered by: unknown
+[console:log] [Emception:LazyFS]   loadBundle: received 5.2KB
+[console:log] [Emception:LazyFS]   loadBundle: received 5.2KB
+[console:warning] [Emception:LazyFS] DecompressionStream("br") not supported, falling back to bundled WASM (5.2KB)
+[console:log] [Emception:LazyFS]   loadBundle: brotli decompressed 5.2KB ΓåÆ 16.5KB in 0.4ms
+[console:warning] [Emception:LazyFS] DecompressionStream("br") not supported, falling back to bundled WASM (5.2KB)
+[console:log] [Emception:LazyFS]   loadBundle: brotli decompressed 5.2KB ΓåÆ 16.5KB in 0.4ms
+[console:log] [Emception:LazyFS]   loadBundle: received 2.4MB
+[console:log] [Emception:LazyFS]   loadBundle: received 2.4MB
+[console:warning] [Emception:LazyFS] DecompressionStream("br") not supported, falling back to bundled WASM (2.4MB)
+[console:warning] [Emception:LazyFS] DecompressionStream("br") not supported, falling back to bundled WASM (2.4MB)
+[console:log] [Emception:LazyFS]   loadBundle: brotli decompressed 2.4MB ΓåÆ 26.0MB in 88.6ms
+[console:log] [Emception:LazyFS]   loadBundle: brotli decompressed 2.4MB ΓåÆ 26.0MB in 88.6ms
+[console:log] [Emception:LazyFS]   loadBundle: "cache-crt" extracted 4 files in 260.7ms
+[console:log] [Emception:LazyFS]   loadBundle: "cache-crt" extracted 4 files in 260.7ms
+[console:log] [Emception:LazyFS]   loadBundle: received 4.6MB
+[console:log] [Emception:LazyFS]   loadBundle: received 4.6MB
+[console:warning] [Emception:LazyFS] DecompressionStream("br") not supported, falling back to bundled WASM (4.6MB)
+[console:warning] [Emception:LazyFS] DecompressionStream("br") not supported, falling back to bundled WASM (4.6MB)
+[console:log] [Emception:LazyFS]   loadBundle: brotli decompressed 4.6MB ΓåÆ 56.0MB in 177.8ms
+[console:log] [Emception:LazyFS]   loadBundle: brotli decompressed 4.6MB ΓåÆ 56.0MB in 177.8ms
+[console:log] [Emception:LazyFS]   loadBundle: "cache-libc-variants" extracted 40 files in 644.5ms
+[console:log] [Emception:LazyFS]   loadBundle: "cache-libc-variants" extracted 40 files in 644.5ms
+[console:log] [Emception:LazyFS]   loadBundle: "cache-libcxx-variants" extracted 17 files in 672.5ms
+[console:log] [Emception:Kernel]   Preloaded cache-core + cache-crt + cache-libc-variants + cache-libcxx-variants bundles for lld in 674.1ms
+[console:log] [Emception:LazyFS]   loadBundle: "cache-libcxx-variants" extracted 17 files in 672.5ms
+[console:log] [Emception:Kernel]   Preloaded cache-core + cache-crt + cache-libc-variants + cache-libcxx-variants bundles for lld in 674.1ms
+[console:log] [Emception:VFSFS] [stream.open #1] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libal.a hasData=false
+[console:log] [Emception:VFSFS] [stream.open #1] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libal.a hasData=false
+[console:log] [Emception:VFSFS] [stream.write #1] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libal.a +20896B @0 (total=20896B, accBytes=20896)
+[console:log] [Emception:VFSFS] [stream.write #1] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libal.a +20896B @0 (total=20896B, accBytes=20896)
+[console:log] [Emception:VFSFS] [stream.open #2] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libc.a hasData=false
+[console:log] [Emception:VFSFS] [stream.open #2] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libc.a hasData=false
+[console:log] [Emception:VFSFS] [stream.write #2] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libc.a +3282274B @0 (total=3282274B, accBytes=3303170)
+[console:log] [Emception:VFSFS] [stream.write #2] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libc.a +3282274B @0 (total=3282274B, accBytes=3303170)
+[console:log] [Emception:VFSFS] [stream.open #3] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libc++-noexcept.a hasData=false
+[console:log] [Emception:VFSFS] [stream.open #3] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libc++-noexcept.a hasData=false
+[console:log] [Emception:VFSFS] [stream.write #3] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libc++-noexcept.a +6877036B @0 (total=6877036B, accBytes=10180206)
+[console:log] [Emception:VFSFS] [stream.write #3] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libc++-noexcept.a +6877036B @0 (total=6877036B, accBytes=10180206)
+[console:log] [Emception:VFSFS] [stream.open #4] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libc++abi-noexcept.a hasData=false
+[console:log] [Emception:VFSFS] [stream.open #4] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libc++abi-noexcept.a hasData=false
+[console:log] [Emception:VFSFS] [stream.write #4] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libc++abi-noexcept.a +988720B @0 (total=988720B, accBytes=11168926)
+[console:log] [Emception:VFSFS] [stream.write #4] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libc++abi-noexcept.a +988720B @0 (total=988720B, accBytes=11168926)
+[console:log] [Emception:VFSFS] [stream.open #5] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libcompiler_rt.a hasData=false
+[console:log] [Emception:VFSFS] [stream.open #5] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libcompiler_rt.a hasData=false
+[console:log] [Emception:VFSFS] [stream.write #5] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libcompiler_rt.a +743144B @0 (total=743144B, accBytes=11912070)
+[console:log] [Emception:VFSFS] [stream.write #5] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libcompiler_rt.a +743144B @0 (total=743144B, accBytes=11912070)
+[console:log] [Emception:VFSFS] [stream.open #6] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libdlmalloc.a hasData=false
+[console:log] [Emception:VFSFS] [stream.open #6] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libdlmalloc.a hasData=false
+[console:log] [Emception:VFSFS] [stream.write #6] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libdlmalloc.a +74918B @0 (total=74918B, accBytes=11986988)
+[console:log] [Emception:VFSFS] [stream.write #6] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libdlmalloc.a +74918B @0 (total=74918B, accBytes=11986988)
+[console:log] [Emception:VFSFS] [stream.open #7] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libGL-getprocaddr.a hasData=false
+[console:log] [Emception:VFSFS] [stream.open #7] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libGL-getprocaddr.a hasData=false
+[console:log] [Emception:VFSFS] [stream.write #7] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libGL-getprocaddr.a +45060B @0 (total=45060B, accBytes=12032048)
+[console:log] [Emception:VFSFS] [stream.write #7] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libGL-getprocaddr.a +45060B @0 (total=45060B, accBytes=12032048)
+[console:log] [Emception:VFSFS] [stream.open #8] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libhtml5.a hasData=false
+[console:log] [Emception:VFSFS] [stream.write #8] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libhtml5.a +54950B @0 (total=54950B, accBytes=12086998)
+[console:log] [Emception:VFSFS] [stream.open #8] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libhtml5.a hasData=false
+[console:log] [Emception:VFSFS] [stream.write #8] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libhtml5.a +54950B @0 (total=54950B, accBytes=12086998)
+[console:log] [Emception:VFSFS] [stream.open #9] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libjsmath.a hasData=false
+[console:log] [Emception:VFSFS] [stream.open #9] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libjsmath.a hasData=false
+[console:log] [Emception:VFSFS] [stream.write #9] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libjsmath.a +6952B @0 (total=6952B, accBytes=12093950)
+[console:log] [Emception:VFSFS] [stream.write #9] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libjsmath.a +6952B @0 (total=6952B, accBytes=12093950)
+[console:log] [Emception:VFSFS] [stream.open #10] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libnoexit.a hasData=false
+[console:log] [Emception:VFSFS] [stream.open #10] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libnoexit.a hasData=false
+[console:log] [Emception:VFSFS] [stream.write #10] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libnoexit.a +1686B @0 (total=1686B, accBytes=12095636)
+[console:log] [Emception:VFSFS] [stream.write #10] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libnoexit.a +1686B @0 (total=1686B, accBytes=12095636)
+[console:log] [Emception:VFSFS] [stream.open #11] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libsockets.a hasData=false
+[console:log] [Emception:VFSFS] [stream.open #11] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libsockets.a hasData=false
+[console:log] [Emception:VFSFS] [stream.write #11] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libsockets.a +66400B @0 (total=66400B, accBytes=12162036)
+[console:log] [Emception:VFSFS] [stream.write #11] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libsockets.a +66400B @0 (total=66400B, accBytes=12162036)
+[console:log] [Emception:VFSFS] [stream.open #12] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libstandalonewasm-nocatch.a hasData=false
+[console:log] [Emception:VFSFS] [stream.open #12] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libstandalonewasm-nocatch.a hasData=false
+[console:log] [Emception:VFSFS] [stream.write #12] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libstandalonewasm-nocatch.a +73920B @0 (total=73920B, accBytes=12235956)
+[console:log] [Emception:VFSFS] [stream.write #12] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libstandalonewasm-nocatch.a +73920B @0 (total=73920B, accBytes=12235956)
+[console:log] [Emception:VFSFS] [stream.open #13] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libstubs.a hasData=false
+[console:log] [Emception:VFSFS] [stream.write #13] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libstubs.a +24020B @0 (total=24020B, accBytes=12259976)
+[console:log] [Emception:VFSFS] [stream.open #13] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libstubs.a hasData=false
+[console:log] [Emception:VFSFS] [stream.write #13] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libstubs.a +24020B @0 (total=24020B, accBytes=12259976)
+[console:log] [Emception:VFSFS] [stream.open #14] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libunwind-noexcept.a hasData=false
+[console:log] [Emception:VFSFS] [stream.open #14] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libunwind-noexcept.a hasData=false
+[console:log] [Emception:VFSFS] [stream.write #14] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libunwind-noexcept.a +484B @0 (total=484B, accBytes=12260460)
+[console:log] [Emception:VFSFS] [stream.write #14] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libunwind-noexcept.a +484B @0 (total=484B, accBytes=12260460)
+[console:log] [Emception:VFSFS] [stream.open #15] /usr/lib/emscripten/cache-lib/wasm32-emscripten/crt1_proxy_main.o hasData=false
+[console:log] [Emception:VFSFS] [stream.write #15] /usr/lib/emscripten/cache-lib/wasm32-emscripten/crt1_proxy_main.o +4854B @0 (total=4854B, accBytes=12265314)
+[console:log] [Emception:VFSFS] [stream.open #15] /usr/lib/emscripten/cache-lib/wasm32-emscripten/crt1_proxy_main.o hasData=false
+[console:log] [Emception:VFSFS] [stream.write #15] /usr/lib/emscripten/cache-lib/wasm32-emscripten/crt1_proxy_main.o +4854B @0 (total=4854B, accBytes=12265314)
+[console:log] [Emception:VFSFS] [stream.open #16] /usr/lib/emscripten/cache-lib/wasm32-emscripten/crt1_reactor.o hasData=false
+[console:log] [Emception:VFSFS] [stream.open #16] /usr/lib/emscripten/cache-lib/wasm32-emscripten/crt1_reactor.o hasData=false
+[console:log] [Emception:VFSFS] [stream.write #16] /usr/lib/emscripten/cache-lib/wasm32-emscripten/crt1_reactor.o +1176B @0 (total=1176B, accBytes=12266490)
+[console:log] [Emception:VFSFS] [stream.write #16] /usr/lib/emscripten/cache-lib/wasm32-emscripten/crt1_reactor.o +1176B @0 (total=1176B, accBytes=12266490)
+[console:log] [Emception:VFSFS] [stream.open #17] /usr/lib/emscripten/cache-lib/wasm32-emscripten/crt1.o hasData=false
+[console:log] [Emception:VFSFS] [stream.write #17] /usr/lib/emscripten/cache-lib/wasm32-emscripten/crt1.o +1385B @0 (total=1385B, accBytes=12267875)
+[console:log] [Emception:VFSFS] [stream.open #17] /usr/lib/emscripten/cache-lib/wasm32-emscripten/crt1.o hasData=false
+[console:log] [Emception:VFSFS] [stream.write #17] /usr/lib/emscripten/cache-lib/wasm32-emscripten/crt1.o +1385B @0 (total=1385B, accBytes=12267875)
+[console:log] [Emception:VFSFS] [stream.open #18] /usr/lib/emscripten/cache-lib/wasm32-emscripten/crtbegin-mt.o hasData=false
+[console:log] [Emception:VFSFS] [stream.open #18] /usr/lib/emscripten/cache-lib/wasm32-emscripten/crtbegin-mt.o hasData=false
+[console:log] [Emception:VFSFS] [stream.write #18] /usr/lib/emscripten/cache-lib/wasm32-emscripten/crtbegin-mt.o +5631B @0 (total=5631B, accBytes=12273506)
+[console:log] [Emception:VFSFS] [stream.write #18] /usr/lib/emscripten/cache-lib/wasm32-emscripten/crtbegin-mt.o +5631B @0 (total=5631B, accBytes=12273506)
+[console:log] [Emception:VFSFS] [stream.open #19] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libc_optz-asan.a hasData=false
+[console:log] [Emception:VFSFS] [stream.open #19] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libc_optz-asan.a hasData=false
+[console:log] [Emception:VFSFS] [stream.write #19] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libc_optz-asan.a +26794B @0 (total=26794B, accBytes=12300300)
+[console:log] [Emception:VFSFS] [stream.write #19] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libc_optz-asan.a +26794B @0 (total=26794B, accBytes=12300300)
+[console:log] [Emception:VFSFS] [stream.open #20] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libc_optz-mt-asan.a hasData=false
+[console:log] [Emception:VFSFS] [stream.open #20] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libc_optz-mt-asan.a hasData=false
+[console:log] [Emception:VFSFS] [stream.write #20] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libc_optz-mt-asan.a +26856B @0 (total=26856B, accBytes=12327156)
+[console:log] [Emception:VFSFS] [stream.write #20] /usr/lib/emscripten/cache-lib/wasm32-emscripten/libc_optz-mt-asan.a +26856B @0 (total=26856B, accBytes=12327156)
+[console:log] [Emception:Kernel]   Pre-warmed 75/75 library files (cache-core+cache-crt+cache-libc-variants+cache-libcxx-variants) for lld in 799.5ms
+[console:log] [Emception:Kernel]   Pre-warmed 75/75 library files (cache-core+cache-crt+cache-libc-variants+cache-libcxx-variants) for lld in 799.5ms
+[console:log] [Emception:Kernel]   Step 4/4: callMain(["/home/user/main.o", "-o", "/home/user/main.wasm", "-L/usr/lib/emscripten/cache-lib/wasm32-emscripten", "--entry=main", "--import-undefined", "--allow-undefined", "--export-table", "--table-base=1", "--export=__wasm_call_ctors", "-lc++-noexcept", "-lc++abi-noexcept", "-lc", "-ldlmalloc", "-lcompiler_rt", "-lsockets"])...
+[console:log] [Emception:Kernel]   Step 4/4: callMain(["/home/user/main.o", "-o", "/home/user/main.wasm", "-L/usr/lib/emscripten/cache-lib/wasm32-emscripten", "--entry=main", "--import-undefined", "--allow-undefined", "--export-table", "--table-base=1", "--export=__wasm_call_ctors", "-lc++-noexcept", "-lc++abi-noexcept", "-lc", "-ldlmalloc", "-lcompiler_rt", "-lsockets"])...
+[console:log] [Emception:VFSFS] [onExit] streams: opens=85 writes=76 bytes=100801525; mmaps=0
+[console:log] [Emception:VFSFS] [onExit] streams: opens=85 writes=76 bytes=100801525; mmaps=0
+[console:log] [Emception:VFSFS] [onExit] non-/usr fileData entries (2): /home/user/main.o(8593B), /home/user/main.wasm(2525531B)
+[console:log] [Emception:VFSFS] [onExit] non-/usr fileData entries (2): /home/user/main.o(8593B), /home/user/main.wasm(2525531B)
+[console:log] [Emception:Kernel]   Step 4/4 done: exitCode=0 in 309.8ms
+[console:log] [Emception:Kernel]   Step 4/4 done: exitCode=0 in 309.8ms
+[console:log] [Emception:Kernel]   Persisted output artifact: /home/user/main.wasm (2525531B)
+[console:log] [Emception:Kernel]   Process complete, releasing WASM instance (total spawn: 1942.7ms)
+[console:log] [Emception:Kernel]   Persisted output artifact: /home/user/main.wasm (2525531B)
+[console:log] [Emception:Kernel] ===== RUN COMPLETE: wasm-ld ΓÇö exitCode=0, total=3237.1ms =====
+[console:log] [Emception:Kernel]   Process complete, releasing WASM instance (total spawn: 1942.7ms)
+[console:log] [Emception:Kernel] ===== RUN COMPLETE: wasm-ld ΓÇö exitCode=0, total=3237.1ms =====
+[console:log] [Emception:Kernel] ===== RUN: wasi-run =====
+[console:log] [Emception:Kernel] ===== RUN: wasi-run =====
+[console:log] [Emception:Kernel]   argv: ["wasi-run", "/home/user/main.wasm"]
+[console:log] [Emception:Kernel]   Dispatching to runWasi (WASI runtime)
+[console:log] [Emception:Kernel]   argv: ["wasi-run", "/home/user/main.wasm"]
+[console:log] [Emception:Kernel]   Dispatching to runWasi (WASI runtime)
+[console:log] [Emception:Kernel] ===== WASI RUN: /home/user/main.wasm =====
+[console:log] [Emception:Kernel] ===== WASI RUN: /home/user/main.wasm =====
+[console:log] [Emception:Kernel]   WASM binary: 2.4MB
+[console:log] [Emception:Kernel]   [WASI-STDIN] stdinProvider=NULL
+[console:log] [Emception:Kernel]   WASM binary: 2.4MB
+[console:log] [Emception:Kernel]   Compiling WASM module (total size: 2525531B)...
+[console:log] [Emception:Kernel]   [WASI-STDIN] stdinProvider=NULL
+[console:log] [Emception:Kernel]   Compiling WASM module (total size: 2525531B)...
+[console:log] [Emception:Kernel]   WASM compiled in 2.4ms
+[console:log] [Emception:Kernel]   WASM imports: [env.__cxa_throw(function), env._abort_js(function), wasi_snapshot_preview1.fd_write(function), wasi_snapshot_preview1.fd_read(function), wasi_snapshot_preview1.fd_close(function), wasi_snapshot_preview1.fd_seek(function), wasi_snapshot_preview1.environ_sizes_get(function), wasi_snapshot_preview1.environ_get(function), env._tzset_js(function), env.emscripten_resize_heap(function)]
+[console:log] [Emception:Kernel]   WASM compiled in 2.4ms
+[console:log] [Emception:Kernel]   Instantiating WASM...
+[console:log] [Emception:Kernel]   WASM imports: [env.__cxa_throw(function), env._abort_js(function), wasi_snapshot_preview1.fd_write(function), wasi_snapshot_preview1.fd_read(function), wasi_snapshot_preview1.fd_close(function), wasi_snapshot_preview1.fd_seek(function), wasi_snapshot_preview1.environ_sizes_get(function), wasi_snapshot_preview1.environ_get(function), env._tzset_js(function), env.emscripten_resize_heap(function)]
+[console:log] [Emception:Kernel]   Instantiating WASM...
+[console:log] [Emception:Kernel]   WASM instantiated in 0.3ms
+[console:log] [Emception:Kernel]   WASM exports: [memory, __wasm_call_ctors, __indirect_function_table, main]
+[console:log] [Emception:Kernel]   WASM instantiated in 0.3ms
+[console:log] [Emception:Kernel]   WASM exports: [memory, __wasm_call_ctors, __indirect_function_table, main]
+[console:log] [Emception:Kernel]   Calling main()...
+[console:log] [Emception:Kernel]   Calling main()...
+[console:log] [Emception:Kernel] ===== WASI COMPLETE: exitCode=0, total=350.9ms =====
+[console:log] [Emception:Kernel] ===== WASI COMPLETE: exitCode=0, total=350.9ms =====
+done!
+===== LOG =====
+Booting toolchain worker (self-hosted cdn/ from node_modules)ΓÇª
+[stdout] Browser Toolchain Shell
+[stdout] Type "help" for available commands.
+[stdout] [32m/home/user[0m $
+Toolchain booted in 228 ms
+[phase] write
+[phase] compile
+[phase] link
+[phase] run
+Exit code 0 (final phase: run)
+===== RESULTS =====
+{
+  "ok": true,
+  "finalPhase": "run",
+  "exitCode": 0,
+  "bootMs": 228,
+  "compileAndRunMs": 19289,
+  "totalMs": 19518,
+  "stdout": "sorted: 1 1 2 3 4 5 5 5 6 9\nsum: 41\ndistinct: 7\nshared_ptr ok: true\nstring concat ok: C++17 works\n",
+  "stderr": ""
+}

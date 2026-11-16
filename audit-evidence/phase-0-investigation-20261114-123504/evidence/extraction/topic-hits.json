@@ -1,0 +1,3610 @@
+{
+  "generated": "2026-11-14T20:47:54.990Z",
+  "files": [
+    {
+      "file": "ALgo_Efficiency 74864.fodg",
+      "kind": "pdf",
+      "pages": 51,
+      "totalWords": 12777,
+      "topicHits": {
+        "cpp-foundations": {
+          "total": 22,
+          "pagesWithHits": 7,
+          "topPages": [
+            22,
+            36,
+            45,
+            46,
+            21
+          ]
+        },
+        "complexity": {
+          "total": 42,
+          "pagesWithHits": 26,
+          "topPages": [
+            28,
+            29,
+            20,
+            23,
+            3
+          ]
+        },
+        "arrays-strings": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "linked-lists": {
+          "total": 1,
+          "pagesWithHits": 1,
+          "topPages": [
+            44
+          ]
+        },
+        "stacks-queues": {
+          "total": 20,
+          "pagesWithHits": 10,
+          "topPages": [
+            44,
+            36,
+            45,
+            46,
+            22
+          ]
+        },
+        "recursion-backtracking": {
+          "total": 7,
+          "pagesWithHits": 5,
+          "topPages": [
+            48,
+            5,
+            6,
+            49,
+            51
+          ]
+        },
+        "trees": {
+          "total": 55,
+          "pagesWithHits": 7,
+          "topPages": [
+            22,
+            45,
+            46,
+            36,
+            44
+          ]
+        },
+        "hashing": {
+          "total": 1,
+          "pagesWithHits": 1,
+          "topPages": [
+            22
+          ]
+        },
+        "graphs": {
+          "total": 58,
+          "pagesWithHits": 8,
+          "topPages": [
+            22,
+            46,
+            37,
+            45,
+            36
+          ]
+        },
+        "searching": {
+          "total": 5,
+          "pagesWithHits": 2,
+          "topPages": [
+            7,
+            20
+          ]
+        },
+        "sorting": {
+          "total": 1,
+          "pagesWithHits": 1,
+          "topPages": [
+            22
+          ]
+        },
+        "greedy": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "dynamic-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "divide-conquer": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "bit-manipulation": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "advanced-graphs": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "competitive-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "practical-projects": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        }
+      }
+    },
+    {
+      "file": "ch-1 .fodg",
+      "kind": "pdf",
+      "pages": 75,
+      "totalWords": 5158,
+      "topicHits": {
+        "cpp-foundations": {
+          "total": 35,
+          "pagesWithHits": 14,
+          "topPages": [
+            20,
+            19,
+            15,
+            17,
+            34
+          ]
+        },
+        "complexity": {
+          "total": 87,
+          "pagesWithHits": 30,
+          "topPages": [
+            56,
+            70,
+            30,
+            67,
+            65
+          ]
+        },
+        "arrays-strings": {
+          "total": 2,
+          "pagesWithHits": 1,
+          "topPages": [
+            43
+          ]
+        },
+        "linked-lists": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "stacks-queues": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "recursion-backtracking": {
+          "total": 1,
+          "pagesWithHits": 1,
+          "topPages": [
+            48
+          ]
+        },
+        "trees": {
+          "total": 14,
+          "pagesWithHits": 9,
+          "topPages": [
+            71,
+            3,
+            6,
+            22,
+            4
+          ]
+        },
+        "hashing": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "graphs": {
+          "total": 5,
+          "pagesWithHits": 1,
+          "topPages": [
+            71
+          ]
+        },
+        "searching": {
+          "total": 4,
+          "pagesWithHits": 3,
+          "topPages": [
+            53,
+            50,
+            51
+          ]
+        },
+        "sorting": {
+          "total": 10,
+          "pagesWithHits": 4,
+          "topPages": [
+            53,
+            50,
+            51,
+            13
+          ]
+        },
+        "greedy": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "dynamic-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "divide-conquer": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "bit-manipulation": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "advanced-graphs": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "competitive-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "practical-projects": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        }
+      }
+    },
+    {
+      "file": "ch-1.fodg",
+      "kind": "pdf",
+      "pages": 66,
+      "totalWords": 35036,
+      "topicHits": {
+        "cpp-foundations": {
+          "total": 13,
+          "pagesWithHits": 7,
+          "topPages": [
+            39,
+            31,
+            32,
+            52,
+            18
+          ]
+        },
+        "complexity": {
+          "total": 51,
+          "pagesWithHits": 21,
+          "topPages": [
+            46,
+            47,
+            48,
+            55,
+            28
+          ]
+        },
+        "arrays-strings": {
+          "total": 18,
+          "pagesWithHits": 9,
+          "topPages": [
+            45,
+            65,
+            17,
+            36,
+            64
+          ]
+        },
+        "linked-lists": {
+          "total": 2,
+          "pagesWithHits": 2,
+          "topPages": [
+            17,
+            18
+          ]
+        },
+        "stacks-queues": {
+          "total": 71,
+          "pagesWithHits": 66,
+          "topPages": [
+            39,
+            37,
+            38,
+            44,
+            1
+          ]
+        },
+        "recursion-backtracking": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "trees": {
+          "total": 209,
+          "pagesWithHits": 66,
+          "topPages": [
+            13,
+            20,
+            37,
+            2,
+            39
+          ]
+        },
+        "hashing": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "graphs": {
+          "total": 4,
+          "pagesWithHits": 2,
+          "topPages": [
+            44,
+            38
+          ]
+        },
+        "searching": {
+          "total": 6,
+          "pagesWithHits": 4,
+          "topPages": [
+            45,
+            5,
+            10,
+            18
+          ]
+        },
+        "sorting": {
+          "total": 9,
+          "pagesWithHits": 2,
+          "topPages": [
+            23,
+            35
+          ]
+        },
+        "greedy": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "dynamic-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "divide-conquer": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "bit-manipulation": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "advanced-graphs": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "competitive-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "practical-projects": {
+          "total": 3,
+          "pagesWithHits": 2,
+          "topPages": [
+            4,
+            18
+          ]
+        }
+      }
+    },
+    {
+      "file": "ch-2.fodg",
+      "kind": "pdf",
+      "pages": 30,
+      "totalWords": 3039,
+      "topicHits": {
+        "cpp-foundations": {
+          "total": 1,
+          "pagesWithHits": 1,
+          "topPages": [
+            29
+          ]
+        },
+        "complexity": {
+          "total": 30,
+          "pagesWithHits": 8,
+          "topPages": [
+            30,
+            24,
+            4,
+            6,
+            12
+          ]
+        },
+        "arrays-strings": {
+          "total": 27,
+          "pagesWithHits": 10,
+          "topPages": [
+            23,
+            6,
+            4,
+            24,
+            25
+          ]
+        },
+        "linked-lists": {
+          "total": 1,
+          "pagesWithHits": 1,
+          "topPages": [
+            22
+          ]
+        },
+        "stacks-queues": {
+          "total": 2,
+          "pagesWithHits": 2,
+          "topPages": [
+            22,
+            29
+          ]
+        },
+        "recursion-backtracking": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "trees": {
+          "total": 5,
+          "pagesWithHits": 2,
+          "topPages": [
+            29,
+            22
+          ]
+        },
+        "hashing": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "graphs": {
+          "total": 5,
+          "pagesWithHits": 2,
+          "topPages": [
+            22,
+            29
+          ]
+        },
+        "searching": {
+          "total": 41,
+          "pagesWithHits": 8,
+          "topPages": [
+            3,
+            13,
+            5,
+            2,
+            25
+          ]
+        },
+        "sorting": {
+          "total": 130,
+          "pagesWithHits": 20,
+          "topPages": [
+            8,
+            25,
+            19,
+            7,
+            24
+          ]
+        },
+        "greedy": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "dynamic-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "divide-conquer": {
+          "total": 1,
+          "pagesWithHits": 1,
+          "topPages": [
+            5
+          ]
+        },
+        "bit-manipulation": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "advanced-graphs": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "competitive-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "practical-projects": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        }
+      }
+    },
+    {
+      "file": "ch-3.fodg",
+      "kind": "pdf",
+      "pages": 64,
+      "totalWords": 4366,
+      "topicHits": {
+        "cpp-foundations": {
+          "total": 97,
+          "pagesWithHits": 37,
+          "topPages": [
+            39,
+            27,
+            38,
+            16,
+            36
+          ]
+        },
+        "complexity": {
+          "total": 25,
+          "pagesWithHits": 1,
+          "topPages": [
+            48
+          ]
+        },
+        "arrays-strings": {
+          "total": 35,
+          "pagesWithHits": 8,
+          "topPages": [
+            47,
+            10,
+            9,
+            12,
+            13
+          ]
+        },
+        "linked-lists": {
+          "total": 177,
+          "pagesWithHits": 45,
+          "topPages": [
+            49,
+            34,
+            45,
+            19,
+            36
+          ]
+        },
+        "stacks-queues": {
+          "total": 5,
+          "pagesWithHits": 4,
+          "topPages": [
+            30,
+            9,
+            55,
+            62
+          ]
+        },
+        "recursion-backtracking": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "trees": {
+          "total": 3,
+          "pagesWithHits": 2,
+          "topPages": [
+            55,
+            62
+          ]
+        },
+        "hashing": {
+          "total": 1,
+          "pagesWithHits": 1,
+          "topPages": [
+            62
+          ]
+        },
+        "graphs": {
+          "total": 2,
+          "pagesWithHits": 1,
+          "topPages": [
+            55
+          ]
+        },
+        "searching": {
+          "total": 8,
+          "pagesWithHits": 3,
+          "topPages": [
+            48,
+            24,
+            64
+          ]
+        },
+        "sorting": {
+          "total": 5,
+          "pagesWithHits": 3,
+          "topPages": [
+            5,
+            47,
+            55
+          ]
+        },
+        "greedy": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "dynamic-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "divide-conquer": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "bit-manipulation": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "advanced-graphs": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "competitive-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "practical-projects": {
+          "total": 4,
+          "pagesWithHits": 3,
+          "topPages": [
+            62,
+            1,
+            2
+          ]
+        }
+      }
+    },
+    {
+      "file": "ch-4.fodg",
+      "kind": "pdf",
+      "pages": 40,
+      "totalWords": 4436,
+      "topicHits": {
+        "cpp-foundations": {
+          "total": 39,
+          "pagesWithHits": 17,
+          "topPages": [
+            35,
+            20,
+            30,
+            21,
+            29
+          ]
+        },
+        "complexity": {
+          "total": 2,
+          "pagesWithHits": 2,
+          "topPages": [
+            5,
+            8
+          ]
+        },
+        "arrays-strings": {
+          "total": 10,
+          "pagesWithHits": 6,
+          "topPages": [
+            11,
+            9,
+            12,
+            10,
+            18
+          ]
+        },
+        "linked-lists": {
+          "total": 12,
+          "pagesWithHits": 4,
+          "topPages": [
+            16,
+            17,
+            15,
+            10
+          ]
+        },
+        "stacks-queues": {
+          "total": 155,
+          "pagesWithHits": 32,
+          "topPages": [
+            30,
+            35,
+            8,
+            7,
+            9
+          ]
+        },
+        "recursion-backtracking": {
+          "total": 2,
+          "pagesWithHits": 2,
+          "topPages": [
+            9,
+            27
+          ]
+        },
+        "trees": {
+          "total": 17,
+          "pagesWithHits": 7,
+          "topPages": [
+            3,
+            26,
+            27,
+            31,
+            4
+          ]
+        },
+        "hashing": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "graphs": {
+          "total": 9,
+          "pagesWithHits": 3,
+          "topPages": [
+            3,
+            6,
+            32
+          ]
+        },
+        "searching": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "sorting": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "greedy": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "dynamic-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "divide-conquer": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "bit-manipulation": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "advanced-graphs": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "competitive-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "practical-projects": {
+          "total": 3,
+          "pagesWithHits": 3,
+          "topPages": [
+            1,
+            10,
+            19
+          ]
+        }
+      }
+    },
+    {
+      "file": "ch-5.fodg",
+      "kind": "pdf",
+      "pages": 39,
+      "totalWords": 7616,
+      "topicHits": {
+        "cpp-foundations": {
+          "total": 9,
+          "pagesWithHits": 6,
+          "topPages": [
+            22,
+            16,
+            17,
+            21,
+            23
+          ]
+        },
+        "complexity": {
+          "total": 2,
+          "pagesWithHits": 2,
+          "topPages": [
+            2,
+            5
+          ]
+        },
+        "arrays-strings": {
+          "total": 20,
+          "pagesWithHits": 10,
+          "topPages": [
+            18,
+            10,
+            19,
+            11,
+            14
+          ]
+        },
+        "linked-lists": {
+          "total": 12,
+          "pagesWithHits": 4,
+          "topPages": [
+            24,
+            18,
+            27,
+            19
+          ]
+        },
+        "stacks-queues": {
+          "total": 228,
+          "pagesWithHits": 38,
+          "topPages": [
+            35,
+            32,
+            26,
+            27,
+            36
+          ]
+        },
+        "recursion-backtracking": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "trees": {
+          "total": 30,
+          "pagesWithHits": 11,
+          "topPages": [
+            22,
+            23,
+            21,
+            16,
+            17
+          ]
+        },
+        "hashing": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "graphs": {
+          "total": 36,
+          "pagesWithHits": 6,
+          "topPages": [
+            22,
+            21,
+            17,
+            16,
+            23
+          ]
+        },
+        "searching": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "sorting": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "greedy": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "dynamic-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "divide-conquer": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "bit-manipulation": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "advanced-graphs": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "competitive-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "practical-projects": {
+          "total": 2,
+          "pagesWithHits": 2,
+          "topPages": [
+            37,
+            38
+          ]
+        }
+      }
+    },
+    {
+      "file": "ch-6.fodg",
+      "kind": "pdf",
+      "pages": 49,
+      "totalWords": 5408,
+      "topicHits": {
+        "cpp-foundations": {
+          "total": 18,
+          "pagesWithHits": 12,
+          "topPages": [
+            31,
+            29,
+            35,
+            37,
+            42
+          ]
+        },
+        "complexity": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "arrays-strings": {
+          "total": 1,
+          "pagesWithHits": 1,
+          "topPages": [
+            2
+          ]
+        },
+        "linked-lists": {
+          "total": 145,
+          "pagesWithHits": 35,
+          "topPages": [
+            18,
+            3,
+            19,
+            29,
+            8
+          ]
+        },
+        "stacks-queues": {
+          "total": 11,
+          "pagesWithHits": 7,
+          "topPages": [
+            2,
+            42,
+            44,
+            46,
+            24
+          ]
+        },
+        "recursion-backtracking": {
+          "total": 8,
+          "pagesWithHits": 6,
+          "topPages": [
+            46,
+            44,
+            45,
+            47,
+            48
+          ]
+        },
+        "trees": {
+          "total": 181,
+          "pagesWithHits": 41,
+          "topPages": [
+            14,
+            30,
+            15,
+            43,
+            21
+          ]
+        },
+        "hashing": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "graphs": {
+          "total": 18,
+          "pagesWithHits": 7,
+          "topPages": [
+            12,
+            42,
+            44,
+            46,
+            48
+          ]
+        },
+        "searching": {
+          "total": 34,
+          "pagesWithHits": 14,
+          "topPages": [
+            15,
+            17,
+            6,
+            21,
+            22
+          ]
+        },
+        "sorting": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "greedy": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "dynamic-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "divide-conquer": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "bit-manipulation": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "advanced-graphs": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "competitive-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "practical-projects": {
+          "total": 1,
+          "pagesWithHits": 1,
+          "topPages": [
+            6
+          ]
+        }
+      }
+    },
+    {
+      "file": "ch-7.fodg",
+      "kind": "pdf",
+      "pages": 34,
+      "totalWords": 9616,
+      "topicHits": {
+        "cpp-foundations": {
+          "total": 28,
+          "pagesWithHits": 6,
+          "topPages": [
+            4,
+            5,
+            17,
+            31,
+            32
+          ]
+        },
+        "complexity": {
+          "total": 1,
+          "pagesWithHits": 1,
+          "topPages": [
+            26
+          ]
+        },
+        "arrays-strings": {
+          "total": 8,
+          "pagesWithHits": 6,
+          "topPages": [
+            14,
+            2,
+            15,
+            16,
+            18
+          ]
+        },
+        "linked-lists": {
+          "total": 12,
+          "pagesWithHits": 8,
+          "topPages": [
+            10,
+            3,
+            23,
+            2,
+            19
+          ]
+        },
+        "stacks-queues": {
+          "total": 41,
+          "pagesWithHits": 12,
+          "topPages": [
+            24,
+            30,
+            32,
+            5,
+            25
+          ]
+        },
+        "recursion-backtracking": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "trees": {
+          "total": 29,
+          "pagesWithHits": 10,
+          "topPages": [
+            5,
+            32,
+            31,
+            33,
+            9
+          ]
+        },
+        "hashing": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "graphs": {
+          "total": 162,
+          "pagesWithHits": 30,
+          "topPages": [
+            5,
+            21,
+            4,
+            31,
+            8
+          ]
+        },
+        "searching": {
+          "total": 7,
+          "pagesWithHits": 3,
+          "topPages": [
+            22,
+            23,
+            29
+          ]
+        },
+        "sorting": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "greedy": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "dynamic-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "divide-conquer": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "bit-manipulation": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "advanced-graphs": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "competitive-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "practical-projects": {
+          "total": 2,
+          "pagesWithHits": 2,
+          "topPages": [
+            5,
+            6
+          ]
+        }
+      }
+    },
+    {
+      "file": "ch-8.fodg",
+      "kind": "pdf",
+      "pages": 51,
+      "totalWords": 3236,
+      "topicHits": {
+        "cpp-foundations": {
+          "total": 3,
+          "pagesWithHits": 1,
+          "topPages": [
+            7
+          ]
+        },
+        "complexity": {
+          "total": 13,
+          "pagesWithHits": 3,
+          "topPages": [
+            9,
+            50,
+            13
+          ]
+        },
+        "arrays-strings": {
+          "total": 54,
+          "pagesWithHits": 29,
+          "topPages": [
+            5,
+            6,
+            4,
+            22,
+            31
+          ]
+        },
+        "linked-lists": {
+          "total": 16,
+          "pagesWithHits": 10,
+          "topPages": [
+            26,
+            18,
+            23,
+            24,
+            31
+          ]
+        },
+        "stacks-queues": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "recursion-backtracking": {
+          "total": 4,
+          "pagesWithHits": 3,
+          "topPages": [
+            13,
+            25,
+            26
+          ]
+        },
+        "trees": {
+          "total": 17,
+          "pagesWithHits": 6,
+          "topPages": [
+            18,
+            7,
+            29,
+            31,
+            33
+          ]
+        },
+        "hashing": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "graphs": {
+          "total": 3,
+          "pagesWithHits": 2,
+          "topPages": [
+            7,
+            2
+          ]
+        },
+        "searching": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "sorting": {
+          "total": 121,
+          "pagesWithHits": 32,
+          "topPages": [
+            3,
+            4,
+            9,
+            2,
+            10
+          ]
+        },
+        "greedy": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "dynamic-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "divide-conquer": {
+          "total": 1,
+          "pagesWithHits": 1,
+          "topPages": [
+            13
+          ]
+        },
+        "bit-manipulation": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "advanced-graphs": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "competitive-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "practical-projects": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        }
+      }
+    },
+    {
+      "file": "ch-9.fodg",
+      "kind": "pdf",
+      "pages": 35,
+      "totalWords": 2118,
+      "topicHits": {
+        "cpp-foundations": {
+          "total": 17,
+          "pagesWithHits": 7,
+          "topPages": [
+            9,
+            11,
+            12,
+            10,
+            20
+          ]
+        },
+        "complexity": {
+          "total": 5,
+          "pagesWithHits": 2,
+          "topPages": [
+            15,
+            3
+          ]
+        },
+        "arrays-strings": {
+          "total": 27,
+          "pagesWithHits": 19,
+          "topPages": [
+            3,
+            14,
+            21,
+            8,
+            34
+          ]
+        },
+        "linked-lists": {
+          "total": 2,
+          "pagesWithHits": 2,
+          "topPages": [
+            31,
+            34
+          ]
+        },
+        "stacks-queues": {
+          "total": 1,
+          "pagesWithHits": 1,
+          "topPages": [
+            16
+          ]
+        },
+        "recursion-backtracking": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "trees": {
+          "total": 2,
+          "pagesWithHits": 2,
+          "topPages": [
+            15,
+            35
+          ]
+        },
+        "hashing": {
+          "total": 78,
+          "pagesWithHits": 21,
+          "topPages": [
+            15,
+            25,
+            14,
+            24,
+            26
+          ]
+        },
+        "graphs": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "searching": {
+          "total": 37,
+          "pagesWithHits": 15,
+          "topPages": [
+            2,
+            3,
+            9,
+            12,
+            13
+          ]
+        },
+        "sorting": {
+          "total": 3,
+          "pagesWithHits": 2,
+          "topPages": [
+            3,
+            8
+          ]
+        },
+        "greedy": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "dynamic-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "divide-conquer": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "bit-manipulation": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "advanced-graphs": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "competitive-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "practical-projects": {
+          "total": 1,
+          "pagesWithHits": 1,
+          "topPages": [
+            35
+          ]
+        }
+      }
+    },
+    {
+      "file": "Chapter 1 - Introduction _Data Structure and Algorithm.fodg",
+      "kind": "pdf",
+      "pages": 74,
+      "totalWords": 6510,
+      "topicHits": {
+        "cpp-foundations": {
+          "total": 17,
+          "pagesWithHits": 10,
+          "topPages": [
+            47,
+            36,
+            37,
+            39,
+            60
+          ]
+        },
+        "complexity": {
+          "total": 51,
+          "pagesWithHits": 21,
+          "topPages": [
+            54,
+            55,
+            56,
+            63,
+            33
+          ]
+        },
+        "arrays-strings": {
+          "total": 21,
+          "pagesWithHits": 11,
+          "topPages": [
+            53,
+            73,
+            17,
+            24,
+            44
+          ]
+        },
+        "linked-lists": {
+          "total": 4,
+          "pagesWithHits": 4,
+          "topPages": [
+            17,
+            18,
+            24,
+            25
+          ]
+        },
+        "stacks-queues": {
+          "total": 8,
+          "pagesWithHits": 6,
+          "topPages": [
+            25,
+            47,
+            26,
+            45,
+            46
+          ]
+        },
+        "recursion-backtracking": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "trees": {
+          "total": 21,
+          "pagesWithHits": 10,
+          "topPages": [
+            26,
+            13,
+            17,
+            20,
+            45
+          ]
+        },
+        "hashing": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "graphs": {
+          "total": 6,
+          "pagesWithHits": 4,
+          "topPages": [
+            52,
+            24,
+            25,
+            46
+          ]
+        },
+        "searching": {
+          "total": 6,
+          "pagesWithHits": 4,
+          "topPages": [
+            53,
+            5,
+            10,
+            18
+          ]
+        },
+        "sorting": {
+          "total": 10,
+          "pagesWithHits": 3,
+          "topPages": [
+            28,
+            43,
+            22
+          ]
+        },
+        "greedy": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "dynamic-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "divide-conquer": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "bit-manipulation": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "advanced-graphs": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "competitive-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "practical-projects": {
+          "total": 3,
+          "pagesWithHits": 2,
+          "topPages": [
+            4,
+            18
+          ]
+        }
+      }
+    },
+    {
+      "file": "Chapter 2 - Simple Sorting and Searching Algorithms.fodg",
+      "kind": "pdf",
+      "pages": 43,
+      "totalWords": 3927,
+      "topicHits": {
+        "cpp-foundations": {
+          "total": 6,
+          "pagesWithHits": 3,
+          "topPages": [
+            30,
+            41,
+            42
+          ]
+        },
+        "complexity": {
+          "total": 6,
+          "pagesWithHits": 4,
+          "topPages": [
+            25,
+            28,
+            29,
+            43
+          ]
+        },
+        "arrays-strings": {
+          "total": 11,
+          "pagesWithHits": 6,
+          "topPages": [
+            30,
+            15,
+            2,
+            16,
+            27
+          ]
+        },
+        "linked-lists": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "stacks-queues": {
+          "total": 2,
+          "pagesWithHits": 2,
+          "topPages": [
+            5,
+            12
+          ]
+        },
+        "recursion-backtracking": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "trees": {
+          "total": 3,
+          "pagesWithHits": 2,
+          "topPages": [
+            42,
+            12
+          ]
+        },
+        "hashing": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "graphs": {
+          "total": 2,
+          "pagesWithHits": 2,
+          "topPages": [
+            2,
+            12
+          ]
+        },
+        "searching": {
+          "total": 45,
+          "pagesWithHits": 18,
+          "topPages": [
+            32,
+            29,
+            31,
+            40,
+            30
+          ]
+        },
+        "sorting": {
+          "total": 124,
+          "pagesWithHits": 25,
+          "topPages": [
+            5,
+            3,
+            13,
+            6,
+            4
+          ]
+        },
+        "greedy": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "dynamic-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "divide-conquer": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "bit-manipulation": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "advanced-graphs": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "competitive-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "practical-projects": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        }
+      }
+    },
+    {
+      "file": "Chapter 3 - Linked Lists.fodg",
+      "kind": "pdf",
+      "pages": 56,
+      "totalWords": 4204,
+      "topicHits": {
+        "cpp-foundations": {
+          "total": 55,
+          "pagesWithHits": 30,
+          "topPages": [
+            7,
+            24,
+            8,
+            9,
+            13
+          ]
+        },
+        "complexity": {
+          "total": 25,
+          "pagesWithHits": 1,
+          "topPages": [
+            42
+          ]
+        },
+        "arrays-strings": {
+          "total": 35,
+          "pagesWithHits": 8,
+          "topPages": [
+            41,
+            13,
+            12,
+            15,
+            16
+          ]
+        },
+        "linked-lists": {
+          "total": 160,
+          "pagesWithHits": 37,
+          "topPages": [
+            39,
+            43,
+            32,
+            19,
+            48
+          ]
+        },
+        "stacks-queues": {
+          "total": 6,
+          "pagesWithHits": 5,
+          "topPages": [
+            20,
+            12,
+            47,
+            49,
+            55
+          ]
+        },
+        "recursion-backtracking": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "trees": {
+          "total": 14,
+          "pagesWithHits": 7,
+          "topPages": [
+            20,
+            49,
+            9,
+            28,
+            55
+          ]
+        },
+        "hashing": {
+          "total": 2,
+          "pagesWithHits": 1,
+          "topPages": [
+            55
+          ]
+        },
+        "graphs": {
+          "total": 6,
+          "pagesWithHits": 4,
+          "topPages": [
+            28,
+            20,
+            47,
+            51
+          ]
+        },
+        "searching": {
+          "total": 8,
+          "pagesWithHits": 3,
+          "topPages": [
+            42,
+            23,
+            43
+          ]
+        },
+        "sorting": {
+          "total": 4,
+          "pagesWithHits": 2,
+          "topPages": [
+            5,
+            41
+          ]
+        },
+        "greedy": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "dynamic-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "divide-conquer": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "bit-manipulation": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "advanced-graphs": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "competitive-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "practical-projects": {
+          "total": 3,
+          "pagesWithHits": 2,
+          "topPages": [
+            55,
+            2
+          ]
+        }
+      }
+    },
+    {
+      "file": "Chapter 3 - Linked Lists.fodp",
+      "kind": "presentation",
+      "pages": 129,
+      "totalWords": 2809,
+      "topicHits": {
+        "cpp-foundations": {
+          "total": 54,
+          "pagesWithHits": 29,
+          "topPages": [
+            30,
+            64,
+            32,
+            34,
+            42
+          ]
+        },
+        "complexity": {
+          "total": 25,
+          "pagesWithHits": 1,
+          "topPages": [
+            100
+          ]
+        },
+        "arrays-strings": {
+          "total": 35,
+          "pagesWithHits": 8,
+          "topPages": [
+            98,
+            42,
+            40,
+            46,
+            48
+          ]
+        },
+        "linked-lists": {
+          "total": 161,
+          "pagesWithHits": 37,
+          "topPages": [
+            94,
+            102,
+            80,
+            54,
+            112
+          ]
+        },
+        "stacks-queues": {
+          "total": 2,
+          "pagesWithHits": 2,
+          "topPages": [
+            40,
+            126
+          ]
+        },
+        "recursion-backtracking": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "trees": {
+          "total": 5,
+          "pagesWithHits": 3,
+          "topPages": [
+            34,
+            126,
+            102
+          ]
+        },
+        "hashing": {
+          "total": 2,
+          "pagesWithHits": 1,
+          "topPages": [
+            126
+          ]
+        },
+        "graphs": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "searching": {
+          "total": 8,
+          "pagesWithHits": 3,
+          "topPages": [
+            100,
+            62,
+            102
+          ]
+        },
+        "sorting": {
+          "total": 4,
+          "pagesWithHits": 2,
+          "topPages": [
+            26,
+            98
+          ]
+        },
+        "greedy": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "dynamic-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "divide-conquer": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "bit-manipulation": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "advanced-graphs": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "competitive-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "practical-projects": {
+          "total": 3,
+          "pagesWithHits": 2,
+          "topPages": [
+            126,
+            20
+          ]
+        }
+      }
+    },
+    {
+      "file": "data struct final exam collections.fodg",
+      "kind": "pdf",
+      "pages": 20,
+      "totalWords": 0,
+      "topicHits": {
+        "cpp-foundations": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "complexity": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "arrays-strings": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "linked-lists": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "stacks-queues": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "recursion-backtracking": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "trees": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "hashing": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "graphs": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "searching": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "sorting": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "greedy": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "dynamic-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "divide-conquer": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "bit-manipulation": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "advanced-graphs": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "competitive-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "practical-projects": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        }
+      }
+    },
+    {
+      "file": "Data structure and Algorithm in C++.fodg",
+      "kind": "pdf",
+      "pages": 738,
+      "totalWords": 318323,
+      "topicHits": {
+        "cpp-foundations": {
+          "total": 1947,
+          "pagesWithHits": 345,
+          "topPages": [
+            115,
+            61,
+            40,
+            63,
+            65
+          ]
+        },
+        "complexity": {
+          "total": 186,
+          "pagesWithHits": 55,
+          "topPages": [
+            196,
+            194,
+            192,
+            191,
+            210
+          ]
+        },
+        "arrays-strings": {
+          "total": 1849,
+          "pagesWithHits": 339,
+          "topPages": [
+            579,
+            70,
+            34,
+            580,
+            33
+          ]
+        },
+        "linked-lists": {
+          "total": 2215,
+          "pagesWithHits": 297,
+          "topPages": [
+            153,
+            147,
+            141,
+            154,
+            266
+          ]
+        },
+        "stacks-queues": {
+          "total": 1863,
+          "pagesWithHits": 154,
+          "topPages": [
+            247,
+            246,
+            240,
+            234,
+            235
+          ]
+        },
+        "recursion-backtracking": {
+          "total": 459,
+          "pagesWithHits": 127,
+          "topPages": [
+            164,
+            167,
+            170,
+            159,
+            165
+          ]
+        },
+        "trees": {
+          "total": 3035,
+          "pagesWithHits": 330,
+          "topPages": [
+            321,
+            323,
+            305,
+            322,
+            471
+          ]
+        },
+        "hashing": {
+          "total": 537,
+          "pagesWithHits": 59,
+          "topPages": [
+            410,
+            441,
+            409,
+            401,
+            400
+          ]
+        },
+        "graphs": {
+          "total": 2177,
+          "pagesWithHits": 144,
+          "topPages": [
+            619,
+            653,
+            623,
+            633,
+            649
+          ]
+        },
+        "searching": {
+          "total": 833,
+          "pagesWithHits": 202,
+          "topPages": [
+            449,
+            324,
+            419,
+            450,
+            451
+          ]
+        },
+        "sorting": {
+          "total": 1114,
+          "pagesWithHits": 142,
+          "topPages": [
+            556,
+            555,
+            550,
+            553,
+            284
+          ]
+        },
+        "greedy": {
+          "total": 55,
+          "pagesWithHits": 19,
+          "topPages": [
+            601,
+            663,
+            599,
+            600,
+            23
+          ]
+        },
+        "dynamic-programming": {
+          "total": 63,
+          "pagesWithHits": 33,
+          "topPages": [
+            584,
+            587,
+            581,
+            586,
+            583
+          ]
+        },
+        "divide-conquer": {
+          "total": 17,
+          "pagesWithHits": 12,
+          "topPages": [
+            524,
+            537,
+            729,
+            22,
+            94
+          ]
+        },
+        "bit-manipulation": {
+          "total": 14,
+          "pagesWithHits": 6,
+          "topPages": [
+            42,
+            44,
+            43,
+            116,
+            402
+          ]
+        },
+        "advanced-graphs": {
+          "total": 48,
+          "pagesWithHits": 19,
+          "topPages": [
+            655,
+            722,
+            657,
+            680,
+            654
+          ]
+        },
+        "competitive-programming": {
+          "total": 1,
+          "pagesWithHits": 1,
+          "topPages": [
+            614
+          ]
+        },
+        "practical-projects": {
+          "total": 174,
+          "pagesWithHits": 116,
+          "topPages": [
+            346,
+            657,
+            176,
+            686,
+            55
+          ]
+        }
+      }
+    },
+    {
+      "file": "Data Structure and Algorithm_Worksheet.fodg",
+      "kind": "pdf",
+      "pages": 3,
+      "totalWords": 1483,
+      "topicHits": {
+        "cpp-foundations": {
+          "total": 1,
+          "pagesWithHits": 1,
+          "topPages": [
+            3
+          ]
+        },
+        "complexity": {
+          "total": 4,
+          "pagesWithHits": 2,
+          "topPages": [
+            1,
+            2
+          ]
+        },
+        "arrays-strings": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "linked-lists": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "stacks-queues": {
+          "total": 1,
+          "pagesWithHits": 1,
+          "topPages": [
+            1
+          ]
+        },
+        "recursion-backtracking": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "trees": {
+          "total": 3,
+          "pagesWithHits": 2,
+          "topPages": [
+            1,
+            3
+          ]
+        },
+        "hashing": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "graphs": {
+          "total": 8,
+          "pagesWithHits": 2,
+          "topPages": [
+            1,
+            3
+          ]
+        },
+        "searching": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "sorting": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "greedy": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "dynamic-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "divide-conquer": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "bit-manipulation": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "advanced-graphs": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "competitive-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "practical-projects": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        }
+      }
+    },
+    {
+      "file": "Data Structure and Algoritms-Jimma Univ.fodg",
+      "kind": "pdf",
+      "pages": 117,
+      "totalWords": 26805,
+      "topicHits": {
+        "cpp-foundations": {
+          "total": 202,
+          "pagesWithHits": 46,
+          "topPages": [
+            33,
+            31,
+            38,
+            35,
+            53
+          ]
+        },
+        "complexity": {
+          "total": 129,
+          "pagesWithHits": 27,
+          "topPages": [
+            18,
+            13,
+            15,
+            2,
+            17
+          ]
+        },
+        "arrays-strings": {
+          "total": 114,
+          "pagesWithHits": 27,
+          "topPages": [
+            22,
+            21,
+            64,
+            23,
+            45
+          ]
+        },
+        "linked-lists": {
+          "total": 638,
+          "pagesWithHits": 58,
+          "topPages": [
+            73,
+            95,
+            42,
+            30,
+            70
+          ]
+        },
+        "stacks-queues": {
+          "total": 639,
+          "pagesWithHits": 39,
+          "topPages": [
+            64,
+            61,
+            68,
+            67,
+            66
+          ]
+        },
+        "recursion-backtracking": {
+          "total": 24,
+          "pagesWithHits": 8,
+          "topPages": [
+            78,
+            76,
+            75,
+            60,
+            112
+          ]
+        },
+        "trees": {
+          "total": 307,
+          "pagesWithHits": 33,
+          "topPages": [
+            71,
+            75,
+            76,
+            83,
+            87
+          ]
+        },
+        "hashing": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "graphs": {
+          "total": 319,
+          "pagesWithHits": 15,
+          "topPages": [
+            109,
+            97,
+            107,
+            98,
+            108
+          ]
+        },
+        "searching": {
+          "total": 182,
+          "pagesWithHits": 19,
+          "topPages": [
+            22,
+            20,
+            21,
+            88,
+            87
+          ]
+        },
+        "sorting": {
+          "total": 170,
+          "pagesWithHits": 15,
+          "topPages": [
+            111,
+            25,
+            20,
+            24,
+            28
+          ]
+        },
+        "greedy": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "dynamic-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "divide-conquer": {
+          "total": 2,
+          "pagesWithHits": 2,
+          "topPages": [
+            112,
+            117
+          ]
+        },
+        "bit-manipulation": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "advanced-graphs": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "competitive-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "practical-projects": {
+          "total": 10,
+          "pagesWithHits": 7,
+          "topPages": [
+            3,
+            52,
+            69,
+            83,
+            96
+          ]
+        }
+      }
+    },
+    {
+      "file": "Data Structure Course Outline.fodg",
+      "kind": "pdf",
+      "pages": 4,
+      "totalWords": 1284,
+      "topicHits": {
+        "cpp-foundations": {
+          "total": 6,
+          "pagesWithHits": 2,
+          "topPages": [
+            4,
+            3
+          ]
+        },
+        "complexity": {
+          "total": 2,
+          "pagesWithHits": 2,
+          "topPages": [
+            1,
+            2
+          ]
+        },
+        "arrays-strings": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "linked-lists": {
+          "total": 8,
+          "pagesWithHits": 2,
+          "topPages": [
+            2,
+            1
+          ]
+        },
+        "stacks-queues": {
+          "total": 7,
+          "pagesWithHits": 2,
+          "topPages": [
+            2,
+            1
+          ]
+        },
+        "recursion-backtracking": {
+          "total": 2,
+          "pagesWithHits": 1,
+          "topPages": [
+            1
+          ]
+        },
+        "trees": {
+          "total": 11,
+          "pagesWithHits": 2,
+          "topPages": [
+            2,
+            1
+          ]
+        },
+        "hashing": {
+          "total": 3,
+          "pagesWithHits": 1,
+          "topPages": [
+            3
+          ]
+        },
+        "graphs": {
+          "total": 8,
+          "pagesWithHits": 2,
+          "topPages": [
+            2,
+            1
+          ]
+        },
+        "searching": {
+          "total": 12,
+          "pagesWithHits": 2,
+          "topPages": [
+            2,
+            1
+          ]
+        },
+        "sorting": {
+          "total": 23,
+          "pagesWithHits": 2,
+          "topPages": [
+            2,
+            1
+          ]
+        },
+        "greedy": {
+          "total": 1,
+          "pagesWithHits": 1,
+          "topPages": [
+            1
+          ]
+        },
+        "dynamic-programming": {
+          "total": 1,
+          "pagesWithHits": 1,
+          "topPages": [
+            1
+          ]
+        },
+        "divide-conquer": {
+          "total": 1,
+          "pagesWithHits": 1,
+          "topPages": [
+            1
+          ]
+        },
+        "bit-manipulation": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "advanced-graphs": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "competitive-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "practical-projects": {
+          "total": 2,
+          "pagesWithHits": 2,
+          "topPages": [
+            1,
+            3
+          ]
+        }
+      }
+    },
+    {
+      "file": "Data Structures and Algorithms in C++.fodg",
+      "kind": "pdf",
+      "pages": 1325,
+      "totalWords": 210396,
+      "topicHits": {
+        "cpp-foundations": {
+          "total": 2178,
+          "pagesWithHits": 603,
+          "topPages": [
+            218,
+            175,
+            303,
+            587,
+            1249
+          ]
+        },
+        "complexity": {
+          "total": 251,
+          "pagesWithHits": 85,
+          "topPages": [
+            132,
+            14,
+            110,
+            108,
+            130
+          ]
+        },
+        "arrays-strings": {
+          "total": 1106,
+          "pagesWithHits": 318,
+          "topPages": [
+            168,
+            208,
+            209,
+            212,
+            214
+          ]
+        },
+        "linked-lists": {
+          "total": 1231,
+          "pagesWithHits": 364,
+          "topPages": [
+            628,
+            327,
+            533,
+            732,
+            184
+          ]
+        },
+        "stacks-queues": {
+          "total": 1487,
+          "pagesWithHits": 202,
+          "topPages": [
+            333,
+            338,
+            319,
+            278,
+            332
+          ]
+        },
+        "recursion-backtracking": {
+          "total": 177,
+          "pagesWithHits": 99,
+          "topPages": [
+            934,
+            68,
+            150,
+            529,
+            938
+          ]
+        },
+        "trees": {
+          "total": 3702,
+          "pagesWithHits": 497,
+          "topPages": [
+            540,
+            730,
+            662,
+            636,
+            719
+          ]
+        },
+        "hashing": {
+          "total": 606,
+          "pagesWithHits": 106,
+          "topPages": [
+            501,
+            18,
+            523,
+            459,
+            428
+          ]
+        },
+        "graphs": {
+          "total": 1849,
+          "pagesWithHits": 201,
+          "topPages": [
+            1226,
+            1133,
+            1229,
+            1142,
+            1175
+          ]
+        },
+        "searching": {
+          "total": 809,
+          "pagesWithHits": 204,
+          "topPages": [
+            21,
+            624,
+            621,
+            625,
+            403
+          ]
+        },
+        "sorting": {
+          "total": 1529,
+          "pagesWithHits": 176,
+          "topPages": [
+            1088,
+            1318,
+            1099,
+            1052,
+            26
+          ]
+        },
+        "greedy": {
+          "total": 84,
+          "pagesWithHits": 23,
+          "topPages": [
+            931,
+            932,
+            925,
+            930,
+            1007
+          ]
+        },
+        "dynamic-programming": {
+          "total": 13,
+          "pagesWithHits": 10,
+          "topPages": [
+            987,
+            973,
+            9,
+            923,
+            975
+          ]
+        },
+        "divide-conquer": {
+          "total": 39,
+          "pagesWithHits": 22,
+          "topPages": [
+            953,
+            962,
+            25,
+            923,
+            963
+          ]
+        },
+        "bit-manipulation": {
+          "total": 11,
+          "pagesWithHits": 10,
+          "topPages": [
+            820,
+            106,
+            453,
+            742,
+            815
+          ]
+        },
+        "advanced-graphs": {
+          "total": 24,
+          "pagesWithHits": 13,
+          "topPages": [
+            1173,
+            1191,
+            1192,
+            1193,
+            1194
+          ]
+        },
+        "competitive-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "practical-projects": {
+          "total": 282,
+          "pagesWithHits": 154,
+          "topPages": [
+            914,
+            716,
+            799,
+            1229,
+            519
+          ]
+        }
+      }
+    },
+    {
+      "file": "Drozdek_A_Data_Structures_and_Algorithms_in_C++Bookos_org.fodg",
+      "kind": "pdf",
+      "pages": 664,
+      "totalWords": 938,
+      "topicHits": {
+        "cpp-foundations": {
+          "total": 1,
+          "pagesWithHits": 1,
+          "topPages": [
+            4
+          ]
+        },
+        "complexity": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "arrays-strings": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "linked-lists": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "stacks-queues": {
+          "total": 2,
+          "pagesWithHits": 1,
+          "topPages": [
+            4
+          ]
+        },
+        "recursion-backtracking": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "trees": {
+          "total": 3,
+          "pagesWithHits": 1,
+          "topPages": [
+            4
+          ]
+        },
+        "hashing": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "graphs": {
+          "total": 6,
+          "pagesWithHits": 1,
+          "topPages": [
+            4
+          ]
+        },
+        "searching": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "sorting": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "greedy": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "dynamic-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "divide-conquer": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "bit-manipulation": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "advanced-graphs": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "competitive-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "practical-projects": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        }
+      }
+    },
+    {
+      "file": "DSA MID TEST 2023-ANSWERSHEET.fodg",
+      "kind": "pdf",
+      "pages": 4,
+      "totalWords": 868,
+      "topicHits": {
+        "cpp-foundations": {
+          "total": 2,
+          "pagesWithHits": 2,
+          "topPages": [
+            1,
+            2
+          ]
+        },
+        "complexity": {
+          "total": 14,
+          "pagesWithHits": 2,
+          "topPages": [
+            2,
+            1
+          ]
+        },
+        "arrays-strings": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "linked-lists": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "stacks-queues": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "recursion-backtracking": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "trees": {
+          "total": 1,
+          "pagesWithHits": 1,
+          "topPages": [
+            1
+          ]
+        },
+        "hashing": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "graphs": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "searching": {
+          "total": 3,
+          "pagesWithHits": 1,
+          "topPages": [
+            3
+          ]
+        },
+        "sorting": {
+          "total": 23,
+          "pagesWithHits": 2,
+          "topPages": [
+            1,
+            2
+          ]
+        },
+        "greedy": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "dynamic-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "divide-conquer": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "bit-manipulation": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "advanced-graphs": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "competitive-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "practical-projects": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        }
+      }
+    },
+    {
+      "file": "DSA-Final Exam-ANSWER SHEET -.fodg",
+      "kind": "pdf",
+      "pages": 4,
+      "totalWords": 620,
+      "topicHits": {
+        "cpp-foundations": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "complexity": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "arrays-strings": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "linked-lists": {
+          "total": 4,
+          "pagesWithHits": 1,
+          "topPages": [
+            4
+          ]
+        },
+        "stacks-queues": {
+          "total": 37,
+          "pagesWithHits": 2,
+          "topPages": [
+            3,
+            4
+          ]
+        },
+        "recursion-backtracking": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "trees": {
+          "total": 4,
+          "pagesWithHits": 1,
+          "topPages": [
+            3
+          ]
+        },
+        "hashing": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "graphs": {
+          "total": 6,
+          "pagesWithHits": 1,
+          "topPages": [
+            3
+          ]
+        },
+        "searching": {
+          "total": 1,
+          "pagesWithHits": 1,
+          "topPages": [
+            3
+          ]
+        },
+        "sorting": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "greedy": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "dynamic-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "divide-conquer": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "bit-manipulation": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "advanced-graphs": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "competitive-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "practical-projects": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        }
+      }
+    },
+    {
+      "file": "Searching 74867.fodg",
+      "kind": "pdf",
+      "pages": 11,
+      "totalWords": 569,
+      "topicHits": {
+        "cpp-foundations": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "complexity": {
+          "total": 7,
+          "pagesWithHits": 5,
+          "topPages": [
+            7,
+            8,
+            4,
+            5,
+            9
+          ]
+        },
+        "arrays-strings": {
+          "total": 15,
+          "pagesWithHits": 7,
+          "topPages": [
+            2,
+            4,
+            5,
+            11,
+            3
+          ]
+        },
+        "linked-lists": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "stacks-queues": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "recursion-backtracking": {
+          "total": 2,
+          "pagesWithHits": 2,
+          "topPages": [
+            10,
+            11
+          ]
+        },
+        "trees": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "hashing": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "graphs": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "searching": {
+          "total": 40,
+          "pagesWithHits": 11,
+          "topPages": [
+            10,
+            5,
+            7,
+            8,
+            3
+          ]
+        },
+        "sorting": {
+          "total": 5,
+          "pagesWithHits": 3,
+          "topPages": [
+            5,
+            6,
+            11
+          ]
+        },
+        "greedy": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "dynamic-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "divide-conquer": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "bit-manipulation": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "advanced-graphs": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "competitive-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "practical-projects": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        }
+      }
+    },
+    {
+      "file": "sorting  74869.fodg",
+      "kind": "pdf",
+      "pages": 53,
+      "totalWords": 2897,
+      "topicHits": {
+        "cpp-foundations": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "complexity": {
+          "total": 11,
+          "pagesWithHits": 8,
+          "topPages": [
+            4,
+            48,
+            52,
+            2,
+            5
+          ]
+        },
+        "arrays-strings": {
+          "total": 24,
+          "pagesWithHits": 10,
+          "topPages": [
+            18,
+            26,
+            29,
+            51,
+            3
+          ]
+        },
+        "linked-lists": {
+          "total": 1,
+          "pagesWithHits": 1,
+          "topPages": [
+            36
+          ]
+        },
+        "stacks-queues": {
+          "total": 1,
+          "pagesWithHits": 1,
+          "topPages": [
+            2
+          ]
+        },
+        "recursion-backtracking": {
+          "total": 13,
+          "pagesWithHits": 10,
+          "topPages": [
+            40,
+            41,
+            43,
+            29,
+            36
+          ]
+        },
+        "trees": {
+          "total": 4,
+          "pagesWithHits": 2,
+          "topPages": [
+            36,
+            4
+          ]
+        },
+        "hashing": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "graphs": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "searching": {
+          "total": 1,
+          "pagesWithHits": 1,
+          "topPages": [
+            2
+          ]
+        },
+        "sorting": {
+          "total": 141,
+          "pagesWithHits": 35,
+          "topPages": [
+            4,
+            29,
+            5,
+            20,
+            26
+          ]
+        },
+        "greedy": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "dynamic-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "divide-conquer": {
+          "total": 1,
+          "pagesWithHits": 1,
+          "topPages": [
+            28
+          ]
+        },
+        "bit-manipulation": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "advanced-graphs": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "competitive-programming": {
+          "total": 0,
+          "pagesWithHits": 0,
+          "topPages": []
+        },
+        "practical-projects": {
+          "total": 1,
+          "pagesWithHits": 1,
+          "topPages": [
+            2
+          ]
+        }
+      }
+    }
+  ]
+}

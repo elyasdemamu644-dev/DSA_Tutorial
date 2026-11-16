@@ -1,0 +1,285 @@
+{
+  "generated": "2026-11-14T20:47:57.564Z",
+  "files": [
+    {
+      "file": "ALgo_Efficiency 74864.fodg",
+      "pages": 51,
+      "textPages": 31,
+      "garbagePages": 10,
+      "mixedPages": 14,
+      "sample": [
+        "p3: Two areas are important for performance: ➢ space efficiency - the memory required, also called, space complexity ➢ time efficiency - the time required, also called time complexity ",
+        "p4: There are some circumstances where the space/memory used must be analyzed. For example, ✓ for large quantities of data ✓ for embedded systems programming Space Efficiency 4 (Effici"
+      ]
+    },
+    {
+      "file": "ch-1 .fodg",
+      "pages": 75,
+      "textPages": 58,
+      "garbagePages": 12,
+      "mixedPages": 3,
+      "sample": [
+        "p2: 2 Introduction A program • A set of instruction which is written in to solve a problem. • A solution to a problem actually consists of two things: ✓ A way to organize the data ✓ Se",
+        "p3: 3 Data structures are used to model the world or part of the world. How? 1. The value held by a data structure represents some specific characteristic of the world. 2. The characte"
+      ]
+    },
+    {
+      "file": "ch-1.fodg",
+      "pages": 66,
+      "textPages": 59,
+      "garbagePages": 3,
+      "mixedPages": 63,
+      "sample": [
+        "p3: iVBORw0KGgoAAAANSUhEUgAAAJMAAACTCAIAAAAFh7xCAAAACXBIWXMAAAsTAAALEwEAmpwY AAAgAElEQVR4nOy9d3yUxfY/fp62ve8m2fQGhIQeQEqkF0EBqQIqgiDSRERRvNhAropdQRGk KE1B6SDSa+gQAimkZ9M2yfZenja/P/ByFU",
+        "p4: iVBORw0KGgoAAAANSUhEUgAAAJMAAACTCAIAAAAFh7xCAAAACXBIWXMAAAsTAAALEwEAmpwY AAAgAElEQVR4nOy9d3yUxfY/fp62ve8m2fQGhIQeQEqkF0EBqQIqgiDSRERRvNhAropdQRGk KE1B6SDSa+gQAimkZ9M2yfZenja/P/ByFU"
+      ]
+    },
+    {
+      "file": "ch-2.fodg",
+      "pages": 30,
+      "textPages": 17,
+      "garbagePages": 10,
+      "mixedPages": 3,
+      "sample": [
+        "p2: 2 • These algorithms are the most common and useful tasks operated by computer system. • Computers spend a lot of time for searching and sorting. 1. Simple Searching algorithms Sea",
+        "p3: 3 There are two simple searching algorithms: a) Sequential Search, and b) Binary Search a). Sequential Searching (Linear) • The most natural way of searching an item. • Easy to und"
+      ]
+    },
+    {
+      "file": "ch-3.fodg",
+      "pages": 64,
+      "textPages": 45,
+      "garbagePages": 8,
+      "mixedPages": 7,
+      "sample": [
+        "p2: Lists - Introduction • Some applications require processing data in a strict chronological order . Example: – Processing objects in the order that they arrived. OR – Processing obj",
+        "p3: Lists – Definition • A list is a finite, ordered sequence of data items called elements . • Important concept: List elements have a position . – [1 st element in the list, 2 nd ele"
+      ]
+    },
+    {
+      "file": "ch-4.fodg",
+      "pages": 40,
+      "textPages": 28,
+      "garbagePages": 7,
+      "mixedPages": 7,
+      "sample": [
+        "p2: 2 Introduction • Stacks are linear lists. • All deletions and insertions occur at one end of the stack known as the TOP . • Data going into the stack first, leaves out last. • This",
+        "p4: 4 • There are many times where it is useful to use a list in a way where we always add to the end, and also always remove from the end. • Stack : a more restricted List with the fo"
+      ]
+    },
+    {
+      "file": "ch-5.fodg",
+      "pages": 39,
+      "textPages": 27,
+      "garbagePages": 10,
+      "mixedPages": 6,
+      "sample": [
+        "p2: 2 Queue Abstract data type: Queue • Many times, we use a list in a way where we always add to the end, and always remove from the front. • The first element put into the list will ",
+        "p3: 3 Queue … (continued) Operations on a queue • Offer or enqueue : add an element to the back. • Remove or dequeue : remove and return the element at the front. • peek : return (but "
+      ]
+    },
+    {
+      "file": "ch-6.fodg",
+      "pages": 49,
+      "textPages": 29,
+      "garbagePages": 14,
+      "mixedPages": 11,
+      "sample": [
+        "p3: 3 Introduction A tree is a set of nodes and edges that connect pairs of nodes. It is an abstract model of a hierarchical structure . Unlike a real tree, tree data structures are ty",
+        "p4: 4 Trees Data Structures Tree » A way of representing hierarchical data. » Consist of nodes with a parent-child relationship. » Each node can have 0 or more children. » A node can h"
+      ]
+    },
+    {
+      "file": "ch-7.fodg",
+      "pages": 34,
+      "textPages": 17,
+      "garbagePages": 11,
+      "mixedPages": 3,
+      "sample": [
+        "p3: 3 What is a Graph? A data structure that consists of a set of nodes (vertices) and a set of edges that relate the nodes to each other. The set of edges describes relationships amon",
+        "p4: 4 Formal Definition of Graphs A graph G is defined as follows: G=(V,E) V(G): a finite, nonempty set of vertices E(G): a set of edges (pairs of vertices) An edge e = (u,v) is a pair"
+      ]
+    },
+    {
+      "file": "ch-8.fodg",
+      "pages": 51,
+      "textPages": 23,
+      "garbagePages": 20,
+      "mixedPages": 7,
+      "sample": [
+        "p2: 2 Revision - Sorting Sorting is a technique to rearrange the elements of a list in ascending or descending order. A sorting algorithm is an algorithm that puts elements of a list i",
+        "p4: 4 Shell Sort The shell sort, also known as the diminishing increment sort , was developed by Donald L. Shell in 1959. The idea behind shell sort is that it is faster to sort an arr"
+      ]
+    },
+    {
+      "file": "ch-9.fodg",
+      "pages": 35,
+      "textPages": 29,
+      "garbagePages": 3,
+      "mixedPages": 6,
+      "sample": [
+        "p2: 2 Revision - Searching Searching is a process of checking and finding an element from a list of elements. Let A be a collection of data elements, i.e., A is a linear array of say n",
+        "p3: 3 Interpolation Search This method is even more efficient than binary search, if the elements are uniformly distributed (or sorted) in an array A. Its average case complexity is O("
+      ]
+    },
+    {
+      "file": "Chapter 1 - Introduction _Data Structure and Algorithm.fodg",
+      "pages": 74,
+      "textPages": 63,
+      "garbagePages": 7,
+      "mixedPages": 9,
+      "sample": [
+        "p3: A program is written in order to solve a problem. A solution to a problem actually consists of two things: • A way to organize the data in memory : Data Structure • Sequence of ste",
+        "p4:  A primary concern of this course is efficiency . Efficient data structures Efficient Algorithms  [You might believe that faster computers make it unnecessary to be concerned wit"
+      ]
+    },
+    {
+      "file": "Chapter 2 - Simple Sorting and Searching Algorithms.fodg",
+      "pages": 43,
+      "textPages": 23,
+      "garbagePages": 15,
+      "mixedPages": 8,
+      "sample": [
+        "p2: Sorting Algorithm • Sorting is a technique to rearrange the elements of a list in ascending or descending order. • A sorting algorithm is an algorithm that puts elements of a list ",
+        "p3: Classification • Sorting can be classified in two types: • Internal Sorting:- • Uses only the primary memory during sorting process. • All data items are held in main memory and no"
+      ]
+    },
+    {
+      "file": "Chapter 3 - Linked Lists.fodg",
+      "pages": 56,
+      "textPages": 35,
+      "garbagePages": 12,
+      "mixedPages": 7,
+      "sample": [
+        "p2: Lists - Introduction • Some applications require processing data in a strict chronological order . Example: • Processing objects in the order that they arrived. OR • Processing obj",
+        "p3: Lists – Definition •A list is a finite, ordered sequence of data items called elements . •Important concept: List elements have a position . • [1 st element in the list, 2 nd eleme"
+      ]
+    },
+    {
+      "file": "Chapter 3 - Linked Lists.fodp",
+      "pages": 129,
+      "textPages": 37,
+      "garbagePages": 14,
+      "mixedPages": 5,
+      "sample": [
+        "p12: <number> Click to edit Master title style Click to edit Master text styles Click to edit Master text styles Second level Third level Fourth level Fifth level Click to edit Master t",
+        "p20: Lists - Introduction Some applications require processing data in a strict chronological order . Example: Processing objects in the order that they arrived. OR Processing objects i"
+      ]
+    },
+    {
+      "file": "data struct final exam collections.fodg",
+      "pages": 20,
+      "textPages": 0,
+      "garbagePages": 0,
+      "mixedPages": 0,
+      "sample": []
+    },
+    {
+      "file": "Data structure and Algorithm in C++.fodg",
+      "pages": 738,
+      "textPages": 709,
+      "garbagePages": 19,
+      "mixedPages": 49,
+      "sample": [
+        "p5: iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEX///////9VfPVsAAAA AnRSTlP/AOW3MEoAAAAKSURBVHjaY2AAAAACAAHlJ978AAAAAElFTkSuQmCC i iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bK",
+        "p6: iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAABlBMVEX///////9VfPVsAAAA AnRSTlP/AOW3MEoAAAAKSURBVHjaY2AAAAACAAHlJ978AAAAAElFTkSuQmCC i iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bK"
+      ]
+    },
+    {
+      "file": "Data Structure and Algorithm_Worksheet.fodg",
+      "pages": 3,
+      "textPages": 2,
+      "garbagePages": 1,
+      "mixedPages": 1,
+      "sample": [
+        "p1: Data Structure and Algorithm: Worksheet 1. Can you have an algorithm without a data structure? Can you have a data structure without an algorithm? 2. Design a spelling checker algo",
+        "p2: f. 3n 2 g. 1000 h. 3n 7. When we study the runtime of algorithms, some functions occur frequently. The following table shows these common functions. For each function, give one exa"
+      ]
+    },
+    {
+      "file": "Data Structure and Algoritms-Jimma Univ.fodg",
+      "pages": 117,
+      "textPages": 104,
+      "garbagePages": 10,
+      "mixedPages": 9,
+      "sample": [
+        "p2: 2 Table of Contents Data Structures and Algorithms Analysis ....................................................................................... 4 1. Introduction to Data Struct",
+        "p3: 3 4. Stacks ........................................................................................................................................ 44 4.1. Array Implementation of"
+      ]
+    },
+    {
+      "file": "Data Structure Course Outline.fodg",
+      "pages": 4,
+      "textPages": 4,
+      "garbagePages": 0,
+      "mixedPages": 0,
+      "sample": [
+        "p1: 1 Addis Ababa Science and Technology University College of Electrical and Mechanical Eng. Dep’t of Software Engineering Course Syllabus 1. Course Information Course Title Data Stru",
+        "p2: 2 Addis Ababa Science and Technology University College of Electrical and Mechanical Eng. Dep’t of Software Engineering • Determine complexity of algorithms using Empirical analysi"
+      ]
+    },
+    {
+      "file": "Data Structures and Algorithms in C++.fodg",
+      "pages": 1325,
+      "textPages": 1155,
+      "garbagePages": 6,
+      "mixedPages": 24,
+      "sample": [
+        "p1: Data Structures and Algorithms with Object-Oriented Design Patterns in C++ Data Structures and Algorithms with Object-Oriented Design Patterns in C++ Data Structures and Algorithms",
+        "p2: Data Structures and Algorithms with Object-Oriented Design Patterns in C++ ● Character Codes ● References ● iVBORw0KGgoAAAANSUhEUgAAACUAAAAYCAIAAADyGKMnAAAACXBIWXMAAAsTAAALEwEAmpwY"
+      ]
+    },
+    {
+      "file": "Drozdek_A_Data_Structures_and_Algorithms_in_C++Bookos_org.fodg",
+      "pages": 664,
+      "textPages": 0,
+      "garbagePages": 1,
+      "mixedPages": 0,
+      "sample": []
+    },
+    {
+      "file": "DSA MID TEST 2023-ANSWERSHEET.fodg",
+      "pages": 4,
+      "textPages": 4,
+      "garbagePages": 0,
+      "mixedPages": 0,
+      "sample": [
+        "p1: 1 Data Structure and Algorithms Test (20%) Date 21/12/2023 Time allowed - 1hr. Name: ___________________________________ID No.: ____________Section: _____ Part I. Choose and ENCIRC",
+        "p2: 2 8. Which statement is true about a solution to a problem? A. A solution can be written in many algorithms. B. A solution can have many ways of concrete-implementation. C. An algo"
+      ]
+    },
+    {
+      "file": "DSA-Final Exam-ANSWER SHEET -.fodg",
+      "pages": 4,
+      "textPages": 4,
+      "garbagePages": 0,
+      "mixedPages": 1,
+      "sample": [
+        "p1: አዲስ አበባ ሳይንስና ቴክኖሎጂ ዩኒቨርሲቲ ADDIS ABABA SCIENCE & TECHNOLOGY UNIVERSITY Document No. VPAA/DPT/OF/032 FINAL EXAMINATION Issue No. 1 Page No. Page 1 of 8 College of Engineering Depart",
+        "p2: አዲስ አበባ ሳይንስና ቴክኖሎጂ ዩኒቨርሲቲ ADDIS ABABA SCIENCE & TECHNOLOGY UNIVERSITY Document No. VPAA/DPT/OF/032 FINAL EXAMINATION Issue No. 1 Page No. Page 2 of 8 Answer Sheet Name: __________"
+      ]
+    },
+    {
+      "file": "Searching 74867.fodg",
+      "pages": 11,
+      "textPages": 9,
+      "garbagePages": 2,
+      "mixedPages": 0,
+      "sample": [
+        "p2: Given an array A storing n numbers, and a target number v, locate the position in A (if it exists) where A[i] = v Example ➢ Input: A = {3,8,2,15,99,52}, v = 99 ➢ Output: position 4",
+        "p3: Algorithm LinearSearch(A,v): Input: An array A of n numbers, search target v Output: position i where A[i]=v, -1 if not found for i  0 to n - 1 do if A[i] = v then return I End If"
+      ]
+    },
+    {
+      "file": "sorting  74869.fodg",
+      "pages": 53,
+      "textPages": 23,
+      "garbagePages": 19,
+      "mixedPages": 15,
+      "sample": [
+        "p2: Why Sorting? 2  Practical application  People by last name  Countries by population  Search engine results by relevance  Fundamental to other algorithms  Different algorithms",
+        "p3: Problem statement 3  There are n comparable elements in an array and we want to rearrange them to be in increasing/decreasing order  Pre:  An array A of data records  A value i"
+      ]
+    }
+  ]
+}

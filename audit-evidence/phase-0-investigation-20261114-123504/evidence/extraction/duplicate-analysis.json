@@ -1,0 +1,129 @@
+{
+  "generated": "2026-11-14T20:46:25.918Z",
+  "docs": [
+    {
+      "file": "ALgo_Efficiency 74864.fodg",
+      "words": 19949,
+      "shingles": 6568
+    },
+    {
+      "file": "ch-1 .fodg",
+      "words": 3932,
+      "shingles": 1285
+    },
+    {
+      "file": "ch-1.fodg",
+      "words": 62377,
+      "shingles": 2465
+    },
+    {
+      "file": "ch-2.fodg",
+      "words": 3162,
+      "shingles": 1046
+    },
+    {
+      "file": "ch-3.fodg",
+      "words": 4545,
+      "shingles": 1487
+    },
+    {
+      "file": "ch-4.fodg",
+      "words": 5798,
+      "shingles": 1927
+    },
+    {
+      "file": "ch-5.fodg",
+      "words": 12365,
+      "shingles": 3996
+    },
+    {
+      "file": "ch-6.fodg",
+      "words": 6845,
+      "shingles": 2268
+    },
+    {
+      "file": "ch-7.fodg",
+      "words": 19038,
+      "shingles": 6301
+    },
+    {
+      "file": "ch-8.fodg",
+      "words": 2842,
+      "shingles": 938
+    },
+    {
+      "file": "ch-9.fodg",
+      "words": 1276,
+      "shingles": 407
+    },
+    {
+      "file": "Chapter 1 - Introduction _Data Structure and Algorithm.fodg",
+      "words": 5608,
+      "shingles": 1860
+    },
+    {
+      "file": "Chapter 2 - Simple Sorting and Searching Algorithms.fodg",
+      "words": 2610,
+      "shingles": 847
+    },
+    {
+      "file": "Chapter 3 - Linked Lists.fodg",
+      "words": 7301,
+      "shingles": 2413
+    },
+    {
+      "file": "Chapter 3 - Linked Lists.fodp",
+      "words": 2858,
+      "shingles": 897
+    },
+    {
+      "file": "data struct final exam collections.fodg",
+      "words": 0,
+      "shingles": 0
+    },
+    {
+      "file": "Data structure and Algorithm in C++.fodg",
+      "words": 211102,
+      "shingles": 61044
+    },
+    {
+      "file": "Data Structure and Algorithm_Worksheet.fodg",
+      "words": 2125,
+      "shingles": 704
+    },
+    {
+      "file": "Data Structure and Algoritms-Jimma Univ.fodg",
+      "words": 16975,
+      "shingles": 5263
+    },
+    {
+      "file": "Data Structure Course Outline.fodg",
+      "words": 978,
+      "shingles": 321
+    },
+    {
+      "file": "Data Structures and Algorithms in C++.fodg",
+      "words": 172064,
+      "shingles": 47012
+    },
+    {
+      "file": "Searching 74867.fodg",
+      "words": 358,
+      "shingles": 116
+    }
+  ],
+  "pairs": [
+    {
+      "a": "ch-1.fodg",
+      "b": "Chapter 1 - Introduction _Data Structure and Algorithm.fodg",
+      "jaccard": 0.345,
+      "containment": 0.596
+    },
+    {
+      "a": "Chapter 3 - Linked Lists.fodg",
+      "b": "Chapter 3 - Linked Lists.fodp",
+      "jaccard": 0.099,
+      "containment": 0.331
+    }
+  ]
+}
