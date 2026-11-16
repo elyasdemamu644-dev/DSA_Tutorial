@@ -469,6 +469,9 @@ const Router = {
         'notes': 'notes',
         'bookmarks': 'bookmarks',
         'assessments': 'assessments',
+        'chapters': 'chapters',
+        'chapters/:chapterId': 'chapter',
+        'chapters/:chapterId/:sectionId': 'chapter-section',
         'settings': 'settings'
     },
     
@@ -504,6 +507,8 @@ const Router = {
             this.showBookmarks();
         } else if (hash === 'assessments') {
             this.showAssessments();
+        } else if (parts[0] === 'chapters') {
+            this.showChapters(parts);
         } else if (hash === 'settings') {
             this.showSettings();
         } else {
@@ -570,6 +575,22 @@ const Router = {
         document.getElementById('content-area').innerHTML = AssessmentsRenderer.render();
     },
     
+    showChapters(parts = []) {
+        const area = document.getElementById('content-area');
+        if (!window.CourseChapters) {
+            area.innerHTML = `
+                <header class="page-header">
+                    <h2>📖 Course Chapters</h2>
+                    <p>The chapter module did not load. Refresh the page to try again.</p>
+                </header>`;
+            return;
+        }
+        const chapterId = parts[1] || null;
+        const sectionId = parts[2] || null;
+        area.innerHTML = CourseChapters.renderRoute(chapterId, sectionId);
+        CourseChapters.init(sectionId);
+    },
+    
     showSettings() {
         document.getElementById('content-area').innerHTML = SettingsRenderer.render();
         SettingsRenderer.init();
@@ -578,7 +599,12 @@ const Router = {
     updateActiveNav(currentHash) {
         document.querySelectorAll('nav a').forEach(a => {
             a.classList.remove('active');
-            if (a.getAttribute('href') === '#' + currentHash) {
+            const href = a.getAttribute('href');
+            if (!href || !href.startsWith('#')) return;
+            const target = href.slice(1);
+            const isActive = target === currentHash
+                || (target === 'chapters' && currentHash.startsWith('chapters/'));
+            if (isActive) {
                 a.classList.add('active');
             }
         });
@@ -1878,12 +1904,13 @@ int main() {
         };
         const backup = {
             type: 'dsa-academy-backup',
-            version: 1,
+            version: 2,
             exportedAt: new Date().toISOString(),
             progress: read('dsa_progress', {}),
             notes: read('dsa_notes', {}),
             bookmarks: read('dsa_bookmarks', {}),
-            codeFiles: read('dsa_code_files', [])
+            codeFiles: read('dsa_code_files', []),
+            chapters: read('dsa_chapters_v1', null)
         };
         
         const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
@@ -1930,18 +1957,19 @@ int main() {
                     
                     // Accept both the current backup format and legacy bare exports.
                     // Legacy: a bare dsa_progress object, or { progress, notes, bookmarks }.
-                    // Current: { type:'dsa-academy-backup', version:1, progress, notes, bookmarks, codeFiles }
+                    // Current: { type:'dsa-academy-backup', version:1|2, progress, notes, bookmarks, codeFiles, chapters }
                     const looksLikeBareProgress = !data.type && !data.progress && !data.notes && !data.bookmarks
                         && typeof data === 'object' && data !== null
                         && Object.values(data).some(v => v && typeof v === 'object' && ('completed' in v || 'total' in v));
                     
                     const normalize = () => {
-                        if (looksLikeBareProgress) return { progress: data, notes: null, bookmarks: null, codeFiles: null };
+                        if (looksLikeBareProgress) return { progress: data, notes: null, bookmarks: null, codeFiles: null, chapters: null };
                         return {
                             progress: data.progress ?? null,
                             notes: data.notes ?? null,
                             bookmarks: data.bookmarks ?? null,
-                            codeFiles: data.codeFiles ?? null
+                            codeFiles: data.codeFiles ?? null,
+                            chapters: data.chapters ?? null
                         };
                     };
                     
@@ -1951,6 +1979,7 @@ int main() {
                     if (restored.notes) { localStorage.setItem('dsa_notes', JSON.stringify(restored.notes)); applied.push('notes'); }
                     if (restored.bookmarks) { localStorage.setItem('dsa_bookmarks', JSON.stringify(restored.bookmarks)); applied.push('bookmarks'); }
                     if (restored.codeFiles) { localStorage.setItem('dsa_code_files', JSON.stringify(restored.codeFiles)); applied.push('code files'); }
+                    if (restored.chapters) { localStorage.setItem('dsa_chapters_v1', JSON.stringify(restored.chapters)); applied.push('chapter progress'); }
                     
                     if (applied.length === 0) {
                         alert('No recognized backup data found in this file. Expected an exported dsa-backup.json from C++ DSA Academy.');
@@ -1973,6 +2002,7 @@ int main() {
                 localStorage.removeItem('dsa_notes');
                 localStorage.removeItem('dsa_bookmarks');
                 localStorage.removeItem('dsa_code_files');
+                localStorage.removeItem('dsa_chapters_v1');
                 alert('All data cleared. Please refresh the page.');
             }
         }
@@ -2003,6 +2033,24 @@ const Search = {
                 });
             });
         });
+        
+        // Course Chapters are indexed as an additive area. They use the same
+        // scoring fields so search behaves identically, plus an explicit href.
+        if (window.CourseChapters && typeof CourseChapters.searchEntries === 'function') {
+            CourseChapters.searchEntries().forEach(entry => {
+                this.index.push({
+                    href: entry.href,
+                    topicId: 'course-chapters',
+                    topicTitle: 'Course Chapters',
+                    moduleId: entry.href,
+                    moduleTitle: entry.chapterTitle,
+                    lessonId: entry.href,
+                    lessonTitle: entry.title,
+                    content: entry.content || '',
+                    objectives: entry.keywords || ''
+                });
+            });
+        }
     },
     
     search(query) {
@@ -2038,7 +2086,7 @@ const Search = {
             <div class="search-results" role="listbox" aria-label="Search results">
                 <h3>Search Results for "${query}" (${results.length})</h3>
                 ${results.map(r => `
-                    <a href="#topic/${r.topicId}/module/${r.moduleId}/lesson/${r.lessonId}" class="search-result" role="option">
+                    <a href="${r.href || `#topic/${r.topicId}/module/${r.moduleId}/lesson/${r.lessonId}`}" class="search-result" role="option">
                         <strong>${r.lessonTitle}</strong>
                         <span>${r.topicTitle} › ${r.moduleTitle}</span>
                     </a>
@@ -2441,6 +2489,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const mainNav = `
             <li class="nav-section"><strong>Main</strong></li>
             <li><a href="#dashboard" role="menuitem">📊 Dashboard</a></li>
+            <li><a href="#chapters" role="menuitem">📖 Course Chapters</a></li>
             <li><a href="#visualizers" role="menuitem">🔬 Visualization Lab</a></li>
             <li><a href="#code-lab" role="menuitem">💻 C++ Code Lab</a></li>
             <li><a href="#notes" role="menuitem">📝 My Notes</a></li>
