@@ -1,0 +1,489 @@
+{
+  "generatedAt": "2026-11-16T20:22:41.645Z",
+  "base": "http://127.0.0.1:8137",
+  "passed": 58,
+  "failed": 0,
+  "total": 58,
+  "checks": [
+    {
+      "name": "Overview shows three chapter cards",
+      "pass": true,
+      "detail": 3
+    },
+    {
+      "name": "Overview stats: 3 chapters / 28 sections / 30 checks / 17 exercises",
+      "pass": true,
+      "detail": [
+        "3",
+        "0 / 28",
+        "0 / 30",
+        "17"
+      ]
+    },
+    {
+      "name": "Course Chapters nav entry is active",
+      "pass": true,
+      "detail": true
+    },
+    {
+      "name": "All 18 existing topic links still render",
+      "pass": true,
+      "detail": 18
+    },
+    {
+      "name": "Overview lists Chapters 1–3",
+      "pass": true,
+      "detail": [
+        "Introduction to Data Structures & Algorithms",
+        "Simple Sorting and Searching",
+        "Lists and Linked Lists"
+      ]
+    },
+    {
+      "name": "Chapter 1 renders 10 sections",
+      "pass": true,
+      "detail": 10
+    },
+    {
+      "name": "Chapter 1 renders 10 knowledge checks",
+      "pass": true,
+      "detail": 10
+    },
+    {
+      "name": "Chapter 1 renders 5 exercises",
+      "pass": true,
+      "detail": 5
+    },
+    {
+      "name": "Chapter 1 table of contents has 10 links",
+      "pass": true,
+      "detail": 10
+    },
+    {
+      "name": "Chapter 1 renders code blocks with verified output",
+      "pass": true,
+      "detail": {
+        "code": 5,
+        "verified": 3
+      }
+    },
+    {
+      "name": "Chapter 1 renders tables, diagrams and callouts",
+      "pass": true,
+      "detail": {
+        "tables": 12,
+        "diagrams": 2,
+        "callouts": 20
+      }
+    },
+    {
+      "name": "Chapter 1 shows its source attribution",
+      "pass": true,
+      "detail": "Based on Chapter 1 - Introduction _Data Structure and Algorithm.pdf · Eleni T., AASTU · pp. 2–74"
+    },
+    {
+      "name": "Chapters nav stays active inside a chapter",
+      "pass": true,
+      "detail": true
+    },
+    {
+      "name": "Chapter 1 renders the newly integrated teacher notes",
+      "pass": true,
+      "detail": {
+        "selection": true,
+        "functionView": true,
+        "resourceCost": true
+      }
+    },
+    {
+      "name": "Desktop layout keeps the TOC sticky beside the chapter",
+      "pass": true,
+      "detail": {
+        "tocPosition": "sticky",
+        "columns": 2,
+        "mainWidth": 803,
+        "tocRightOfMain": true
+      }
+    },
+    {
+      "name": "Chapter heroes/section heads do not inherit the sticky app-bar chrome",
+      "pass": true,
+      "detail": {
+        "heroPosition": "static",
+        "heroHeight": 291,
+        "headPosition": "static",
+        "headHeight": 68,
+        "tocTop": "80px",
+        "stickyInsidePage": [
+          "cc-toc"
+        ]
+      }
+    },
+    {
+      "name": "Sticky chapter TOC clears the 64px app header",
+      "pass": true,
+      "detail": "80px"
+    },
+    {
+      "name": "All 10 sections can be marked read",
+      "pass": true,
+      "detail": {
+        "clicked": 10,
+        "storedSections": 10,
+        "completedAt": true,
+        "readButtons": 10,
+        "bar": "100%",
+        "text": "10 of 10 sections read",
+        "bannerShown": true,
+        "toast": "✓ Nice work Chapter complete — every section is marked as read. ✕"
+      }
+    },
+    {
+      "name": "Progress bar and label reach 100%",
+      "pass": true,
+      "detail": "10 of 10 sections read"
+    },
+    {
+      "name": "Completion banner appears when every section is read",
+      "pass": true,
+      "detail": true
+    },
+    {
+      "name": "Chapter completion toast fires",
+      "pass": true,
+      "detail": "✓ Nice work Chapter complete — every section is marked as read. ✕"
+    },
+    {
+      "name": "Progress persists under dsa_chapters_v1",
+      "pass": true,
+      "detail": 10
+    },
+    {
+      "name": "Legacy dsa_progress key is not used by chapters",
+      "pass": true,
+      "detail": true
+    },
+    {
+      "name": "Read state survives a page reload",
+      "pass": true,
+      "detail": {
+        "readButtons": 10,
+        "bar": "100%",
+        "bannerShown": true
+      }
+    },
+    {
+      "name": "Unmarking a section lowers progress and hides the banner",
+      "pass": true,
+      "detail": {
+        "bar": "90%",
+        "banner": false
+      }
+    },
+    {
+      "name": "Re-marking restores completion",
+      "pass": true,
+      "detail": {
+        "bar": "100%",
+        "banner": true
+      }
+    },
+    {
+      "name": "A correct check records one attempt and a correct best result",
+      "pass": true,
+      "detail": {
+        "attempts": 1,
+        "correct": true,
+        "lastAt": "2026-11-16T20:22:31.584Z"
+      }
+    },
+    {
+      "name": "A wrong check records an attempt without a correct best result",
+      "pass": true,
+      "detail": {
+        "attempts": 1,
+        "correct": false,
+        "lastAt": "2026-11-16T20:22:31.584Z"
+      }
+    },
+    {
+      "name": "Correct feedback shows the explanation",
+      "pass": true,
+      "detail": "Correct. Slide 3 states: Program = Data structure + Algorithm. The data structure organize"
+    },
+    {
+      "name": "Check score updates after grading",
+      "pass": true,
+      "detail": "1 of 10 knowledge checks answered correctly"
+    },
+    {
+      "name": "Check attempts and best results survive a reload",
+      "pass": true,
+      "detail": [
+        "Attempts: 1 · Best: correct",
+        "Attempts: 1 · Best: not yet"
+      ]
+    },
+    {
+      "name": "Persisted check score still reads 1 of 10",
+      "pass": true,
+      "detail": "1 of 10 knowledge checks answered correctly"
+    },
+    {
+      "name": "Hint and worked answer start hidden",
+      "pass": true,
+      "detail": {
+        "hint": true,
+        "solution": true
+      }
+    },
+    {
+      "name": "Hint reveals and labels itself correctly",
+      "pass": true,
+      "detail": {
+        "hidden": false,
+        "label": "Hide hint",
+        "expanded": "true"
+      }
+    },
+    {
+      "name": "Worked answer reveals and labels itself correctly",
+      "pass": true,
+      "detail": {
+        "hidden": false,
+        "label": "Hide worked answer",
+        "expanded": "true"
+      }
+    },
+    {
+      "name": "Hint and answer can be hidden again",
+      "pass": true,
+      "detail": {
+        "hint": true,
+        "solution": true
+      }
+    },
+    {
+      "name": "Exercise hints/solutions are ephemeral (not stored)",
+      "pass": true,
+      "detail": true
+    },
+    {
+      "name": "Code copy button reports success",
+      "pass": true,
+      "detail": {
+        "label": "Copied ✓",
+        "copied": true
+      }
+    },
+    {
+      "name": "Global search indexes Course Chapters sections",
+      "pass": true,
+      "detail": [
+        {
+          "href": "#topic/linked-lists/module/ll-basics/lesson/ll-01",
+          "text": "Singly Linked List Implementation Linked Lists › Linked List Fundamentals"
+        },
+        {
+          "href": "#topic/linked-lists/module/ll-basics/lesson/ll-02",
+          "text": "Doubly Linked List and Circular Lists Linked Lists › Linked List Fundamentals"
+        },
+        {
+          "href": "#topic/linked-lists/module/ll-basics/lesson/ll-03",
+          "text": "Linked List Algorithms Linked Lists › Linked List Fundamentals"
+        },
+        {
+          "href": "#topic/linked-lists/module/ll-advanced/lesson/ll-04",
+          "text": "Linked List in STL and Custom Allocators Linked Lists › Advanced Linked List Techniques"
+        }
+      ]
+    },
+    {
+      "name": "A chapter search result navigates to the matching section",
+      "pass": true,
+      "detail": {
+        "hash": "#chapters/chapter-03/linked-nodes",
+        "chapter": true,
+        "activeToc": true
+      }
+    },
+    {
+      "name": "Backup is valid JSON at version 2",
+      "pass": true,
+      "detail": 2
+    },
+    {
+      "name": "Backup includes chapter progress under its own key",
+      "pass": true,
+      "detail": [
+        "chapter-01",
+        "chapter-02",
+        "chapter-03"
+      ]
+    },
+    {
+      "name": "Backup still includes the original four data sets",
+      "pass": true,
+      "detail": [
+        "type",
+        "version",
+        "exportedAt",
+        "progress",
+        "notes",
+        "bookmarks",
+        "codeFiles",
+        "chapters"
+      ]
+    },
+    {
+      "name": "Import accepts chapter progress from a v2 backup",
+      "pass": true,
+      "detail": {
+        "alert": "Backup imported (progress, notes, bookmarks, code files, chapter progress). Please refresh the page.",
+        "stored": {
+          "version": 1,
+          "chapters": {
+            "chapter-02": {
+              "sections": {
+                "sorting-basics": {
+                  "read": true,
+                  "readAt": "2026-11-16T20:22:34.562Z"
+                }
+              },
+              "checks": {},
+              "completedAt": null
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Chapter 2 renders the newly integrated teacher notes",
+      "pass": true,
+      "detail": {
+        "simpleSort": true,
+        "properties": true,
+        "divideConquer": true,
+        "binaryInsertionClaim": true
+      }
+    },
+    {
+      "name": "Imported chapter progress renders in Chapter 2",
+      "pass": true,
+      "detail": 1
+    },
+    {
+      "name": "Imported chapter progress survives reload",
+      "pass": true,
+      "detail": 1
+    },
+    {
+      "name": "Clear-all-data removes chapter progress too",
+      "pass": true,
+      "detail": {
+        "stored": null,
+        "alert": "All data cleared. Please refresh the page."
+      }
+    },
+    {
+      "name": "Existing curriculum is unchanged: 18 topics / 25 modules / 39 lessons / 101 quizzes",
+      "pass": true,
+      "detail": {
+        "topics": 18,
+        "modules": 25,
+        "lessons": 39,
+        "quizzes": 101
+      }
+    },
+    {
+      "name": "Service worker upgraded to dsa-academy-shell-v3",
+      "pass": true,
+      "detail": [
+        "dsa-academy-shell-v3"
+      ]
+    },
+    {
+      "name": "Service worker precaches the chapter CSS, renderer and data",
+      "pass": true,
+      "detail": [
+        "/styles/course-chapters.css",
+        "/content/course-chapters/chapter-01.js",
+        "/content/course-chapters/chapter-02.js",
+        "/content/course-chapters/chapter-03.js",
+        "/scripts/course-chapters.js"
+      ]
+    },
+    {
+      "name": "Chapter 3 renders 10 sections / 10 checks / 6 exercises",
+      "pass": true,
+      "detail": {
+        "sections": 10,
+        "checks": 10,
+        "exercises": 6,
+        "code": 18,
+        "verified": 7,
+        "tables": 11
+      }
+    },
+    {
+      "name": "Chapter 3 compiled examples are marked verified",
+      "pass": true,
+      "detail": {
+        "sections": 10,
+        "checks": 10,
+        "exercises": 6,
+        "code": 18,
+        "verified": 7,
+        "tables": 11
+      }
+    },
+    {
+      "name": "Chapter 3 renders the newly integrated teacher notes",
+      "pass": true,
+      "detail": {
+        "structures": true,
+        "traversal": true,
+        "dllRationale": true,
+        "circular": true
+      }
+    },
+    {
+      "name": "Mobile layout puts the TOC above the content in one column",
+      "pass": true,
+      "detail": {
+        "width": 375,
+        "tocPosition": "static",
+        "layoutColumns": "341px",
+        "scrollWidth": 375,
+        "readButtonWidth": 88
+      }
+    },
+    {
+      "name": "No horizontal overflow at 375px",
+      "pass": true,
+      "detail": 375
+    },
+    {
+      "name": "No uncaught page exceptions during the run",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "No console.error output during the run",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "notes": [],
+  "exceptions": [],
+  "consoleErrors": [],
+  "screenshots": [
+    "01-overview.png",
+    "02-chapter-01-top.png",
+    "03-chapter-01-complete.png",
+    "04-chapter-01-checks.png",
+    "05-chapter-03-top.png",
+    "06-chapter-03-code.png",
+    "07-chapter-03-mobile.png"
+  ]
+}
