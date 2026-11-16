@@ -1,0 +1,589 @@
+/* Course Chapter 2 — Simple Sorting and Searching Algorithms.
+   Grounded in the canonical AASTU SWEG 3103 Chapter 2 deck
+   ("Chapter 2 - Simple Sorting and Searching Algorithms.pdf", slides 2–43).
+   Supplementary exercises cite "sorting 74869.pdf" and "ch-2.pdf" explicitly. */
+
+(window.COURSE_CHAPTERS = window.COURSE_CHAPTERS || []).push({
+  id: "chapter-02",
+  number: 2,
+  title: "Simple Sorting and Searching",
+  shortTitle: "Sorting & Searching",
+  subtitle: "Insertion, selection, and bubble sort; linear and binary search — with traces, C++ implementations, and cost analysis.",
+  source: {
+    document: "Chapter 2 - Simple Sorting and Searching Algorithms.pdf",
+    author: "Eleni T., AASTU",
+    pages: "2–43",
+    note: "Canonical Week 3–4 deck. Practice exercises also use the local “sorting” and “ch-2” decks where cited."
+  },
+  minutes: 110,
+  objectives: [
+    "Distinguish internal from external sorting.",
+    "Trace insertion sort, selection sort, and bubble sort on small arrays.",
+    "Implement each simple sort in C++17 and state its best, average, and worst-case cost.",
+    "Implement linear search and binary search, and explain when each is appropriate.",
+    "Trace binary search step by step, including an unsuccessful search.",
+    "Compare the five algorithms by time, extra space, and preconditions."
+  ],
+  sections: [
+    {
+      id: "sorting-basics",
+      title: "Sorting and searching: the problem and the landscape",
+      pages: "Slides 2–5",
+      blocks: [
+        { type: "p", text: "**Sorting** is a technique to rearrange the elements of a list in ascending or descending order. A sorting algorithm puts the elements of a list in a certain order; the most common orders are numerical and lexicographical. Given a container of n elements and an order relation, the goal is to arrange the elements in ascending order." },
+        { type: "p", text: "The slides’ running example is `1, 23, 2, 56, 9, 8, 10, 100`, which ends as `1, 2, 8, 9, 10, 23, 56, 100`." },
+        { type: "h3", text: "Internal versus external sorting" },
+        { type: "table", caption: "Classification (source pp. 3–4)", head: ["Class", "Where the data lives", "Examples", "Limitation / mechanism"], rows: [
+          ["Internal sorting", "Primary memory only; no secondary storage", "Selection sort, insertion sort, bubble sort", "Limited to lists small enough to fit in memory"],
+          ["External sorting", "Secondary memory such as a hard disk; primary memory holds only the data currently being sorted", "Merge sort", "Based on merging: different parts are sorted separately and then merged"]
+        ] },
+        { type: "p", text: "The slides divide the popular algorithms into **simple** and **advanced** groups. The simple group — insertion, bubble, selection — is the subject of this chapter. Merge sort, quick sort, and heap sort come later in the course." },
+        { type: "callout", tone: "info", title: "Why so many algorithms?", text: "Different algorithms make different asymptotic and constant-factor trade-offs. There is no single “best” sort for every scenario, which is why a programmer needs more than one." },
+        { type: "p", text: "Searching is the companion problem: find an element in a list, or determine that it is not there. The chapter covers **linear search**, which makes no assumption about order, and **binary search**, which requires sorted data." }
+      ]
+    },
+    {
+      id: "insertion-sort",
+      title: "Insertion sort",
+      pages: "Slides 6–12; supplement pp. 20–24",
+      blocks: [
+        { type: "p", text: "Insertion sort keeps two groups: a **sorted** group and an **unsorted** group. Pick an item from the unsorted group and insert it at the right position in the sorted group, shifting larger items to the right to make room. Repeat until the unsorted group is empty." },
+        { type: "h3", text: "The card-sorting trace (source p. 7)" },
+        { type: "p", text: "The vertical bar separates the sorted prefix from the unsorted suffix:" },
+        { type: "table", head: ["Step", "Array"], rows: [
+          ["Start", "`8 | 5 9 2 6 3`"],
+          ["Insert 5", "`5 8 | 9 2 6 3`"],
+          ["Insert 9", "`5 8 9 | 2 6 3`"],
+          ["Insert 2", "`2 5 8 9 | 6 3`"],
+          ["Insert 6", "`2 5 6 8 9 | 3`"],
+          ["Insert 3", "`2 3 5 6 8 9 |`"]
+        ] },
+        { type: "p", text: "The first value is sorted relative to itself. For each later value, remove it, slide larger sorted values one position right, and place it in the gap. After pass i, the first i+1 positions hold the original elements in sorted order." },
+        { type: "h3", text: "C++17 implementation" },
+        { type: "code", title: "Insertion sort with a pass-by-pass trace", language: "cpp", verified: "MSVC 19.44 · /std:c++17 /EHsc", code: String.raw`#include <iostream>
+#include <vector>
+
+void print(const std::vector<int>& a) {
+    for (int value : a) std::cout << value << ' ';
+    std::cout << '\n';
+}
+
+void insertion_sort(std::vector<int>& a) {
+    for (std::size_t i = 1; i < a.size(); ++i) {
+        int key = a[i];              // remove a[i]
+        std::size_t j = i;
+        while (j > 0 && a[j - 1] > key) {
+            a[j] = a[j - 1];         // slide larger value right
+            --j;
+        }
+        a[j] = key;                  // insert into the gap
+        std::cout << "after pass " << i << ": ";
+        print(a);
+    }
+}
+
+int main() {
+    std::vector<int> data{8, 5, 9, 2, 6, 3};
+    std::cout << "start:          ";
+    print(data);
+    insertion_sort(data);
+    std::cout << "sorted:         ";
+    print(data);
+}` },
+        { type: "code", title: "Actual output", language: "text", code: String.raw`start:          8 5 9 2 6 3
+after pass 1: 5 8 9 2 6 3
+after pass 2: 5 8 9 2 6 3
+after pass 3: 2 5 8 9 6 3
+after pass 4: 2 5 6 8 9 3
+after pass 5: 2 3 5 6 8 9
+sorted:         2 3 5 6 8 9` },
+        { type: "h3", text: "Cost" },
+        { type: "ul", items: [
+          "**Best case** — the array is already in ascending order. Each new key compares once and stays put: n − 1 comparisons, Θ(n).",
+          "**Worst case** — the array is reverse-ordered. Pass i shifts i elements, so the total is 1 + 2 + … + (n−1) = n(n−1)/2, Θ(n²).",
+          "**Average case** — each element is about halfway in order, still Θ(n²).",
+          "**Extra space** — Θ(1); the algorithm reorders the array in place."
+        ] },
+        { type: "callout", tone: "tip", title: "Adaptive behavior", text: "Insertion sort is the only one of the three simple sorts here whose best case is linear. It is a reasonable choice for small arrays and for data that is already almost sorted." },
+        { type: "h3", text: "Binary insertion sort (source p. 25–26)" },
+        { type: "p", text: "It is reasonable to use the **binary search algorithm** to find a proper place for the insertion. This variant of the insertion sort is called **binary insertion sort**. After the position for the insertion is found, the algorithm shifts the part of the array and inserts the element. The teacher’s slides do not give a full complexity derivation for this variant; the shift-based insertion is the O(n²) cost and the binary placement adds an O(log n) search on top of it." }
+      ]
+    },
+    {
+      id: "selection-sort",
+      title: "Selection sort",
+      pages: "Slides 13–15",
+      blocks: [
+        { type: "p", text: "Selection sort also maintains a sorted group and an unsorted group, but it builds the sorted group from the **front**. Initially the sorted group is empty. On each pass, select the smallest item from the unsorted group and put it at the end of the sorted group. Repeat until the unsorted group is empty." },
+        { type: "p", text: "The loop runs from i = 0 to n−1. At position i, find the smallest element in the range i..n−1, then swap it with the value at position i. The prefix 0..i is sorted after the swap." },
+        { type: "table", caption: "Trace of the source example [1, 3, 2, 9, 6, 4, 8]", head: ["i", "Smallest in i..n−1", "Action", "Array after pass"], rows: [
+          ["0", "1 at index 0", "swap with itself", "`1 3 2 9 6 4 8`"],
+          ["1", "2 at index 2", "swap 3 ↔ 2", "`1 2 3 9 6 4 8`"],
+          ["2", "3 at index 2", "swap with itself", "`1 2 3 9 6 4 8`"],
+          ["3", "4 at index 5", "swap 9 ↔ 4", "`1 2 3 4 6 9 8`"],
+          ["4", "6 at index 4", "swap with itself", "`1 2 3 4 6 9 8`"],
+          ["5", "8 at index 6", "swap 9 ↔ 8", "`1 2 3 4 6 8 9`"],
+          ["6", "9 at index 6", "swap with itself", "`1 2 3 4 6 8 9`"]
+        ] },
+        { type: "code", title: "Selection sort — cleaned-up C++17 version of the slide code", language: "cpp", verified: "MSVC 19.44 · /std:c++17 /EHsc", code: String.raw`#include <iostream>
+#include <utility>
+#include <vector>
+
+void print(const std::vector<int>& a) {
+    for (int value : a) std::cout << value << ' ';
+    std::cout << '\n';
+}
+
+void selection_sort(std::vector<int>& a) {
+    for (std::size_t i = 0; i < a.size(); ++i) {
+        std::size_t smallest = i;              // assume a[i] is smallest
+        for (std::size_t j = i + 1; j < a.size(); ++j) {
+            if (a[j] < a[smallest]) {
+                smallest = j;
+            }
+        }
+        std::swap(a[smallest], a[i]);          // place minimum at i
+        std::cout << "after pass " << (i + 1) << ": ";
+        print(a);
+    }
+}
+
+int main() {
+    std::vector<int> data{1, 3, 2, 9, 6, 4, 8};
+    std::cout << "start:         ";
+    print(data);
+    selection_sort(data);
+}` },
+        { type: "code", title: "Actual output", language: "text", code: String.raw`start:         1 3 2 9 6 4 8
+after pass 1: 1 3 2 9 6 4 8
+after pass 2: 1 2 3 9 6 4 8
+after pass 3: 1 2 3 9 6 4 8
+after pass 4: 1 2 3 4 6 9 8
+after pass 5: 1 2 3 4 6 9 8
+after pass 6: 1 2 3 4 6 8 9
+after pass 7: 1 2 3 4 6 8 9` },
+        { type: "h3", text: "Cost" },
+        { type: "p", text: "The inner loop does n−1, then n−2, …, then 1 comparison: a total of n(n−1)/2. Selection sort performs this work on **every** input, so best, average, and worst case are all Θ(n²). It does at most n−1 swaps, one per outer iteration, which is useful when writes are expensive." },
+        { type: "callout", tone: "warn", title: "Not adaptive", text: "An already sorted array does not shorten the comparison loop. The source code still scans the whole unsorted suffix on every pass. The only saving is that each swap may be a self-swap." },
+        { type: "note", text: "The slide’s implementation declares `smallest` as an index and swaps through a temporary variable. The version above uses `std::swap` and `std::size_t`; the algorithm is unchanged." }
+      ]
+    },
+    {
+      id: "bubble-sort",
+      title: "Bubble sort",
+      pages: "Slides 16–25",
+      blocks: [
+        { type: "p", text: "Bubble sort repeatedly steps through the list, compares each pair of adjacent items, and swaps them if they are in the wrong order. After the first pass, the largest value has “bubbled” to the end and is in its final position. After the second pass, the second-largest is in place, and so on." },
+        { type: "h3", text: "The complete source trace" },
+        { type: "p", text: "Starting from `9, 6, 2, 12, 11, 9, 3, 7`, the slides walk through every comparison. The table condenses the result of each pass." },
+        { type: "table", caption: "Bubble sort on the slide array (source pp. 17–24)", head: ["Pass", "Array after the pass", "Comparisons", "What became final"], rows: [
+          ["0 (start)", "`9 6 2 12 11 9 3 7`", "—", "—"],
+          ["1", "`6 2 9 11 9 3 7 12`", "7", "12"],
+          ["2", "`2 6 9 9 3 7 11 12`", "6", "11"],
+          ["3", "`2 6 9 3 7 9 11 12`", "5", "9 (one of the two 9s)"],
+          ["4", "`2 6 3 7 9 9 11 12`", "4", "9"],
+          ["5", "`2 3 6 7 9 9 11 12`", "3", "7"],
+          ["6", "`2 3 6 7 9 9 11 12`", "2", "no exchanges → stop"]
+        ] },
+        { type: "p", text: "Pass 1 in detail: 9↔6, 6↔2, then 9 < 12 so no exchange, 12↔11, 12↔9, 12↔3, 12↔7. The `12` ends at the last index. Pass 2 stops before the last element, because the last element is already final. Each pass therefore requires one fewer comparison." },
+        { type: "code", title: "Bubble sort with the no-exchange early exit", language: "cpp", verified: "MSVC 19.44 · /std:c++17 /EHsc", code: String.raw`#include <iostream>
+#include <utility>
+#include <vector>
+
+void print(const std::vector<int>& a) {
+    for (int value : a) std::cout << value << ' ';
+    std::cout << '\n';
+}
+
+void bubble_sort(std::vector<int>& a) {
+    const std::size_t n = a.size();
+    for (std::size_t pass = 0; pass + 1 < n; ++pass) {
+        bool swapped = false;
+        // The last 'pass' elements are already in final position.
+        for (std::size_t j = 0; j + 1 < n - pass; ++j) {
+            if (a[j] > a[j + 1]) {
+                std::swap(a[j], a[j + 1]);
+                swapped = true;
+            }
+        }
+        std::cout << "after pass " << (pass + 1) << ": ";
+        print(a);
+        if (!swapped) {
+            std::cout << "no exchanges -> sorted\n";
+            break;
+        }
+    }
+}
+
+int main() {
+    std::vector<int> data{9, 6, 2, 12, 11, 9, 3, 7};
+    std::cout << "start:         ";
+    print(data);
+    bubble_sort(data);
+}` },
+        { type: "code", title: "Actual output", language: "text", code: String.raw`start:         9 6 2 12 11 9 3 7
+after pass 1: 6 2 9 11 9 3 7 12
+after pass 2: 2 6 9 9 3 7 11 12
+after pass 3: 2 6 9 3 7 9 11 12
+after pass 4: 2 6 3 7 9 9 11 12
+after pass 5: 2 3 6 7 9 9 11 12
+after pass 6: 2 3 6 7 9 9 11 12
+no exchanges -> sorted` },
+        { type: "h3", text: "Cost" },
+        { type: "p", text: "The slide’s implementation performs `(n−1) + (n−2) + … + 1 = n(n−1)/2` comparisons in the worst case, and the same bound on swaps in the worst case, for O(n²) overall. The early-exit flag shown above is the optimization described on slide 24: the algorithm does not know the list is sorted until it completes a pass with no exchanges. With the flag, a sorted input needs one pass and n−1 comparisons, so the best case becomes O(n)." },
+        { type: "callout", tone: "warn", title: "Beware the slide’s array syntax", text: "The implementation on slide 25 is written as `void bubble_sort(list[])` with no parameter type or size, and the extracted text contains `list[j])=list[j+1]`. Those are typesetting artifacts. The C++ above is valid and has been compiled." }
+      ]
+    },
+    {
+      id: "linear-search",
+      title: "Linear (sequential) search",
+      pages: "Slides 26–30",
+      blocks: [
+        { type: "p", text: "Linear search checks the elements one by one, in sequence, until the desired result is found or the list ends. It is the most natural way to search and works on unsorted data." },
+        { type: "p", text: "The daily-life example from the slides: to find the person with phone number “1234” in a telephone directory sorted by **name**, you cannot jump to a likely page. You must go through the numbers one at a time." },
+        { type: "p", text: "The search method looks for a **key** passed as a parameter and returns the index of the matching element, or −1 if unsuccessful." },
+        { type: "code", title: "Linear search — returns the index or -1", language: "cpp", verified: "MSVC 19.44 · /std:c++17 /EHsc", code: String.raw`#include <iostream>
+#include <string>
+#include <vector>
+
+int linear_search(const std::vector<int>& data, int key) {
+    for (std::size_t i = 0; i < data.size(); ++i) {
+        if (data[i] == key) {
+            return static_cast<int>(i);   // found: return the index
+        }
+    }
+    return -1;                            // not found
+}
+
+int main() {
+    const std::vector<int> data{4, 18, 7, 23, 9, 41};
+
+    int key = 23;
+    int pos = linear_search(data, key);
+    std::cout << "search(" << key << ") -> "
+              << (pos == -1 ? "not found" : "index " + std::to_string(pos))
+              << '\n';
+
+    key = 5;
+    pos = linear_search(data, key);
+    std::cout << "search(" << key << ") -> "
+              << (pos == -1 ? "not found" : "index " + std::to_string(pos))
+              << '\n';
+}` },
+        { type: "code", title: "Actual output", language: "text", code: String.raw`search(23) -> index 3
+search(5) -> not found` },
+        { type: "h3", text: "Cost" },
+        { type: "table", caption: "Linear search (source pp. 27–29, 53)", head: ["Case", "Input", "Comparisons", "Bound"], rows: [
+          ["Best", "Key at the first position", "1", "O(1)"],
+          ["Worst", "Key at the last position or absent", "n", "O(n)"],
+          ["Average", "Key equally likely in any position", "(n+1)/2", "O(n)"]
+        ] },
+        { type: "p", text: "A sorted array does **not** improve the worst-case analysis of linear search: you can stop early when you pass the key’s value, but the key may be absent or last, so the worst case is still O(n). The way to exploit sorted order is binary search." }
+      ]
+    },
+    {
+      id: "binary-search",
+      title: "Binary search",
+      pages: "Slides 31–43; supplement pp. 5–10",
+      blocks: [
+        { type: "p", text: "Binary search is like looking up a word in a dictionary: start in the middle, then keep the half that can contain the target. It requires the array to be **sorted**. Inspect the middle element; if it is the key, stop. If the key is smaller, continue in the left half; if larger, continue in the right half." },
+        { type: "p", text: "On each step, compute `mid = (low + high) / 2`, compare `A[mid]` with the key, and move either `low` or `high` inward. The loop stops when the key is found, or when `low > high`, which means the search space is empty." },
+        { type: "h3", text: "Successful search: 44" },
+        { type: "table", caption: "Array [5, 12, 17, 23, 38, 44, 77, 84, 90], indices 0–8 (source pp. 34–36)", head: ["Step", "low", "high", "mid", "A[mid]", "Decision"], rows: [
+          ["1", "0", "8", "4", "38", "38 < 44 → low = 5"],
+          ["2", "5", "8", "6", "77", "44 < 77 → high = 5"],
+          ["3", "5", "5", "5", "44", "44 == 44 → found at index 5"]
+        ] },
+        { type: "h3", text: "Unsuccessful search: 45" },
+        { type: "table", caption: "The same array, searching for an absent key (source pp. 37–40)", head: ["Step", "low", "high", "mid", "A[mid]", "Decision"], rows: [
+          ["1", "0", "8", "4", "38", "38 < 45 → low = 5"],
+          ["2", "5", "8", "6", "77", "45 < 77 → high = 5"],
+          ["3", "5", "5", "5", "44", "44 < 45 → low = 6"],
+          ["4", "6", "5", "—", "—", "low > high → not found"]
+        ] },
+        { type: "code", title: "Iterative and recursive binary search", language: "cpp", verified: "MSVC 19.44 · /std:c++17 /EHsc", code: String.raw`#include <iostream>
+#include <string>
+#include <vector>
+
+// Iterative version. Returns the index, or -1 if the key is absent.
+int binary_search(const std::vector<int>& a, int key, int& comparisons) {
+    int low = 0;
+    int high = static_cast<int>(a.size()) - 1;
+    comparisons = 0;
+
+    while (low <= high) {
+        int mid = low + (high - low) / 2;   // avoids low + high overflow
+        ++comparisons;
+        if (a[mid] == key) {
+            return mid;
+        } else if (a[mid] < key) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+    return -1;
+}
+
+int helper(const std::vector<int>& a, int low, int high, int key, int& comparisons) {
+    if (low > high) {
+        return -1;
+    }
+    int mid = low + (high - low) / 2;
+    ++comparisons;
+    if (a[mid] == key) return mid;
+    if (a[mid] < key) return helper(a, mid + 1, high, key, comparisons);
+    return helper(a, low, mid - 1, key, comparisons);
+}
+
+int binary_search_recursive(const std::vector<int>& a, int key, int& comparisons) {
+    comparisons = 0;
+    return helper(a, 0, static_cast<int>(a.size()) - 1, key, comparisons);
+}
+
+int main() {
+    const std::vector<int> data{5, 12, 17, 23, 38, 44, 77, 84, 90};
+
+    for (int key : {44, 45}) {
+        int iterative_comparisons = 0;
+        int recursive_comparisons = 0;
+        int i1 = binary_search(data, key, iterative_comparisons);
+        int i2 = binary_search_recursive(data, key, recursive_comparisons);
+        std::cout << "search(" << key << "): "
+                  << (i1 == -1 ? "not found" : "index " + std::to_string(i1))
+                  << ", iterative comparisons=" << iterative_comparisons
+                  << ", recursive comparisons=" << recursive_comparisons
+                  << ", recursive index=" << i2 << '\n';
+    }
+}` },
+        { type: "code", title: "Actual output", language: "text", code: String.raw`search(44): index 5, iterative comparisons=3, recursive comparisons=3, recursive index=5
+search(45): not found, iterative comparisons=3, recursive comparisons=3, recursive index=-1` },
+        { type: "h3", text: "Why O(log n)?" },
+        { type: "p", text: "After one bisection, at most N/2 items remain; after two, N/4 = N/2²; after i bisections, N/2ⁱ. The search space collapses to one item when N/2ⁱ = 1, so i = log₂ N. The worst case is therefore O(log n)." },
+        { type: "table", caption: "Binary search cases (supplement p. 9)", head: ["Case", "Input", "Bound"], rows: [
+          ["Best", "Target is the first inspected middle element", "O(1)"],
+          ["Worst", "Target is absent", "O(log n)"],
+          ["Average", "Statistical analysis beyond this course", "O(log n)"]
+        ] },
+        { type: "callout", tone: "warn", title: "Precondition first", text: "Binary search on unsorted data is meaningless: the comparison tells you which half *would* contain the key only if the array is sorted. If the data is unsorted, you must sort it first — and the sort may cost more than the search saves." },
+        { type: "note", text: "The source’s iterative code prints “found at position” but does not return; the cleaned version returns the index so it can be tested. The recursive version follows the supplement’s pseudocode (pp. 10)." }
+      ]
+    },
+    {
+      id: "comparison",
+      title: "Comparing the simple algorithms",
+      pages: "Slides 25, 41–43; supplement pp. 5–10",
+      blocks: [
+        { type: "p", text: "All three simple sorts use nested loops and perform approximately n² comparisons in the worst case; they are relatively inefficient on large inputs. Their constant factors and adaptivity differ, and those differences matter on small or nearly sorted data." },
+        { type: "table", caption: "Cost summary (source and supplement)", head: ["Algorithm", "Best", "Average", "Worst", "Extra space", "Notes"], rows: [
+          ["Insertion sort", "Θ(n)", "Θ(n²)", "Θ(n²)", "Θ(1)", "Adaptive; good on nearly sorted data; stable implementation above"],
+          ["Selection sort", "Θ(n²)", "Θ(n²)", "Θ(n²)", "Θ(1)", "At most n−1 swaps; not adaptive"],
+          ["Bubble sort", "Θ(n) with early exit", "Θ(n²)", "Θ(n²)", "Θ(1)", "Simplest to explain; many swaps"],
+          ["Linear search", "O(1)", "O(n)", "O(n)", "Θ(1)", "Works on unsorted data"],
+          ["Binary search", "O(1)", "O(log n)", "O(log n)", "Θ(1) iterative", "Requires sorted data"]
+        ] },
+        { type: "callout", tone: "info", title: "A sorting-plus-searching decision", text: "If you will search the same collection many times, sorting once to unlock O(log n) search can pay for itself. If you search once, sorting first may cost more than a single O(n) linear scan." },
+        { type: "h3", text: "Worked comparison: 32 unsorted items" },
+        { type: "p", text: "The alternate deck asks: with 32 unsorted data items, how many comparisons does each strategy need in the worst case?" },
+        { type: "table", caption: "Source: “ch-2.pdf”, p. 13", head: ["Strategy", "Comparisons", "Result"], rows: [
+          ["Sequential search", "n", "32"],
+          ["Sort with a simple sort, then binary search", "n(n−1)/2 + log₂ n", "16·31 + 5 = 501"],
+          ["Binary search when the data is already sorted", "log₂ 32", "5"]
+        ] },
+        { type: "p", text: "The middle row is the crucial one: sorting first is a large upfront cost. It is justified only when the sorted order is reused." },
+        { type: "callout", tone: "warn", title: "What the table ignores", text: "The n(n−1)/2 count is the worst-case comparison count for the simple sorts. It does not include swaps or memory writes, and it assumes an O(1)-space sort. Real performance also depends on cache behavior and constant factors." }
+      ]
+    }
+  ],
+  checks: [
+    {
+      id: "ch2-check-1",
+      type: "mcq",
+      question: "Which statement describes internal sorting?",
+      options: [
+        "It uses only primary memory and holds all data items in main memory.",
+        "It always uses a hard disk because the data is too large for RAM.",
+        "It is based on merging separately sorted parts.",
+        "It only works on linked lists."
+      ],
+      correct: 0,
+      explanation: "Slide 3: internal sorting uses only primary memory; all data items are held in main memory and no secondary memory is required. External sorting uses secondary storage and merging."
+    },
+    {
+      id: "ch2-check-2",
+      type: "mcq",
+      question: "After pass i of insertion sort, what is true?",
+      options: [
+        "The last i elements are sorted.",
+        "The elements that occupied positions 0..i are still in those positions and are in sorted order.",
+        "The whole array is sorted.",
+        "The largest element is at the end."
+      ],
+      correct: 1,
+      explanation: "The supplement states that at the end of pass i, A[0]…A[i] are still the original elements in those positions and are sorted. The suffix remains unsorted."
+    },
+    {
+      id: "ch2-check-3",
+      type: "mcq",
+      question: "What is the best-case running time of the insertion sort implementation in this chapter?",
+      options: [
+        "Θ(1)",
+        "Θ(log n)",
+        "Θ(n)",
+        "Θ(n²)"
+      ],
+      correct: 2,
+      explanation: "On already sorted data, each new key is compared once and stays in place: n−1 comparisons, Θ(n). The worst and average cases are Θ(n²)."
+    },
+    {
+      id: "ch2-check-4",
+      type: "mcq",
+      question: "How many comparisons does selection sort perform on an array of n elements, regardless of the input order?",
+      options: [
+        "n − 1",
+        "n log n",
+        "n(n − 1) / 2",
+        "n² / 2 + n"
+      ],
+      correct: 2,
+      explanation: "The inner loop runs n−1, n−2, …, 1 times: (n−1) + (n−2) + … + 1 = n(n−1)/2. Selection sort is not adaptive, so this holds for every input."
+    },
+    {
+      id: "ch2-check-5",
+      type: "mcq",
+      question: "Starting from 9, 6, 2, 12, 11, 9, 3, 7, what is the array after the first bubble-sort pass?",
+      options: [
+        "2, 6, 9, 9, 3, 7, 11, 12",
+        "6, 2, 9, 11, 9, 3, 7, 12",
+        "6, 2, 9, 11, 9, 7, 3, 12",
+        "9, 6, 2, 11, 9, 3, 7, 12"
+      ],
+      correct: 1,
+      explanation: "Slides 17–19: the 12 bubbles to the end, producing 6, 2, 9, 11, 9, 3, 7, 12. The largest value is now in its final position."
+    },
+    {
+      id: "ch2-check-6",
+      type: "mcq",
+      question: "In the worst case, how many comparisons does the standard bubble sort (no early exit) perform?",
+      options: [
+        "n − 1",
+        "n(n − 1) / 2",
+        "n log₂ n",
+        "2n"
+      ],
+      correct: 1,
+      explanation: "Comparisons are (n−1) + (n−2) + … + 1 = n(n−1)/2, which is O(n²). The slide gives the same sum for comparisons and swaps."
+    },
+    {
+      id: "ch2-check-7",
+      type: "true-false",
+      question: "Binary search can be applied directly to an unsorted array and still return the correct index.",
+      correct: false,
+      explanation: "Binary search requires sorted data. Without order, discarding half of the array based on a comparison is not valid. You must sort first, or use linear search."
+    },
+    {
+      id: "ch2-check-8",
+      type: "mcq",
+      question: "In the array [5, 12, 17, 23, 38, 44, 77, 84, 90], how many comparisons does binary search make when searching for 44?",
+      options: [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      correct: 2,
+      explanation: "Slides 34–36: mid = 4 (38), then mid = 6 (77), then mid = 5 (44). Three comparisons, found at index 5."
+    },
+    {
+      id: "ch2-check-9",
+      type: "mcq",
+      question: "Searching for 45 in the same array ends with:",
+      options: [
+        "Found at index 5",
+        "Found at index 6",
+        "low > high, so the key is not present (4 comparisons)",
+        "An infinite loop"
+      ],
+      correct: 2,
+      explanation: "Slides 37–40: after three comparisons the algorithm sets low = 6 while high = 5. Since low > high, the search stops; 45 is absent. The fourth comparison is the failed loop condition check in the slide’s count."
+    },
+    {
+      id: "ch2-check-10",
+      type: "mcq",
+      question: "With 32 unsorted items, a simple sort followed by binary search takes how many comparisons in the worst case (using the deck’s formula)?",
+      options: [
+        "32",
+        "5",
+        "16·31 + 5 = 501",
+        "32² = 1,024"
+      ],
+      correct: 2,
+      explanation: "“ch-2.pdf” p. 13: n(n−1)/2 + log₂ n = 32/2·(32−1) + log₂ 32 = 16·31 + 5 = 501."
+    }
+  ],
+  exercises: [
+    {
+      id: "ch2-ex-1",
+      title: "Trace insertion sort",
+      prompt: "Show the array after every insertion pass for `[7, 2, 9, 1, 5]`. Use a vertical bar to separate the sorted prefix from the unsorted suffix.",
+      hint: "Start with the first element as a one-element sorted prefix. Insert 2, then 9, then 1, then 5.",
+      solution: "Start:        `7 | 2 9 1 5`\nInsert 2:     `2 7 | 9 1 5`\nInsert 9:     `2 7 9 | 1 5`\nInsert 1:     `1 2 7 9 | 5`\nInsert 5:     `1 2 5 7 9 |`\n\nComparisons: 1 (2<7), 1 (9>7), 3 (1<9, 1<7, 1<2), 2 (5<9, 5<7) = 7 comparisons. The result is [1, 2, 5, 7, 9]."
+    },
+    {
+      id: "ch2-ex-2",
+      title: "Trace selection sort",
+      prompt: "Show the array after every pass of selection sort on `[5, 1, 4, 2, 8]`, listing the minimum selected on each pass.",
+      hint: "On pass i, find the minimum in positions i..4 and swap it into position i.",
+      solution: "Start:        [5, 1, 4, 2, 8]\ni=0: min 1 at index 1 → swap with 5 → [1, 5, 4, 2, 8]\ni=1: min 2 at index 3 → swap with 5 → [1, 2, 4, 5, 8]\ni=2: min 4 at index 2 → no change → [1, 2, 4, 5, 8]\ni=3: min 5 at index 3 → no change → [1, 2, 4, 5, 8]\ni=4: min 8 at index 4 → no change → [1, 2, 4, 5, 8]\n\nTotal comparisons: 4 + 3 + 2 + 1 + 0 = 10 = n(n−1)/2 for n = 5."
+    },
+    {
+      id: "ch2-ex-3",
+      title: "Bubble passes and comparison count",
+      prompt: "Apply bubble sort with the early-exit flag to `[4, 2, 7, 1, 3]`. Show the array after each pass and count the comparisons. On which pass does the algorithm stop?",
+      hint: "After each pass, one more element at the end is final. Stop when a pass makes no swaps.",
+      solution: "Start:  [4, 2, 7, 1, 3]\nPass 1: compare (4,2) swap → [2,4,7,1,3]; (4,7) no; (7,1) swap → [2,4,1,7,3]; (7,3) swap → [2,4,1,3,7] — 4 comparisons.\nPass 2: (2,4) no; (4,1) swap → [2,1,4,3,7]; (4,3) swap → [2,1,3,4,7] — 3 comparisons.\nPass 3: (2,1) swap → [1,2,3,4,7]; (2,3) no; (3,4) no — 3 comparisons, one swap.\nPass 4: (1,2) no; (2,3) no; (3,4) no — 3 comparisons, no swaps → stop.\n\nTotal comparisons: 4 + 3 + 3 + 3 = 13. Without early exit, the standard loops would use 4 + 3 + 2 + 1 = 10 comparisons; the sliding upper bound in this trace differs because the early exit is checked after each full pass. Array is [1, 2, 3, 4, 7]."
+    },
+    {
+      id: "ch2-ex-4",
+      title: "Binary search traces",
+      prompt: "Using [5, 12, 17, 23, 38, 44, 77, 84, 90], trace binary search for 23 and for 90. Give low, high, mid, and the comparison at each step, and state the number of comparisons.",
+      hint: "mid = (low + high) / 2 using integer division. Move low to mid+1 when A[mid] < key, otherwise high to mid−1.",
+      solution: "Search 23:\nstart low=0, high=8 → mid=4, A[4]=38, 38>23 → high=3 (comparison 1)\nlow=0, high=3 → mid=1, A[1]=12, 12<23 → low=2 (comparison 2)\nlow=2, high=3 → mid=2, A[2]=23 → found at index 2 (comparison 3)\nTotal: 3 comparisons.\n\nSearch 90:\nlow=0, high=8 → mid=4, A[4]=38, 38<90 → low=5 (1)\nlow=5, high=8 → mid=6, A[6]=77, 77<90 → low=7 (2)\nlow=7, high=8 → mid=7, A[7]=84, 84<90 → low=8 (3)\nlow=8, high=8 → mid=8, A[8]=90 → found at index 8 (4)\nTotal: 4 comparisons."
+    },
+    {
+      id: "ch2-ex-5",
+      title: "The three-sort practice problem",
+      prompt: "Consider [22, 11, 34, −5, 3, 40, 9, 16, 6]. Give the array after (a) 3 passes of bubble sort, (b) 5 passes of insertion sort, and (c) 4 passes of selection sort. This is the practice problem from the local “sorting” deck, p. 26.",
+      hint: "Bubble sort places the largest remaining value at the end of each pass. Insertion sort grows a sorted prefix. Selection sort repeatedly places the minimum at the front.",
+      solution: "(a) Bubble sort after 3 passes:\npass 1: [11, 22, −5, 3, 34, 9, 16, 6, 40]\npass 2: [11, −5, 3, 22, 9, 16, 6, 34, 40]\npass 3: [−5, 3, 11, 9, 16, 6, 22, 34, 40]\n\n(b) Insertion sort after 5 passes (the prefix of length 6 is sorted):\npass 1: [11, 22, 34, −5, 3, 40, 9, 16, 6]\npass 2: [11, 22, 34, −5, 3, 40, 9, 16, 6]\npass 3: [−5, 11, 22, 34, 3, 40, 9, 16, 6]\npass 4: [−5, 3, 11, 22, 34, 40, 9, 16, 6]\npass 5: [−5, 3, 11, 22, 34, 40, 9, 16, 6]\n\n(c) Selection sort after 4 passes:\npass 1: [−5, 11, 34, 22, 3, 40, 9, 16, 6]\npass 2: [−5, 3, 34, 22, 11, 40, 9, 16, 6]\npass 3: [−5, 3, 9, 22, 11, 40, 34, 16, 6]\npass 4: [−5, 3, 9, 6, 11, 40, 34, 16, 22]"
+    },
+    {
+      id: "ch2-ex-6",
+      title: "The 32-item comparison exercise",
+      prompt: "Suppose you have 32 unsorted data items. (a) How many comparisons does sequential search make in the worst case? (b) How many comparisons does a simple sort followed by binary search make in the worst case? (c) How many comparisons does binary search make if the data is already sorted? This is the exercise from “ch-2.pdf”, p. 13.",
+      hint: "Use n(n−1)/2 for the simple sort and log₂ 32 = 5 for binary search.",
+      solution: "(a) Sequential search in the worst case examines all 32 items: 32 comparisons.\n\n(b) Simple sort: n(n−1)/2 = 32·31/2 = 16·31 = 496 comparisons. Binary search: log₂ 32 = 5 comparisons in the worst case. Total = 496 + 5 = 501 comparisons.\n\n(c) If the data is already sorted, only the binary search is needed: 5 comparisons."
+    }
+  ],
+  summary: [
+    "Sorting arranges elements by an order relation; searching locates a key or reports that it is absent.",
+    "Internal sorts work in main memory; external sorts use secondary storage and merging.",
+    "Insertion sort grows a sorted prefix and is Θ(n) on sorted input, Θ(n²) on average and in the worst case.",
+    "Selection sort repeatedly places the minimum at the front and is Θ(n²) on every input, with at most n−1 swaps.",
+    "Bubble sort swaps adjacent out-of-order pairs; it is Θ(n²) in general, and Θ(n) on sorted input with an early-exit flag.",
+    "Linear search works on unsorted data in O(n) worst-case time.",
+    "Binary search requires sorted data and runs in O(log n) worst-case time by halving the search space.",
+    "Sorting once can make repeated searches cheaper, but the upfront O(n²) cost must be justified by reuse."
+  ],
+  keyTerms: [
+    { term: "Internal sort", definition: "A sort that keeps all data in primary memory." },
+    { term: "External sort", definition: "A sort that uses secondary storage and merges separately sorted runs." },
+    { term: "Key", definition: "The value a search is looking for; the method returns its index or −1." },
+    { term: "Pass", definition: "One complete scan of the unsorted portion of the array." },
+    { term: "Adaptive", definition: "An algorithm whose running time improves on favorable input; insertion sort is adaptive." },
+    { term: "Early exit", definition: "Stopping bubble sort when a pass makes no exchanges." },
+    { term: "Bisection", definition: "Halving the search interval in binary search." },
+    { term: "Precondition", definition: "A condition that must hold before an algorithm is valid; binary search requires sorted data." }
+  ],
+  next: "chapter-03"
+});

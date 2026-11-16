@@ -1,0 +1,936 @@
+/* Course Chapter 3 — Lists and Linked Lists.
+   Grounded in the canonical AASTU SWEG 3103 Chapter 3 deck
+   ("Chapter 3 - Linked Lists.pdf", pages 2–56). The PPTX export is the same
+   deck with template slides, so citations use the PDF page numbers.
+   Original C++ examples are authored for this academy and compiled locally. */
+
+(window.COURSE_CHAPTERS = window.COURSE_CHAPTERS || []).push({
+  id: "chapter-03",
+  number: 3,
+  title: "Lists and Linked Lists",
+  shortTitle: "Linked Lists",
+  subtitle: "The List ADT, array-based lists, singly and doubly linked lists — and the cost of choosing between them.",
+  source: {
+    document: "Chapter 3 - Linked Lists.pdf",
+    author: "Eleni T., AASTU",
+    pages: "2–56",
+    note: "Canonical Week 5 deck. Page numbers below refer to this PDF; the PPTX export duplicates the same slides with template pages."
+  },
+  minutes: 120,
+  objectives: [
+    "Define the List ADT and its current-position operations.",
+    "Explain virtual and pure-virtual functions and why the List ADT is an abstract class.",
+    "Implement an array-based list and explain why insertion and deletion shift elements.",
+    "Build and traverse a singly linked list of dynamically allocated nodes.",
+    "Implement the three insertion cases and the three deletion cases for a singly linked list.",
+    "Compare arrays and singly linked lists by operation cost.",
+    "Describe the node layout and link updates of a doubly linked list.",
+    "Recognize the applications of linked lists named in the chapter."
+  ],
+  sections: [
+    {
+      id: "list-adt",
+      title: "Lists and the List ADT",
+      pages: "Pages 2–6, 9–11",
+      blocks: [
+        { type: "p", text: "Some applications must process data in strict **chronological order** — either in the order the objects arrived, or in the reverse of that order. A simple list structure is the natural fit for both." },
+        { type: "p", text: "A **list** is a finite, ordered sequence of data items called **elements**. Each element has a **position**: first element, second element, and so on. The notation is `<a₀, a₁, …, aₙ₋₁>`." },
+        { type: "callout", tone: "source", title: "“Ordered” means positions, not values (p. 3)", text: "A list is ordered because its positions are ordered. The values themselves need not be in ascending order. An unsorted list is still an ordered sequence: element 0 comes before element 1." },
+        { type: "p", text: "The **empty list** contains no elements. The **length** is the number of elements currently stored. The beginning is the **head**; the end is the **tail**." },
+        { type: "table", caption: "Two kinds of list (p. 5)", head: ["Kind", "Relationship between position and value"], rows: [
+          ["Sorted list", "Elements are positioned in ascending order of value."],
+          ["Unsorted list", "There is no necessary relationship between element values and positions."]
+        ] },
+        { type: "h3", text: "A current position" },
+        { type: "p", text: "The implementation in this chapter supports a **current position** in addition to the head and tail. The basic operations are: add, find, and delete an element anywhere; move to the next or previous element; clear (reinitialize) the list; and test whether it is empty." },
+        { type: "h3", text: "Static versus dynamic data structures (p. 7–8)" },
+        { type: "p", text: "The slides distinguish two broad families of data structures by their memory allocation. **Static data structures** are defined and allocated before execution, so their size cannot be changed during execution; the slide’s example is the **array-based list**. **Dynamic data structures** can grow and shrink in size during execution, or permit discarding unwanted memory — the slide’s example is the **linked list** implementation." },
+        { type: "h3", text: "The List ADT as an abstract class" },
+        { type: "p", text: "The slides define the List ADT with C++ **abstract-class** notation. An abstract class does not specify how its operations are implemented, and it cannot be instantiated. Every concrete list implementation must provide the operations." },
+        { type: "code", title: "The List ADT contract (source pp. 9–10, cleaned to standard C++ syntax)", language: "cpp", code: String.raw`// datatype stands for the element type chosen by the application.
+class List {
+public:
+    virtual ~List() = default;
+
+    virtual void clear() = 0;                 // remove all objects
+    virtual bool insert(datatype item) = 0;    // insert at current position
+    virtual bool append(datatype item) = 0;    // insert at the tail
+    virtual bool remove() = 0;                // remove current element
+    virtual void setStart() = 0;              // set position to first
+    virtual void setEnd() = 0;                // set position to last
+    virtual void prev() = 0;                  // move to previous position
+    virtual void next() = 0;                  // move to next position
+    virtual int length() = 0;                 // number of elements
+    virtual bool setPos(int pos) = 0;         // set current position
+    virtual bool getValue(datatype& out) = 0; // return current value
+    virtual void print() = 0;                 // print all elements
+};` },
+        { type: "p", text: "The source writes `getValue()` with no parameter and assumes an output variable; the version above passes the result through a reference so the return value can report success or failure. That is a small interface cleanup, not a change in the ADT." },
+        { type: "h3", text: "Insert is relative to the current position" },
+        { type: "p", text: "Suppose the list is `(12, 32, 15)` and the current element is `32`. Calling `insert(99)` places the new item **before** the current element, giving `(12, 99, 32, 15)`." },
+        { type: "table", caption: "The source example (p. 11)", head: ["Operation", "Current element", "Resulting list"], rows: [
+          ["Start", "32", "`(12, 32, 15)`"],
+          ["`insert(99)`", "32", "`(12, 99, 32, 15)`"]
+        ] },
+        { type: "p", text: "The deck also sketches a traversal loop. Its `length() > 0` condition is schematic, not a correct termination test: the list length does not change as the current position advances. A real traversal must stop when the position reaches the length." },
+        { type: "callout", tone: "info", title: "One ADT, several implementations (p. 12)", text: "The slides introduce two standard implementations: the **array-based list** and the **linked list**. Different applications use the operations with different frequencies, so more than one implementation is justified." }
+      ]
+    },
+    {
+      id: "virtual-functions",
+      title: "Virtual and pure-virtual functions",
+      pages: "Pages 7–8",
+      blocks: [
+        { type: "p", text: "The List ADT is written with `virtual` functions. A **virtual function** lets a base-class pointer or reference call the version defined by the object’s actual (dynamic) type, not the version chosen from the pointer’s declared type." },
+        { type: "p", text: "In the source example, `Drink` declares `virtual void pour()`, and `milk` overrides it. The pointer `D1` has declared type `Drink*` but points at a `milk` object, so `D1->pour()` prints “Milk poured.”" },
+        { type: "code", title: "Compile-and-run check", language: "cpp", verified: "MSVC 19.44 · /std:c++17 /EHsc", code: String.raw`#include <iostream>
+
+class Drink {
+public:
+    virtual ~Drink() = default;
+    virtual void pour() const {          // virtual: has a body
+        std::cout << "Drink poured.\n";
+    }
+};
+
+class Milk : public Drink {
+public:
+    void pour() const override {         // overrides the base version
+        std::cout << "Milk poured.\n";
+    }
+};
+
+// Pure virtual: no body, so Vessel cannot be instantiated.
+class Vessel {
+public:
+    virtual ~Vessel() = default;
+    virtual void fill() const = 0;
+};
+
+class Cup : public Vessel {
+public:
+    void fill() const override {
+        std::cout << "Cup filled.\n";
+    }
+};
+
+int main() {
+    Drink drink;
+    Milk milk;
+
+    Drink* d1 = &drink;                  // static type Drink, dynamic type Drink
+    Drink* d2 = &milk;                   // static type Drink, dynamic type Milk
+    d1->pour();
+    d2->pour();
+
+    // Vessel v;                         // error: abstract class
+    Cup cup;
+    Vessel* v = &cup;
+    v->fill();
+}` },
+        { type: "code", title: "Actual output", language: "text", code: String.raw`Drink poured.
+Milk poured.
+Cup filled.` },
+        { type: "p", text: "Replacing the body of `pour()` with `= 0` makes it a **pure virtual function**. The class then has at least one unimplemented operation, so it is **abstract**: it cannot be instantiated, and every derived concrete class must override the pure virtual function." },
+        { type: "callout", tone: "source", title: "Why the ADT is abstract (p. 8)", text: "`virtual void pour() = 0;` states that every drink can be poured, but the base class does not say how. This is exactly the List ADT’s situation: the contract lists `insert`, `remove`, and the other operations, while each implementation supplies the bodies." },
+        { type: "note", text: "The source examples do not declare destructors. The compiled versions add `virtual ~Drink()` and `virtual ~Vessel()` because deleting a derived object through a base pointer without a virtual destructor is undefined behavior. This is standard C++ practice, not a claim from the slide." }
+      ]
+    },
+    {
+      id: "array-list",
+      title: "Array-based list implementation",
+      pages: "Pages 12–16",
+      blocks: [
+        { type: "p", text: "An **array-based list** stores its elements in contiguous memory and tracks the maximum capacity, the current number of elements, and the current position. It is the first of the two standard implementations." },
+        { type: "p", text: "Inserting at the head requires shifting every existing element one position toward the tail to open a gap. That shift is the defining cost of the array representation: **Θ(n)** in the worst case." },
+        { type: "diagram", title: "Insert at the head shifts the whole array", text: String.raw`before:  [ 12 | 32 | 15 |    |    ]   listSize = 3
+insert 99 at position 0
+after:   [ 99 | 12 | 32 | 15 |    ]   listSize = 4
+                 ^    ^    ^
+                 each existing element moved one slot right` },
+        { type: "p", text: "The class keeps four data members: `maxSize`, `listSize`, `curr`, and a pointer to the dynamically allocated `listArray`. The constructor allocates the array; the destructor releases it; `clear()` deletes and reallocates the array and resets the counters." },
+        { type: "code", title: "Array-based list — cleaned-up, compiled C++17 version of the slide class", language: "cpp", verified: "MSVC 19.44 · /std:c++17 /EHsc", code: String.raw`#include <iostream>
+
+class AList {
+public:
+    explicit AList(int maxSize)
+        : maxSize(maxSize), listSize(0), curr(0),
+          listArray(new int[maxSize]) {}
+
+    ~AList() { delete[] listArray; }
+
+    AList(const AList&) = delete;
+    AList& operator=(const AList&) = delete;
+
+    void clear() {
+        delete[] listArray;
+        listArray = new int[maxSize];
+        listSize = curr = 0;
+    }
+
+    void setStart() { curr = 0; }
+    void setEnd() { curr = listSize; }
+    void prev() { if (curr > 0) --curr; }
+    void next() { if (curr < listSize) ++curr; }
+    int length() const { return listSize; }
+
+    bool setPos(int pos) {
+        if (pos >= 0 && pos <= listSize) {
+            curr = pos;
+            return true;
+        }
+        return false;
+    }
+
+    bool getValue(int& out) const {
+        if (curr < 0 || curr >= listSize) return false;
+        out = listArray[curr];
+        return true;
+    }
+
+    bool insert(int item) {
+        if (listSize == maxSize) return false;
+        for (int i = listSize; i > curr; --i) {
+            listArray[i] = listArray[i - 1];   // shift toward the tail
+        }
+        listArray[curr] = item;
+        ++listSize;
+        return true;
+    }
+
+    bool append(int item) {
+        if (listSize == maxSize) return false;
+        listArray[listSize++] = item;
+        return true;
+    }
+
+    bool remove() {
+        if (curr < 0 || curr >= listSize) return false;
+        for (int i = curr; i < listSize - 1; ++i) {
+            listArray[i] = listArray[i + 1];   // close the gap
+        }
+        --listSize;
+        return true;
+    }
+
+    void print() const {
+        std::cout << '(';
+        for (int i = 0; i < listSize; ++i) {
+            if (i) std::cout << ", ";
+            std::cout << listArray[i];
+        }
+        std::cout << ")\n";
+    }
+
+private:
+    int maxSize;
+    int listSize;
+    int curr;
+    int* listArray;
+};
+
+int main() {
+    AList list(8);
+    list.append(12);
+    list.append(32);
+    list.append(15);
+    std::cout << "after appends:   ";
+    list.print();
+
+    list.setPos(1);          // current element is 32
+    list.insert(99);         // insert before the current element
+    std::cout << "after insert 99: ";
+    list.print();
+
+    list.setPos(0);
+    list.remove();
+    std::cout << "after remove:    ";
+    list.print();
+}` },
+        { type: "code", title: "Actual output", language: "text", code: String.raw`after appends:   (12, 32, 15)
+after insert 99: (12, 99, 32, 15)
+after remove:    (99, 32, 15)` },
+        { type: "table", caption: "Array-based list costs", head: ["Operation", "Cost", "Reason"], rows: [
+          ["Index / access at position k", "Θ(1)", "Address arithmetic reaches the cell directly"],
+          ["Append at the tail", "Θ(1)", "Write at `listSize` if capacity remains"],
+          ["Insert at the head", "Θ(n)", "Shift all n existing elements one slot right"],
+          ["Insert at the current position", "O(n)", "Shift the elements after the gap"],
+          ["Remove at the current position", "O(n)", "Shift the elements after the gap left"],
+          ["Clear", "Θ(n) to delete, Θ(maxSize) to reallocate", "The backing array is replaced"]
+        ] },
+        { type: "callout", tone: "warn", title: "Capacity is a hard limit", text: "`insert` and `append` return `false` when `listSize == maxSize`. Growing the list requires allocating a larger array and copying every element — another Θ(n) operation. A linked list avoids this particular limit." },
+        { type: "note", text: "Cleanups from the slide code: `datatype` becomes `int`; `getValue` returns through a reference; `next()` tests `curr < listSize` rather than `curr <= listSize`; and the copy constructor is disabled so two lists cannot double-delete the same array. The insert/remove loops match the slide exactly." }
+      ]
+    },
+    {
+      id: "linked-nodes",
+      title: "Linked lists: nodes, pointers, and dynamic memory",
+      pages: "Pages 17–25",
+      blocks: [
+        { type: "p", text: "The second implementation uses **pointers** and is called a **linked list**. Instead of one contiguous block, it allocates memory for each new element as needed — **dynamic memory allocation** — and connects the elements with links." },
+        { type: "p", text: "A linked list is a series of objects called **nodes**. Each node has two parts: a **data part** holding the element, and a **link part** holding the address of another node. The link is a pointer." },
+        { type: "diagram", title: "A singly linked list (source p. 22)", text: String.raw`start
+  |
+  v
++------+------+    +------+------+    +------+------+    +------+------+
+|  a   | next | -> |  b   | next | -> |  c   | next | -> |  d   | NULL |
++------+------+    +------+------+    +------+------+    +------+------+
+ data   link        data   link        data   link        data   link` },
+        { type: "p", text: "Because a list node is a distinct object rather than a cell in an array, the slides recommend making it a separate structure or class. A **structure** groups variables of different types under one name. A **pointer** stores the memory address of another variable or object and is declared as `datatype* name;`." },
+        { type: "code", title: "The node type and the header pointer (source pp. 24–25)", language: "cpp", code: String.raw`struct Node {
+    int data;        // the element
+    Node* next;      // address of the next node
+};
+
+Node* start = nullptr;   // points at the first node; null means empty` },
+        { type: "p", text: "The **header pointer** `start` points at the first node. In a **singly linked list (SLL)**, each node has exactly one link, containing the address of the next node. The last node’s link contains `NULL` (`nullptr` in modern C++), which marks the end of the list." },
+        { type: "table", caption: "The two basic linked-list types (pp. 20–21)", head: ["Type", "Links per node", "Traversal"], rows: [
+          ["Singly linked list", "One: next", "Forward only"],
+          ["Doubly linked list", "Two: next and previous", "Forward and backward"]
+        ] },
+        { type: "callout", tone: "info", title: "Nodes are not array cells", text: "An array cell is reached by arithmetic from the array’s base address. A node is reached only by following a pointer from another node (or from `start`). That is why a linked list gives up O(1) indexing but gains O(1) insertion and deletion once the relevant position is known." },
+        { type: "p", text: "The basic operations on a list are creating it, inserting an element, deleting an element, and searching for an element. The next two sections cover the three insertion cases and the three deletion cases for a singly linked list." }
+      ]
+    },
+    {
+      id: "sll-insert",
+      title: "Singly linked list: the three insertion cases",
+      pages: "Pages 26–33",
+      blocks: [
+        { type: "p", text: "Insertion into a singly linked list has three cases: **at the beginning**, **at the end**, and **after a particular node**. The cases differ in how many links must be changed and how far the code must walk to find the insertion point." },
+        { type: "h3", text: "Case 1 — insertion at the beginning" },
+        { type: "p", text: "Two steps are required: make the new node’s `next` point at the current first node, then make `start` point at the new node. The order matters. If `start` is overwritten first, the address of the old first node is lost." },
+        { type: "diagram", title: "Insert at the beginning", text: String.raw`before:  start -> [ a | • ] -> [ b | NULL ]
+
+             +--------------+
+             |              v
+after:   start -> [ x | • ]    [ a | • ] -> [ b | NULL ]` },
+        { type: "p", text: "If the list is empty (`start == NULL`), there is no old first node. Simply make `start` point at the new node." },
+        { type: "h3", text: "Case 2 — insertion at the end" },
+        { type: "p", text: "Start at the first node and follow `next` until the current node’s `next` is `NULL`. That node is the last node. Set its `next` to the new node. The new node’s `next` is already `NULL`." },
+        { type: "p", text: "Because the code must walk the entire list, insertion at the end is **O(n)** when only the head pointer is stored. If the list also stores a **tail pointer**, the same operation becomes **O(1)**." },
+        { type: "h3", text: "Case 3 — insertion after a particular node" },
+        { type: "p", text: "Locate the node `q` after which the new node `p` should go, then perform two link changes: make `p->next` point at `q->next`, then make `q->next` point at `p`. Again, the first assignment must happen before the second, or the rest of the list becomes unreachable." },
+        { type: "code", title: "Complete insertion-only SLL — compiled C++17 version of the slide functions", language: "cpp", verified: "MSVC 19.44 · /std:c++17 /EHsc", code: String.raw`#include <iostream>
+
+struct Node {
+    int data;
+    Node* next;
+};
+
+class SinglyLinkedList {
+public:
+    SinglyLinkedList() : head(nullptr) {}
+
+    ~SinglyLinkedList() {
+        while (head != nullptr) {
+            Node* victim = head;
+            head = head->next;
+            delete victim;
+        }
+    }
+
+    SinglyLinkedList(const SinglyLinkedList&) = delete;
+    SinglyLinkedList& operator=(const SinglyLinkedList&) = delete;
+
+    // Case 1: insert at the beginning. O(1).
+    void insertBeginning(int value) {
+        Node* node = new Node{value, head};
+        head = node;
+    }
+
+    // Case 2: insert at the end. O(n) without a tail pointer.
+    void insertEnd(int value) {
+        Node* node = new Node{value, nullptr};
+        if (head == nullptr) {
+            head = node;
+            return;
+        }
+        Node* last = head;
+        while (last->next != nullptr) {
+            last = last->next;
+        }
+        last->next = node;
+    }
+
+    // Case 3: insert after the node holding 'after'. O(n) to locate it.
+    bool insertAfter(int after, int value) {
+        Node* q = head;
+        while (q != nullptr && q->data != after) {
+            q = q->next;
+        }
+        if (q == nullptr) return false;       // no such node
+        Node* node = new Node{value, q->next};
+        q->next = node;
+        return true;
+    }
+
+    void print(const char* label) const {
+        std::cout << label << ": ";
+        for (Node* p = head; p != nullptr; p = p->next) {
+            std::cout << p->data;
+            if (p->next != nullptr) std::cout << " -> ";
+        }
+        std::cout << " -> NULL\n";
+    }
+
+private:
+    Node* head;
+};
+
+int main() {
+    SinglyLinkedList list;
+
+    list.insertBeginning(10);
+    list.insertBeginning(20);   // 20 -> 10
+    list.insertEnd(30);         // 20 -> 10 -> 30
+    list.insertAfter(10, 15);   // 20 -> 10 -> 15 -> 30
+    list.print("built");
+}` },
+        { type: "code", title: "Actual output", language: "text", code: String.raw`built: 20 -> 10 -> 15 -> 30 -> NULL` },
+        { type: "table", caption: "Insertion costs", head: ["Case", "Cost", "Why"], rows: [
+          ["Beginning", "O(1)", "Two pointer assignments; no traversal"],
+          ["End, head pointer only", "O(n)", "Walk to the last node"],
+          ["End, tail pointer available", "O(1)", "Update tail->next and the tail pointer"],
+          ["After a known node", "O(1)", "Two pointer assignments"],
+          ["After a value (search included)", "O(n)", "Find the node first"]
+        ] },
+        { type: "callout", tone: "warn", title: "The classic pointer-order bug", text: "In `insertAfter`, writing `q->next = node` before `node->next = q->next` loses the address of the old successor. The new node then points at itself or at an arbitrary value. Always connect the new node to the rest of the list first." },
+        { type: "note", text: "The slides use a global `start` pointer and free functions such as `insert_beg(node* p)`, `insert_end(node* p)`, and `insert_after(int c, node* p)`. The compiled version packages the same logic in a class and allocates nodes with `new`. The source’s “insert after position c” loop and its prints are preserved in spirit; the value-based search above is easier to test." }
+      ]
+    },
+    {
+      id: "sll-delete",
+      title: "Singly linked list: the three deletion cases",
+      pages: "Pages 34–40",
+      blocks: [
+        { type: "p", text: "Deletion also has three cases: **the first node**, **the last node**, and **an intermediate (particular) node**. In every case the node must be unlinked from the list and then released with `delete`; otherwise the memory leaks." },
+        { type: "h3", text: "Case 1 — deleting the first node" },
+        { type: "p", text: "Save the first node in a temporary pointer, move `start` to the second node (`temp->next`), then `delete temp`. If the list is empty, report an error or return `false`." },
+        { type: "h3", text: "Case 2 — deleting the last node" },
+        { type: "p", text: "Find the **second-last** node `q` — the node whose `next->next` is `NULL` — set `q->next = NULL`, then delete the old last node. This requires a full traversal, so it is **O(n)**." },
+        { type: "callout", tone: "warn", title: "The single-node list is a special case", text: "If the list has exactly one node, there is no second-last node. The test `q->next->next` dereferences a null pointer. A correct implementation checks `head->next == NULL` first and deletes the head directly." },
+        { type: "h3", text: "Case 3 — deleting a particular node" },
+        { type: "p", text: "Find the node **before** the one to delete, call it `q`. Let `p = q->next` be the victim. Set `q->next = p->next` to bypass `p`, then `delete p`. Deleting the head does not fit this pattern because there is no predecessor, so the head case must be handled separately." },
+        { type: "code", title: "Complete SLL deletion program — compiled C++17 version", language: "cpp", verified: "MSVC 19.44 · /std:c++17 /EHsc", code: String.raw`#include <iostream>
+
+struct Node {
+    int data;
+    Node* next;
+};
+
+class SinglyLinkedList {
+public:
+    SinglyLinkedList() : head(nullptr) {}
+
+    ~SinglyLinkedList() {
+        while (head != nullptr) {
+            Node* victim = head;
+            head = head->next;
+            delete victim;
+        }
+    }
+
+    SinglyLinkedList(const SinglyLinkedList&) = delete;
+    SinglyLinkedList& operator=(const SinglyLinkedList&) = delete;
+
+    void insertEnd(int value) {
+        Node* node = new Node{value, nullptr};
+        if (head == nullptr) {
+            head = node;
+            return;
+        }
+        Node* last = head;
+        while (last->next != nullptr) {
+            last = last->next;
+        }
+        last->next = node;
+    }
+
+    // Deletion case 1: the first node. O(1).
+    bool deleteFirst() {
+        if (head == nullptr) return false;
+        Node* victim = head;
+        head = head->next;
+        delete victim;
+        return true;
+    }
+
+    // Deletion case 2: the last node. O(n).
+    bool deleteLast() {
+        if (head == nullptr) return false;
+        if (head->next == nullptr) {          // single-node list
+            delete head;
+            head = nullptr;
+            return true;
+        }
+        Node* q = head;
+        while (q->next->next != nullptr) {
+            q = q->next;
+        }
+        delete q->next;
+        q->next = nullptr;
+        return true;
+    }
+
+    // Deletion case 3: the node holding 'value'. O(n).
+    bool deleteValue(int value) {
+        if (head == nullptr) return false;
+        if (head->data == value) {            // deleting the head
+            Node* victim = head;
+            head = head->next;
+            delete victim;
+            return true;
+        }
+        Node* q = head;
+        while (q->next != nullptr && q->next->data != value) {
+            q = q->next;
+        }
+        if (q->next == nullptr) return false; // value not found
+        Node* victim = q->next;
+        q->next = victim->next;
+        delete victim;
+        return true;
+    }
+
+    void print(const char* label) const {
+        std::cout << label << ": ";
+        for (Node* p = head; p != nullptr; p = p->next) {
+            std::cout << p->data;
+            if (p->next != nullptr) std::cout << " -> ";
+        }
+        std::cout << " -> NULL\n";
+    }
+
+private:
+    Node* head;
+};
+
+int main() {
+    SinglyLinkedList list;
+    list.insertEnd(10);
+    list.insertEnd(20);
+    list.insertEnd(30);
+    list.insertEnd(40);
+    list.print("built");
+
+    list.deleteFirst();            // remove 10
+    list.print("after deleteFirst");
+    list.deleteLast();             // remove 40
+    list.print("after deleteLast");
+    list.deleteValue(20);          // remove the interior node 20
+    list.print("after deleteValue(20)");
+    list.deleteValue(99);          // not present: returns false
+    list.print("after deleteValue(99)");
+}` },
+        { type: "code", title: "Actual output", language: "text", code: String.raw`built: 10 -> 20 -> 30 -> 40 -> NULL
+after deleteFirst: 20 -> 30 -> 40 -> NULL
+after deleteLast: 20 -> 30 -> NULL
+after deleteValue(20): 30 -> NULL
+after deleteValue(99): 30 -> NULL` },
+        { type: "table", caption: "Deletion costs", head: ["Case", "Cost", "Why"], rows: [
+          ["First node", "O(1)", "Update `start` and delete"],
+          ["Last node", "O(n)", "Find the second-last node"],
+          ["Interior node, predecessor known", "O(1)", "Bypass and delete"],
+          ["Node found by value", "O(n)", "Search for the predecessor first"]
+        ] },
+        { type: "callout", tone: "warn", title: "The slide sketches are not edge-case safe", text: "`del_last` in the deck executes `q->next->next` without checking for a one-node list; `del` does not handle deleting the first node, and its `if (q == NULL)` sits inside the traversal loop after the dereference. Those sketches assume a valid interior position. The compiled program above adds the missing checks." },
+        { type: "note", text: "The deck’s `del(int c)` deletes by **position**, using a loop to find the predecessor. The compiled example deletes by **value**, which makes the tests readable. Both are O(n) because both must find the node first." }
+      ]
+    },
+    {
+      id: "arrays-vs-linked",
+      title: "Arrays versus linked lists",
+      pages: "Pages 41–42",
+      blocks: [
+        { type: "p", text: "The choice between an array-based list and a linked list is a choice about which operations matter. The slides compare the two on size flexibility, insertion and deletion, indexing, memory use, and sequential access." },
+        { type: "table", caption: "Qualitative comparison (source p. 41)", head: ["Property", "Array", "Linked list"], rows: [
+          ["Size", "Fixed size; resizing is expensive", "Dynamic size"],
+          ["Insertion / deletion", "Inefficient: elements are usually shifted", "Efficient: no shifting"],
+          ["Random access", "Efficient indexing", "No random access; not suitable for index-based operations such as sorting"],
+          ["Memory use", "Waste if the array is not full", "Allocated as needed; no unused capacity"],
+          ["Sequential access", "Faster, because elements are contiguous", "Slower, because elements are not contiguous"]
+        ] },
+        { type: "p", text: "The second table makes the trade-off precise for a singly linked list. It is the table to memorize for exams and for design reviews." },
+        { type: "table", caption: "Operation complexity: array versus SLL (source p. 42)", head: ["Operation", "Array", "Singly linked list"], rows: [
+          ["Insert at beginning", "O(n)", "O(1)"],
+          ["Insert at end", "O(1)", "O(1) with a tail reference; O(n) without one"],
+          ["Insert at middle", "O(n)", "O(n)"],
+          ["Delete at beginning", "O(n)", "O(1)"],
+          ["Delete at end", "O(1)", "O(n)"],
+          ["Delete at middle", "O(n): O(1) access + O(n) shift", "O(n): O(n) search + O(1) delete"],
+          ["Search", "O(n) linear; O(log n) binary if sorted", "O(n)"],
+          ["Indexing: element at position k", "O(1)", "O(n)"]
+        ] },
+        { type: "callout", tone: "info", title: "Read the table as a trade, not a winner", text: "The SLL wins at the front; the array wins at indexing, at the end (without a tail pointer), and on binary search when sorted. There is no universally better structure — only a better fit for a workload." },
+        { type: "callout", tone: "warn", title: "Two nuances behind the slide’s wording", text: "First, “no memory waste” refers to unused **capacity**: a linked list allocates only the nodes it needs. Each node still stores a pointer, so the per-element overhead is higher than an array’s. Second, arrays support O(1) indexing, which is why sorting and binary search are practical on arrays and awkward on singly linked lists." },
+        { type: "p", text: "This is the same lesson as Chapter 1’s bank example: choose the structure from the operation mix. If the program inserts and deletes at the front constantly, the array’s O(n) shift will dominate. If it reads `a[k]` constantly, the linked list’s O(n) walk will dominate." }
+      ]
+    },
+    {
+      id: "doubly-linked",
+      title: "Doubly linked lists",
+      pages: "Pages 43–54",
+      blocks: [
+        { type: "p", text: "A **doubly linked list (DLL)** is a linked structure of sequentially linked nodes where each node has **three fields**: the data, a link to the next node, and a link to the previous node. The beginning node’s `previous` link and the ending node’s `next` link point to a terminator — typically `NULL` or a sentinel node." },
+        { type: "code", title: "DLL node structure (source p. 46)", language: "cpp", code: String.raw`struct Node {
+    int data;
+    Node* next;
+    Node* previous;   // address of the previous node
+};` },
+        { type: "diagram", title: "Three fields per node (source p. 44)", text: String.raw`        +----------+------+----------+
+NULL <- | previous | data | next     | -> ... -> NULL
+        +----------+------+----------+
+                     ^
+              one DLL node` },
+        { type: "table", caption: "DLL compared with SLL (source p. 45)", head: ["Advantages", "Disadvantages"], rows: [
+          ["Can be traversed in either direction, which may be essential for some programs.", "Requires more space: one extra pointer per node."],
+          ["Deletion and inserting before a node become easier.", "List manipulations are slower, because more links must be changed."],
+          ["", "Greater chance of bugs, because more links must be manipulated."]
+        ] },
+        { type: "h3", text: "Insertion at the beginning" },
+        { type: "p", text: "If the list is empty, point `start` at the new node. Otherwise save the old first node in `temp`, make `start` point at the new node, set `temp->previous` to the new node, and set the new node’s `next` to `temp`." },
+        { type: "h3", text: "Insertion at the end" },
+        { type: "p", text: "If the list is empty, point `start` at the new node. Otherwise walk to the last node `temp`, set `temp->next` to the new node, and set the new node’s `previous` to `temp`." },
+        { type: "h3", text: "Insertion after a node" },
+        { type: "p", text: "Locate the node `temp` after which the new node `p` will go. Four links are involved: connect `p` to `temp->next`, connect that successor’s `previous` back to `p`, connect `temp->next` to `p`, and set `p->previous` to `temp`. Update the successor first and the predecessor last, so no link is lost." },
+        { type: "h3", text: "Deletion" },
+        { type: "p", text: "Deleting from a DLL changes **two links**: the predecessor’s `next` must bypass the victim, and the successor’s `previous` must bypass it. Deleting the first or last node is a special case because one of those neighbours is the terminator. The source’s `del_at(int c)` handles a general interior node; a robust implementation must also update `head`/`tail` when the victim is at an end." },
+        { type: "code", title: "Complete doubly linked list — compiled C++17 version", language: "cpp", verified: "MSVC 19.44 · /std:c++17 /EHsc", code: String.raw`#include <iostream>
+
+struct Node {
+    int data;
+    Node* next;
+    Node* previous;
+};
+
+class DoublyLinkedList {
+public:
+    DoublyLinkedList() : head(nullptr), tail(nullptr) {}
+
+    ~DoublyLinkedList() {
+        while (head != nullptr) {
+            Node* victim = head;
+            head = head->next;
+            delete victim;
+        }
+    }
+
+    DoublyLinkedList(const DoublyLinkedList&) = delete;
+    DoublyLinkedList& operator=(const DoublyLinkedList&) = delete;
+
+    void insertBeginning(int value) {
+        Node* node = new Node{value, head, nullptr};
+        if (head != nullptr) {
+            head->previous = node;
+        } else {
+            tail = node;
+        }
+        head = node;
+    }
+
+    void insertEnd(int value) {
+        Node* node = new Node{value, nullptr, tail};
+        if (tail != nullptr) {
+            tail->next = node;
+        } else {
+            head = node;
+        }
+        tail = node;
+    }
+
+    bool insertAfter(int after, int value) {
+        Node* q = head;
+        while (q != nullptr && q->data != after) {
+            q = q->next;
+        }
+        if (q == nullptr) return false;
+        Node* node = new Node{value, q->next, q};
+        if (q->next != nullptr) {
+            q->next->previous = node;
+        } else {
+            tail = node;
+        }
+        q->next = node;
+        return true;
+    }
+
+    bool deleteValue(int value) {
+        Node* q = head;
+        while (q != nullptr && q->data != value) {
+            q = q->next;
+        }
+        if (q == nullptr) return false;
+
+        if (q->previous != nullptr) {
+            q->previous->next = q->next;
+        } else {
+            head = q->next;                   // deleting the first node
+        }
+        if (q->next != nullptr) {
+            q->next->previous = q->previous;
+        } else {
+            tail = q->previous;               // deleting the last node
+        }
+        delete q;
+        return true;
+    }
+
+    void printForward(const char* label) const {
+        std::cout << label << ": ";
+        for (Node* p = head; p != nullptr; p = p->next) {
+            std::cout << p->data;
+            if (p->next != nullptr) std::cout << " -> ";
+        }
+        std::cout << " -> NULL\n";
+    }
+
+    void printBackward(const char* label) const {
+        std::cout << label << ": ";
+        for (Node* p = tail; p != nullptr; p = p->previous) {
+            std::cout << p->data;
+            if (p->previous != nullptr) std::cout << " -> ";
+        }
+        std::cout << " -> NULL\n";
+    }
+
+private:
+    Node* head;
+    Node* tail;
+};
+
+int main() {
+    DoublyLinkedList list;
+
+    list.insertEnd(10);
+    list.insertEnd(30);
+    list.insertBeginning(5);
+    list.insertAfter(10, 20);
+
+    list.printForward("forward ");
+    list.printBackward("backward");
+
+    list.deleteValue(30);
+    list.printForward("after delete 30");
+}` },
+        { type: "code", title: "Actual output", language: "text", code: String.raw`forward : 5 -> 10 -> 20 -> 30 -> NULL
+backward: 30 -> 20 -> 10 -> 5 -> NULL
+after delete 30: 5 -> 10 -> 20 -> NULL` },
+        { type: "callout", tone: "warn", title: "More links, more bugs", text: "The deck lists a greater chance of bugs as a DLL disadvantage, and the reason is visible in `insertAfter`: two links must be updated in the correct order. A missed `previous` update breaks backward traversal even though forward traversal still looks correct." },
+        { type: "note", text: "The slide’s `del_at(int c)` deletes by position and assumes an interior node. It also contains a stray closing brace in the extracted text. The compiled version deletes by value and handles the head and tail cases explicitly." }
+      ]
+    },
+    {
+      id: "applications",
+      title: "Applications of linked lists",
+      pages: "Pages 55–56",
+      blocks: [
+        { type: "p", text: "The chapter closes with four applications where a linked list is a natural representation:" },
+        { type: "ol", items: [
+          "**MRU (Most Recently Used) lists** — a linked list of file names, where the most recently used item moves to the front.",
+          "**Browser cache for the BACK button** — a linked list of URLs, where moving back follows a previous link.",
+          "**Undo functionality** in Photoshop or Word — a linked list of states, where each state links to the one before it.",
+          "**Stacks, hash tables, and binary trees** — all can be implemented using a doubly linked list."
+        ] },
+        { type: "table", caption: "Why the representation fits", head: ["Application", "Operation pattern", "Why links help"], rows: [
+          ["MRU list", "Move an item to the front; remove the least recent", "Both are O(1) once the node is known; no shifting"],
+          ["Browser back cache", "Push a new URL; move backward", "A previous link or a stack of nodes models the history directly"],
+          ["Undo", "Push a state; pop the most recent", "LIFO order maps to insertion and removal at one end"],
+          ["Stack / hash table / binary tree", "Frequent insert and delete of nodes", "Dynamic nodes avoid fixed capacity and shifting"]
+        ] },
+        { type: "callout", tone: "source", title: "Reading pointer (p. 56)", text: "The deck ends with a reading assignment: **Circular Linked Lists**. The chapter itself does not define or implement circular lists, so this academy does not invent details beyond the pointer." },
+        { type: "p", text: "The next structures in the course build directly on this chapter. A **stack** restricts insertion and deletion to one end of a list. A **queue** inserts at one end and deletes at the other. A **tree** replaces the single `next` link with several child links. In every case, the question from Chapter 1 returns: which operations dominate, and what does each layout cost?" },
+        { type: "callout", tone: "tip", title: "A one-sentence summary", text: "An array buys O(1) indexing with O(n) shifting; a linked list buys O(1) insertion and deletion at a known position with O(n) search and no random access." }
+      ]
+    }
+  ],
+  checks: [
+    {
+      id: "ch3-check-1",
+      type: "mcq",
+      question: "A list is defined in the chapter as:",
+      options: [
+        "A finite, ordered sequence of data items called elements",
+        "A fixed-size block of integers stored contiguously",
+        "A collection in which values must be sorted",
+        "A pointer that always points at the last node"
+      ],
+      correct: 0,
+      explanation: "Page 3: a list is a finite, ordered sequence of data items called elements. “Ordered” refers to positions, not values, so an unsorted list is still a list."
+    },
+    {
+      id: "ch3-check-2",
+      type: "mcq",
+      question: "The list is (12, 32, 15) and the current element is 32. What does insert(99) produce?",
+      options: [
+        "(12, 32, 15, 99)",
+        "(12, 99, 32, 15)",
+        "(99, 12, 32, 15)",
+        "(12, 32, 99, 15)"
+      ],
+      correct: 1,
+      explanation: "Page 11: insert places the new item before the current element. With 32 current, the result is (12, 99, 32, 15)."
+    },
+    {
+      id: "ch3-check-3",
+      type: "mcq",
+      question: "What does declaring `virtual void pour() = 0;` do?",
+      options: [
+        "Provides a default body that derived classes inherit",
+        "Makes the function private to the base class",
+        "Makes the class abstract, so it cannot be instantiated, and requires derived classes to override the function",
+        "Makes every call to pour() a syntax error"
+      ],
+      correct: 2,
+      explanation: "Page 8: `= 0` makes the function pure virtual. A class with a pure virtual function is abstract; it cannot be instantiated, and a concrete derived class must provide the body."
+    },
+    {
+      id: "ch3-check-4",
+      type: "mcq",
+      question: "Why is inserting at the head of an array-based list Θ(n) in the worst case?",
+      options: [
+        "The array must be sorted first",
+        "Every existing element is shifted one position toward the tail",
+        "The new element must be compared with every other element",
+        "The array must be traversed to find its last node"
+      ],
+      correct: 1,
+      explanation: "Page 12: inserting at the head requires shifting all existing elements one position toward the tail, which is Θ(n). A linked list avoids the shift by changing links."
+    },
+    {
+      id: "ch3-check-5",
+      type: "mcq",
+      question: "Which is the correct order for inserting a new node at the beginning of a non-empty singly linked list?",
+      options: [
+        "Set head to the new node, then set the new node’s next to the old head",
+        "Set the new node’s next to the old head, then set head to the new node",
+        "Set the old head’s next to the new node, then set head to the new node",
+        "Traverse to the last node, then set its next to the new node"
+      ],
+      correct: 1,
+      explanation: "Pages 27–29: first make the new node point at the first node, then make start point at the new node. Reversing the order loses the old head."
+    },
+    {
+      id: "ch3-check-6",
+      type: "mcq",
+      question: "To delete the last node of a singly linked list, what must the code find first?",
+      options: [
+        "The first node",
+        "The second-last node",
+        "The node with the largest value",
+        "The middle node"
+      ],
+      correct: 1,
+      explanation: "Pages 37–38: the second-last node’s next pointer must be set to NULL before the last node is deleted. Finding it requires O(n) traversal."
+    },
+    {
+      id: "ch3-check-7",
+      type: "mcq",
+      question: "According to the chapter’s complexity table, which operation is O(1) for a singly linked list but O(n) for an array-based list?",
+      options: [
+        "Indexing the element at position k",
+        "Deleting the last element",
+        "Deleting the first element",
+        "Binary search on sorted data"
+      ],
+      correct: 2,
+      explanation: "Page 42: delete at beginning is O(n) for the array (shift) and O(1) for the SLL. Indexing is the reverse: O(1) for the array, O(n) for the SLL. Delete at end is O(1) for the array and O(n) for the SLL."
+    },
+    {
+      id: "ch3-check-8",
+      type: "true-false",
+      question: "A singly linked list supports O(1) random access to the element at position k.",
+      correct: false,
+      explanation: "False. A SLL has no random access; reaching position k requires following k links, which is O(n). The array-based list provides O(1) indexing. See page 42."
+    },
+    {
+      id: "ch3-check-9",
+      type: "mcq",
+      question: "Which three fields does a doubly linked list node contain?",
+      options: [
+        "Data, next, and previous",
+        "Data, index, and length",
+        "Next, previous, and capacity",
+        "Data, head, and tail"
+      ],
+      correct: 0,
+      explanation: "Pages 43–46: a DLL node stores data, a link to the next node, and a link to the previous node. The head and tail are list-level pointers, not fields of every node."
+    },
+    {
+      id: "ch3-check-10",
+      type: "true-false",
+      question: "Compared with a singly linked list, a doubly linked list uses more space and its manipulations are slower and more error-prone because more links must be changed.",
+      correct: true,
+      explanation: "True. Page 45 lists these as the DLL disadvantages: more space, slower manipulations, and a greater chance of bugs. Its advantages are bidirectional traversal and easier deletion or insertion before a node."
+    }
+  ],
+  exercises: [
+    {
+      id: "ch3-ex-1",
+      title: "Trace an array-based list",
+      prompt: "Start with an empty array-based list of capacity 8. Append 12, 32, and 15. Then set the current position to 1, insert 99, set the current position to 0, remove the current element, and insert 7 at the current position. Give the list after each step and count the total number of element shifts.",
+      hint: "Insert at position curr shifts elements from listSize down to curr + 1. Remove shifts from curr up to listSize − 2.",
+      solution: "Start:            ()\nappend 12:        (12)\nappend 32:        (12, 32)\nappend 15:        (12, 32, 15)\n\nsetPos(1): current element is 32.\ninsert(99):       (12, 99, 32, 15)   — 2 shifts (32 and 15 move right)\n\nsetPos(0): current element is 12.\nremove():         (99, 32, 15)       — 3 shifts (99, 32, 15 move left)\n\ninsert(7) at 0:   (7, 99, 32, 15)    — 3 shifts (99, 32, 15 move right)\n\nTotal shifts: 2 + 3 + 3 = 8. The logical insert is O(1), but the array implementation pays for the shifts."
+    },
+    {
+      id: "ch3-ex-2",
+      title: "Trace singly linked list insertions and deletions",
+      prompt: "Starting from an empty singly linked list, perform these operations in order: insertBeginning(5), insertEnd(9), insertAfter(5, 7), deleteFirst(), deleteLast(), insertEnd(4), insertAfter(7, 6). Draw the list after each operation, including the NULL terminator.",
+      hint: "insertAfter(value, newValue) inserts newValue immediately after the node holding value. deleteLast removes the only node when the list has length 1.",
+      solution: "insertBeginning(5):   5 -> NULL\ninsertEnd(9):         5 -> 9 -> NULL\ninsertAfter(5, 7):    5 -> 7 -> 9 -> NULL\ndeleteFirst():        7 -> 9 -> NULL\ndeleteLast():         7 -> NULL\ninsertEnd(4):         7 -> 4 -> NULL\ninsertAfter(7, 6):    7 -> 6 -> 4 -> NULL\n\nAfter the last operation, head points at the node holding 7; that node’s next points at 6; 6’s next points at 4; 4’s next is NULL. Deleting the last node when only 7 remained was the single-node special case: head became NULL before the next insertion."
+    },
+    {
+      id: "ch3-ex-3",
+      title: "Write the three SLL insertion functions",
+      prompt: "Using `struct Node { int data; Node* next; };` and a `Node* head` member, write `insertBeginning`, `insertEnd`, and `insertAfter` for a singly linked list. Handle the empty list and report failure when the “after” value is absent.",
+      hint: "For insertAfter, find the node q with q->data == after, then connect the new node to q->next before changing q->next.",
+      solution: "void insertBeginning(int value) {\n    Node* node = new Node{value, head};\n    head = node;\n}\n\nvoid insertEnd(int value) {\n    Node* node = new Node{value, nullptr};\n    if (head == nullptr) { head = node; return; }\n    Node* last = head;\n    while (last->next != nullptr) last = last->next;\n    last->next = node;\n}\n\nbool insertAfter(int after, int value) {\n    Node* q = head;\n    while (q != nullptr && q->data != after) q = q->next;\n    if (q == nullptr) return false;          // value not present\n    Node* node = new Node{value, q->next};\n    q->next = node;\n    return true;\n}\n\ninsertBeginning is O(1). insertEnd is O(n) without a tail pointer. insertAfter is O(n) to find the node, then O(1) to link. In insertAfter, initializing node with q->next before assigning q->next = node preserves the rest of the list."
+    },
+    {
+      id: "ch3-ex-4",
+      title: "Make deleteLast correct for every list length",
+      prompt: "The slide’s `del_last` advances while `q->next->next != NULL`, then deletes `q->next`. Explain what goes wrong for an empty list and for a one-node list, and write a correct `deleteLast` that returns false when the list is empty.",
+      hint: "Check head == nullptr first, then check head->next == nullptr. Only after those checks is it safe to look at q->next->next.",
+      solution: "Empty list: head is NULL, so any dereference of head or q is invalid. The function must return false immediately.\n\nOne-node list: head is not NULL, but head->next is NULL. The test q->next->next is therefore NULL->next, which dereferences a null pointer. The correct action is to delete head and set head = NULL.\n\nbool deleteLast() {\n    if (head == nullptr) return false;\n    if (head->next == nullptr) {      // exactly one node\n        delete head;\n        head = nullptr;\n        return true;\n    }\n    Node* q = head;\n    while (q->next->next != nullptr) {\n        q = q->next;\n    }\n    delete q->next;                   // the old last node\n    q->next = nullptr;                // q is now the last node\n    return true;\n}\n\nThe general case is O(n) because it walks to the second-last node. Testing the two boundary cases before the loop removes the null dereferences."
+    },
+    {
+      id: "ch3-ex-5",
+      title: "Choose a structure from the workload",
+      prompt: "For each workload, choose an array-based list or a singly linked list and justify the choice with the complexity table: (a) insert and delete at the front thousands of times, rare indexing; (b) read a[k] for random k constantly; (c) delete the last element repeatedly; (d) insert at the end repeatedly when a tail pointer is available; (e) search sorted data repeatedly.",
+      hint: "Compare the dominant operation, not every operation. Remember that a SLL has no random access and no binary search.",
+      solution: "(a) Singly linked list. Insert and delete at the beginning are O(1); the array pays O(n) to shift every element. Rare indexing means the SLL’s O(n) index cost rarely matters.\n\n(b) Array-based list. Indexing is O(1); a SLL must walk k links, which is O(n) per read.\n\n(c) Array-based list. Delete at end is O(1) after decrementing listSize; a SLL must find the second-last node in O(n). A doubly linked list with a tail pointer would also give O(1), but that is not the SLL in the table.\n\n(d) Either, if the array still has capacity. Insert at end is O(1) for both when a tail pointer exists. The array may need an expensive resize when full; the SLL allocates one node per insertion but pays a pointer per element.\n\n(e) Array-based list. Binary search is O(log n) on a sorted array; a SLL has no random access, so search is O(n). Sorting the SLL is also awkward for the same reason.\n\nThe general rule: choose for the dominant operation and accept the weaker costs elsewhere."
+    },
+    {
+      id: "ch3-ex-6",
+      title: "Track student records with linked-list operations",
+      prompt: "The teacher’s final exercise (source p. 64) asks for a C++ program that keeps track of student records with a single or double linked list. Each student record has a Name, an ID, an Age, and a Department. The program must support: (a) add a new student from the keyboard at the front, middle, or last position; (b) delete a node — first, last, or middle; (c) display the whole list of students; (d) search for a specific node.",
+      hint: "Use the three insertion cases (front / end / after a node) and the three deletion cases (first / last / interior) that were just taught. For deletion, unlink before delete to avoid leaks; for a DLL, update both the next and the previous links.",
+      solution: "Design: each node holds {name, id, age, department} plus links to next and (for the DLL) previous.\n\nAdd at front: create the node, node->next = head (or DLL: set head->previous = node), head = node.\nAdd at end: walk to the last node and link. Add in the middle: find the position, then insert after the predecessor.\n\nDelete first: move head to head->next (SLL) / fix head and second->previous (DLL), then delete the old head. Delete last: walk to the second-last node and set its next to NULL, then delete the old last node. Delete an interior node: unlink the predecessor’s next to point at the successor and delete the victim.\n\nDisplay: walk from the head with a temporary pointer and print each student’s name, ID, age, and department; stop at NULL (or the sentinel).\n\nSearch: walk the list comparing the ID, returning the node when found and an empty result otherwise.\n\nFor the DLL the same operations are available backward, which makes “search by predecessor” and “delete before a node” convenient; for the SLL the teacher’s insert/delete cases are the authoritative ones.\n\nThe exercise is intentionally open: the teacher does not prescribe the record fields beyond Name / ID / Age / Department, and the student is expected to choose positions and handling for missing values."
+    }
+  ],
+  summary: [
+    "A list is a finite, ordered sequence of elements; “ordered” refers to positions, not values.",
+    "The List ADT specifies values and operations — including a current position — without fixing an implementation.",
+    "Virtual functions dispatch on the object’s dynamic type; a pure virtual function makes the class abstract.",
+    "An array-based list stores elements contiguously and shifts them on insertion and deletion, costing O(n).",
+    "A singly linked list allocates nodes dynamically; each node holds data and one next pointer, and the last next is NULL.",
+    "SLL insertion has three cases: beginning (O(1)), end (O(n) without a tail pointer), and after a node (O(n) to find, O(1) to link).",
+    "SLL deletion has three cases: first (O(1)), last (O(n)), and interior (O(n) to find the predecessor, O(1) to unlink).",
+    "Arrays win on indexing, end deletion, and binary search; SLLs win on insertion and deletion at the front.",
+    "A doubly linked list adds a previous pointer, enabling backward traversal and easier deletion at the cost of space and more link updates.",
+    "Linked lists model MRU lists, browser history, undo stacks, and the nodes of stacks, hash tables, and trees."
+  ],
+  keyTerms: [
+    { term: "List", definition: "A finite, ordered sequence of data items called elements." },
+    { term: "Current position", definition: "The element that insert, remove, and getValue operate on." },
+    { term: "List ADT", definition: "The abstract contract of list values and operations, independent of implementation." },
+    { term: "Virtual function", definition: "A base-class function whose derived override is chosen from the object’s dynamic type." },
+    { term: "Pure virtual function", definition: "A virtual function declared `= 0`; it makes the class abstract." },
+    { term: "Node", definition: "A dynamically allocated object holding data and one or more links." },
+    { term: "Header pointer", definition: "The pointer (often called start or head) that points at the first node." },
+    { term: "Singly linked list", definition: "A linked list whose nodes have one next link, ending in NULL." },
+    { term: "Doubly linked list", definition: "A linked list whose nodes have next and previous links." },
+    { term: "Sentinel", definition: "A terminator node used instead of NULL at the ends of some linked lists." }
+  ],
+  next: null
+});

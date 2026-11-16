@@ -1,0 +1,552 @@
+/* Course Chapter 1 — Introduction to Data Structures & Algorithms.
+   Grounded in the canonical AASTU SWEG 3103 Chapter 1 deck
+   ("Chapter 1 - Introduction _Data Structure and Algorithm.pdf", slides 2–74).
+   Original C++ examples are authored for this academy and compiled locally. */
+
+(window.COURSE_CHAPTERS = window.COURSE_CHAPTERS || []).push({
+  id: "chapter-01",
+  number: 1,
+  title: "Introduction to Data Structures & Algorithms",
+  shortTitle: "Introduction",
+  subtitle: "Programs, abstract data types, algorithms, and how we measure the cost of a solution.",
+  source: {
+    document: "Chapter 1 - Introduction _Data Structure and Algorithm.pdf",
+    author: "Eleni T., AASTU",
+    pages: "2–74",
+    note: "Canonical Week 1–2 deck. The alternate-author “ch-1” decks cover the same outline and were used only to confirm emphasis."
+  },
+  minutes: 95,
+  objectives: [
+    "Explain why a program is described as data structure + algorithm.",
+    "Separate the logical form of a data type (ADT) from its physical implementation.",
+    "Classify data structures as primitive/non-primitive and linear/non-linear.",
+    "State the properties every algorithm must satisfy.",
+    "Count the basic operations in a short code fragment and derive T(n).",
+    "Read and write Big-Oh, Big-Omega, and Big-Theta bounds, including the constants c and n₀.",
+    "Distinguish best, worst, and average case from upper and lower bounds.",
+    "Reason about space requirements and the space/time trade-off."
+  ],
+  sections: [
+    {
+      id: "why-efficiency",
+      title: "Why efficiency still matters",
+      pages: "Slides 3–11",
+      blocks: [
+        { type: "p", text: "The deck opens with a compact definition that frames the whole course: a solution to a problem needs **a way to organize data in memory** — a data structure — and **a sequence of steps** that solves the problem — an algorithm." },
+        { type: "formula", text: "Program = Data Structure + Algorithm" },
+        { type: "p", text: "A primary concern of the course is **efficiency**: efficient data structures and efficient algorithms. It is tempting to assume that faster hardware removes the need to study efficiency. The slides reject that assumption: more powerful computers make more complex applications possible, and those applications demand more computation. Without efficient design, some problems remain computationally infeasible — taking years, or millions of years." },
+        { type: "callout", tone: "source", title: "From the slides (p. 9)", text: "Every data structure has costs in **space** per item stored (data plus overhead), **time** per basic operation, and **programming effort**. A more complicated structure is not automatically a better one." },
+        { type: "h3", text: "The bank-account example" },
+        { type: "p", text: "Different operations have different frequency and urgency. For a bank account, opening an account should take a few minutes, transactions a few seconds, and closing an account can be handled overnight. A structure should therefore be chosen from the **operation mix**, not from a vague sense that “faster is better”." },
+        { type: "table", caption: "Operation costs shape the choice (source p. 10)", head: ["Operation", "Expected cost", "Design implication"], rows: [
+          ["Open account", "A few minutes", "May afford extra setup work"],
+          ["Transaction", "A few seconds", "Search and update must be efficient"],
+          ["Close / delete", "Can run overnight", "Deletion may be comparatively expensive"]
+        ] },
+        { type: "callout", tone: "tip", title: "Rule of thumb", text: "Pick a data structure that is cheap for the operations you perform most often, and accept higher cost for rare operations." },
+        { type: "h3", text: "Questions to ask before choosing a data structure (p. 8)" },
+        { type: "p", text: "Before choosing between candidate structures, the slides suggest asking a few design questions about the problem itself." },
+        { type: "ul", items: [
+          "Are all the data inserted into the data structure at the beginning, or are insertions interspersed with other operations?",
+          "Can data be deleted? If so, a more complex representation is typically required.",
+          "Are all the data processed in some well-defined order, or is random access allowed?"
+        ] },
+        { type: "callout", tone: "source", title: "Data structure philosophy (p. 10)", text: "We should choose a data structure that has little concern for the cost of deletion, but is highly efficient for search and moderately efficient for insertion." },
+        { type: "h3", text: "The goals of the course (p. 11)" },
+        { type: "ol", items: [
+          "Learn the commonly used data structures — a programmer’s basic toolkit.",
+          "Reinforce that every data structure has both costs and benefits.",
+          "Learn commonly used algorithms.",
+          "Understand how to measure the cost of a data structure or algorithm."
+        ] }
+      ]
+    },
+    {
+      id: "adt",
+      title: "Data types, data items, and abstract data types",
+      pages: "Slides 12–15, 19–20",
+      blocks: [
+        { type: "p", text: "The slides build the vocabulary in layers, starting from a *type*: a collection of values such as `Boolean = {true, false}` or the integers. A **data item** is a piece of information whose value is drawn from a type. An item is a *member* of that type." },
+        { type: "ul", items: [
+          "**Simple data item** — contains no subparts, e.g. one integer.",
+          "**Aggregate data item** — contains several pieces of information, e.g. a bank account with name, address, account number, and balance."
+        ] },
+        { type: "p", text: "A **data type** is a type together with a collection of operations that manipulate values of that type (for example, addition on integers)." },
+        { type: "callout", tone: "source", title: "ADT definition (p. 13)", text: "An **Abstract Data Type (ADT)** is a definition of a data type solely in terms of a set of values and a set of operations on those values. An ADT specifies **what** can be stored (attributes) and **what operations** can be performed — not how the operations are implemented." },
+        { type: "p", text: "The employee example makes the split concrete. The ADT stores employees with their relevant attributes and supports hiring, firing, and retiring. **Encapsulation** hides the implementation details behind that contract." },
+        { type: "p", text: "A **data structure** is the physical implementation of an ADT. Each ADT operation is implemented by one or more subroutines (member functions or methods), and the variables that define the required space are the data members (attributes). A *file structure* is the corresponding organization of data on peripheral storage." },
+        { type: "table", caption: "ADT versus data structure (source p. 15)", head: ["", "ADT", "Data structure"], rows: [
+          ["Viewpoint", "User’s point of view", "Programmer’s point of view"],
+          ["Role", "Model of a data type: data + operations", "Concrete organization of the encapsulated data"],
+          ["Contents", "Definition only", "Data members + functions"],
+          ["Number of versions", "One definition", "Many possible implementations"],
+          ["Key property", "Separates definition from implementation; implementation-independent", "Concrete implementation"],
+          ["Analogy", "Like a Java interface", "A class that implements the interface"]
+        ] },
+        { type: "h3", text: "Logical and physical forms" },
+        { type: "p", text: "Every data type has both forms. The **logical form** is its definition as an ADT; the **physical form** is its implementation as a data structure. When you implement an ADT you work with the physical form. When you use an ADT elsewhere in a program, you should need to think only about the logical form." },
+        { type: "p", text: "This is abstraction in action. The slides compare it to hierarchies such as transistors → gates → CPU: each level hides the level below. In a program, implement the ADT once, then think only about the ADT, not its implementation." },
+        { type: "callout", tone: "info", title: "Why this matters for the rest of the course", text: "Chapters 2 and 3 implement the *same* List ADT in different ways — with arrays and with linked nodes. The interface stays stable; the cost profile changes." }
+      ]
+    },
+    {
+      id: "list-adt",
+      title: "The List ADT: one contract, several implementations",
+      pages: "Slides 16–18",
+      blocks: [
+        { type: "p", text: "A **list** is a finite, ordered sequence of data items called elements, each having a position. The notation is `<a₀, a₁, …, aₙ₋₁>`. “Ordered” refers to the **positions**, not to the values: an unsorted list is still an ordered sequence because element 0 comes before element 1." },
+        { type: "p", text: "The empty list contains no elements. The **length** is the number of elements currently stored. The beginning is the **head**; the end is the **tail**." },
+        { type: "p", text: "For a list of integers, the slides specify the following operations without committing to an implementation:" },
+        { type: "ul", items: [
+          "Insert a new integer at a particular position.",
+          "Return `true` if the list is empty.",
+          "Reinitialize the list.",
+          "Return the number of integers currently in the list.",
+          "Delete the integer at a particular position."
+        ] },
+        { type: "p", text: "There are two standard ways to implement this ADT: an **array-based list** using contiguous memory, or a **linked list** using dynamic allocation. The List is the ADT; a linked list is a pointer-based *representation* of a List." },
+        { type: "diagram", title: "One contract, two physical forms", text: String.raw`            List ADT
+   (values + operations, no layout)
+          /            \
+         /              \
+ Array-based list     Linked list
+ contiguous cells     nodes + links
+ index arithmetic     pointer chasing` },
+        { type: "callout", tone: "source", title: "Why more than one implementation? (p. 18)", text: "Different applications use the operations with different frequencies and running-time requirements. That is exactly why an ADT can have more than one implementation." },
+        { type: "p", text: "A first sketch of the contract in C++ makes the separation visible. The abstract class below is a *fragment*: it declares operations and stores no layout. Chapter 3 turns it into a full pure-virtual interface." },
+        { type: "code", title: "A minimal List contract (fragment — not a complete program)", language: "cpp", code: String.raw`// The ADT says WHAT is supported, not HOW it is stored.
+class List {
+public:
+    virtual ~List() = default;
+    virtual void clear() = 0;                 // remove all elements
+    virtual bool insert(int item) = 0;        // insert at current position
+    virtual bool append(int item) = 0;        // insert at the tail
+    virtual bool remove() = 0;                // remove current element
+    virtual int  length() const = 0;          // number of elements
+    virtual bool setPos(int pos) = 0;         // move current position
+    virtual bool getValue(int& out) const = 0; // read current element
+    virtual void print() const = 0;
+};` },
+        { type: "p", text: "Nothing in that declaration says “array” or “pointer”. That is the point of the ADT." }
+      ]
+    },
+    {
+      id: "classification",
+      title: "Classifying data structures",
+      pages: "Slides 22–26",
+      blocks: [
+        { type: "p", text: "A data structure is a way of storing data in a computer so that it can be used efficiently. It specifies the elements, the relationships between them, and the operations that may be performed on them. The study of data structures is the study of the **storage, retrieval, and manipulation** of information." },
+        { type: "p", text: "The library example shows why arrangement matters: books can be placed on a shelf arbitrarily or organized by title, author, and so on. The same collection supports different operations at different costs depending on the arrangement." },
+        { type: "h3", text: "Operations on data structures" },
+        { type: "p", text: "The deck groups the fundamental operations into four verbs: **create**, **destroy**, **access**, and **update**." },
+        { type: "h3", text: "Primitive versus non-primitive" },
+        { type: "table", caption: "Two broad classes (source pp. 24–25)", head: ["Class", "Definition", "Examples"], rows: [
+          ["Primitive", "Basic structures operated on directly by machine instructions", "Integers, floating-point numbers, characters, string constants, pointers"],
+          ["Non-primitive", "More sophisticated structures that group homogeneous or heterogeneous items and are built from primitives", "Arrays, lists, files, linked lists, trees, graphs"]
+        ] },
+        { type: "p", text: "Non-primitive structures are further divided by **memory layout**:" },
+        { type: "ul", items: [
+          "**Linear** — allocation is sequential/contiguous: arrays, stacks, queues, linked lists.",
+          "**Non-linear** — allocation is not sequential, but random or discontinuous: trees, graphs."
+        ] },
+        { type: "callout", tone: "warn", title: "A subtlety", text: "The slides classify linked lists as linear because the *logical* order is one-dimensional, even though the nodes are not contiguous in memory. Linearity is about the relationship between elements, not about addresses." },
+        { type: "diagram", title: "Classification used in the slides", text: String.raw`Data structures
+├── Primitive ........ int, float, char, pointer, string constant
+└── Non-primitive
+    ├── Linear ....... array, stack, queue, linked list
+    └── Non-linear ... tree, graph` }
+      ]
+    },
+    {
+      id: "algorithms",
+      title: "Algorithms and the properties they must satisfy",
+      pages: "Slides 27–29",
+      blocks: [
+        { type: "p", text: "An **algorithm** is a clearly specified set of simple instructions to be followed to solve a problem. It takes a set of values as input and produces a value, or set of values, as output. It may be written in English, as pseudo-code, or as a computer program." },
+        { type: "p", text: "A problem can have many algorithms. A **computer program** is one concrete representation of an algorithm in a particular programming language. One algorithm may be better than another for a specific variation of the problem or a specific class of inputs — one sort may win on small integer collections, another on large ones, a third on variable-length strings." },
+        { type: "p", text: "The slides list eight properties. They are useful as a checklist when you design or review an algorithm." },
+        { type: "table", caption: "Algorithm properties (source p. 29)", head: ["#", "Property", "What it means"], rows: [
+          ["1", "Correctness", "It computes the proper function."],
+          ["2", "Concrete steps", "Each step is completely understood and doable by the machine."],
+          ["3", "Determinism", "There is no ambiguity about which step is performed next."],
+          ["4", "Finiteness", "It is composed of a finite number of steps."],
+          ["5", "Termination", "It must not enter an infinite loop."],
+          ["6", "Efficiency", "It solves the problem with the least computational resources (time and space) reasonably available."],
+          ["7", "Generality", "It is valid on all possible inputs, not just one example."],
+          ["8", "Input/Output", "There is a specified number of input values and one or more result values."]
+        ] },
+        { type: "p", text: "A useful exercise is to write two correct algorithms for the same problem and compare them. The program below computes the sum 1 + 2 + … + n twice: once with a loop and once with the closed-form formula n(n+1)/2. Both are correct; the second does constant work." },
+        { type: "code", title: "Two algorithms, one problem", language: "cpp", verified: "MSVC 19.44 · /std:c++17 /EHsc", code: String.raw`#include <iostream>
+
+// Algorithm A: explicit accumulation, O(n) additions.
+long long sum_by_loop(int n) {
+    long long total = 0;
+    for (int i = 1; i <= n; ++i) {
+        total += i;
+    }
+    return total;
+}
+
+// Algorithm B: closed form, O(1) arithmetic operations.
+long long sum_by_formula(int n) {
+    return static_cast<long long>(n) * (n + 1) / 2;
+}
+
+int main() {
+    for (int n : {10, 100, 1000}) {
+        std::cout << "n=" << n
+                  << " loop=" << sum_by_loop(n)
+                  << " formula=" << sum_by_formula(n) << '\n';
+    }
+}` },
+        { type: "callout", tone: "info", title: "What the example shows", text: "Correctness and efficiency are separate questions. The loop is easy to verify by inspection; the formula is faster but needs an argument that it computes the same function. Asymptotic analysis is how we compare them without timing every machine." }
+      ]
+    },
+    {
+      id: "counting-operations",
+      title: "Measuring cost by counting operations",
+      pages: "Slides 30–47",
+      blocks: [
+        { type: "p", text: "**Algorithm analysis** is the process of determining how much computing time and storage an algorithm will require — predicting resource requirements in a given environment. Programmers have two goals that sometimes conflict: write code that is easy to understand, and make efficient use of the machine. The first belongs to software engineering; the second is the concern of data structures and algorithm analysis." },
+        { type: "h3", text: "Empirical versus asymptotic" },
+        { type: "table", caption: "Two ways to measure (source p. 31)", head: ["Approach", "How it works", "Weakness"], rows: [
+          ["Computational / empirical", "Run programs and compare timings", "Hard to do fairly; depends on programming effort, test-case choice, machine load, OS, and compiler"],
+          ["Asymptotic analysis", "Predict growth from the code’s structure", "Ignores constant factors and implementation detail by design"]
+        ] },
+        { type: "p", text: "**Time complexity** estimates the number of operations required to solve a problem of size n. **Space complexity** estimates the memory required. Running time is written `T(n)` for a function T on input size n." },
+        { type: "h3", text: "The counting rules" },
+        { type: "ol", items: [
+          "Assume an arbitrary time unit.",
+          "Count 1 unit for an assignment, a single input/output operation, a single Boolean operation, a single arithmetic operation, or a function return.",
+          "For a selection statement (`if`, `switch`), add the cost of evaluating the condition to the **maximum** of the costs of the individual clauses.",
+          "For a loop, multiply the cost of the body by the number of iterations. For nested loops, analyze inside-out and multiply the sizes of all loops. Assume the loop executes the maximum number of iterations possible.",
+          "For a function call, count 1 for setup, plus any parameter calculations, plus the cost of executing the body."
+        ] },
+        { type: "p", text: "These rules produce an **exact count** for a fixed convention. The slides emphasize that there is no universally accepted rule set; an exact count is simply a common, useful convention." },
+        { type: "h3", text: "Worked counts from the slides" },
+        { type: "table", caption: "Exact counts (source pp. 36–40)", head: ["Fragment", "Counting argument", "T(n)"], rows: [
+          ["`count()` — one loop with two operations in the body", "1 assignment + 1 output + 1 input + (1 + (n+1) tests + n increments) + 2n + 1 return", "**4n + 6**"],
+          ["`func()` — two while loops", "Five leading units + (n+1 tests + 2n) + (n tests + n−1 increments)", "**5n + 5**"],
+          ["Two nested n×n loops", "1 + 2(1 + (n+1) + n) + 2n²", "**2n² + 4n + 5**"],
+          ["`if/else` where the `then` branch loops n times", "1 + 1 + Max(4n + 2, 1)", "**4n + 4**"]
+        ] },
+        { type: "p", text: "The fourth row illustrates the selection rule: the `else` branch does constant work, so the maximum is the cost of the `then` branch." },
+        { type: "h3", text: "Formal approach" },
+        { type: "p", text: "For asymptotic work, we simplify by ignoring initializations, loop-control conditions, and counter increments. The primary consideration becomes the number of **basic operations** required to process an input of a certain size. A basic operation must take time independent of the particular operand values — adding or comparing two integers qualifies; summing an array of n integers does not, because its cost depends on n." },
+        { type: "ul", items: [
+          "**Size** is the number of inputs processed; for sorting, it is the number of records.",
+          "A `for` loop translates to a summation whose index and bounds match the loop.",
+          "Consecutive statements add their running times.",
+          "A conditional statement takes the maximum of its branches."
+        ] },
+        { type: "code", title: "Instrumenting a loop (compile-and-run check)", language: "cpp", verified: "MSVC 19.44 · /std:c++17 /EHsc", code: String.raw`#include <iostream>
+
+// Count how many times the body of this specific loop runs.
+// This is instrumentation, not a general timing tool.
+long long count_body_executions(int n) {
+    long long executions = 0;
+    for (int i = 0; i < n; ++i) {
+        ++executions;
+    }
+    return executions;
+}
+
+int main() {
+    for (int n : {0, 1, 5, 42}) {
+        std::cout << "n=" << n
+                  << " body executions=" << count_body_executions(n) << '\n';
+    }
+}` },
+        { type: "callout", tone: "warn", title: "Do not confuse a count with a time", text: "A count of operations is a model. Two machines can execute the same count at different speeds, and a compiler can change the constants. Asymptotic analysis deliberately keeps only the growth." }
+      ]
+    },
+    {
+      id: "growth-rates",
+      title: "Growth rates and asymptotic intuition",
+      pages: "Slides 48–52",
+      blocks: [
+        { type: "p", text: "Asymptotic analysis estimates the time or space required as a function of input size. It analyzes the time required for an algorithm and the space required for a data structure. The **growth rate** is the rate at which cost grows as input size grows." },
+        { type: "table", caption: "Growth-rate families named in the slides (p. 51)", head: ["T(n)", "Name"], rows: [
+          ["`c`", "constant"],
+          ["`log n`", "logarithmic"],
+          ["`n`", "linear"],
+          ["`n log n`", "“n log n”"],
+          ["`n²`", "quadratic"],
+          ["`n³`", "cubic"],
+          ["`2ⁿ`", "exponential"]
+        ] },
+        { type: "p", text: "The ordering matters more than the exact values. The table below uses computed values to make the separation visible; it is an illustration, not a claim from the slides." },
+        { type: "table", caption: "Computed comparison (base-2 logarithm; powers shown approximately)", head: ["n", "log₂ n", "n log₂ n", "n²", "n³", "2ⁿ"], rows: [
+          ["10", "≈ 3.3", "≈ 33", "100", "1,000", "1,024"],
+          ["100", "≈ 6.6", "≈ 664", "10,000", "1,000,000", "≈ 1.27 × 10³⁰"],
+          ["1,000", "≈ 10", "≈ 9,966", "1,000,000", "10⁹", "≈ 1.07 × 10³⁰¹"]
+        ] },
+        { type: "p", text: "For small n, a quadratic algorithm can beat a logarithmic one because the constants are smaller. As n grows, the higher-order term dominates and the gap becomes decisive. This is why the course studies the shape of T(n), not just one measurement." },
+        { type: "callout", tone: "tip", title: "Reading the table", text: "Doubling n doubles a linear cost, roughly doubles-plus a little for n log n, quadruples a quadratic cost, and *squares* an exponential cost. Exponential growth is the reason some problems are called computationally infeasible." }
+      ]
+    },
+    {
+      id: "cases",
+      title: "Best, worst, and average case",
+      pages: "Slides 53, 59, 64",
+      blocks: [
+        { type: "p", text: "Some algorithms take different amounts of time on different inputs of the same size. The canonical example is **sequential search** for a key K in an array of n integers: start at the first element and inspect each element in turn until K is found." },
+        { type: "table", caption: "Sequential search on n elements (source p. 53)", head: ["Case", "Input that produces it", "Comparisons", "Bound"], rows: [
+          ["Best", "K is in the first position", "1", "O(1)"],
+          ["Worst", "K is in the last position, or absent", "n", "O(n)"],
+          ["Average", "K is equally likely to be in any position", "(n + 1) / 2", "O(n)"]
+        ] },
+        { type: "p", text: "The average comes from summing the positions 1 + 2 + … + n = n(n+1)/2 and dividing by n. Some presentations include the absent case; the slides use the equally-likely-among-the-n-positions assumption and state `(n+1)/2` explicitly." },
+        { type: "callout", tone: "warn", title: "Common misunderstanding (p. 59)", text: "“The best case is n = 1 because that is the fastest” is **wrong**. Big-Oh describes growth as n grows. The best case is the *cheapest input of size n among all inputs of size n*, not the smallest n." },
+        { type: "p", text: "A related misunderstanding is to confuse **worst case** with **upper bound**. An upper bound is a statement about a growth rate. The worst case is a particular input class: the most expensive input among all inputs of a given size. The two ideas meet when we say “the algorithm is in O(f(n)) in the worst case”." },
+        { type: "callout", tone: "source", title: "A contrasting example (p. 53)", text: "A “largest-value sequential search” that must examine every array value always does n comparisons, so its best, average, and worst cases are all Θ(n). Having three case names does not guarantee three different costs." }
+      ]
+    },
+    {
+      id: "notation",
+      title: "Big-Oh, Big-Omega, Big-Theta, and the simplification rules",
+      pages: "Slides 54–70",
+      blocks: [
+        { type: "h3", text: "Upper bounds: Big-Oh" },
+        { type: "p", text: "An **upper bound** indicates the highest growth rate an algorithm can have. Big-Oh notation formalizes it for a chosen class of inputs (best, average, or worst)." },
+        { type: "callout", tone: "source", title: "Definition (p. 55)", text: "For T(n) a non-negatively valued function, T(n) is in the set **O(f(n))** if there exist two positive constants **c** and **n₀** such that **T(n) ≤ c·f(n)** for all **n > n₀**." },
+        { type: "p", text: "`n₀` is the smallest value of n for which the claim of an upper bound holds. Meaning: for all data sets big enough, the algorithm always executes in fewer than `c·f(n)` steps in the specified case. Big-Oh says “grows no faster than”; it is a set membership claim, not a strict equality." },
+        { type: "ul", items: [
+          "If `T(n) = 3n²`, then T(n) is in O(n²). It is also in O(n³), but we want the **tightest** upper bound, so we prefer O(n²).",
+          "Average sequential search: `T(n) = c_s·n/2`. For n > 1, `c_s·n/2 ≤ c_s·n`, so T(n) is in O(n) with `n₀ = 1` and `c = c_s` (p. 57).",
+          "If `T(n) = c₁n² + c₂n` in the average case, then for n > 1, `c₁n² + c₂n ≤ c₁n² + c₂n² = (c₁ + c₂)n²`, so T(n) is in O(n²) with `c = c₁ + c₂` and `n₀ = 1` (p. 58).",
+          "If `T(n) = c`, we say it is in O(1) (p. 58)."
+        ] },
+        { type: "h3", text: "Lower bounds: Big-Omega" },
+        { type: "callout", tone: "source", title: "Definition (p. 61)", text: "T(n) is in the set **Ω(g(n))** if there exist two positive constants c and n₀ such that **T(n) ≥ c·g(n)** for all **n > n₀**." },
+        { type: "p", text: "Big-Omega describes the least amount of a resource the algorithm needs for a class of inputs. We want the **greatest** (tightest) lower bound possible. Example: for `T(n) = c₁n² + c₂n`, we have `T(n) ≥ c₁n²` for all n > 1, so T(n) is in Ω(n²) with `c = c₁` and `n₀ = 1`." },
+        { type: "h3", text: "When both bounds meet: Big-Theta" },
+        { type: "callout", tone: "source", title: "Definition (p. 63)", text: "An algorithm is **Θ(h(n))** if it is in O(h(n)) **and** it is in Ω(h(n))." },
+        { type: "p", text: "For polynomial equations on T(n), we always have Θ: once the equation is known, the analysis is “complete” in the sense that the growth rate is pinned down. For example, `3n² + 5n + 2` is Θ(n²)." },
+        { type: "table", caption: "Notation summary", head: ["Notation", "Inequality", "Mental model"], rows: [
+          ["O(f(n))", "T(n) ≤ c·f(n) for n > n₀", "Grows no faster than f"],
+          ["Ω(g(n))", "T(n) ≥ c·g(n) for n > n₀", "Grows at least as fast as g"],
+          ["Θ(h(n))", "Both of the above", "Grows like h, up to constants"]
+        ] },
+        { type: "h3", text: "Four simplification rules (p. 65)" },
+        { type: "ol", items: [
+          "If f(n) ∈ O(g(n)) and g(n) ∈ O(h(n)), then f(n) ∈ O(h(n)). (Transitivity.)",
+          "If f(n) ∈ O(k·g(n)) for any constant k > 0, then f(n) ∈ O(g(n)). (Ignore constants.)",
+          "If f₁(n) ∈ O(g₁(n)) and f₂(n) ∈ O(g₂(n)), then (f₁ + f₂)(n) ∈ O(max(g₁(n), g₂(n))). (Keep the more expensive part; drop lower-order terms.)",
+          "If f₁(n) ∈ O(g₁(n)) and f₂(n) ∈ O(g₂(n)), then f₁(n)·f₂(n) ∈ O(g₁(n)·g₂(n)). (Repeated actions multiply.)"
+        ] },
+        { type: "p", text: "Applying the first three rules means ignoring constants and lower-order terms. Example: if `T(n) = 3n⁴ + 5n²`, then T(n) is in O(n⁴); the n² term contributes relatively little as n becomes large." },
+        { type: "h3", text: "Running-time examples" },
+        { type: "table", caption: "Source pp. 67–70", head: ["Code shape", "Reasoning", "Result"], rows: [
+          ["`a = b;`", "Constant-time assignment", "Θ(1)"],
+          ["`sum = 0;` then a loop of n iterations doing `sum += n;`", "1 + n constant-time iterations; keep the larger", "Θ(n)"],
+          ["Double loop `for i=1..n` / `for j=1..i` plus a separate O(n) loop", "Triangular inner work is Θ(n²); adding a linear loop does not change the maximum", "Θ(n²)"],
+          ["Double loop n×n versus triangular loop", "n² versus (n+1)n/2 — both quadratic", "Both Θ(n²)"]
+        ] },
+        { type: "callout", tone: "info", title: "Other control statements (p. 70)", text: "A `while` loop is analyzed like a `for` loop. An `if` takes the greater complexity of the two clauses (assuming the branch probabilities do not depend on n). A `switch` takes the most expensive case. A function call adds the cost of the subroutine." },
+        { type: "p", text: "One caution from the slides: the running-time examples contain typographical errors in the loop headers (for example, incrementing the wrong variable). The *analysis* is the intended lesson; the code in this academy has been cleaned up to valid C++." }
+      ]
+    },
+    {
+      id: "space",
+      title: "Space bounds and the space/time trade-off",
+      pages: "Slides 71–74",
+      blocks: [
+        { type: "p", text: "Space bounds can be analyzed with the same asymptotic tools. Time requirements are normally measured for an algorithm that manipulates a data structure; space requirements are normally determined for the data structure itself." },
+        { type: "p", text: "A data structure’s primary purpose is to store data in a way that allows efficient access. To provide that access it stores additional information where the data are — **overhead** (links, metadata, unused capacity, alignment)." },
+        { type: "table", caption: "Space examples (source pp. 72–73)", head: ["Structure", "Reasoning", "Space"], rows: [
+          ["Array of n integers", "Each integer takes c bytes, so the array takes cn bytes", "Θ(n)"],
+          ["Friendship matrix for n people", "An n×n array; row i marks person i’s friends, and the relation is symmetric", "Θ(n²)"]
+        ] },
+        { type: "p", text: "The friendship example is worth reading carefully: for n people, a full n×n table stores n² entries even though only the pairs matter. A different representation (for example, adjacency lists) can reduce space at the cost of different access times. That is a trade-off, not a free win." },
+        { type: "h3", text: "The space/time trade-off principle" },
+        { type: "p", text: "One can often reduce time by sacrificing space, or reduce space by sacrificing time. The slides give three illustrations:" },
+        { type: "ul", items: [
+          "**Encoding or packing** information reduces storage, but unpacking or decoding requires additional time.",
+          "A **lookup table** for factorials can replace repeated computation. For a program that often computes factorials, pre-computing the storable values (up to 12! for a 32-bit int) is likely much more time-efficient.",
+          "**Disk-based trade-off:** the smaller you make the disk storage requirements, the faster the program can run, because the time to read information from disk is enormous compared with computation time."
+        ] },
+        { type: "callout", tone: "warn", title: "Read the disk claim as an I/O argument", text: "The slide’s wording is deliberately strong. The underlying point is that fewer bytes and fewer reads mean less I/O latency; it is not a claim that compression is always free. Decoding still costs CPU time." },
+        { type: "p", text: "The practical lesson: state which resource you are optimizing. A structure that is excellent for time may be unacceptable for memory, and vice versa." }
+      ]
+    }
+  ],
+  checks: [
+    {
+      id: "ch1-check-1",
+      type: "mcq",
+      question: "According to the chapter, a program is best described as:",
+      options: [
+        "Data structure + algorithm",
+        "Compiler + operating system",
+        "Input + output",
+        "Syntax + semantics"
+      ],
+      correct: 0,
+      explanation: "Slide 3 states: Program = Data structure + Algorithm. The data structure organizes data in memory; the algorithm is the sequence of steps."
+    },
+    {
+      id: "ch1-check-2",
+      type: "mcq",
+      question: "Which statement captures the difference between an ADT and a data structure?",
+      options: [
+        "An ADT is a concrete memory layout; a data structure is its interface.",
+        "An ADT specifies values and operations; a data structure is a physical implementation of that specification.",
+        "An ADT can only be implemented with arrays.",
+        "They are two names for exactly the same thing."
+      ],
+      correct: 1,
+      explanation: "Slides 13–15: the ADT is the logical definition (values + operations, user view); the data structure is the concrete implementation (data members + functions, programmer view). One ADT may have many implementations."
+    },
+    {
+      id: "ch1-check-3",
+      type: "mcq",
+      question: "Which group contains only non-linear data structures?",
+      options: [
+        "Array, stack, queue",
+        "Linked list, array, stack",
+        "Tree, graph",
+        "Integer, character, pointer"
+      ],
+      correct: 2,
+      explanation: "Slide 25 classifies trees and graphs as non-linear because their memory allocation is not sequential. Arrays, stacks, queues, and linked lists are treated as linear."
+    },
+    {
+      id: "ch1-check-4",
+      type: "mcq",
+      question: "Which algorithm property directly rules out an infinite loop?",
+      options: [
+        "Generality",
+        "Termination",
+        "Encapsulation",
+        "Input/Output"
+      ],
+      correct: 1,
+      explanation: "Property 5 on slide 29 is termination: the algorithm must not go into an infinite loop. Finiteness (property 4) requires a finite number of steps."
+    },
+    {
+      id: "ch1-check-5",
+      type: "mcq",
+      question: "Using the chapter’s counting rules, a loop with a two-operation body executed n times contributes approximately:",
+      options: [
+        "1 operation",
+        "n operations",
+        "2n operations",
+        "n² operations"
+      ],
+      correct: 2,
+      explanation: "Rule 4 multiplies the cost of the body by the number of iterations: 2 × n = 2n. Initialization, tests, and increments are additional if an exact count is required."
+    },
+    {
+      id: "ch1-check-6",
+      type: "mcq",
+      question: "For sequential search in an array of n integers, with the key equally likely to be in any position, the average number of comparisons is:",
+      options: [
+        "1",
+        "n / 2",
+        "(n + 1) / 2",
+        "log₂ n"
+      ],
+      correct: 2,
+      explanation: "Slide 53 gives (n + 1)/2. The sum 1 + 2 + … + n equals n(n+1)/2; dividing by n gives (n+1)/2."
+    },
+    {
+      id: "ch1-check-7",
+      type: "mcq",
+      question: "T(n) is in O(f(n)) when:",
+      options: [
+        "T(n) = f(n) for every n",
+        "There exist positive constants c and n₀ such that T(n) ≤ c·f(n) for all n > n₀",
+        "There exist positive constants c and n₀ such that T(n) ≥ c·f(n) for all n > n₀",
+        "T(n) is always smaller than f(n) for n = 1"
+      ],
+      correct: 1,
+      explanation: "That is the definition on slide 55. The lower-bound version with ≥ is Big-Omega."
+    },
+    {
+      id: "ch1-check-8",
+      type: "true-false",
+      question: "If an algorithm is in O(h(n)) and also in Ω(h(n)), then it is in Θ(h(n)).",
+      correct: true,
+      explanation: "Slide 63 defines Θ(h(n)) as the intersection: the algorithm must be in both O(h(n)) and Ω(h(n))."
+    },
+    {
+      id: "ch1-check-9",
+      type: "mcq",
+      question: "A friendship table for n people uses an n×n array. Its space requirement is:",
+      options: [
+        "Θ(1)",
+        "Θ(log n)",
+        "Θ(n)",
+        "Θ(n²)"
+      ],
+      correct: 3,
+      explanation: "Slide 73: an n×n array has n² entries, so the space is Θ(n²). This is the space example that contrasts with an array of n integers, which is Θ(n)."
+    },
+    {
+      id: "ch1-check-10",
+      type: "true-false",
+      question: "The best case for an algorithm is defined as n = 1 because that is the fastest possible input.",
+      correct: false,
+      explanation: "Slide 59 calls this a common misunderstanding. The best case is the cheapest input of size n among all inputs of that size; Big-Oh describes growth as n grows, not the smallest n."
+    }
+  ],
+  exercises: [
+    {
+      id: "ch1-ex-1",
+      title: "Count a rectangular double loop",
+      prompt: "Using the chapter’s exact-count convention, derive T(n, m) for:\n\n```cpp\nint sum = 0;\nfor (int i = 1; i <= n; ++i)\n    for (int j = 1; j <= m; ++j)\n        sum++;\n```\nCount the initialization, each loop’s assignment/test/increment, and 2 units per execution of `sum++`. Then give the asymptotic growth in terms of n and m.",
+      hint: "The inner loop runs n times. Each execution of the inner loop costs (2m + 2) for its own control, and the body costs 2 per (i, j) pair.",
+      solution: "Initialization: 1.\nOuter loop control: 1 assignment + (n+1) tests + n increments = 2n + 2.\nInner loop control: executed n times; each execution costs 1 assignment + (m+1) tests + m increments = 2m + 2, so n(2m + 2).\nBody: 2 units for each of the nm pairs = 2nm.\n\nT(n, m) = 1 + (2n + 2) + n(2m + 2) + 2nm = 4nm + 4n + 3.\n\nIgnoring constants and lower-order terms gives Θ(nm). If n = m, this is Θ(n²)."
+    },
+    {
+      id: "ch1-ex-2",
+      title: "Count a triangular double loop",
+      prompt: "Derive T(n) for:\n\n```cpp\nint sum = 0;\nfor (int i = 1; i <= n; ++i)\n    for (int j = 1; j <= i; ++j)\n        sum++;\n```\nUse the same convention as the slides and state the asymptotic result.",
+      hint: "Sum the inner-loop control cost 2i + 2 for i = 1..n, and remember that the body runs n(n+1)/2 times.",
+      solution: "Initialization: 1.\nOuter loop control: 2n + 2.\nInner loop control for a fixed i: 1 + (i+1) + i = 2i + 2.\nSum over i = 1..n: 2·n(n+1)/2 + 2n = n² + 3n.\nBody: 2 units per execution, and the body runs n(n+1)/2 times: n² + n.\n\nT(n) = 1 + (2n + 2) + (n² + 3n) + (n² + n) = 2n² + 6n + 3.\n\nSo T(n) is Θ(n²). The triangular loop does about half as many body executions as the n×n loop, but the growth rate is the same."
+    },
+    {
+      id: "ch1-ex-3",
+      title: "Prove a quadratic bound",
+      prompt: "Show that T(n) = 3n² + 5n + 2 is in O(n²) by giving explicit constants c and n₀. Then argue that it is also in Ω(n²) and therefore in Θ(n²).",
+      hint: "For n ≥ 1, replace 5n and 2 with multiples of n². For the lower bound, drop the positive lower-order terms.",
+      solution: "Upper bound: for n ≥ 1, 5n ≤ 5n² and 2 ≤ 2n², so\n3n² + 5n + 2 ≤ 3n² + 5n² + 2n² = 10n².\nTake c = 10 and n₀ = 1. Therefore T(n) ∈ O(n²).\n\nLower bound: for n ≥ 1, 3n² + 5n + 2 ≥ 3n². Take c = 3 and n₀ = 1, so T(n) ∈ Ω(n²).\n\nSince T(n) is in both O(n²) and Ω(n²), it is in Θ(n²)."
+    },
+    {
+      id: "ch1-ex-4",
+      title: "Sequential search on 1,000 items",
+      prompt: "An array stores 1,000 integers and a sequential search looks for a key that is present exactly once, with each position equally likely. State the best, worst, and average number of comparisons. What changes if the key is absent?",
+      hint: "Apply the formulas from slide 53. An absent key forces a full scan.",
+      solution: "Best case: 1 comparison (the first position).\nWorst case: 1,000 comparisons (the last position).\nAverage case: (n + 1)/2 = 1,001/2 = 500.5 comparisons.\n\nIf the key is absent, the search must inspect all n elements, so the cost is the worst case: 1,000 comparisons. The average formula above assumes the key is present and equally likely to occupy any position."
+    },
+    {
+      id: "ch1-ex-5",
+      title: "Space/time trade-off: factorial lookup",
+      prompt: "A program repeatedly evaluates n! for 0 ≤ n ≤ 12. Compare recomputing each factorial with pre-computing a lookup table. What resource is saved, what resource is spent, and why does the slide stop at 12! for a 32-bit int?",
+      hint: "12! = 479,001,600. Check the largest 32-bit signed integer, 2,147,483,647.",
+      solution: "Recomputation uses O(n) multiplications per query and O(1) extra space. A lookup table stores 13 values (0! through 12!) and answers each query in O(1) time; the table costs Θ(1) space here because the bound is fixed, or Θ(k) if generalized to k pre-computed values.\n\nThe table saves time and spends space. It stops at 12! because 12! = 479,001,600 fits in a signed 32-bit int (maximum 2,147,483,647), while 13! = 6,227,020,800 does not. Storing 13! in a 32-bit int would overflow."
+    }
+  ],
+  summary: [
+    "A program combines a data structure (how data is organized) with an algorithm (the steps that use it).",
+    "An ADT is a logical contract of values and operations; a data structure is a physical implementation. One ADT can have many implementations.",
+    "Data structures are primitive or non-primitive, and non-primitive structures are linear or non-linear.",
+    "A valid algorithm is correct, concrete, deterministic, finite, terminating, efficient, general, and has specified inputs and outputs.",
+    "Exact operation counts follow fixed conventions; asymptotic analysis then keeps only the growth rate.",
+    "Big-Oh is an upper bound, Big-Omega a lower bound, and Big-Theta means both bounds meet.",
+    "Best, worst, and average case describe input classes, not bounds; do not confuse “worst case” with “upper bound”.",
+    "Space is analyzed with the same tools; the space/time trade-off asks which resource you are willing to spend."
+  ],
+  keyTerms: [
+    { term: "ADT", definition: "A data type defined by its values and operations, independent of implementation." },
+    { term: "Data structure", definition: "A concrete organization of data in memory, including the operations that manipulate it." },
+    { term: "T(n)", definition: "The running time (or operation count) as a function of input size n." },
+    { term: "O(f(n))", definition: "Upper bound: T(n) ≤ c·f(n) beyond some n₀." },
+    { term: "Ω(g(n))", definition: "Lower bound: T(n) ≥ c·g(n) beyond some n₀." },
+    { term: "Θ(h(n))", definition: "Tight bound: both O(h(n)) and Ω(h(n))." },
+    { term: "Basic operation", definition: "An operation whose cost does not depend on the particular operand values." },
+    { term: "Overhead", definition: "Extra space a structure stores to support efficient access (links, metadata, capacity)." }
+  ],
+  next: "chapter-02"
+});
