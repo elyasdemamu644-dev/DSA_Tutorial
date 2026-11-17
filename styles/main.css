@@ -120,19 +120,28 @@
     /* Semantic color aliases (for backward compatibility) */
     --primary-color: var(--color-primary-700);
     --primary-dark: var(--color-primary-900);
-    --secondary-color: var(--color-secondary-600);
+    --secondary-color: var(--color-secondary-700);
     --secondary-light: var(--color-secondary-400);
     --accent-color: var(--color-accent-600);
     --accent-light: var(--color-accent-400);
     --success-color: var(--color-success-600);
     --warning-color: var(--color-warning-600);
+
+    /* Solid fills for components carrying white text — chosen to keep
+       WCAG AA contrast (>= 4.5:1) in both themes */
+    --secondary-solid: var(--color-secondary-700);
+    --secondary-solid-hover: var(--color-secondary-800);
+    --accent-solid: var(--color-accent-700);
+    --accent-solid-hover: var(--color-accent-800);
+    --success-solid: var(--color-success-700);
+    --success-solid-hover: var(--color-success-800);
     
     --background-color: var(--color-neutral-50);
     --surface-color: #ffffff;
     --surface-hover: var(--color-neutral-100);
     --surface-active: var(--color-neutral-200);
     --text-color: var(--color-neutral-900);
-    --text-muted: var(--color-neutral-600);
+    --text-muted: #6b727a; /* WCAG AA 4.6:1 on light surfaces */
     --text-subtle: var(--color-neutral-500);
     --border-color: var(--color-neutral-200);
     --border-focus: var(--color-secondary-500);
@@ -159,11 +168,15 @@
     --transition-base: 0.2s ease;
     --transition-slow: 0.3s ease;
 
+    /* Light scheme for native widgets (scrollbars, form controls) */
+    color-scheme: light;
+
     /* ============================================================
        DESIGN SYSTEM - Z-INDEX SCALE
        ============================================================ */
     --z-dropdown: 100;
     --z-sticky: 200;
+    --z-sidebar-toggle: 250;
     --z-modal-backdrop: 300;
     --z-modal: 400;
     --z-popover: 500;
@@ -214,31 +227,31 @@
     --color-success-400: #52d27e;
     --color-success-500: #7cdc9e;
     --color-success-600: #a5e5bd;
-    --color-success-700: #ceefde.
-    --color-success-800: #e7f7ef.
-    --color-success-900: #f3fbf7.
+    --color-success-700: #ceefde;
+    --color-success-800: #e7f7ef;
+    --color-success-900: #f3fbf7;
 
     --color-warning-50: #3d2f00;
-    --color-warning-100: #7a5e00.
-    --color-warning-200: #b78d00.
-    --color-warning-300: #f4bc00.
-    --color-warning-400: #f7cc33.
-    --color-warning-500: #fadc5c.
-    --color-warning-600: #fceb85.
-    --color-warning-700: #fef5ae.
-    --color-warning-800: #fefad7.
-    --color-warning-900: #fffef3.
+    --color-warning-100: #7a5e00;
+    --color-warning-200: #b78d00;
+    --color-warning-300: #f4bc00;
+    --color-warning-400: #f7cc33;
+    --color-warning-500: #fadc5c;
+    --color-warning-600: #fceb85;
+    --color-warning-700: #fef5ae;
+    --color-warning-800: #fefad7;
+    --color-warning-900: #fffef3;
 
-    --color-neutral-50: #1a1a2e.
-    --color-neutral-100: #232342.
-    --color-neutral-200: #2d2d56.
-    --color-neutral-300: #3a3a6a.
-    --color-neutral-400: #4f4f87.
-    --color-neutral-500: #6b6b9e.
-    --color-neutral-600: #8c8cb5.
-    --color-neutral-700: #b0b0cc.
-    --color-neutral-800: #d4d4e3.
-    --color-neutral-900: #eaeaf1.
+    --color-neutral-50: #1a1a2e;
+    --color-neutral-100: #232342;
+    --color-neutral-200: #2d2d56;
+    --color-neutral-300: #3a3a6a;
+    --color-neutral-400: #4f4f87;
+    --color-neutral-500: #6b6b9e;
+    --color-neutral-600: #8c8cb5;
+    --color-neutral-700: #b0b0cc;
+    --color-neutral-800: #d4d4e3;
+    --color-neutral-900: #eaeaf1;
 
     /* Semantic color aliases */
     --primary-color: var(--color-primary-700);
@@ -249,6 +262,14 @@
     --accent-light: var(--color-accent-500);
     --success-color: var(--color-success-400);
     --warning-color: var(--color-warning-400);
+
+    /* Solid fills — deep enough for white text to stay AA-readable; hover = deeper on dark */
+    --secondary-solid: var(--color-secondary-200);
+    --secondary-solid-hover: var(--color-secondary-100);
+    --accent-solid: var(--color-accent-200);
+    --accent-solid-hover: var(--color-accent-100);
+    --success-solid: var(--color-success-200);
+    --success-solid-hover: var(--color-success-100);
     
     --background-color: var(--color-neutral-50);
     --surface-color: var(--color-neutral-100);
@@ -256,7 +277,7 @@
     --surface-active: var(--color-neutral-300);
     --text-color: var(--color-neutral-900);
     --text-muted: var(--color-neutral-600);
-    --text-subtle: var(--color-neutral-500);
+    --text-subtle: #8282b3; /* lifted for WCAG AA 4.5:1 on dark surfaces */
     --border-color: var(--color-neutral-300);
     --border-focus: var(--color-secondary-500);
     
@@ -269,6 +290,9 @@
     
     --code-bg: #1e1e1e;
     --code-text: #d4d4d4;
+
+    /* Dark scheme for native widgets */
+    color-scheme: dark;
 }
 
 /* Reset */
@@ -281,6 +305,8 @@
 html {
     font-size: 16px;
     scroll-behavior: smooth;
+    background: var(--background-color);
+    transition: background-color var(--transition-base);
 }
 
 body {
@@ -355,8 +381,9 @@ pre .number { color: #bd93f9; }
     padding: 0 var(--space-6);
 }
 
-/* Header */
-header {
+/* Header — scoped to the top-level page header so inner <header class="...">
+   page sections don't inherit sticky positioning / z-index / fixed height */
+body > header {
     background: var(--surface-color);
     border-bottom: 1px solid var(--border-color);
     padding: var(--space-4) 0;
@@ -468,7 +495,86 @@ header {
     height: calc(100vh - var(--header-height));
     overflow-y: auto;
     flex-shrink: 0;
+    transition: transform var(--transition-base), margin-left var(--transition-base);
+}
+
+/* Always-visible sidebar toggle tab — rides the sidebar's right edge and
+   stays on screen when the navigation bar is collapsed or off-canvas */
+.sidebar-toggle {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: var(--z-sidebar-toggle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 64px;
+    padding: 0;
+    border: 1px solid var(--border-color);
+    border-left: none;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    background: var(--surface-color);
+    color: var(--text-muted);
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: left var(--transition-base), background var(--transition-fast),
+                color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.sidebar-toggle:hover {
+    background: var(--surface-hover);
+    color: var(--text-color);
+    border-color: var(--secondary-color);
+}
+
+.sidebar-toggle:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
+}
+
+.sidebar-toggle svg {
     transition: transform var(--transition-base);
+}
+
+/* Clicking now expands the navigation — point right */
+.sidebar-toggle.toggle-expand svg {
+    transform: rotate(180deg);
+}
+
+/* Desktop: tab rides the sidebar edge; collapsing reclaims the flex width */
+@media (min-width: 1025px) {
+    .sidebar-toggle {
+        left: var(--sidebar-width);
+    }
+
+    body.sidebar-collapsed .sidebar {
+        margin-left: calc(-1 * var(--sidebar-width));
+    }
+
+    body.sidebar-collapsed .sidebar-toggle {
+        left: 0;
+    }
+}
+
+/* Mobile: sidebar is off-canvas by default; tab pinned to the left edge */
+@media (max-width: 1024px) {
+    body.sidebar-open .sidebar {
+        transform: translateX(0);
+    }
+
+    body.sidebar-open .sidebar-toggle {
+        left: var(--sidebar-width);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sidebar-toggle,
+    .sidebar-toggle svg,
+    .sidebar {
+        transition: none;
+    }
 }
 
 .navigation ul {
@@ -661,12 +767,12 @@ header {
 }
 
 .btn.primary {
-    background: var(--secondary-color);
+    background: var(--secondary-solid);
     color: white;
 }
 
 .btn.primary:hover:not(:disabled) {
-    background: var(--secondary-light);
+    background: var(--secondary-solid-hover);
     color: white;
     transform: translateY(-1px);
     box-shadow: var(--shadow-md);
@@ -684,12 +790,12 @@ header {
 }
 
 .btn.danger {
-    background: var(--accent-color);
+    background: var(--accent-solid);
     color: white;
 }
 
 .btn.danger:hover:not(:disabled) {
-    background: var(--accent-light);
+    background: var(--accent-solid-hover);
 }
 
 .btn:disabled {
@@ -823,8 +929,8 @@ header {
 }
 
 .lesson-item.completed .lesson-status {
-    background: var(--success-color);
-    border-color: var(--success-color);
+    background: var(--success-solid);
+    border-color: var(--success-solid);
     color: white;
 }
 
@@ -975,8 +1081,8 @@ header {
 }
 
 .copy-btn:hover {
-    background: var(--secondary-color);
-    border-color: var(--secondary-color);
+    background: var(--secondary-solid);
+    border-color: var(--secondary-solid);
     color: white;
 }
 
@@ -1054,12 +1160,12 @@ header {
 }
 
 .check-btn.correct {
-    background: var(--success-color);
+    background: var(--success-solid);
     color: white;
 }
 
 .check-btn.incorrect {
-    background: var(--accent-color);
+    background: var(--accent-solid);
     color: white;
 }
 
@@ -1518,7 +1624,7 @@ header {
 }
 
 .delete-file:hover {
-    background: var(--accent-color);
+    background: var(--accent-solid);
     color: white;
 }
 
@@ -1885,7 +1991,7 @@ header {
 /* Error tooltip */
 .editor-error-tooltip {
     position: fixed;
-    background: var(--accent-color);
+    background: var(--accent-solid);
     color: white;
     padding: 0.5rem 0.75rem;
     border-radius: var(--radius-sm);
@@ -2058,14 +2164,14 @@ header {
 
 /* Danger button */
 .btn.danger {
-    background: var(--accent-color);
+    background: var(--accent-solid);
     color: white;
-    border-color: var(--accent-color);
+    border-color: var(--accent-solid);
 }
 
 .btn.danger:hover {
-    background: var(--accent-light);
-    border-color: var(--accent-light);
+    background: var(--accent-solid-hover);
+    border-color: var(--accent-solid-hover);
 }
 
 /* Notes & Bookmarks */
@@ -2331,6 +2437,76 @@ footer {
     margin-top: auto;
 }
 
+/* Settings — theme segmented control (Light / Dark / System) */
+.setting-item-label {
+    display: block;
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--space-2);
+    color: var(--text-color);
+}
+
+.theme-segmented {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+}
+
+.theme-option {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--surface-color);
+    color: var(--text-muted);
+    font: inherit;
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: background var(--transition-fast), color var(--transition-fast),
+                border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.theme-option:hover {
+    background: var(--surface-hover);
+    color: var(--text-color);
+    border-color: var(--secondary-color);
+}
+
+.theme-option:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
+}
+
+.theme-option.is-selected {
+    background: var(--surface-hover);
+    color: var(--text-color);
+    border-color: var(--secondary-color);
+    box-shadow: inset 0 0 0 1px var(--secondary-color);
+    padding-inline-end: var(--space-2);
+}
+
+/* Selected state is not color alone — a checkmark badge is shown as well */
+.theme-option.is-selected::after {
+    content: "✓";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.15rem;
+    height: 1.15rem;
+    border-radius: var(--radius-full);
+    background: var(--secondary-solid);
+    color: #fff;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+}
+
+.theme-option-icon {
+    font-size: 1.1em;
+    line-height: 1;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
     .sidebar {
@@ -2341,10 +2517,6 @@ footer {
         transform: translateX(-100%);
         z-index: var(--z-sticky);
         box-shadow: var(--shadow-xl);
-    }
-    
-    .sidebar.open {
-        transform: translateX(0);
     }
     
     .main-content {
@@ -3599,14 +3771,14 @@ footer {
 }
 
 .control-btn.primary {
-    background: var(--secondary-color);
+    background: var(--secondary-solid);
     color: white;
-    border-color: var(--secondary-color);
+    border-color: var(--secondary-solid);
 }
 
 .control-btn.primary:hover {
-    background: var(--secondary-light);
-    border-color: var(--secondary-light);
+    background: var(--secondary-solid-hover);
+    border-color: var(--secondary-solid-hover);
 }
 
 .step-indicator {
@@ -4001,14 +4173,14 @@ footer {
 }
 
 .control-btn.primary {
-    background: var(--secondary-color);
+    background: var(--secondary-solid);
     color: white;
-    border-color: var(--secondary-color);
+    border-color: var(--secondary-solid);
 }
 
 .control-btn.primary:hover {
-    background: var(--secondary-light);
-    border-color: var(--secondary-light);
+    background: var(--secondary-solid-hover);
+    border-color: var(--secondary-solid-hover);
 }
 
 .step-indicator {

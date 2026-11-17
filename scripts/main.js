@@ -1628,7 +1628,6 @@ const AssessmentsRenderer = {
 // ============================================================
 const SettingsRenderer = {
     render() {
-        const theme = localStorage.getItem('dsa_theme') || 'system';
         const compilerBackend = localStorage.getItem('dsa_compiler_backend') || 'wasm';
         
         return `
@@ -1640,12 +1639,22 @@ const SettingsRenderer = {
             <section class="settings-section">
                 <h3>Appearance</h3>
                 <div class="setting-item">
-                    <label>Theme</label>
-                    <select id="theme-select">
-                        <option value="light" ${theme === 'light' ? 'selected' : ''}>Light</option>
-                        <option value="dark" ${theme === 'dark' ? 'selected' : ''}>Dark</option>
-                        <option value="system" ${theme === 'system' ? 'selected' : ''}>System</option>
-                    </select>
+                    <span class="setting-item-label" id="theme-setting-label">Theme</span>
+                    <div class="theme-segmented" id="theme-segmented" role="radiogroup" aria-labelledby="theme-setting-label">
+                        <button type="button" class="theme-option" data-theme-option="light" role="radio" aria-checked="false">
+                            <span class="theme-option-icon" aria-hidden="true">☀️</span>
+                            <span class="theme-option-label">Light</span>
+                        </button>
+                        <button type="button" class="theme-option" data-theme-option="dark" role="radio" aria-checked="false">
+                            <span class="theme-option-icon" aria-hidden="true">🌙</span>
+                            <span class="theme-option-label">Dark</span>
+                        </button>
+                        <button type="button" class="theme-option" data-theme-option="system" role="radio" aria-checked="false">
+                            <span class="theme-option-icon" aria-hidden="true">🖥️</span>
+                            <span class="theme-option-label">System</span>
+                        </button>
+                    </div>
+                    <p class="setting-help" id="theme-setting-help">System follows your device's appearance — currently <strong data-effective-theme>light</strong> — and updates automatically.</p>
                 </div>
             </section>
             
@@ -1713,10 +1722,31 @@ const SettingsRenderer = {
     },
     
     init() {
-        // Theme select handler
-        document.getElementById('theme-select')?.addEventListener('change', (e) => {
-            applyTheme(e.target.value);
-        });
+        // Theme segmented control (Light / Dark / System)
+        const segmented = document.getElementById('theme-segmented');
+        if (segmented && window.ThemeManager) {
+            const options = Array.from(segmented.querySelectorAll('[data-theme-option]'));
+            const applyOption = (value, { refocus = false } = {}) => {
+                window.ThemeManager.apply(value, { announce: true });
+                if (refocus) {
+                    segmented.querySelector(`[data-theme-option="${value}"]`)?.focus();
+                }
+            };
+            options.forEach(btn => {
+                btn.addEventListener('click', () => applyOption(btn.getAttribute('data-theme-option')));
+            });
+            segmented.addEventListener('keydown', (e) => {
+                const deltas = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
+                if (!(e.key in deltas)) return;
+                e.preventDefault();
+                const checked = options.findIndex(b => b.getAttribute('aria-checked') === 'true');
+                const base = checked === -1 ? 0 : checked;
+                const next = options[(base + deltas[e.key] + options.length) % options.length];
+                applyOption(next.getAttribute('data-theme-option'), { refocus: true });
+            });
+            // Reflect current preference/effective theme in the control
+            window.ThemeManager.syncControls(window.ThemeManager.getPreference(), window.ThemeManager.getEffective());
+        }
         
         // Compiler backend select handler
         document.getElementById('compiler-backend')?.addEventListener('change', (e) => {
@@ -2311,8 +2341,10 @@ const KeyboardNavigation = {
         document.querySelectorAll('.search-results').forEach(s => s.remove());
         
         // Close sidebar on mobile
-        const sidebar = document.querySelector('.sidebar.open');
-        if (sidebar) sidebar.classList.remove('open');
+        if (document.body.classList.contains('sidebar-open')) {
+            document.body.classList.remove('sidebar-open');
+            syncSidebarToggle();
+        }
     },
     
     handleArrowKeys(e) {
@@ -2469,6 +2501,25 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ============================================================
+// SIDEBAR TOGGLE (always-visible edge tab)
+// ============================================================
+// Single source of truth for the tab's ARIA state, icon, and body classes.
+// Desktop: body.sidebar-collapsed (persisted in localStorage) hides the nav.
+// Mobile (<= 1024px): body.sidebar-open shows the off-canvas nav.
+function syncSidebarToggle() {
+    const toggle = document.getElementById('sidebar-toggle');
+    if (!toggle) return true;
+    const mobile = window.matchMedia('(max-width: 1024px)').matches;
+    const visible = mobile
+        ? document.body.classList.contains('sidebar-open')
+        : !document.body.classList.contains('sidebar-collapsed');
+    toggle.setAttribute('aria-expanded', String(visible));
+    toggle.setAttribute('aria-label', visible ? 'Close navigation' : 'Open navigation');
+    toggle.classList.toggle('toggle-expand', !visible);
+    return visible;
+}
+
+// ============================================================
 // INITIALIZATION
 // ============================================================
 document.addEventListener('DOMContentLoaded', function() {
@@ -2506,6 +2557,48 @@ document.addEventListener('DOMContentLoaded', function() {
             link.setAttribute('role', 'menuitem');
         });
     }
+
+    // Always-visible sidebar toggle tab (edge tab)
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    if (sidebarToggle) {
+        const mobileQuery = window.matchMedia('(max-width: 1024px)');
+
+        sidebarToggle.addEventListener('click', () => {
+            if (mobileQuery.matches) {
+                document.body.classList.toggle('sidebar-open');
+            } else {
+                const collapsed = document.body.classList.toggle('sidebar-collapsed');
+                try { localStorage.setItem('dsa_nav_collapsed', collapsed ? '1' : '0'); } catch (e) { /* storage unavailable */ }
+            }
+            const visible = syncSidebarToggle();
+            AriaHelpers.announce(visible ? 'Navigation opened' : 'Navigation closed');
+        });
+
+        // Reset the mobile-only state when crossing the breakpoint
+        const onBreakpointChange = () => {
+            document.body.classList.remove('sidebar-open');
+            syncSidebarToggle();
+        };
+        if (mobileQuery.addEventListener) mobileQuery.addEventListener('change', onBreakpointChange);
+        else if (mobileQuery.addListener) mobileQuery.addListener(onBreakpointChange);
+
+        // Restore persisted desktop state (the inline script sets the class before first paint)
+        try {
+            if (!mobileQuery.matches && localStorage.getItem('dsa_nav_collapsed') === '1') {
+                document.body.classList.add('sidebar-collapsed');
+            }
+        } catch (e) { /* storage unavailable */ }
+
+        syncSidebarToggle();
+    }
+
+    // Close the mobile navigation when navigating
+    window.addEventListener('hashchange', () => {
+        if (document.body.classList.contains('sidebar-open')) {
+            document.body.classList.remove('sidebar-open');
+            syncSidebarToggle();
+        }
+    });
     
     // Search input
     const searchInput = document.getElementById('global-search');
@@ -2547,25 +2640,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Theme handling
-    const theme = localStorage.getItem('dsa_theme') || 'system';
-    applyTheme(theme);
-    
-    // Theme toggle button
-    const themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = localStorage.getItem('dsa_theme') || 'system';
-            const isDark = currentTheme === 'dark' || (currentTheme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-            const newTheme = isDark ? 'light' : 'dark';
-            applyTheme(newTheme);
-            themeToggle.setAttribute('aria-pressed', newTheme === 'dark');
-            AriaHelpers.announce(`Theme changed to ${newTheme} mode`);
-        });
-        
-        // Set initial aria-pressed state
-        const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-        themeToggle.setAttribute('aria-pressed', isDark);
+    // Centralized theme initialization (Light / Dark / System)
+    if (window.ThemeManager) {
+        ThemeManager.init();
+
+        // Header quick-toggle: explicit Light ⇄ Dark (leaves System mode)
+        const themeToggle = document.getElementById('theme-toggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const next = ThemeManager.getEffective() === 'dark' ? 'light' : 'dark';
+                ThemeManager.apply(next, { announce: true });
+            });
+        }
     }
     
     // Handle hash changes
@@ -2600,22 +2686,7 @@ function debounce(fn, delay) {
     };
 }
 
-function applyTheme(theme) {
-    const root = document.documentElement;
-    if (theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        root.setAttribute('data-theme', 'dark');
-    } else {
-        root.removeAttribute('data-theme');
-    }
-    localStorage.setItem('dsa_theme', theme);
-}
-
-// Handle theme select changes
-document.addEventListener('change', (e) => {
-    if (e.target.id === 'theme-select') {
-        applyTheme(e.target.value);
-    }
-});
+// Theme application is centralized in scripts/theme-manager.js (window.ThemeManager).
 
 // Export for modules
 if (typeof module !== 'undefined' && module.exports) {

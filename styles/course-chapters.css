@@ -460,7 +460,7 @@
     width: 1.75rem;
     height: 1.75rem;
     border-radius: var(--radius-full);
-    background: var(--success-color);
+    background: var(--success-solid);
     color: #fff;
     font-weight: var(--font-weight-bold);
     font-size: var(--font-size-sm);
@@ -554,8 +554,8 @@
 }
 
 .cc-toc-list a.is-read .cc-toc-mark {
-    background: var(--success-color);
-    border-color: var(--success-color);
+    background: var(--success-solid);
+    border-color: var(--success-solid);
     color: #fff;
 }
 
@@ -663,8 +663,8 @@
 }
 
 .cc-read-btn.is-read {
-    background: var(--success-color);
-    border-color: var(--success-color);
+    background: var(--success-solid);
+    border-color: var(--success-solid);
     color: #fff;
 }
 
@@ -715,7 +715,7 @@
     height: 1.1rem;
     margin-left: var(--space-2);
     border-radius: var(--radius-full);
-    background: var(--success-color);
+    background: var(--success-solid);
     color: #fff;
     font-size: var(--font-size-xs);
     vertical-align: middle;
@@ -801,8 +801,8 @@
 }
 
 .cc-copy-btn.is-copied {
-    background: var(--success-color);
-    border-color: var(--success-color);
+    background: var(--success-solid);
+    border-color: var(--success-solid);
     color: #fff;
 }
 

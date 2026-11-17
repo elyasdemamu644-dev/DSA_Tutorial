@@ -3,7 +3,7 @@
    http(s) or localhost. On file:// this SW cannot register; the app still
    works but Google Fonts (if used) need the network. */
 
-const CACHE = 'dsa-academy-shell-v3';
+const CACHE = 'dsa-academy-shell-v6';
 const SHELL = [
     './',
     './index.html',
@@ -16,6 +16,7 @@ const SHELL = [
     './content/course-chapters/chapter-03.js',
     './scripts/course-chapters.js',
     './scripts/code-editor.js',
+    './scripts/theme-manager.js',
     './scripts/main.js',
     './scripts/compiler-service.js',
     './scripts/sorting-visualizer.js',
@@ -49,18 +50,20 @@ self.addEventListener('fetch', (event) => {
 
     const url = new URL(req.url);
 
-    // Same-origin: cache-first for app-shell assets, network fallback.
+    // Same-origin: network-first so updated builds reach users immediately,
+    // cache fallback keeps the app fully usable offline.
     if (url.origin === self.location.origin) {
         event.respondWith(
-            caches.match(req, { ignoreSearch: true })
-                .then(cached => cached || fetch(req).then(resp => {
-                    if (resp.ok) {
-                        const clone = resp.clone();
-                        caches.open(CACHE).then(cache => cache.put(req, clone));
-                    }
-                    return resp;
-                }))
-                .catch(() => caches.match('./index.html'))
+            fetch(req).then(resp => {
+                if (resp.ok) {
+                    const clone = resp.clone();
+                    caches.open(CACHE).then(cache => cache.put(req, clone));
+                }
+                return resp;
+            }).catch(() =>
+                caches.match(req, { ignoreSearch: true })
+                    .then(cached => cached || caches.match('./index.html'))
+            )
         );
         return;
     }

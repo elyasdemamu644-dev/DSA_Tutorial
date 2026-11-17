@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        /* Pre-paint theme bootstrap — runs before CSS so the correct appearance
+           is present on first paint (prevents flash). Mirrors ThemeManager in
+           scripts/theme-manager.js; keep resolution logic in sync. */
+        (function () {
+            try {
+                var p = localStorage.getItem('academy.theme');
+                if (p === null) p = localStorage.getItem('dsa_theme');
+                p = String(p || 'system').trim().toLowerCase();
+                if (['light', 'dark', 'system'].indexOf(p) === -1) p = 'system';
+                var effective = p;
+                if (p === 'system') {
+                    effective = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                }
+                document.documentElement.setAttribute('data-theme', effective);
+                document.documentElement.style.colorScheme = effective;
+            } catch (e) { /* storage or matchMedia unavailable — CSS default (light) applies */ }
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C++ DSA Academy - Learn Data Structures & Algorithms</title>
@@ -11,13 +30,14 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="manifest" href="manifest.webmanifest">
     <link rel="icon" type="image/svg+xml" href="icon.svg">
-    <meta name="theme-color" content="#0b1020">
+    <meta name="theme-color" content="#f8f9fa">
     <script defer src="scripts/curriculum.js"></script>
     <script defer src="content/course-chapters/chapter-01.js"></script>
     <script defer src="content/course-chapters/chapter-02.js"></script>
     <script defer src="content/course-chapters/chapter-03.js"></script>
     <script defer src="scripts/course-chapters.js"></script>
     <script defer src="scripts/code-editor.js"></script>
+    <script defer src="scripts/theme-manager.js"></script>
     <script defer src="scripts/main.js"></script>
     <script defer src="scripts/compiler-service.js"></script>
     <script defer src="scripts/sorting-visualizer.js"></script>
@@ -27,6 +47,7 @@
     <script defer src="scripts/tree-graph-renderer.js"></script>
 </head>
 <body>
+    <script>try{if(localStorage.getItem('dsa_nav_collapsed')==='1'){document.body.classList.add('sidebar-collapsed');}}catch(e){/* storage unavailable */}</script>
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <header>
         <div class="container header-content">
@@ -38,10 +59,30 @@
                 <input type="search" id="global-search" placeholder="Search topics, lessons, concepts..." aria-label="Global search" role="searchbox" aria-autocomplete="list" aria-controls="search-results">
             </div>
             <div class="header-right">
-                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" aria-pressed="false">🌙</button>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Switch to dark theme" aria-pressed="false" title="Toggle theme">🌙</button>
+                <script>
+                    /* Sync the toggle with the pre-resolved theme before first paint */
+                    (function () {
+                        try {
+                            var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+                            var t = document.getElementById('theme-toggle');
+                            if (t) {
+                                t.textContent = dark ? '☀️' : '🌙';
+                                t.setAttribute('aria-pressed', String(dark));
+                                t.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+                            }
+                        } catch (e) { /* sync handled at DOMContentLoaded */ }
+                    })();
+                </script>
             </div>
         </div>
     </header>
+
+    <button class="sidebar-toggle" id="sidebar-toggle" type="button" aria-controls="sidebar" aria-expanded="true" aria-label="Close navigation">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
+            <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
 
     <div class="app-layout">
         <aside class="sidebar" id="sidebar">
